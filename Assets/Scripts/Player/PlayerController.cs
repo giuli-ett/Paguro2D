@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
-using NUnit.Framework;
 using UnityEngine;
-
 
 public class Player : MonoBehaviour
 {
@@ -22,9 +18,8 @@ public class Player : MonoBehaviour
     private float currentMovementSpeed;
     private float boundingBoxWidth = 1.0f;
 
-
     [Header("SALTO")]
-    [SerializeField] private bool isGrounded; 
+    [SerializeField] private bool isGrounded = true; 
     [SerializeField] private float groundDistance = 1.0f;
     [SerializeField] private float ceilingDistance = 1.0f;
     [SerializeField] private float gravity = 50f; 
@@ -32,42 +27,47 @@ public class Player : MonoBehaviour
     [SerializeField] private float terminalSpeed = -100f;
 
     [Header("POTERI")]
-    // DOPPIO SALTO
     private int jumpCount = 0;
     private int maxJump = 1;
-    // SCATTO
     [SerializeField] private bool canDash = false;
     [SerializeField] private float dashSpeed = 30f;
     [SerializeField] private float dashDuration = 0.2f;
     private bool isDashing = false;
     private float dashTimeLeft = 1.0f;
-    private int dashDirection = 0;
- 
 
     public static Player Instance
     {
-        get
-        {
-            return instance;
-        }
+        get { return instance; }
     }
 
     private void Awake()
     {
-        NUnit.Framework.Assert.IsNull(instance);
+        if (instance != null)
+        {
+            Debug.LogError("Esiste già un'istanza di Player!");
+            Destroy(gameObject);
+            return;
+        }
         instance = this;
 
         input = GetComponent<PlayerInput>();
         shellManager = GetComponent<ShellManager>();
+    }
 
+    private void Update()
+    {
+        CheckGrounded();
+        Jump();
+        CheckCeiling();
+        Fall();
+        Move();
+        CheckWalls();
     }
 
     private void Move()
     {
         if (!canMove)
-        {
             return;
-        }
 
         if (input.Horizontal > 0)
         {
@@ -87,9 +87,8 @@ public class Player : MonoBehaviour
             dashTimeLeft -= Time.deltaTime;
 
             if (dashTimeLeft <= 0)
-            {
                 isDashing = false;
-            }
+
             return;
         }
 
@@ -102,19 +101,13 @@ public class Player : MonoBehaviour
         if (input.Run)
         {
             currentMovementSpeed = runSpeed * input.Horizontal;
-            transform.position += new Vector3(currentMovementSpeed * Time.deltaTime, 0.0f, 0.0f);
         }
         else
         {
             currentMovementSpeed = moveSpeed * input.Horizontal;
-            transform.position += new Vector3(currentMovementSpeed * Time.deltaTime, 0.0f, 0.0f);
         }
-    }
 
-    public void StartDash()
-    {
-        isDashing = true;
-        dashTimeLeft = dashDuration;
+        transform.position += new Vector3(currentMovementSpeed * Time.deltaTime, 0f, 0f);
     }
 
     private void Jump()
@@ -123,7 +116,7 @@ public class Player : MonoBehaviour
         {
             verticalSpeed = jumpPower;
             isGrounded = false;
-            jumpCount ++;
+            jumpCount++;
         }
     }
 
@@ -134,15 +127,13 @@ public class Player : MonoBehaviour
 
         if (verticalSpeed > terminalSpeed)
         {
-            verticalSpeed = verticalSpeed - (gravity * Time.deltaTime);
+            verticalSpeed -= gravity * Time.deltaTime;
 
             if (verticalSpeed <= terminalSpeed)
-            {
                 verticalSpeed = terminalSpeed;
-            }
         }
 
-        transform.position += new Vector3(0.0f, verticalSpeed * Time.deltaTime, 0.0f);
+        transform.position += new Vector3(0f, verticalSpeed * Time.deltaTime, 0f);
     }
 
     private void CheckGrounded()
@@ -150,24 +141,20 @@ public class Player : MonoBehaviour
         if (verticalSpeed > 0)
             return;
 
-        RaycastHit hitInfoLeft;
-        RaycastHit hitInfoRight;
+        Vector2 positionLeft = (Vector2)transform.position - new Vector2(boundingBoxWidth / 2f, 0f);
+        Vector2 positionRight = (Vector2)transform.position + new Vector2(boundingBoxWidth / 2f, 0f);
 
-        bool isGroundedLeft = Physics.Raycast(transform.position - new Vector3(boundingBoxWidth / 2f, 0f, 0f), Vector3.down, out hitInfoLeft, groundDistance);
-        bool isGroundeRight = Physics.Raycast(transform.position + new Vector3(boundingBoxWidth / 2f, 0f, 0f), Vector3.down, out hitInfoRight, groundDistance);
+        RaycastHit2D hitLeft = Physics2D.Raycast(positionLeft, Vector2.down, groundDistance);
+        RaycastHit2D hitRight = Physics2D.Raycast(positionRight, Vector2.down, groundDistance);
 
-        isGrounded = isGroundedLeft || isGroundeRight;
+        isGrounded = hitLeft.collider != null || hitRight.collider != null;
 
         if (isGrounded)
         {
             verticalSpeed = 0f;
             jumpCount = 0;
-            float yPoint = hitInfoLeft.point.y + groundDistance;
 
-            if (!isGroundedLeft)
-            {
-                yPoint = hitInfoRight.point.y + groundDistance;
-            }
+            float yPoint = (hitLeft.collider != null ? hitLeft.point.y : hitRight.point.y) + groundDistance;
             transform.position = new Vector3(transform.position.x, yPoint, transform.position.z);
         }
     }
@@ -177,14 +164,13 @@ public class Player : MonoBehaviour
         if (isGrounded || verticalSpeed < 0)
             return;
 
-        RaycastHit hitInfo;
-        bool ceilingCollision = Physics.Raycast(transform.position, Vector3.up, out hitInfo, ceilingDistance);
+        Vector2 position = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.up, ceilingDistance);
 
-        if (ceilingCollision)
+        if (hit.collider != null)
         {
             verticalSpeed /= 2f;
-            float yPoint = hitInfo.point.y - ceilingDistance;
-
+            float yPoint = hit.point.y - ceilingDistance;
             transform.position = new Vector3(transform.position.x, yPoint, transform.position.z);
         }
     }
@@ -195,58 +181,45 @@ public class Player : MonoBehaviour
             return;
 
         float movementDirection = Mathf.Sign(currentMovementSpeed);
+        Vector2 position = transform.position;
+        Vector2 direction = movementDirection > 0 ? Vector2.right : Vector2.left;
 
-        RaycastHit hitInfo;
-        bool wallCollision = Physics.Raycast(transform.position, Vector3.right * movementDirection, out hitInfo, boundingBoxWidth / 2f);
+        RaycastHit2D hit = Physics2D.Raycast(position, direction, boundingBoxWidth / 2f);
 
-        if (wallCollision)
+        if (hit.collider != null)
         {
             currentMovementSpeed = 0f;
-            float xPoint = hitInfo.point.x - (movementDirection * (boundingBoxWidth / 2f));
+            float xPoint = hit.point.x - (movementDirection * (boundingBoxWidth / 2f));
             transform.position = new Vector3(xPoint, transform.position.y, transform.position.z);
         }
     }
 
-    
-    private void Update()
+    public void StartDash()
     {
-        CheckGrounded();
-        
-        Jump();
-
-        CheckCeiling();
-
-        Fall();
-
-        Move();
-        CheckWalls();
+        isDashing = true;
+        dashTimeLeft = dashDuration;
     }
 
     // POTERI GUSCI
 
-    // GUSCIO DOPPIO SALTO ATTIVATO
     public void EnableDoubleJump()
     {
         maxJump = 2;
     }
 
-    // GUSCIO DOPPIO SALTO DISATTIVATO
     public void DisableDoubleJump()
     {
         maxJump = 1;
     }
 
-    // GUSCIO SCATTO ATTIVATO
     public void EnableDash()
     {
         canDash = true;
     }
 
-    // GUSCIO SCATTO DISATTIVATO
     public void DisableDush()
     {
         canDash = false;
         isDashing = false;
     }
-
 }
