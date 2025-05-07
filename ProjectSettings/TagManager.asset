@@ -39,14 +39,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Player
-    uniqueID: 2719607069
+  - name: Background
+    uniqueID: 673587149
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 673587149
+  - name: Player
+    uniqueID: 2719607069
+    locked: 0
+  - name: Guscio
+    uniqueID: 961248539
     locked: 0
   m_RenderingLayers:
   - Default
