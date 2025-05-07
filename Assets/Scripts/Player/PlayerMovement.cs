@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     private static Player instance;
+    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRendererShell;
     public Rigidbody2D rb;
     public ShellManager shellManager;
     public InventarioUI inventarioUI;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
     {
         instance = this;
         shellManager = GetComponent<ShellManager>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -55,6 +58,23 @@ public class Player : MonoBehaviour
         if (!canMove) return;
 
         horizontalMovement = context.ReadValue<Vector2>().x;
+
+        if (horizontalMovement > 0.01f)
+        {
+            spriteRenderer.flipX = false; // Guarda a destra
+            if (shellManager.currentShellPicker != null)
+            {
+                spriteRendererShell.flipX = false; // Guarda a destra
+            }
+        }
+        else if (horizontalMovement < -0.01f)
+        {
+            spriteRenderer.flipX = true; // Guarda a sinistra
+            if (shellManager.currentShellPicker != null)
+            {
+                spriteRendererShell.flipX = true; // Guarda a destra
+            }
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)

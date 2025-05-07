@@ -52,7 +52,8 @@ public class ShellManager : MonoBehaviour
             shellPicker.transform.position = shellPosition.position; // Prima sposta
             shellPicker.transform.rotation = shellPosition.rotation;
             shellPicker.transform.SetParent(shellPosition);          // Poi setta il genitore
-            
+            Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
+
             var rb = shellPicker.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
@@ -88,6 +89,7 @@ public class ShellManager : MonoBehaviour
             currentShell.PowerOff(Player.Instance);
             currentShellPicker.gameObject.SetActive(false);
             currentShellPicker = null;
+            Player.Instance.spriteRendererShell = null;
         }
 
         currentShell = null;
