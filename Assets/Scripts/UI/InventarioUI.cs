@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InventarioUI : MonoBehaviour
 {
@@ -25,44 +26,35 @@ public class InventarioUI : MonoBehaviour
         AggiornaInventarioUI();
     }
 
-    private void Update()
+    public void MostraInventario(InputAction.CallbackContext context)
     {
-        if (input.Inventory)
+        if (context.started)
         {
-            MostraInventario();
-        }
+            bool isActive = !panelInventario.activeSelf;
+            panelInventario.SetActive(isActive);
 
-        if (panelInventario.activeSelf)
-        {
-            Naviga();
+            Player.Instance.canMove = !isActive;
 
-            if (input.Select)
+            if (isActive)
             {
-                EquipaggiaGuscioSelezionato();
+                AggiornaInventarioUI();
+                HighlightSlot(selectedSlot);
             }
         }
     }
 
-    private void MostraInventario()
+    public void Naviga(InputAction.CallbackContext context)
     {
-        bool isActive = !panelInventario.activeSelf;
-        panelInventario.SetActive(isActive);
-        input.inputBlock = isActive;
+        if (!panelInventario.activeSelf)
+        return;
 
-        if (isActive)
-        {
-            AggiornaInventarioUI();
-            HighlightSlot(selectedSlot);
-        }
-    }
+        Vector2 navigation = context.ReadValue<Vector2>();
 
-    private void Naviga()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (navigation.x > 0.5f)
         {
             MoveSelection(1);
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        else if (navigation.x < -0.5f)
         {
             MoveSelection(-1);
         }
@@ -70,6 +62,11 @@ public class InventarioUI : MonoBehaviour
 
     private void MoveSelection (int direction)
     {
+        foreach (var slot in shellSlots)
+        {
+            slot.GetComponent<Image>().color = Color.white;
+        }
+
         shellSlots[selectedSlot].GetComponent<Outline>().effectColor = Color.white;
 
         selectedSlot += direction;
@@ -89,32 +86,39 @@ public class InventarioUI : MonoBehaviour
 
     private void HighlightSlot (int indice)
     {
-        shellSlots[indice].GetComponent<Outline>().effectColor = new Color(0.925f, 0.925f, 0.537f);
+        shellSlots[indice].GetComponent<Image>().color = new Color(0.925f, 0.925f, 0.537f);
     }
 
-    private void EquipaggiaGuscioSelezionato()
+    public void EquipaggiaGuscioSelezionato(InputAction.CallbackContext context)
     {
-        if (selectedSlot < 0 || selectedSlot >= shellList.Count)
-        {
-            Debug.Log("Non hai ancora trovato questo guscio!");
-            return;
-        }
+        if (!panelInventario.activeSelf)
+        return;
 
-        Shell selezionato = shellList[selectedSlot];
-
-        if (selezionato == null)
+        if (context.started)
         {
-            Player.Instance.shellManager.RemoveShell();
-        }
-        else if (Player.Instance.shellManager.currentShell != selezionato)
-        {
-            Player.Instance.shellManager.RemoveShell();
-            var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
-            Player.Instance.shellManager.WearShell(selezionato, shellPicker);
-        }
+            if (selectedSlot < 0 || selectedSlot >= shellList.Count)
+            {
+                Debug.Log("Non hai ancora trovato questo guscio!");
+                return;
+            }
 
-        panelInventario.SetActive(false);
-        Player.Instance.GetComponent<PlayerInput>().inputBlock = false;
+            Shell selezionato = shellList[selectedSlot];
+
+            if (selezionato == null)
+            {
+                Player.Instance.shellManager.RemoveShell();
+            }
+            else if (Player.Instance.shellManager.currentShell != selezionato)
+            {
+                Player.Instance.shellManager.RemoveShell();
+                var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
+                Player.Instance.shellManager.WearShell(selezionato, shellPicker);
+            }
+
+            panelInventario.SetActive(false);
+            Player.Instance.GetComponent<PlayerInput>().inputBlock = false;
+            Player.Instance.canMove = true;
+        }
     }
 
     public void AggiungiGuscio (Shell nuovoGuscio)
@@ -140,25 +144,4 @@ public class InventarioUI : MonoBehaviour
             shellSlots[i].gameObject.SetActive(true); 
         }
     }
-
-    /*
-    private void AggiornaInventarioUI()
-    {
-        for (int i = 0; i < shellSlots.Count; i++)
-        {
-            if (i < shellList.Count)
-            {
-                shellSlots[i].gameObject.SetActive(true);
-            }
-            else if (i == 0)
-            {
-                shellSlots[i].gameObject.SetActive(false);
-            }
-            else
-            {
-                shellSlots[i].gameObject.SetActive(false);
-            }
-        }
-    }
-    */
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerOld : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     private static Player instance;
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float runSpeed = 13f;
     private float verticalSpeed;
     private float currentMovementSpeed;
-    private float boundingBoxWidth = 1.0f;
+    private float boundingBoxWidth = 0.1f;
 
     [Header("SALTO")]
     [SerializeField] private bool isGrounded = true; 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        //instance = this;
 
         input = GetComponent<PlayerInput>();
         shellManager = GetComponent<ShellManager>();
@@ -141,21 +141,18 @@ public class Player : MonoBehaviour
         if (verticalSpeed > 0)
             return;
 
-        Vector2 positionLeft = (Vector2)transform.position - new Vector2(boundingBoxWidth / 2f, 0f);
-        Vector2 positionRight = (Vector2)transform.position + new Vector2(boundingBoxWidth / 2f, 0f);
+        Vector2 position = transform.position;
+        Vector2 boxSize = new Vector2(0.9f, 0.2f); // Larghezza come il player, altezza sottile
+        Vector2 boxCenter = position + Vector2.down * 0.6f; // Sotto il player
 
-        RaycastHit2D hitLeft = Physics2D.Raycast(positionLeft, Vector2.down, groundDistance);
-        RaycastHit2D hitRight = Physics2D.Raycast(positionRight, Vector2.down, groundDistance);
+        Collider2D collider = Physics2D.OverlapBox(boxCenter, boxSize, 0f);
 
-        isGrounded = hitLeft.collider != null || hitRight.collider != null;
+        isGrounded = collider != null;
 
         if (isGrounded)
         {
             verticalSpeed = 0f;
             jumpCount = 0;
-
-            float yPoint = (hitLeft.collider != null ? hitLeft.point.y : hitRight.point.y) + groundDistance;
-            transform.position = new Vector3(transform.position.x, yPoint, transform.position.z);
         }
     }
 

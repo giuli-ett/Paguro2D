@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShellPicker : MonoBehaviour
 {
@@ -6,33 +7,21 @@ public class ShellPicker : MonoBehaviour
     public Shell shell;
     public GameObject text;
 
-    [Header("PARAMETRI")]
-    public bool isPlayerInRange = false;
-
-    void Update()
-    {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            // PRENDI IL GUSCIO
-            Player.Instance.shellManager.WearShell(shell, this);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInRange = true;
             text.SetActive(true);
+            Player.Instance.shellManager.closeShell = this;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInRange = false;
             text.SetActive(false);
+            Player.Instance.shellManager.closeShell = null;
         }
     }
 }

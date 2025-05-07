@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShellManager : MonoBehaviour
 { 
@@ -9,11 +10,29 @@ public class ShellManager : MonoBehaviour
     public Transform shellPosition;
     public Shell currentShell;
     public ShellPicker currentShellPicker;
+    public ShellPicker closeShell;
     public Dictionary<Shell, ShellPicker> equippedShellPickers = new();
 
     private void Awake()
     {
         inventario = GameObject.FindAnyObjectByType<InventarioUI>();
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("Tasto E premuto");
+            if (closeShell != null)
+            {
+                Debug.Log("Sto tentando di indossare il guscio!");
+                WearShell(closeShell.shell, closeShell);
+            }
+        }
+        else
+        {
+            Debug.Log("Attendo input");
+        }
     }
 
     // EQUIPAGGIA GUSCIO
@@ -30,10 +49,17 @@ public class ShellManager : MonoBehaviour
         // Se è un nuovo guscio, aggiungilo alla lista
         if (!equippedShellPickers.ContainsKey(shell))
         {
-            shellPicker.transform.SetParent(shellPosition);
-            shellPicker.transform.localPosition = Vector3.zero;
-            shellPicker.transform.localRotation = Quaternion.identity;
-            shellPicker.GetComponent<Collider>().enabled = false;
+            shellPicker.transform.position = shellPosition.position; // Prima sposta
+            shellPicker.transform.rotation = shellPosition.rotation;
+            shellPicker.transform.SetParent(shellPosition);          // Poi setta il genitore
+            
+            var rb = shellPicker.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.bodyType = RigidbodyType2D.Kinematic;
+            }
+            
+            shellPicker.GetComponent<Collider2D>().enabled = false;
             shellPicker.text.SetActive(false);
 
             equippedShellPickers[shell] = shellPicker;
