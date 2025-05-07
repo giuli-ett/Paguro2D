@@ -13,11 +13,13 @@ public class Player : MonoBehaviour
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
+    public float acceleration = 10f;         // accelerazione mentre ti muovi
+    public float deceleration = 20f;         // decelerazione quando ti fermi
     float horizontalMovement;
     public bool canMove = true;
 
     [Header("SALTO")]
-    public float jumpPower = 25f;
+    public float jumpPower = 18f;
     public Transform groundCheckPosition;
     public Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
     public LayerMask groundLayer;
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         if (!canMove) 
         {
@@ -49,7 +51,8 @@ public class Player : MonoBehaviour
             return;
         }
 
-        rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+        //rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
+        MovePlayer();
         GroundCheck();
     }
 
@@ -75,6 +78,17 @@ public class Player : MonoBehaviour
                 spriteRendererShell.flipX = true; // Guarda a destra
             }
         }
+    }
+
+    private void MovePlayer()
+    {
+        float targetSpeed = horizontalMovement * moveSpeed;
+        float speedDifference = targetSpeed - rb.linearVelocity.x;
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
+
+        float movement = speedDifference * accelRate;
+
+        rb.AddForce(new Vector2(movement, 0));
     }
 
     public void Jump(InputAction.CallbackContext context)

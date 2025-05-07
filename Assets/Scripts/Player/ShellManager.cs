@@ -70,6 +70,7 @@ public class ShellManager : MonoBehaviour
         currentShell = shell;
         currentShellPicker = equippedShellPickers[shell];
         currentShellPicker.gameObject.SetActive(true);
+        Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
         // Attiva il potere del guscio
         shell.PowerOn(Player.Instance);
