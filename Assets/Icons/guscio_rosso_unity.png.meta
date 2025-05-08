@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      guscio_rosso_unity_0: -8325239446423576054
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

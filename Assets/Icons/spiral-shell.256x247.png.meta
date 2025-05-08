@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spiral-shell.256x247_0: -82556143275158951
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

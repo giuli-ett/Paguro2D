@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      question-mark-circle.256x256_0: -1531981982557567092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
