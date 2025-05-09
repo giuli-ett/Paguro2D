@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
         {
             if (context.performed)
             {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower*0.75f);
                 jumpCount++;
             }
             else if (context.canceled)
