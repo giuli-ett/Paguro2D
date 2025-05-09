@@ -68,8 +68,8 @@ public class LifeController : MonoBehaviour
     {
         if (currentHealth < maxHealth)
         {
-            hearts[currentHealth].SetActive(true); // Riattiva il cuore
             currentHealth++;
+            hearts[currentHealth - 1].SetActive(true);
         }
     }
 
