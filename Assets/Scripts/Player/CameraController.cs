@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
 
     private void FollowTarget()
     {
-        //Vector3 targetPosition = new Vector3 (target.position.x + xOffset, target.position.y + yOffset, zOffset); 129.83  131.28
-        Vector3 targetPosition = new Vector3 (target.position.x, transform.position.y, zOffset);
+        Vector3 targetPosition = new Vector3 (target.position.x + xOffset, target.position.y + yOffset, zOffset); 
+        //Vector3 targetPosition = new Vector3 (target.position.x, transform.position.y, zOffset);
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * cameraMovementSpeed);
     }
