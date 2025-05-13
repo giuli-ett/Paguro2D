@@ -8765,6 +8765,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1279576751
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1449200533390545377, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: shell
+      value: 
+      objectReference: {fileID: 11400000, guid: 0079be234957f6b48835a528a4901152, type: 2}
+    - target: {fileID: 1834323530993037294, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834323530993037294, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1575360227
+      objectReference: {fileID: 0}
+    - target: {fileID: 7465972837407839107, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_Name
+      value: ShellPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.996756
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.08048207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163791087750182672, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -9.233
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
 --- !u!4 &1281091379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
@@ -10014,7 +10083,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -10039,7 +10108,7 @@ Transform:
   m_GameObject: {fileID: 1395454555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -78.49, y: 10.31, z: -28.949173}
+  m_LocalPosition: {x: -26.9, y: 23.6, z: -28.949173}
   m_LocalScale: {x: 1, y: 2.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13451,7 +13520,7 @@ Transform:
   m_GameObject: {fileID: 1910241632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 491.24, y: 2.2000008, z: 0}
+  m_LocalPosition: {x: -59.7, y: 2.2000008, z: 0}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13516,7 +13585,7 @@ MonoBehaviour:
   acceleration: 25
   deceleration: 50
   canMove: 1
-  jumpPower: 30
+  jumpPower: 40
   groundCheckPosition: {fileID: 2132393812}
   groundCheckSize: {x: 1.79, y: 0.15}
   groundLayer:
@@ -13700,6 +13769,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c27873a5-d699-4a95-b423-5165c82993da
     m_ActionName: 'UI/EquipaggiaGuscioSelezionato[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a43e1ea1-91b2-4e8d-b424-2146139b6488
+    m_ActionName: 'Player/TriggerNetAnimation[/Keyboard/g]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34e99d67-ad07-4cc4-809f-b3b779557dab
+    m_ActionName: 'Player/TriggerMomAnimation[/Keyboard/m]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -15697,3 +15774,4 @@ SceneRoots:
   - {fileID: 1549471964}
   - {fileID: 2050101306}
   - {fileID: 2132923135}
+  - {fileID: 1279576751}
