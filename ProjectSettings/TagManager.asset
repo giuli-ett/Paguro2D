@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - HealthPickup
   - Checkpoint
+  - Hook
   layers:
   - Default
   - TransparentFX
