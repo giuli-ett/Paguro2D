@@ -85,6 +85,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerNetAnimation",
+                    "type": "Button",
+                    "id": "a43e1ea1-91b2-4e8d-b424-2146139b6488",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerMomAnimation",
+                    "type": "Button",
+                    "id": "34e99d67-ad07-4cc4-809f-b3b779557dab",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -448,6 +466,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "MostraInventario",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5dd585a4-f4b7-4d82-a46d-ecccb8b7d2ec",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerNetAnimation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90c79171-f864-4022-a5ca-ca3679fd41ee",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerMomAnimation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

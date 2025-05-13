@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: a085bd317a0cde24fbc5589eaede9a7c
+guid: 43de34bd7e0eb5149b4d33f51ec8de6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8470818276549034285
-    second: 1000_F_443693291_QFtgLQC9nkXR9UdoinFiONn8ubi5chNs_0
+      213: -7893949983973537437
+    second: 20250513_1456_Rete da Pesca Cartoon_simple_compose_01jv4vdb78f648ce7jrr2kz14b_0
+  - first:
+      213: 8602986548517238666
+    second: 20250513_1456_Rete da Pesca Cartoon_simple_compose_01jv4vdb78f648ce7jrr2kz14b_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1000_F_443693291_QFtgLQC9nkXR9UdoinFiONn8ubi5chNs_0
+      name: 20250513_1456_Rete da Pesca Cartoon_simple_compose_01jv4vdb78f648ce7jrr2kz14b_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 500
+        x: 2
+        y: 8
+        width: 1022
+        height: 1470
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d21879a97546e8570800000000000000
-      internalID: 8470818276549034285
+      spriteID: 3698e82405e037290800000000000000
+      internalID: -7893949983973537437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20250513_1456_Rete da Pesca Cartoon_simple_compose_01jv4vdb78f648ce7jrr2kz14b_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 935
+        width: 109
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8775df6fa2f36770800000000000000
+      internalID: 8602986548517238666
       vertices: []
       indices: 
       edges: []
@@ -134,8 +159,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      1000_F_443693291_QFtgLQC9nkXR9UdoinFiONn8ubi5chNs_0: 8470818276549034285
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
