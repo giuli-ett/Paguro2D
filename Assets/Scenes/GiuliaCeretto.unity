@@ -527,6 +527,10 @@ MonoBehaviour:
   target: {fileID: 606334897}
   cameraMovementSpeed: 2
   zOffset: -11
+  xOffset: 0
+  verticalZoneHeight: 10
+  yMarginOffset: 2
+  cameraYOffset: 0
 --- !u!114 &115081631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4500,7 +4504,7 @@ Transform:
   m_GameObject: {fileID: 1448694398}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3128, y: 12.1579, z: 0}
+  m_LocalPosition: {x: -0.3128, y: 23.85, z: 0}
   m_LocalScale: {x: 0.007178624, y: 3.140941, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5980,6 +5984,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73f8170777bd1e47a2df12410229140, type: 3}
+--- !u!1001 &7704863177762227022
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2859767111147862616, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: emissionRateWhenActive
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3866405592984806071, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_Name
+      value: CratereBolle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507841191160799236, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -62.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
 --- !u!1001 &7874278702346001833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5994,7 +6063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.19
+      value: -40.3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6048,6 +6117,7 @@ SceneRoots:
   - {fileID: 872185299}
   - {fileID: 1205158072}
   - {fileID: 1928385}
+  - {fileID: 7704863177762227022}
   - {fileID: 1287283010}
   - {fileID: 7874278702346001833}
   - {fileID: 5409881436931390178}
