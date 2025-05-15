@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public ShellManager shellManager;
     public InventarioUI inventarioUI;
+    public Animator animator;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -42,6 +43,10 @@ public class Player : MonoBehaviour
         instance = this;
         shellManager = GetComponent<ShellManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        BoxCollider2D box = GetComponent<BoxCollider2D>();
+
+        groundCheckSize = new Vector2(box.size.x * 0.9f, 0.1f);
     }
 
     private void FixedUpdate()
@@ -49,6 +54,7 @@ public class Player : MonoBehaviour
         if (!canMove) 
         {
             rb.linearVelocity = Vector2.zero;
+            animator.SetFloat("xVelocity", 0f);
             GroundCheck();
             return;
         }
@@ -56,11 +62,16 @@ public class Player : MonoBehaviour
         if (this.GetComponent<Amo>().isAttached)
         {
             Climb();
+            animator.SetFloat("xVelocity", 0f);
         }
         else
         {
             rb.gravityScale = 6.0f;
             MovePlayer();
+            float velocityInput = Mathf.Abs(horizontalMovement);
+            animator.SetFloat("xVelocity", velocityInput);
+
+            //animator.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
         }
         
         GroundCheck();
@@ -94,7 +105,7 @@ public class Player : MonoBehaviour
     private void MovePlayer()
     {
         if (isClimbing) return;
-    
+
         else
         {
             float targetSpeed = horizontalMovement * moveSpeed;
@@ -151,12 +162,13 @@ public class Player : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (!canMove) return;
+        if (!canMove) { Debug.Log("Non posso muovermi"); return; }
 
         if (jumpCount < maxJump)
         {
             if (context.performed)
             {
+                Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower*0.75f);
                 jumpCount++;
             }
@@ -168,18 +180,49 @@ public class Player : MonoBehaviour
         }
     }
 
+    /*
     private void GroundCheck()
     {
         if (Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer))
         {
+            Debug.Log("Tocco terra!");
             jumpCount = 0;
+        }
+        else
+        {
+            Debug.Log($"Numero di salti: {jumpCount}");
+            Debug.Log("NON tocco terra");
+        }
+    }
+    */
+    
+    private void GroundCheck()
+    {
+        Collider2D hit = Physics2D.OverlapBox(
+            groundCheckPosition.position,
+            groundCheckSize,
+            0f,
+            groundLayer
+        );
+
+        if (hit != null)
+        {
+            Debug.Log("✅ Tocco terra: " + hit.name);
+            jumpCount = 0;
+        }
+        else
+        {
+            Debug.Log("❌ NON tocco terra");
         }
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawCube(groundCheckPosition.position, groundCheckSize);
+        if (groundCheckPosition == null)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
     }
 
     public void EnableDoubleJump()
