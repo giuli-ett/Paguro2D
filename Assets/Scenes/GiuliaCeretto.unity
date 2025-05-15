@@ -1817,6 +1817,7 @@ GameObject:
   - component: {fileID: 606334899}
   - component: {fileID: 606334906}
   - component: {fileID: 606334905}
+  - component: {fileID: 606334907}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1963,6 +1964,7 @@ MonoBehaviour:
   acceleration: 20
   deceleration: 20
   canMove: 1
+  isClimbing: 0
   jumpPower: 30
   groundCheckPosition: {fileID: 541232482}
   groundCheckSize: {x: 1.79, y: 0.15}
@@ -2147,6 +2149,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c27873a5-d699-4a95-b423-5165c82993da
     m_ActionName: 'UI/EquipaggiaGuscioSelezionato[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a43e1ea1-91b2-4e8d-b424-2146139b6488
+    m_ActionName: 'Player/TriggerNetAnimation[/Keyboard/g]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 34e99d67-ad07-4cc4-809f-b3b779557dab
+    m_ActionName: 'Player/TriggerMomAnimation[/Keyboard/m]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 21297105-3597-403e-b942-4e8314f251a2
+    m_ActionName: 'Player/Detach[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2240,6 +2254,21 @@ MonoBehaviour:
   maxHealth: 3
   invincibilityTime: 1
   hearts: []
+--- !u!114 &606334907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606334896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd35da305108b842bf24eb373ad47b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 3
+  isAttached: 0
+  currentClimbableCollider: {fileID: 0}
 --- !u!1 &680552200
 GameObject:
   m_ObjectHideFlags: 0
@@ -2712,8 +2741,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 673587149
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 1887719883196316334, guid: 65bd7cddd7e0a2b459616bf65bc1d252, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4551,8 +4580,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 673587149
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 1887719883196316334, guid: 65bd7cddd7e0a2b459616bf65bc1d252, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5260,8 +5289,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 673587149
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 1887719883196316334, guid: 65bd7cddd7e0a2b459616bf65bc1d252, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6043,6 +6072,14 @@ PrefabInstance:
     - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564550428336411355, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6564550428336411355, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1575360227
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
