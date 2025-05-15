@@ -105,18 +105,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "MoveAmo",
-                    "type": "Value",
-                    "id": "096b9961-e5ca-42c5-8a90-cd3ad4659fb4",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Unhook",
+                    "name": "Detach",
                     "type": "Button",
-                    "id": "7ae9c582-6878-456c-851b-dcd34a543915",
+                    "id": "21297105-3597-403e-b942-4e8314f251a2",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -510,68 +501,13 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "2D Vector",
-                    "id": "7b754b69-826e-4061-987e-b1cdb20a16d9",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveAmo",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "b10a02d8-f482-4c31-9cc9-1447b057610b",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveAmo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "2ee6e942-a0c9-4153-8bbf-1f7421d11a25",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveAmo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "f2cf59e2-2b20-4eb5-897d-2bde85be43c8",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveAmo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "615b452c-9942-4994-a92f-386a76be7279",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MoveAmo",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
-                    "id": "12f3f02b-49ac-421c-b782-001f2f74fbd8",
+                    "id": "808f33e5-f446-4a3a-8526-91f1eb735f04",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Unhook",
+                    "action": "Detach",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

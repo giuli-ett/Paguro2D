@@ -13,10 +13,12 @@ public class Player : MonoBehaviour
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
-    public float acceleration = 10f;         // accelerazione mentre ti muovi
-    public float deceleration = 20f;         // decelerazione quando ti fermi
+    public float acceleration = 10f;         
+    public float deceleration = 20f;        
     float horizontalMovement;
+    float verticalMovement;
     public bool canMove = true;
+    public bool isClimbing = false;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
@@ -51,8 +53,16 @@ public class Player : MonoBehaviour
             return;
         }
 
-        //rb.linearVelocity = new Vector2(horizontalMovement * moveSpeed, rb.linearVelocity.y);
-        MovePlayer();
+        if (this.GetComponent<Amo>().isAttached)
+        {
+            Climb();
+        }
+        else
+        {
+            rb.gravityScale = 6.0f;
+            MovePlayer();
+        }
+        
         GroundCheck();
     }
 
@@ -61,6 +71,7 @@ public class Player : MonoBehaviour
         if (!canMove) return;
 
         horizontalMovement = context.ReadValue<Vector2>().x;
+        verticalMovement = context.ReadValue<Vector2>().y;
 
         if (horizontalMovement > 0.01f)
         {
@@ -82,13 +93,60 @@ public class Player : MonoBehaviour
 
     private void MovePlayer()
     {
-        float targetSpeed = horizontalMovement * moveSpeed;
-        float speedDifference = targetSpeed - rb.linearVelocity.x;
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
+        if (isClimbing) return;
+    
+        else
+        {
+            float targetSpeed = horizontalMovement * moveSpeed;
+            float speedDifference = targetSpeed - rb.linearVelocity.x;
+            float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
 
-        float movement = speedDifference * accelRate;
+            float movement = speedDifference * accelRate;
 
-        rb.AddForce(new Vector2(movement, 0));
+            rb.AddForce(new Vector2(movement, 0));
+        }
+    }
+
+    private void Climb()
+    {
+        if (this.GetComponent<Amo>().isAttached)
+        {
+            if (AmoHasBounds(out Bounds bounds))
+            {
+                Vector3 playerPos = transform.position;
+
+                if (verticalMovement > 0 && playerPos.y + 0.5f >= bounds.max.y)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                    return;
+                }
+
+                if (verticalMovement < 0 && playerPos.y - 0.5f <= bounds.min.y)
+                {
+                    rb.linearVelocity = Vector2.zero;
+                    return;
+                }
+            }
+            rb.gravityScale = 0f;
+            float climbVelocity = verticalMovement * moveSpeed;
+            rb.linearVelocity = new Vector2(0, climbVelocity);
+        }
+    }
+
+    private bool AmoHasBounds(out Bounds bounds)
+    {
+        bounds = default;
+
+        if (TryGetComponent<Amo>(out Amo amo))
+        {
+            if (amo.isAttached && amo.currentClimbableCollider != null)
+            {
+                bounds = amo.currentClimbableCollider.bounds;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void Jump(InputAction.CallbackContext context)

@@ -3,72 +3,61 @@ using UnityEngine.InputSystem;
 
 public class Amo : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
-    public float swingForce = 10f;
-    public float climbSpeed = 2f;
+    [SerializeField] private float climbSpeed = 3f;
+    private Rigidbody2D rb;
+    public bool isAttached = false;
+    private bool isClimbing = false;
+    private Transform currentClimbable;
+    public Collider2D currentClimbableCollider;
 
-    private bool isHooked = false;
-    private Transform currentHook;
-    private HingeJoint2D joint;
-
-    private Vector2 moveInput;
-
-     void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        joint = gameObject.AddComponent<HingeJoint2D>();
-        joint.autoConfigureConnectedAnchor = false;
-        joint.enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Hook") && !isHooked)
+        if (other.CompareTag("Hook"))
         {
-            HookTo(collision.transform);
+            AttachTo(other.transform);
         }
     }
 
-    private void HookTo(Transform hook)
+    private void AttachTo(Transform hook)
     {
-        isHooked = true;
-        currentHook  = hook;
+        transform.SetParent(hook);
 
-        Rigidbody2D hookRb = hook.GetComponent<Rigidbody2D>();
+        transform.localRotation = Quaternion.identity;
+        transform.localScale = Vector3.one;
 
-        joint.connectedBody = hookRb;
-        joint.anchor = Vector2.zero;
-        joint.connectedAnchor = Vector2.zero;
-        joint.enabled = true;
-
+        rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
+
+        isAttached = true;
+        currentClimbable = hook;
+        currentClimbableCollider = hook.GetComponent<Collider2D>();
+        Player.Instance.isClimbing = true;
     }
 
-    public void MoveAmo(InputAction.CallbackContext context)
+    public void Detach(InputAction.CallbackContext context)
     {
-        if (!isHooked) return;
+        if (!isAttached)
+        return;
 
-        moveInput = context.ReadValue<Vector2>();
-
-        if (Mathf.Abs(moveInput.x) > 0.1f)
+        if (context.started)
         {
-            rb.AddForce(Vector2.right * moveInput.x * swingForce);
-        }
+            transform.SetParent(null);
+            
+            transform.localRotation = Quaternion.identity;
+            transform.localScale = Vector3.one;
 
-        if (Mathf.Abs(moveInput.y) > 0.1f)
-        {
-            transform.position += Vector3.up * moveInput.y * climbSpeed * Time.deltaTime;
-        }
-    }
+            currentClimbable = null;
+            currentClimbableCollider = null;
 
-    public void Unhook(InputAction.CallbackContext context)
-    {
-        if (isHooked && context.started)
-        {
-            isHooked = false;
-            currentHook = null;
-            joint.enabled = false;
+            isClimbing = false;
+            isAttached = false;
+
+            Player.Instance.isClimbing = false;
         }
     }
 }
