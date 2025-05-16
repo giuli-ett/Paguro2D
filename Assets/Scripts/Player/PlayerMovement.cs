@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public ShellManager shellManager;
     public InventarioUI inventarioUI;
     public Animator animator;
+    public CapsuleCollider2D collider2D;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -26,8 +27,9 @@ public class Player : MonoBehaviour
     public Transform groundCheckPosition;
     public Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
     public LayerMask groundLayer;
+    public bool isGrounded;
 
-    [Header ("GUSCI")]
+    [Header("GUSCI")]
     private int maxJump = 1;
     private int jumpCount = 0;
     [SerializeField] private bool canDash = false;
@@ -44,18 +46,15 @@ public class Player : MonoBehaviour
         shellManager = GetComponent<ShellManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        BoxCollider2D box = GetComponent<BoxCollider2D>();
-
-        groundCheckSize = new Vector2(box.size.x * 0.9f, 0.1f);
+        isGrounded = true;
     }
 
     private void FixedUpdate()
     {
-        if (!canMove) 
+        if (!canMove)
         {
             rb.linearVelocity = Vector2.zero;
             animator.SetFloat("xVelocity", 0f);
-            GroundCheck();
             return;
         }
 
@@ -70,11 +69,10 @@ public class Player : MonoBehaviour
             MovePlayer();
             float velocityInput = Mathf.Abs(horizontalMovement);
             animator.SetFloat("xVelocity", velocityInput);
-
-            //animator.SetFloat("xVelocity", Mathf.Abs(rb.linearVelocity.x));
+            animator.SetFloat("yVelocity", rb.linearVelocity.y);
         }
-        
-        GroundCheck();
+
+        CheckGrounded();
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -169,61 +167,51 @@ public class Player : MonoBehaviour
             if (context.performed)
             {
                 Debug.Log("Salto!");
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower*0.75f);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
+                isGrounded = false;
+                animator.SetBool("isJumping", !isGrounded);
                 jumpCount++;
             }
             else if (context.canceled)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+                isGrounded = false;
+                animator.SetBool("isJumping", !isGrounded);
                 jumpCount++;
             }
         }
     }
+    private void CheckGrounded()
+    {
+        isGrounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, groundLayer);
+
+        if (isGrounded)
+        {
+            jumpCount = 0;
+            animator.SetBool("isJumping", false);
+        }
+    }
 
     /*
-    private void GroundCheck()
+    public void OnTriggerEnter2D(Collider2D collider2D)
     {
-        if (Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0, groundLayer))
+        if (collider2D.CompareTag("Ground"))
         {
-            Debug.Log("Tocco terra!");
+            isGrounded = true;
             jumpCount = 0;
+            animator.SetBool("isJumping", false);
         }
-        else
+    }
+
+    public void OnTriggerExit2D(Collider2D collider2D)
+    {
+        if (collider2D.CompareTag("Ground"))
         {
-            Debug.Log($"Numero di salti: {jumpCount}");
-            Debug.Log("NON tocco terra");
+            isGrounded = false; 
+            animator.SetBool("isJumping", true);
         }
     }
     */
-    
-    private void GroundCheck()
-    {
-        Collider2D hit = Physics2D.OverlapBox(
-            groundCheckPosition.position,
-            groundCheckSize,
-            0f,
-            groundLayer
-        );
-
-        if (hit != null)
-        {
-            Debug.Log("✅ Tocco terra: " + hit.name);
-            jumpCount = 0;
-        }
-        else
-        {
-            Debug.Log("❌ NON tocco terra");
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (groundCheckPosition == null)
-            return;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(groundCheckPosition.position, groundCheckSize);
-    }
 
     public void EnableDoubleJump()
     {
