@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 340785930670325938}
   - component: {fileID: 6392512702846190366}
   m_Layer: 3
-  m_Name: Medusa
+  m_Name: Medusa 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

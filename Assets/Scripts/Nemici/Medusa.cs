@@ -21,12 +21,11 @@ public class Medusa : MonoBehaviour
 
     }
 
-private void Move()
-{
-    // Calcola la nuova posizione della medusa
-    float newY = startPos.y + Mathf.Sin(Time.time * velocita) * altezza;
-    transform.position = new Vector3(startPos.x, newY, startPos.z);
-}
-
+    private void Move()
+    {
+        // Calcola la nuova posizione della medusa
+        float newY = startPos.y + Mathf.Sin(Time.time * velocita) * altezza;
+        transform.position = new Vector3(startPos.x, newY, startPos.z);
+    }
 
 }
