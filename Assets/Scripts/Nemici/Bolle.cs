@@ -3,8 +3,6 @@ using UnityEngine;
 public class Bolle : MonoBehaviour
 {
     [SerializeField] float forza = 5f;
-    [SerializeField] float tempoAttivo = 1f;
-    [SerializeField] float tempoDisattivo = 2f;
 
     public ParticleSystem bubbleParticles;
     [SerializeField] float emissionRateWhenActive = 10f;
@@ -21,24 +19,6 @@ public class Bolle : MonoBehaviour
             emissionModule = bubbleParticles.emission;
             SetEmissionRate(emissionRateWhenActive);
             bubbleParticles.Play();
-        }
-    }
-
-    void Update()
-    {
-        timer += Time.deltaTime;
-
-        if (isActive && timer >= tempoAttivo)
-        {
-            isActive = false;
-            timer = 0f;
-            SetEmissionRate(emissionRateWhenInactive);
-        }
-        else if (!isActive && timer >= tempoDisattivo)
-        {
-            isActive = true;
-            timer = 0f;
-            SetEmissionRate(emissionRateWhenActive);
         }
     }
 
