@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ab6bdb1c962efd54baae3871a1e7ceb6
+guid: f9a52d6ff069a4b47b513d2901e1490e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2668599153349254235
-    second: jellyfish.frame03_0
+      213: -4488513950464850934
+    second: Scogli.02_0
+  - first:
+      213: 5380979018027260277
+    second: Scogli.02_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jellyfish.frame03_0
+      name: Scogli.02_0
       rect:
         serializedVersion: 2
-        x: 251
-        y: 208
-        width: 482
-        height: 744
+        x: 0
+        y: 390
+        width: 67
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b5c5a478ac4c80520800000000000000
-      internalID: 2668599153349254235
+      spriteID: a04482dd75895b1c0800000000000000
+      internalID: -4488513950464850934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scogli.02_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 2998
+        height: 1197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 579585148e31daa40800000000000000
+      internalID: 5380979018027260277
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      jellyfish.frame03_0: 2668599153349254235
+      Scogli.02_0: -4488513950464850934
+      Scogli.02_1: 5380979018027260277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
