@@ -9,6 +9,7 @@ TagManager:
   - HealthPickup
   - Checkpoint
   - Hook
+  - Ground
   layers:
   - Default
   - TransparentFX

@@ -72,6 +72,11 @@ public class Player : MonoBehaviour
             animator.SetFloat("yVelocity", rb.linearVelocity.y);
         }
 
+        if (!isGrounded && rb.linearVelocity.x != 0f)
+        {
+            animator.SetFloat("xVelocity", 0f);
+        }
+
         CheckGrounded();
     }
 
@@ -164,7 +169,7 @@ public class Player : MonoBehaviour
 
         if (jumpCount < maxJump)
         {
-            if (context.performed)
+            if (context.performed || Keyboard.current.spaceKey.isPressed)
             {
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
