@@ -1,26 +1,41 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrascinamentoPesci : MonoBehaviour
 {
-    private BancoPesci fishGroup;
+    [SerializeField] private BancoPesci fishGroup;
 
-    void Start()
+    private GameObject playerOnTop;
+
+    private void Update()
     {
-        fishGroup = GetComponentInParent<BancoPesci>();
+        if (playerOnTop != null && fishGroup != null)
+        {
+            Vector3 delta = fishGroup.GetDeltaMovement();
+            playerOnTop.transform.position += delta;
+        }
     }
 
-    [SerializeField] float forzaTrascinamento = 2f; // Puoi regolarlo da Inspector
-
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-            if (rb != null && fishGroup != null)
+            foreach (ContactPoint2D contact in collision.contacts)
             {
-                Vector3 delta = fishGroup.GetDeltaMovement() * forzaTrascinamento;
-                rb.position += new Vector2(delta.x, delta.y);
+                if (contact.normal.y < -0.5f)
+                {
+                    playerOnTop = collision.gameObject;
+                    break;
+                }
             }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") && collision.gameObject == playerOnTop)
+        {
+            playerOnTop = null;
         }
     }
 }
