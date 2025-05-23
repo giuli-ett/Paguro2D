@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     public int jumpCount = 0;
     [SerializeField] private bool canDash = false;
     private bool isDashing = false;
+    public bool InLuminescenceZone = false;
 
     public static Player Instance
     {
@@ -161,10 +162,10 @@ public class Player : MonoBehaviour
         {
             if (context.performed || Keyboard.current.spaceKey.isPressed)
             {
-                if (amo.isAttached)
+                /*if (amo.isAttached)
                 {
                     amo.Detach();
-                }
+                }*/
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 isGrounded = false;
@@ -173,10 +174,10 @@ public class Player : MonoBehaviour
             }
             else if (context.canceled)
             {
-                if (amo.isAttached)
+                /*if (amo.isAttached)
                 {
                     amo.Detach();
-                }
+                }*/
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
                 isGrounded = false;
                 animator.SetBool("isJumping", !isGrounded);
