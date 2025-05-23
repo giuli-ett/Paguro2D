@@ -13,11 +13,8 @@ public class Player : MonoBehaviour
     public InventarioUI inventarioUI;
     public Animator animator;
     public CapsuleCollider2D collider2D;
-<<<<<<< HEAD
     public Light2D luminescentLight;
-=======
     public Amo amo;
->>>>>>> 72d222fb9e909f47c7471607be14221e7a657ff9
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
