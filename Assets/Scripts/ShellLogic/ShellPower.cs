@@ -2,5 +2,6 @@ public enum ShellPower
 {
     JumpBoost,
     Rotola,
-    SpeedBoost
+    SpeedBoost,
+    Luminescenza
 }

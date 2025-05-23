@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     public InventarioUI inventarioUI;
     public Animator animator;
     public CapsuleCollider2D collider2D;
+    public Light2D luminescentLight;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
