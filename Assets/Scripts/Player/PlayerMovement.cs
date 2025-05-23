@@ -13,7 +13,11 @@ public class Player : MonoBehaviour
     public InventarioUI inventarioUI;
     public Animator animator;
     public CapsuleCollider2D collider2D;
+<<<<<<< HEAD
     public Light2D luminescentLight;
+=======
+    public Amo amo;
+>>>>>>> 72d222fb9e909f47c7471607be14221e7a657ff9
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -33,7 +37,7 @@ public class Player : MonoBehaviour
 
     [Header("GUSCI")]
     private int maxJump = 1;
-    private int jumpCount = 0;
+    public int jumpCount = 0;
     [SerializeField] private bool canDash = false;
     private bool isDashing = false;
 
@@ -77,6 +81,7 @@ public class Player : MonoBehaviour
         if (!isGrounded && rb.linearVelocity.x != 0f)
         {
             animator.SetFloat("xVelocity", 0f);
+            
         }
 
         CheckGrounded();
@@ -127,28 +132,13 @@ public class Player : MonoBehaviour
     {
         if (this.GetComponent<Amo>().isAttached)
         {
-            if (AmoHasBounds(out Bounds bounds))
-            {
-                Vector3 playerPos = transform.position;
-
-                if (verticalMovement > 0 && playerPos.y + 0.5f >= bounds.max.y)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                    return;
-                }
-
-                if (verticalMovement < 0 && playerPos.y - 0.5f <= bounds.min.y)
-                {
-                    rb.linearVelocity = Vector2.zero;
-                    return;
-                }
-            }
             rb.gravityScale = 0f;
             float climbVelocity = verticalMovement * moveSpeed;
             rb.linearVelocity = new Vector2(0, climbVelocity);
         }
     }
 
+    /*
     private bool AmoHasBounds(out Bounds bounds)
     {
         bounds = default;
@@ -164,6 +154,7 @@ public class Player : MonoBehaviour
 
         return false;
     }
+    */
 
     public void Jump(InputAction.CallbackContext context)
     {
@@ -173,6 +164,10 @@ public class Player : MonoBehaviour
         {
             if (context.performed || Keyboard.current.spaceKey.isPressed)
             {
+                if (amo.isAttached)
+                {
+                    amo.Detach();
+                }
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 isGrounded = false;
@@ -181,6 +176,10 @@ public class Player : MonoBehaviour
             }
             else if (context.canceled)
             {
+                if (amo.isAttached)
+                {
+                    amo.Detach();
+                }
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
                 isGrounded = false;
                 animator.SetBool("isJumping", !isGrounded);
@@ -192,33 +191,12 @@ public class Player : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, groundLayer);
 
-        if (isGrounded)
+        if (isGrounded || amo.isAttached)
         {
             jumpCount = 0;
             animator.SetBool("isJumping", false);
         }
     }
-
-    /*
-    public void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (collider2D.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            jumpCount = 0;
-            animator.SetBool("isJumping", false);
-        }
-    }
-
-    public void OnTriggerExit2D(Collider2D collider2D)
-    {
-        if (collider2D.CompareTag("Ground"))
-        {
-            isGrounded = false; 
-            animator.SetBool("isJumping", true);
-        }
-    }
-    */
 
     public void EnableDoubleJump()
     {
