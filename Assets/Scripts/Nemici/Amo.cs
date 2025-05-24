@@ -49,6 +49,7 @@ public class Amo : MonoBehaviour
 
         rb.gravityScale = 0f;
         rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic;
 
         isAttached = true;
         Player.Instance.isGrounded = true;
@@ -78,6 +79,7 @@ public class Amo : MonoBehaviour
             isClimbing = false;
             isAttached = false;
             Player.Instance.jumpCount = 1;
+            rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 1f;
 
             Player.Instance.isClimbing = false;

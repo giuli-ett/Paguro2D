@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public CapsuleCollider2D collider2D;
     public Light2D luminescentLight;
     public Amo amo;
+    public Transform climbTopLimit;
+    public Transform climbBottomLimit;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -128,13 +130,28 @@ public class Player : MonoBehaviour
 
     private void Climb()
     {
-        if (this.GetComponent<Amo>().isAttached)
+        if (amo.isAttached)
         {
+            // Blocca la fisica
             rb.gravityScale = 0f;
-            float climbVelocity = verticalMovement * moveSpeed;
-            rb.linearVelocity = new Vector2(0, climbVelocity);
+            rb.linearVelocity = Vector2.zero; // non usare linearVelocity se Rigidbody2D
+
+            // Prendi posizione locale rispetto all’amo
+            Vector3 localPos = transform.localPosition;
+
+            // Calcola nuova posizione locale lungo l’asse Y (cioè su/giù lungo la corda)
+            float newY = localPos.y + (verticalMovement * moveSpeed * Time.deltaTime);
+
+            // Applica limiti locali
+            float topY = climbTopLimit.localPosition.y;
+            float bottomY = climbBottomLimit.localPosition.y;
+            newY = Mathf.Clamp(newY, bottomY, topY);
+
+            // Applica nuova posizione, mantenendo X e Z locali
+            transform.localPosition = new Vector3(0, newY, localPos.z);
         }
     }
+
 
     /*
     private bool AmoHasBounds(out Bounds bounds)
@@ -162,10 +179,10 @@ public class Player : MonoBehaviour
         {
             if (context.performed || Keyboard.current.spaceKey.isPressed)
             {
-                /*if (amo.isAttached)
+                if (amo.isAttached)
                 {
                     amo.Detach();
-                }*/
+                }
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 isGrounded = false;
@@ -175,10 +192,6 @@ public class Player : MonoBehaviour
             /*
             else if (context.canceled)
             {
-                /*if (amo.isAttached)
-                {
-                    amo.Detach();
-                }*/
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
                 isGrounded = false;
                 animator.SetBool("isJumping", !isGrounded);
