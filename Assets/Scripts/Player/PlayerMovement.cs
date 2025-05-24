@@ -171,6 +171,7 @@ public class Player : MonoBehaviour
                 animator.SetBool("isJumping", !isGrounded);
                 jumpCount++;
             }
+            /*
             else if (context.canceled)
             {
                 if (amo.isAttached)
@@ -182,6 +183,7 @@ public class Player : MonoBehaviour
                 animator.SetBool("isJumping", !isGrounded);
                 jumpCount++;
             }
+            */
         }
     }
     private void CheckGrounded()
