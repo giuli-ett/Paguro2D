@@ -5,7 +5,7 @@ public class RicaricaLuminescenza : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Player player = other.GetComponent<Player>();
-        if (player != null)
+        if (player != null && player.shellManager.currentShell.power == ShellPower.Luminescenza)
         {
             player.InLuminescenceZone = true;
             PowerLibrary.RechargeLuminescence(player);
@@ -15,7 +15,7 @@ public class RicaricaLuminescenza : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other)
     {
         Player player = other.GetComponent<Player>();
-        if (player != null && player.InLuminescenceZone)
+        if (player != null && player.InLuminescenceZone && player.shellManager.currentShell.power == ShellPower.Luminescenza)
         {
             // Mantieni la luminosità al massimo costantemente
             player.luminescentLight.enabled = true;
@@ -26,10 +26,9 @@ public class RicaricaLuminescenza : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         Player player = other.GetComponent<Player>();
-        if (player != null)
+        if (player != null && player.shellManager.currentShell.power == ShellPower.Luminescenza)
         {
             player.InLuminescenceZone = false;
-            // Eventualmente ricomincia il fading
             PowerLibrary.LuminescenzaOn(player);
         }
     }

@@ -681,6 +681,8 @@ MonoBehaviour:
   collider2D: {fileID: 0}
   luminescentLight: {fileID: 2504340725921723788}
   amo: {fileID: 0}
+  climbTopLimit: {fileID: 0}
+  climbBottomLimit: {fileID: 0}
   moveSpeed: 12
   acceleration: 25
   deceleration: 25
@@ -695,6 +697,7 @@ MonoBehaviour:
   isGrounded: 0
   jumpCount: 0
   canDash: 0
+  InLuminescenceZone: 0
 --- !u!114 &576454016092146419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,7 +1866,7 @@ MonoBehaviour:
   m_FalloffIntensity: 0.5
   m_Color: {r: 0.389797, g: 0.6863806, b: 0.89433956, a: 1}
   m_Intensity: 1
-  m_LightVolumeIntensity: 0.15
+  m_LightVolumeIntensity: 0.3
   m_LightVolumeEnabled: 1
   m_ApplyToSortingLayers: cd1f2628000000001de919a21b7d4b39
   m_LightCookieSprite: {fileID: 0}
