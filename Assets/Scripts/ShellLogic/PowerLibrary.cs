@@ -3,11 +3,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class PowerLibrary 
+public class PowerLibrary : MonoBehaviour
 {
     private static Coroutine luminescenceCoroutine;
 
-    public static void ActivatePower (ShellPower type, Player player)
+    public static void ActivatePower(ShellPower type, Player player)
     {
         switch (type)
         {
@@ -29,7 +29,7 @@ public class PowerLibrary
         }
     }
 
-    public static void DisactivatePower (ShellPower type, Player player)
+    public static void DisactivatePower(ShellPower type, Player player)
     {
         switch (type)
         {
@@ -51,18 +51,18 @@ public class PowerLibrary
         }
     }
 
-    public static void RotolaOn (Player player)
+    public static void RotolaOn(Player player)
     {
 
     }
 
-    public static void SpeedBoostOn (Player player)
+    public static void SpeedBoostOn(Player player)
     {
         Player.Instance.EnableDash();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
-    public static void JumpBoostOn (Player player)
+    public static void JumpBoostOn(Player player)
     {
         Player.Instance.EnableDoubleJump();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
@@ -82,18 +82,18 @@ public class PowerLibrary
         luminescenceCoroutine = player.StartCoroutine(LuminescenceFade(light, 10f));
     }
 
-    public static void RotolaOff (Player player)
+    public static void RotolaOff(Player player)
     {
 
     }
 
-    public static void SpeedBoostOff (Player player)
+    public static void SpeedBoostOff(Player player)
     {
         Player.Instance.DisableDush();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
-    public static void JumpBoostOff (Player player)
+    public static void JumpBoostOff(Player player)
     {
         Player.Instance.DisableDoubleJump();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
@@ -126,5 +126,17 @@ public class PowerLibrary
         light.intensity = 0f;
         light.enabled = false;
     }
+    public static void RechargeLuminescence(Player player)
+    {
+            var light = player.luminescentLight;
+            if (light == null) return;
+
+            if (luminescenceCoroutine != null)
+                player.StopCoroutine(luminescenceCoroutine);
+
+            light.enabled = true;
+            light.intensity = 1f;
+    }
+
 
 }
