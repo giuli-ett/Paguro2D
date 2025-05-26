@@ -179,10 +179,10 @@ public class Player : MonoBehaviour
         {
             if (context.performed || Keyboard.current.spaceKey.isPressed)
             {
-                /*if (amo.isAttached)
+                if (amo.isAttached)
                 {
                     amo.Detach();
-                }*/
+                }
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 isGrounded = false;

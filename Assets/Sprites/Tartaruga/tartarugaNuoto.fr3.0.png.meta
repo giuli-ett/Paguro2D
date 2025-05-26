@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 543fd0b8cecff1f4398eb89acec56747
+guid: 9bd6ce6924df71d4fb1d5b25659b1222
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7644651420245143141
-    second: turtle.frame02_0
-  - first:
-      213: -5596365343136391076
-    second: turtle.frame02_1
-  - first:
-      213: 3673623117677998445
-    second: turtle.frame02_2
+      213: -7992170764009309285
+    second: tartarugaNuoto.fr3.0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: turtle.frame02_2
+      name: tartarugaNuoto.fr3.0_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 255
-        width: 992
-        height: 544
+        x: 0
+        y: 0
+        width: 996
+        height: 479
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d613cd703c45bf230800000000000000
-      internalID: 3673623117677998445
+      spriteID: b9b76f2d80b161190800000000000000
+      internalID: -7992170764009309285
       vertices: []
       indices: 
       edges: []
@@ -131,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b16627bcdac03f74a82a07d2049891c6
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -140,10 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      turtle.frame02_0: 7644651420245143141
-      turtle.frame02_1: -5596365343136391076
-      turtle.frame02_2: 3673623117677998445
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

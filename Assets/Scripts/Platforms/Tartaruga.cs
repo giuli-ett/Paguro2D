@@ -19,7 +19,7 @@ public class Tartaruga : MonoBehaviour
     {
         startPosition = transform.position;
         animator = GetComponent<Animator>();
-        animator.SetFloat("Schiacciato", 1f);
+        animator.SetFloat("Schiacciato", 0f);
         lastX = startPosition.x;
         lastPosition = transform.position;
     }
