@@ -175,9 +175,9 @@ public class Player : MonoBehaviour
     {
         if (!canMove) { Debug.Log("Non posso muovermi"); return; }
 
-        if (jumpCount < maxJump)
+        if (context.performed || Keyboard.current.spaceKey.isPressed) 
         {
-            if (context.performed || Keyboard.current.spaceKey.isPressed)
+            if (jumpCount < maxJump)
             {
                 if (amo.isAttached)
                 {
