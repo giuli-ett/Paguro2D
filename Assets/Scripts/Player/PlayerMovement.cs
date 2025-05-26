@@ -143,8 +143,8 @@ public class Player : MonoBehaviour
             float newY = localPos.y + (verticalMovement * moveSpeed * Time.deltaTime);
 
             // Applica limiti locali
-            float topY = climbTopLimit.localPosition.y;
-            float bottomY = climbBottomLimit.localPosition.y;
+            float topY = amo.currentClimbTopLimit.localPosition.y;
+            float bottomY = amo.currentClimbBottomLimit.localPosition.y;
             newY = Mathf.Clamp(newY, bottomY, topY);
 
             // Applica nuova posizione, mantenendo X e Z locali
@@ -179,10 +179,10 @@ public class Player : MonoBehaviour
         {
             if (context.performed || Keyboard.current.spaceKey.isPressed)
             {
-                /*if (amo.isAttached)
+                if (amo.isAttached)
                 {
                     amo.Detach();
-                }*/
+                }
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 isGrounded = false;

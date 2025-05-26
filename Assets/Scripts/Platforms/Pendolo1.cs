@@ -6,6 +6,8 @@ public class Pendolo : MonoBehaviour
     public float swingFrequency = 1f; // Frequency of the swing motion
     private float currentAngle;
     private float time;
+    public Transform climbTopLimit;
+    public Transform climbBottomLimit;
 
     void Start()
     {

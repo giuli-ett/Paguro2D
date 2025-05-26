@@ -92,11 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forza: 500
-  tempoAttivo: 8
-  tempoDisattivo: 4
   bubbleParticles: {fileID: 2136399076172317524}
   emissionRateWhenActive: 10
-  emissionRateWhenInactive: 0
 --- !u!1 &3866405592984806071
 GameObject:
   m_ObjectHideFlags: 0

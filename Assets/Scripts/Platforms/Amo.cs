@@ -11,6 +11,9 @@ public class Amo : MonoBehaviour
     public Collider2D currentClimbableCollider;
     private Vector3 initialScale;
 
+    public Transform currentClimbTopLimit;
+    public Transform currentClimbBottomLimit;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +25,8 @@ public class Amo : MonoBehaviour
         // Assicurati che il player entri in contatto con un oggetto con tag "Hook"
         if (other.CompareTag("Hook"))
         {
+            currentClimbTopLimit = other.gameObject.GetComponent<Pendolo>().climbTopLimit;
+            currentClimbBottomLimit = other.gameObject.GetComponent<Pendolo>().climbBottomLimit;
             AttachTo(other.transform);
         }
     }
