@@ -13,7 +13,7 @@ public class TartarugaSchiacciata : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            tartaruga.SetSchiacciato(false);
+            tartaruga.SetSchiacciato(true);
         }
     }
 
@@ -21,7 +21,7 @@ public class TartarugaSchiacciata : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            tartaruga.SetSchiacciato(true);
+            tartaruga.SetSchiacciato(false);
         }
     }
 }
