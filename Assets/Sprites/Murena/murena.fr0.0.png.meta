@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 772a48de7ce357647a0fc373030b96a0
+guid: a98c2a743e5b51847ac854e20b4377e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1710902749933374891
-    second: jellyfish.frame01_0
+      213: -8487278761845078717
+    second: murena.fr0.0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jellyfish.frame01_0
+      name: murena.fr0.0_0
       rect:
         serializedVersion: 2
-        x: 261
-        y: 208
-        width: 472
-        height: 636
+        x: 0
+        y: 0
+        width: 889
+        height: 965
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bad840f7cf85eb710800000000000000
-      internalID: 1710902749933374891
+      spriteID: 345c1820fe0273a80800000000000000
+      internalID: -8487278761845078717
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      jellyfish.frame01_0: 1710902749933374891
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
