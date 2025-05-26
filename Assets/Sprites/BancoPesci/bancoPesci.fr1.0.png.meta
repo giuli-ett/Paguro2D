@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bancoPesci.fr1.0_0: 7054593323982329363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

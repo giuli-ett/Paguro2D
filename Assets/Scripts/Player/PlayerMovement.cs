@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public bool isGrounded;
 
     [Header("GUSCI")]
-    private int maxJump = 1;
+    public int maxJump = 1;
     public int jumpCount = 0;
     [SerializeField] private bool canDash = false;
     private bool isDashing = false;
@@ -183,21 +183,12 @@ public class Player : MonoBehaviour
                 {
                     amo.Detach();
                 }
+                jumpCount++;
                 Debug.Log("Salto!");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 isGrounded = false;
-                animator.SetBool("isJumping", !isGrounded);
-                jumpCount++;
+                animator.SetBool("isJumping", !isGrounded);   
             }
-            /*
-            else if (context.canceled)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
-                isGrounded = false;
-                animator.SetBool("isJumping", !isGrounded);
-                jumpCount++;
-            }
-            */
         }
     }
     private void CheckGrounded()

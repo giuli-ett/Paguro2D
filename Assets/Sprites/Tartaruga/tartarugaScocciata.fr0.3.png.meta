@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tartarugaScocciata.fr0.3_0: 7363958211560889859
+      tartarugaScocciata.fr0.3_1: 526703706178186014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

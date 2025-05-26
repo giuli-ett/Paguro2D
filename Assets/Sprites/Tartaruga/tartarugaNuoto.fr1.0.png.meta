@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tartarugaNuoto.fr1.0_0: -6472846585165070910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
