@@ -83,7 +83,7 @@ public class Amo : MonoBehaviour
 
             isClimbing = false;
             isAttached = false;
-            Player.Instance.jumpCount = 1;
+            //Player.Instance.jumpCount = 1;
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 1f;
 
