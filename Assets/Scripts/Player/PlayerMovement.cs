@@ -41,6 +41,10 @@ public class Player : MonoBehaviour
     private bool isDashing = false;
     public bool InLuminescenceZone = false;
 
+    private float timeSinceLastJump = 0f;
+    private float jumpResetBuffer = 0.1f; // ritardo prima di consentire il reset
+
+
     public static Player Instance
     {
         get { return instance; }
@@ -48,7 +52,15 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Debug.LogWarning("🛑 Hai più di un Player nella scena!");
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
+
         shellManager = GetComponent<ShellManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -78,13 +90,27 @@ public class Player : MonoBehaviour
             animator.SetFloat("yVelocity", rb.linearVelocity.y);
         }
 
-        if (!isGrounded && rb.linearVelocity.x != 0f)
+        if (rb.linearVelocity.y > 0.1f && !isGrounded)
         {
-            animator.SetFloat("xVelocity", 0f);
-            
+            animator.SetBool("isJumping", true);
+        }
+        else if (rb.linearVelocity.y < -0.1f && !isGrounded)
+        {
+            animator.SetBool("isFalling", true);
+        }
+        else
+        {
+            animator.SetBool("isJumping", false);
+            animator.SetBool("isFalling", false);
         }
 
         CheckGrounded();
+    }
+
+    void Update()
+    {
+        Debug.Log($"jumpCount = {jumpCount}");
+
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -132,50 +158,26 @@ public class Player : MonoBehaviour
     {
         if (amo.isAttached)
         {
-            // Blocca la fisica
             rb.gravityScale = 0f;
-            rb.linearVelocity = Vector2.zero; // non usare linearVelocity se Rigidbody2D
+            rb.linearVelocity = Vector2.zero; 
 
-            // Prendi posizione locale rispetto all’amo
             Vector3 localPos = transform.localPosition;
 
-            // Calcola nuova posizione locale lungo l’asse Y (cioè su/giù lungo la corda)
             float newY = localPos.y + (verticalMovement * moveSpeed * Time.deltaTime);
 
-            // Applica limiti locali
             float topY = amo.currentClimbTopLimit.localPosition.y;
             float bottomY = amo.currentClimbBottomLimit.localPosition.y;
             newY = Mathf.Clamp(newY, bottomY, topY);
 
-            // Applica nuova posizione, mantenendo X e Z locali
             transform.localPosition = new Vector3(0, newY, localPos.z);
         }
     }
-
-
-    /*
-    private bool AmoHasBounds(out Bounds bounds)
-    {
-        bounds = default;
-
-        if (TryGetComponent<Amo>(out Amo amo))
-        {
-            if (amo.isAttached && amo.currentClimbableCollider != null)
-            {
-                bounds = amo.currentClimbableCollider.bounds;
-                return true;
-            }
-        }
-
-        return false;
-    }
-    */
 
     public void Jump(InputAction.CallbackContext context)
     {
         if (!canMove) { Debug.Log("Non posso muovermi"); return; }
 
-        if (context.performed || Keyboard.current.spaceKey.isPressed) 
+        if (context.performed /* || Keyboard.current.spaceKey.isPressed */) 
         {
             if (jumpCount < maxJump)
             {
@@ -183,22 +185,33 @@ public class Player : MonoBehaviour
                 {
                     amo.Detach();
                 }
+                
                 jumpCount++;
-                Debug.Log("Salto!");
+                timeSinceLastJump = Time.time;
+                Debug.Log($"Salto!, {jumpCount}");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
-                isGrounded = false;
-                animator.SetBool("isJumping", !isGrounded);   
+                animator.SetBool("isJumping", !isGrounded);
             }
         }
     }
     private void CheckGrounded()
     {
-        isGrounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, groundLayer);
+        bool grounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, groundLayer);
 
-        if (isGrounded || amo.isAttached)
+        if (grounded || amo.isAttached)
         {
-            jumpCount = 0;
-            animator.SetBool("isJumping", false);
+            Debug.Log("Sei a terra, azzero i salti");
+            isGrounded = true;
+            if (Time.time - timeSinceLastJump > jumpResetBuffer)
+            {
+                jumpCount = 0;
+                animator.SetBool("isJumping", false);
+            }
+        }
+        else
+        {
+            //Debug.Log("Non sei a terra");
+            isGrounded = false;
         }
     }
 

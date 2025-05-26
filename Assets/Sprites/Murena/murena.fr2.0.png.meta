@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      murena.fr2.0_0: -3232799699754358983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      medusaCupola.bounce.fr1.0_0: -5897294637311087896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

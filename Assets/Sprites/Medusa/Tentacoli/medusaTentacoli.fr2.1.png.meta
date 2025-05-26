@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      medusaTentacoli.fr2.1_0: -6623984708370590985
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
