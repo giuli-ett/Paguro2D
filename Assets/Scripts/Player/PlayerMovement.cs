@@ -143,8 +143,8 @@ public class Player : MonoBehaviour
             float newY = localPos.y + (verticalMovement * moveSpeed * Time.deltaTime);
 
             // Applica limiti locali
-            float topY = climbTopLimit.localPosition.y;
-            float bottomY = climbBottomLimit.localPosition.y;
+            float topY = amo.currentClimbTopLimit.localPosition.y;
+            float bottomY = amo.currentClimbBottomLimit.localPosition.y;
             newY = Mathf.Clamp(newY, bottomY, topY);
 
             // Applica nuova posizione, mantenendo X e Z locali

@@ -11,6 +11,7 @@ public class ShellPicker : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Sei vicino al guscio");
             text.SetActive(true);
             Player.Instance.shellManager.closeShell = this;
         }
