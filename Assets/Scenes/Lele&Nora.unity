@@ -11320,6 +11320,14 @@ PrefabInstance:
       value: CratereBolle
       objectReference: {fileID: 0}
     - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
       propertyPath: m_LocalPosition.x
       value: 957
       objectReference: {fileID: 0}

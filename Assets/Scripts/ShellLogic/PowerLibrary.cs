@@ -26,6 +26,10 @@ public class PowerLibrary : MonoBehaviour
             case ShellPower.Luminescenza:
                 LuminescenzaOn(player);
                 break;
+
+            case ShellPower.NascondiScava:
+                NascondiScavaOn(player);
+                break;
         }
     }
 
@@ -47,6 +51,10 @@ public class PowerLibrary : MonoBehaviour
 
             case ShellPower.Luminescenza:
                 LuminescenzaOff(player);
+                break;
+
+            case ShellPower.NascondiScava:
+                NascondiScavaOff(player);
                 break;
         }
     }
@@ -82,6 +90,11 @@ public class PowerLibrary : MonoBehaviour
         luminescenceCoroutine = player.StartCoroutine(LuminescenceFade(light, 10f));
     }
 
+    public static void NascondiScavaOn(Player player)
+    {
+
+    }
+
     public static void RotolaOff(Player player)
     {
 
@@ -109,6 +122,11 @@ public class PowerLibrary : MonoBehaviour
 
         light.enabled = false;
 
+    }
+
+    public static void NascondiScavaOff(Player player)
+    {
+        
     }
 
     private static IEnumerator LuminescenceFade(Light2D light, float duration)

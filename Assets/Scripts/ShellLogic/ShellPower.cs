@@ -1,7 +1,8 @@
-public enum ShellPower 
+public enum ShellPower
 {
     JumpBoost,
     Rotola,
     SpeedBoost,
-    Luminescenza
+    Luminescenza,
+    NascondiScava
 }

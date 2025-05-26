@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
-    public float acceleration = 10f;         
-    public float deceleration = 20f;        
+    public float acceleration = 10f;
+    public float deceleration = 20f;
     float horizontalMovement;
     float verticalMovement;
     public bool canMove = true;
@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
         if (amo.isAttached)
         {
             rb.gravityScale = 0f;
-            rb.linearVelocity = Vector2.zero; 
+            rb.linearVelocity = Vector2.zero;
 
             Vector3 localPos = transform.localPosition;
 
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
     {
         if (!canMove) { Debug.Log("Non posso muovermi"); return; }
 
-        if (context.performed /* || Keyboard.current.spaceKey.isPressed */) 
+        if (context.performed /* || Keyboard.current.spaceKey.isPressed */)
         {
             if (jumpCount < maxJump)
             {
@@ -185,7 +185,7 @@ public class Player : MonoBehaviour
                 {
                     amo.Detach();
                 }
-                
+
                 jumpCount++;
                 timeSinceLastJump = Time.time;
                 Debug.Log($"Salto!, {jumpCount}");
@@ -210,7 +210,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Non sei a terra");
             isGrounded = false;
         }
     }
@@ -234,5 +233,27 @@ public class Player : MonoBehaviour
     {
         canDash = false;
         isDashing = false;
+    }
+
+    public void Hide(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (shellManager.currentShellPicker.shell.name == "NascondiScava")
+            {
+                // LOGICA NASCONDI
+            }
+        }
+    }
+
+    public void Scava(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (shellManager.currentShellPicker.shell.name == "NascondiScava")
+            {
+                // LOGICA SCAVA
+            }
+        }
     }
 }
