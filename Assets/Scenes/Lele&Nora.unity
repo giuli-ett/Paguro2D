@@ -4761,6 +4761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia
       objectReference: {fileID: 0}
+    - target: {fileID: 4030802520931610724, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7724608745517659758, guid: c9c540a0d99484c469521ac06296583e, type: 3}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -4775,7 +4779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.496136
+      value: -21.59
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.z
