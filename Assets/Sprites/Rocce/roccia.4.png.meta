@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      roccia.4_0: -8031240116788700974
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      anemoneRosso_0: -5527241440441372451
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
