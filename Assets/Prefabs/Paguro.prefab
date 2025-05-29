@@ -683,9 +683,9 @@ MonoBehaviour:
   amo: {fileID: 0}
   climbTopLimit: {fileID: 0}
   climbBottomLimit: {fileID: 0}
-  moveSpeed: 12
-  acceleration: 25
-  deceleration: 25
+  moveSpeed: 13
+  acceleration: 29
+  deceleration: 29
   canMove: 1
   isClimbing: 0
   jumpPower: 40
@@ -695,6 +695,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isGrounded: 0
+  maxJump: 1
   jumpCount: 0
   canDash: 0
   InLuminescenceZone: 0
@@ -780,6 +781,8 @@ MonoBehaviour:
   isAttached: 0
   isClimbing: 0
   currentClimbableCollider: {fileID: 0}
+  currentClimbTopLimit: {fileID: 0}
+  currentClimbBottomLimit: {fileID: 0}
 --- !u!61 &7363815412780597789
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MappaMondi.unity
     guid: 0511027c7bd9bf34aacc595df7a42daa
   - enabled: 0
-    path: Assets/Scenes/Lele&Nora.unity
+    path: Assets/Scenes/Livello1.unity
     guid: 7ae27146f490dab499f5bb81f581e1a5
   - enabled: 0
     path: Assets/Scenes/GiuliaCeretto.unity
