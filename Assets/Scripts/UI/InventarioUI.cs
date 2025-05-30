@@ -10,6 +10,7 @@ public class InventarioUI : MonoBehaviour
     public PlayerInput input;
     public List<Shell> shellList;
     public ShellPicker shellPrefab;
+    public Shell baseShell;
 
     [Header("SLOT NAVIGATION")]
     public List<Slot> shellSlots;
@@ -21,7 +22,7 @@ public class InventarioUI : MonoBehaviour
         panelInventario.SetActive(false);
 
         shellList = new List<Shell>();
-        shellList.Add(null);
+        shellList.Add(baseShell);
 
         AggiornaInventarioUI();
     }
@@ -106,10 +107,12 @@ public class InventarioUI : MonoBehaviour
 
             if (selezionato == null)
             {
+                Player.Instance.animator.SetBool("isChange", true);
                 Player.Instance.shellManager.RemoveShell();
             }
             else if (Player.Instance.shellManager.currentShell != selezionato)
             {
+                Player.Instance.animator.SetBool("isChange", true);
                 Player.Instance.shellManager.RemoveShell();
                 var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
                 Player.Instance.shellManager.WearShell(selezionato, shellPicker);

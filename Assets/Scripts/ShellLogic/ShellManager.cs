@@ -3,19 +3,23 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ShellManager : MonoBehaviour
-{ 
+{
     [Header("RIFERIMENTI")]
-    
+
     public InventarioUI inventario;
     public Transform shellPosition;
+    public Shell baseShell;
+    public ShellPicker baseShellPicker;
     public Shell currentShell;
     public ShellPicker currentShellPicker;
     public ShellPicker closeShell;
     public Dictionary<Shell, ShellPicker> equippedShellPickers = new();
+    public bool siStaCambiando = false;
 
     private void Awake()
     {
         inventario = GameObject.FindAnyObjectByType<InventarioUI>();
+        equippedShellPickers.Add(baseShell, baseShellPicker);
     }
 
     public void Interact(InputAction.CallbackContext context)
@@ -36,10 +40,10 @@ public class ShellManager : MonoBehaviour
     }
 
     // EQUIPAGGIA GUSCIO
-    public void WearShell (Shell shell, ShellPicker shellPicker)
+    public void WearShell(Shell shell, ShellPicker shellPicker)
     {
         Debug.Log($"Hai equipaggiato il guscio {shell.name}");
-
+        Player.Instance.animator.SetBool("isChange", true);
         // Se hai già un guscio attivo, disattivalo
         if (currentShellPicker != null)
         {
@@ -59,7 +63,7 @@ public class ShellManager : MonoBehaviour
             {
                 rb.bodyType = RigidbodyType2D.Kinematic;
             }
-            
+
             shellPicker.GetComponent<Collider2D>().enabled = false;
             shellPicker.text.SetActive(false);
 
@@ -69,6 +73,11 @@ public class ShellManager : MonoBehaviour
         // Aggiorna il riferimento corrente
         currentShell = shell;
         currentShellPicker = equippedShellPickers[shell];
+
+        while (siStaCambiando)
+        {
+            Debug.Log("Mi sto cambiando");
+        }
         currentShellPicker.gameObject.SetActive(true);
         Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
@@ -79,7 +88,6 @@ public class ShellManager : MonoBehaviour
         {
             inventario.AggiungiGuscio(shell);
         }
-
     }
 
     // RIMUOVI GUSCIO
@@ -87,6 +95,7 @@ public class ShellManager : MonoBehaviour
     {
         if (currentShellPicker != null)
         {
+            Player.Instance.animator.SetBool("isChange", true);
             currentShell.PowerOff(Player.Instance);
             currentShellPicker.gameObject.SetActive(false);
             currentShellPicker = null;
@@ -104,5 +113,16 @@ public class ShellManager : MonoBehaviour
             return equippedShellPickers[shell];
         }
         return null;
+    }
+
+    public void OnChangeOver()
+    {
+        Player.Instance.animator.SetBool("isChange", false);
+        siStaCambiando = false;
+    }
+
+    public void OnChangeStart()
+    {
+        siStaCambiando = true;
     }
 }

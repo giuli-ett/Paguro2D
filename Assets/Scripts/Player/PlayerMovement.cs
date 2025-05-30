@@ -125,18 +125,24 @@ public class Player : MonoBehaviour
         if (horizontalMovement > 0.01f)
         {
             spriteRenderer.flipX = false; // Guarda a destra
+            /*
             if (shellManager.currentShellPicker != null)
             {
                 spriteRendererShell.flipX = false; // Guarda a destra
             }
+            */
+            spriteRendererShell.flipX = false;
         }
         else if (horizontalMovement < -0.01f)
         {
             spriteRenderer.flipX = true; // Guarda a sinistra
+            /*
             if (shellManager.currentShellPicker != null)
             {
                 spriteRendererShell.flipX = true; // Guarda a destra
             }
+            */
+            spriteRendererShell.flipX = true;
         }
     }
 

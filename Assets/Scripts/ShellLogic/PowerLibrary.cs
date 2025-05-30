@@ -11,6 +11,10 @@ public class PowerLibrary : MonoBehaviour
     {
         switch (type)
         {
+            case ShellPower.Base:
+                BaseOn(player);
+                break;
+
             case ShellPower.Rotola:
                 RotolaOn(player);
                 break;
@@ -37,6 +41,10 @@ public class PowerLibrary : MonoBehaviour
     {
         switch (type)
         {
+            case ShellPower.Base:
+                BaseOff(player);
+                break;
+
             case ShellPower.Rotola:
                 RotolaOff(player);
                 break;
@@ -57,6 +65,16 @@ public class PowerLibrary : MonoBehaviour
                 NascondiScavaOff(player);
                 break;
         }
+    }
+
+    public static void BaseOn(Player player)
+    {
+        Debug.Log("Guscio base on");
+    }
+
+    public static void BaseOff(Player player)
+    {
+        Debug.Log("Guscio base off");
     }
 
     public static void RotolaOn(Player player)

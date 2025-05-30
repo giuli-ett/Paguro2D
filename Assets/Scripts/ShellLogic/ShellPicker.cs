@@ -11,9 +11,12 @@ public class ShellPicker : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Sei vicino al guscio");
-            text.SetActive(true);
-            Player.Instance.shellManager.closeShell = this;
+            if (text != null)
+            {
+                Debug.Log("Sei vicino al guscio");
+                text.SetActive(true);
+                Player.Instance.shellManager.closeShell = this;
+            }
         }
     }
 
@@ -21,8 +24,11 @@ public class ShellPicker : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            text.SetActive(false);
-            Player.Instance.shellManager.closeShell = null;
+            if (text != null)
+            {
+                text.SetActive(false);
+                Player.Instance.shellManager.closeShell = null;
+            }
         }
     }
 }
