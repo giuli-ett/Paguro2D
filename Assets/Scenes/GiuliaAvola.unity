@@ -5281,6 +5281,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144812001686287869, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: baseShell
+      value: 
+      objectReference: {fileID: 11400000, guid: 926a0059fae9b344da1e23b01274ab87, type: 2}
+    - target: {fileID: 144812001686287869, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: shellList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 144812001686287869, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: 'shellList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 926a0059fae9b344da1e23b01274ab87, type: 2}
     - target: {fileID: 549559586599611400, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5310,7 +5322,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 926a0059fae9b344da1e23b01274ab87, type: 2}
     - target: {fileID: 576454016092146419, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: currentShell
+      value: 
+      objectReference: {fileID: 11400000, guid: 926a0059fae9b344da1e23b01274ab87, type: 2}
+    - target: {fileID: 576454016092146419, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: baseShellPicker
+      value: 
+      objectReference: {fileID: 664831882}
+    - target: {fileID: 576454016092146419, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: currentShellPicker
       value: 
       objectReference: {fileID: 664831882}
     - target: {fileID: 1151397177373305272, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
