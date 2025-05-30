@@ -94,14 +94,16 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isJumping", true);
         }
+        /*
         else if (rb.linearVelocity.y < -0.1f && !isGrounded)
         {
             animator.SetBool("isFalling", true);
         }
+        */
         else
         {
             animator.SetBool("isJumping", false);
-            animator.SetBool("isFalling", false);
+            //animator.SetBool("isFalling", false);
         }
 
         CheckGrounded();
