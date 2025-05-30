@@ -7,7 +7,7 @@ public class FineLivello : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(3);
         }
     }
 }

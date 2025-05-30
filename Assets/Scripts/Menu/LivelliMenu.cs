@@ -5,7 +5,7 @@ public class LivelliMenu : MonoBehaviour
 {
     public void PlayLivelloUno()
     {
-        SceneManager.LoadSceneAsync(3);
+        SceneManager.LoadSceneAsync(2);
     }
     public void PlayLivelloDue()
     {
@@ -19,13 +19,5 @@ public class LivelliMenu : MonoBehaviour
     {
         //SceneManager.LoadSceneAsync(5);
     }
-    public void SceltaLivello()
-    {
-        SceneManager.LoadSceneAsync(1);
-    }
-
-    public void TornaMenu()
-    {
-        SceneManager.LoadSceneAsync(0);
-    }
+    
 }
