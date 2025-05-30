@@ -14,7 +14,6 @@ public class LifeController : MonoBehaviour
     private Vector3 respawnPosition;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         currentHealth = maxHealth;
