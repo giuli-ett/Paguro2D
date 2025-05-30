@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7314e04a485c1aa4f904c544c73de096, type: 3}
   m_Name: Base
   m_EditorClassIdentifier: 
-  shellName: 
-  shellPower: 
+  shellName: Guscio base
+  shellPower: Nessuno
   power: 0

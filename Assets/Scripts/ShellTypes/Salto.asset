@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellName: Guscio salterino
   shellPower: Doppio salto
-  power: 0
+  power: 1
