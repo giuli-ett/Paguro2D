@@ -713,9 +713,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventario: {fileID: 144812001686287869}
   shellPosition: {fileID: 100295616260963599}
+  baseShell: {fileID: 0}
+  baseShellPicker: {fileID: 0}
   currentShell: {fileID: 0}
   currentShellPicker: {fileID: 0}
   closeShell: {fileID: 0}
+  siStaCambiando: 0
 --- !u!50 &6675481289707555362
 Rigidbody2D:
   serializedVersion: 5
@@ -753,7 +756,7 @@ Animator:
   m_GameObject: {fileID: 1893166039717881223}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 80871a3328f41664d841813845a4c783, type: 2}
+  m_Controller: {fileID: 9100000, guid: 116bab2200859be48908bc39d3420221, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2128,6 +2131,7 @@ MonoBehaviour:
   input: {fileID: 8043509663214757404}
   shellList: []
   shellPrefab: {fileID: 0}
+  baseShell: {fileID: 0}
   shellSlots:
   - {fileID: 7539498412586950778}
   - {fileID: 6677841012153195809}
