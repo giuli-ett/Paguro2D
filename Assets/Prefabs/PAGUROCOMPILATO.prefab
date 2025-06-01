@@ -235,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1893166039717881223, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_Name
-      value: Paguro Variant
+      value: PAGUROCOMPILATO
       objectReference: {fileID: 0}
     - target: {fileID: 1893166039717881223, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_TagString
@@ -312,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 6363822975420226135, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2b61a1dda39966c448338959de78109f, type: 3}
+      objectReference: {fileID: -840005439179654266, guid: fd11cca5725739646a1139ac6a3a8ae6, type: 3}
     - target: {fileID: 6791695916221263428, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -384,6 +384,14 @@ PrefabInstance:
     - target: {fileID: 7363815412780597789, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363815412780597789, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363815412780597789, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 6.28
       objectReference: {fileID: 0}
     - target: {fileID: 8363416255581743365, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_Enabled

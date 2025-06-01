@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 53ee5ae5e03a181489e60db9b23346b4
+guid: ffdb0fb9f6371704da7560e71a6132e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7569417455322958755
-    second: HFD0114_4e570fbb-1fd1-4fee-a5e5-099649bda78e_0
+      213: 4229632258694534890
+    second: paguroJump.fr6.0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HFD0114_4e570fbb-1fd1-4fee-a5e5-099649bda78e_0
+      name: paguroJump.fr6.0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 750
+        x: 176
+        y: 174
+        width: 674
+        height: 680
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5475dacde604f690800000000000000
-      internalID: -7569417455322958755
+      spriteID: ae65506312ca2ba30800000000000000
+      internalID: 4229632258694534890
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HFD0114_4e570fbb-1fd1-4fee-a5e5-099649bda78e_0: -7569417455322958755
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
