@@ -74,6 +74,7 @@ public class ShellManager : MonoBehaviour
         currentShell = shell;
         currentShellPicker = equippedShellPickers[shell];
 
+        /*
         for (int i = 0; i < 99999999999; i++)
         {
             if (siStaCambiando)
@@ -86,6 +87,8 @@ public class ShellManager : MonoBehaviour
             }
             
         }
+        */
+        
         currentShellPicker.gameObject.SetActive(true);
         Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
