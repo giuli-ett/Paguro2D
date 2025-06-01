@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5649329546190942522}
   - component: {fileID: 771645269096657347}
   - component: {fileID: 4132061457574393933}
-  - component: {fileID: 52009066403425730}
   m_Layer: 0
   m_Name: BancoPesci
   m_TagString: Untagged
@@ -130,21 +129,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 4
---- !u!114 &52009066403425730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597658051777604453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca91afde3f37d0640886062faa5e29fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocita: 2
-  distanza: 1.2
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 10
 --- !u!1 &5808582529243012481
 GameObject:
   m_ObjectHideFlags: 0
