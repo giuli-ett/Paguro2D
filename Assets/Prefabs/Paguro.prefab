@@ -339,8 +339,6 @@ GameObject:
   - component: {fileID: 6318172938522537986}
   - component: {fileID: 7363815412780597789}
   - component: {fileID: 3410485413157077361}
-  - component: {fileID: 7004461793605188901}
-  - component: {fileID: 8363416255581743365}
   m_Layer: 0
   m_Name: Paguro
   m_TagString: Player
@@ -410,7 +408,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1575360227
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4e92f29814f18ed4fb2d0e1df9673e6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -442,6 +440,7 @@ MonoBehaviour:
   dashKey: 304
   inventoryKey: 9
   selectionKey: 13
+  camouflageKey: 112
   inputBlock: 0
 --- !u!114 &4711434119517646023
 MonoBehaviour:
@@ -680,7 +679,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   collider2D: {fileID: 0}
   luminescentLight: {fileID: 2504340725921723788}
-  amo: {fileID: 0}
+  amo: {fileID: 6318172938522537986}
   climbTopLimit: {fileID: 0}
   climbBottomLimit: {fileID: 0}
   moveSpeed: 13
@@ -699,6 +698,7 @@ MonoBehaviour:
   jumpCount: 0
   canDash: 0
   InLuminescenceZone: 0
+  isInvisible: 0
 --- !u!114 &576454016092146419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,42 +850,6 @@ MonoBehaviour:
   - {fileID: 7559593840721197730}
   - {fileID: 4631491342298920646}
   - {fileID: 1315204825354684854}
---- !u!114 &7004461793605188901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893166039717881223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5d995ca092eec44ad4ef5c8bddc943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  invincibilityTime: 1
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &8363416255581743365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893166039717881223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5d995ca092eec44ad4ef5c8bddc943, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  invincibilityTime: 1
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &2814014348820193505
 GameObject:
   m_ObjectHideFlags: 0

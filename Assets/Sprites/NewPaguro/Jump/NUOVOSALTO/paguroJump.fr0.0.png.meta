@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paguroJump.fr0.0_0: -7980962081307126414
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

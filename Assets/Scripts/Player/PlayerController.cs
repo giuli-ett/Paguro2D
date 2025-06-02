@@ -34,6 +34,7 @@ public class PlayerOld : MonoBehaviour
     [SerializeField] private float dashDuration = 0.2f;
     private bool isDashing = false;
     private float dashTimeLeft = 1.0f;
+    
 
     public static Player Instance
     {
@@ -52,7 +53,7 @@ public class PlayerOld : MonoBehaviour
 
         input = GetComponent<PlayerInput>();
         shellManager = GetComponent<ShellManager>();
-    }
+}
 
     private void Update()
     {
