@@ -28,7 +28,7 @@ public class LifeController : MonoBehaviour
         isInvincible = false;
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("Giocatore morto!");
         currentHealth = maxHealth;

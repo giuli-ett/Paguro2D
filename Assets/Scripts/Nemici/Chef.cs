@@ -31,6 +31,7 @@ public class Chef : MonoBehaviour
 
     void Update()
     {
+        
         if (isGrabbing)
         {
             grabTimer += Time.deltaTime;
@@ -44,10 +45,27 @@ public class Chef : MonoBehaviour
                 grabTimer = 0f;
 
                 Debug.Log("Il paguro è stato catturato!");
-                // GameManager.Instance.GameOver(); // se vuoi
-            }
 
-            return;
+                // Scollega il paguro dalla mano
+                if (target != null) target.SetParent(null);
+
+                // Riattiva Rigidbody
+                if (playerRb != null)
+                {
+                    playerRb.isKinematic = false;
+                    playerRb.simulated = true;
+                }
+
+                // Riattiva controlli del player
+                if (player != null) player.enabled = true;
+
+                // Chiama il metodo di morte dal LifeController
+                LifeController vita = target.GetComponent<LifeController>();
+                if (vita != null)
+                {
+                    vita.Die();
+                }
+            }
         }
 
         if (player == null || player.isInvisible) return;
