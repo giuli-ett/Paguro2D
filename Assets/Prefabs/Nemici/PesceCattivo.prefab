@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5249696771505266242}
   - component: {fileID: 5332309679804785390}
   - component: {fileID: 8374484427532714492}
+  - component: {fileID: -1332895008478268844}
   m_Layer: 3
   m_Name: PesceCattivo
   m_TagString: Enemy
@@ -177,3 +178,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocita: 2
   distanza: 1.2
+--- !u!114 &-1332895008478268844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021002786858112780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b7de2610c17b64da84904fa14d13aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  handleRadius: 0.5
+  snappingSettings: {x: 0.1, y: 0.1}
+  gizmoDeselectedColor: {r: 0, g: 0, b: 1, a: 1}
+  rb: {fileID: 0}
+  editing: 0
+  pathType: 0
+  behaviorType: 0
+  moveSpeed: 5
+  stopDistance: 0.1
