@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
 
     [Header("GUSCIO LUMINOSO")]
     public bool InLuminescenceZone = false;
+    public bool isInvisible = false;
+    private PlayerInput playerInput;
 
     [Header("IMPULSO AMO")]
     [SerializeField] private float swingImpulseSpeed = 12f;
@@ -79,6 +81,7 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         isGrounded = true;
         originalMoveSpeed = moveSpeed;
+        playerInput = GetComponent<PlayerInput>();
     }
 
     private void FixedUpdate()
@@ -116,7 +119,16 @@ public class Player : MonoBehaviour
         CheckGrounded();
     }
 
+
+    void Update()
+    {
+        Debug.Log($"jumpCount = {jumpCount}");
+        HandleCamouflageInput();
+    }
+
+
     // FLIP DELLO SPRITE
+
     public void Flip(InputAction.CallbackContext context)
     {
         if (!canMove) return;
@@ -306,6 +318,18 @@ public class Player : MonoBehaviour
             {
                 // LOGICA SCAVA
             }
+        }
+    }
+
+    private void HandleCamouflageInput()
+    {
+        if (playerInput == null || shellManager == null) return;
+
+        if (playerInput.Camouflage &&
+           shellManager.currentShellPicker.shell.name == "Mimetico" &&
+            !isInvisible)
+        {
+            PowerLibrary.MimeticoOn(this);
         }
     }
 }
