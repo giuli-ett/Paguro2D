@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
@@ -15,8 +16,6 @@ public class Player : MonoBehaviour
     public CapsuleCollider2D collider2D;
     public Light2D luminescentLight;
     public Amo amo;
-    public Transform climbTopLimit;
-    public Transform climbBottomLimit;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -33,16 +32,30 @@ public class Player : MonoBehaviour
     public Vector2 groundCheckSize = new Vector2(0.5f, 0.5f);
     public LayerMask groundLayer;
     public bool isGrounded;
+    public bool isOnTopMedusa = false;
 
-    [Header("GUSCI")]
+    [Header("GUSCIO SALTO")]
     public int maxJump = 1;
     public int jumpCount = 0;
-    [SerializeField] private bool canDash = false;
+    
+    [Header("DASH")]
+    [SerializeField] private float dashMultiplier = 2f;
+    [SerializeField] private float dashDuration = 0.2f;
+    [SerializeField] private float dashCooldown = 1f;
     private bool isDashing = false;
+    private bool dashOnCooldown = false;
+    private float originalMoveSpeed;
+    private float timeSinceLastJump = 0f;
+    private float jumpResetBuffer = 0.1f;
+    public bool canDash;
+
+    [Header("GUSCIO LUMINOSO")]
     public bool InLuminescenceZone = false;
 
-    private float timeSinceLastJump = 0f;
-    private float jumpResetBuffer = 0.1f; // ritardo prima di consentire il reset
+    [Header("IMPULSO AMO")]
+    [SerializeField] private float swingImpulseSpeed = 12f;
+    [SerializeField] private float swingImpulseDuration = 0.3f;
+    private bool isSwingImpulseActive = false;
 
 
     public static Player Instance
@@ -65,6 +78,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         isGrounded = true;
+        originalMoveSpeed = moveSpeed;
     }
 
     private void FixedUpdate()
@@ -94,28 +108,16 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isJumping", true);
         }
-        /*
-        else if (rb.linearVelocity.y < -0.1f && !isGrounded)
-        {
-            animator.SetBool("isFalling", true);
-        }
-        */
         else
         {
             animator.SetBool("isJumping", false);
-            //animator.SetBool("isFalling", false);
         }
 
         CheckGrounded();
     }
 
-    void Update()
-    {
-        Debug.Log($"jumpCount = {jumpCount}");
-
-    }
-
-    public void Move(InputAction.CallbackContext context)
+    // FLIP DELLO SPRITE
+    public void Flip(InputAction.CallbackContext context)
     {
         if (!canMove) return;
 
@@ -125,27 +127,16 @@ public class Player : MonoBehaviour
         if (horizontalMovement > 0.01f)
         {
             spriteRenderer.flipX = false; // Guarda a destra
-            /*
-            if (shellManager.currentShellPicker != null)
-            {
-                spriteRendererShell.flipX = false; // Guarda a destra
-            }
-            */
             spriteRendererShell.flipX = false;
         }
         else if (horizontalMovement < -0.01f)
         {
             spriteRenderer.flipX = true; // Guarda a sinistra
-            /*
-            if (shellManager.currentShellPicker != null)
-            {
-                spriteRendererShell.flipX = true; // Guarda a destra
-            }
-            */
             spriteRendererShell.flipX = true;
         }
     }
 
+    // MOVIMENTO
     private void MovePlayer()
     {
         if (isClimbing) return;
@@ -162,6 +153,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // ARRAMPICATA SULL'AMO
     private void Climb()
     {
         if (amo.isAttached)
@@ -181,34 +173,61 @@ public class Player : MonoBehaviour
         }
     }
 
+    // IMPULSO AMO
+    public void ApplySwingImpulse()
+    {
+        if (isSwingImpulseActive) return;
+        Debug.Log("✅ Impulso da amo applicato");
+        StartCoroutine(PerformSwingImpulse());
+    }
+
+    // IMPULSO AMO
+    private IEnumerator PerformSwingImpulse()
+    {
+        isSwingImpulseActive = true;
+
+        float direction = spriteRenderer.flipX ? -1f : 1f;
+        float elapsed = 0f;
+
+        while (elapsed < swingImpulseDuration)
+        {
+            rb.linearVelocity = new Vector2(direction * swingImpulseSpeed, rb.linearVelocity.y);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        isSwingImpulseActive = false;
+    }
+
+    // SALTO
     public void Jump(InputAction.CallbackContext context)
     {
         if (!canMove) { Debug.Log("Non posso muovermi"); return; }
 
-        if (context.performed /* || Keyboard.current.spaceKey.isPressed */)
+        if (context.performed)
         {
+            if (amo.isAttached)
+            {
+                amo.Detach();
+            }
+
             if (jumpCount < maxJump)
             {
-                if (amo.isAttached)
-                {
-                    amo.Detach();
-                }
-
                 jumpCount++;
                 timeSinceLastJump = Time.time;
-                Debug.Log($"Salto!, {jumpCount}");
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
                 animator.SetBool("isJumping", !isGrounded);
             }
         }
     }
+
+    // CONTROLLO GROUNDED
     private void CheckGrounded()
     {
         bool grounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, groundLayer);
 
         if (grounded || amo.isAttached)
         {
-            Debug.Log("Sei a terra, azzero i salti");
             isGrounded = true;
             if (Time.time - timeSinceLastJump > jumpResetBuffer)
             {
@@ -220,6 +239,31 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    // CONTROLLO DASH
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (!canDash || isDashing || dashOnCooldown || !context.performed)
+            return;
+
+        StartCoroutine(PerformDash());
+    }
+    
+    // DASH
+    private IEnumerator PerformDash()
+    {
+        isDashing = true;
+        dashOnCooldown = true;
+
+        moveSpeed *= dashMultiplier;
+        yield return new WaitForSeconds(dashDuration);
+
+        moveSpeed = originalMoveSpeed;
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        dashOnCooldown = false;
     }
 
     public void EnableDoubleJump()

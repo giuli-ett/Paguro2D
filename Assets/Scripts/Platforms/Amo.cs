@@ -10,6 +10,7 @@ public class Amo : MonoBehaviour
     private Transform currentClimbable;
     public Collider2D currentClimbableCollider;
     private Vector3 initialScale;
+    public float forceMagnitude;
 
     public Transform currentClimbTopLimit;
     public Transform currentClimbBottomLimit;
@@ -83,11 +84,12 @@ public class Amo : MonoBehaviour
 
             isClimbing = false;
             isAttached = false;
-            //Player.Instance.jumpCount = 1;
+
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 1f;
 
             Player.Instance.isClimbing = false;
+            Player.Instance.ApplySwingImpulse();
         }
     }
 }
