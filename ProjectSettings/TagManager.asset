@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - Hook
   - Ground
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - Player
   - Background
-  - 
-  - 
+  - Palla
+  - Pavimento
   - 
   - 
   - 
