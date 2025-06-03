@@ -5,6 +5,5 @@ public enum ShellPower
     Rotola,
     SpeedBoost,
     Luminescenza,
-    NascondiScava,
-    Mimetico
+    NascondiScava
 }

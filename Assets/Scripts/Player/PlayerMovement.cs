@@ -40,8 +40,6 @@ public class Player : MonoBehaviour
     [SerializeField] private bool canDash = false;
     private bool isDashing = false;
     public bool InLuminescenceZone = false;
-    public bool isInvisible = false;
-    private PlayerInput playerInput;
 
     private float timeSinceLastJump = 0f;
     private float jumpResetBuffer = 0.1f; // ritardo prima di consentire il reset
@@ -67,7 +65,6 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         isGrounded = true;
-        playerInput = GetComponent<PlayerInput>();
     }
 
     private void FixedUpdate()
@@ -115,7 +112,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Debug.Log($"jumpCount = {jumpCount}");
-        HandleCamouflageInput();
+
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -265,18 +262,6 @@ public class Player : MonoBehaviour
             {
                 // LOGICA SCAVA
             }
-        }
-    }
-
-    private void HandleCamouflageInput()
-    {
-        if (playerInput == null || shellManager == null) return;
-
-        if (playerInput.Camouflage &&
-           shellManager.currentShellPicker.shell.name == "Mimetico" &&
-            !isInvisible)
-        {
-            PowerLibrary.MimeticoOn(this);
         }
     }
 }
