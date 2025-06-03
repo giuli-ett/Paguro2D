@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1741892617727048318}
   - component: {fileID: 4338472772703859320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShellsGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 4792768008076703353}
   - component: {fileID: 1384004482949049368}
   - component: {fileID: 5569369469637943464}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: CanvasCuori
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 5055806774629015494}
   - component: {fileID: 8868827957179205622}
   - component: {fileID: 3581152963491028730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icon5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 8254585418268372881}
   - component: {fileID: 2200407921648331206}
   - component: {fileID: 3579677421832703461}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Cuore3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 6318172938522537986}
   - component: {fileID: 7363815412780597789}
   - component: {fileID: 3410485413157077361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Paguro
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -440,6 +440,7 @@ MonoBehaviour:
   dashKey: 304
   inventoryKey: 9
   selectionKey: 13
+  camouflageKey: 112
   inputBlock: 0
 --- !u!114 &4711434119517646023
 MonoBehaviour:
@@ -678,9 +679,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   collider2D: {fileID: 0}
   luminescentLight: {fileID: 2504340725921723788}
-  amo: {fileID: 0}
-  climbTopLimit: {fileID: 0}
-  climbBottomLimit: {fileID: 0}
+  amo: {fileID: 6318172938522537986}
   moveSpeed: 13
   acceleration: 29
   deceleration: 29
@@ -691,12 +690,19 @@ MonoBehaviour:
   groundCheckSize: {x: 6.39, y: 0.8}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 520
   isGrounded: 0
+  isOnTopMedusa: 0
   maxJump: 1
   jumpCount: 0
+  dashMultiplier: 2
+  dashDuration: 0.2
+  dashCooldown: 1
   canDash: 0
   InLuminescenceZone: 0
+  isInvisible: 0
+  swingImpulseSpeed: 12
+  swingImpulseDuration: 0.3
 --- !u!114 &576454016092146419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,6 +788,7 @@ MonoBehaviour:
   isAttached: 0
   isClimbing: 0
   currentClimbableCollider: {fileID: 0}
+  forceMagnitude: 0
   currentClimbTopLimit: {fileID: 0}
   currentClimbBottomLimit: {fileID: 0}
 --- !u!61 &7363815412780597789
@@ -848,6 +855,7 @@ MonoBehaviour:
   - {fileID: 7559593840721197730}
   - {fileID: 4631491342298920646}
   - {fileID: 1315204825354684854}
+  palla: {fileID: 0}
 --- !u!1 &2814014348820193505
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +869,7 @@ GameObject:
   - component: {fileID: 7258724778742170690}
   - component: {fileID: 7677398091096096486}
   - component: {fileID: 2769538703525986973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -965,7 +973,7 @@ GameObject:
   - component: {fileID: 4077520380861505295}
   - component: {fileID: 6214055279980656906}
   - component: {fileID: 245046142556959087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icon4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1050,7 @@ GameObject:
   - component: {fileID: 8790898984444661346}
   - component: {fileID: 8040102460163649832}
   - component: {fileID: 5932956159425365383}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1156,7 @@ GameObject:
   - component: {fileID: 2080303560681181184}
   - component: {fileID: 4890273069432169914}
   - component: {fileID: 1141326465254485621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1252,7 +1260,7 @@ GameObject:
   - component: {fileID: 6320901624370254154}
   - component: {fileID: 4222855399795031192}
   - component: {fileID: 6910240709886692583}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1327,7 +1335,7 @@ GameObject:
   - component: {fileID: 2177029053694127549}
   - component: {fileID: 2411391604468828429}
   - component: {fileID: 8268841999507898717}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Cuore2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1410,7 @@ GameObject:
   - component: {fileID: 7248143635547417118}
   - component: {fileID: 331131166625296114}
   - component: {fileID: 8693496069430975117}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icon3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1477,7 +1485,7 @@ GameObject:
   - component: {fileID: 5431656409225190074}
   - component: {fileID: 7192948609615172080}
   - component: {fileID: 5194834995531895765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icon6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1562,7 @@ GameObject:
   - component: {fileID: 6546313049729406007}
   - component: {fileID: 8897991530057698952}
   - component: {fileID: 4045595438182071554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1656,7 +1664,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2775212244258167595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1691,7 +1699,7 @@ GameObject:
   - component: {fileID: 3091218068602916572}
   - component: {fileID: 3602465900922363971}
   - component: {fileID: 7539498412586950778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1794,7 +1802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1993301432908449318}
   - component: {fileID: 2504340725921723788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpotLight2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1879,7 +1887,7 @@ GameObject:
   - component: {fileID: 3188256863198964278}
   - component: {fileID: 3995201955477298340}
   - component: {fileID: 719225080721605941}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Cuore1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1952,7 +1960,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100295616260963599}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShellPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1987,7 +1995,7 @@ GameObject:
   - component: {fileID: 1978121202050791992}
   - component: {fileID: 7821901846496230977}
   - component: {fileID: 144812001686287869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CanvasInventario
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2115,7 +2123,7 @@ GameObject:
   - component: {fileID: 5808790332298796364}
   - component: {fileID: 6831440784425219258}
   - component: {fileID: 6677841012153195809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2219,7 +2227,7 @@ GameObject:
   - component: {fileID: 1302813006129752462}
   - component: {fileID: 7241401511535203368}
   - component: {fileID: 6162830269656696157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Icon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
