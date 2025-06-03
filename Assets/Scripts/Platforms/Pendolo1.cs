@@ -6,6 +6,7 @@ public class Pendolo : MonoBehaviour
     public float swingFrequency = 1f; // Frequency of the swing motion
     private float currentAngle;
     private float time;
+    public float AngularVelocity { get; private set; }
     public Transform climbTopLimit;
     public Transform climbBottomLimit;
 
@@ -17,11 +18,12 @@ public class Pendolo : MonoBehaviour
     }
    void Update()
     {
-        // Update the time based on swing speed
         time += Time.deltaTime * swingSpeed;
-        // Calculate the current angle using a sine wave for smooth oscillation
+
+        float prevAngle = currentAngle;
         currentAngle = swingAngle * Mathf.Sin(time * swingFrequency);
-        // Apply rotation
+        AngularVelocity = (currentAngle - prevAngle) / Time.deltaTime;
+
         transform.rotation = Quaternion.Euler(0, 0, currentAngle);
     }
 }
