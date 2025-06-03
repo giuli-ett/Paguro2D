@@ -6,6 +6,8 @@ using UnityEngine.Rendering.Universal;
 public class PowerLibrary : MonoBehaviour
 {
     private static Coroutine luminescenceCoroutine;
+    private static Coroutine camouflageCoroutine;
+
 
     public static void ActivatePower(ShellPower type, Player player)
     {
@@ -33,6 +35,10 @@ public class PowerLibrary : MonoBehaviour
 
             case ShellPower.NascondiScava:
                 NascondiScavaOn(player);
+                break;
+            
+            case ShellPower.Mimetico:
+                MimeticoOn(player);
                 break;
         }
     }
@@ -63,6 +69,10 @@ public class PowerLibrary : MonoBehaviour
 
             case ShellPower.NascondiScava:
                 NascondiScavaOff(player);
+                break;
+
+            case ShellPower.Mimetico:
+                MimeticoOff(player);
                 break;
         }
     }
@@ -113,6 +123,14 @@ public class PowerLibrary : MonoBehaviour
 
     }
 
+    public static void MimeticoOn(Player player)
+    {
+        if (camouflageCoroutine != null)
+            player.StopCoroutine(camouflageCoroutine);
+
+        camouflageCoroutine = player.StartCoroutine(CamouflageRoutine(player));
+    }
+
     public static void RotolaOff(Player player)
     {
 
@@ -147,6 +165,15 @@ public class PowerLibrary : MonoBehaviour
         
     }
 
+    public static void MimeticoOff(Player player)
+    {
+
+    }
+
+    // altre funzioni
+
+    // gestione luminescenza
+
     private static IEnumerator LuminescenceFade(Light2D light, float duration)
     {
         float startIntensity = 1f;
@@ -172,6 +199,27 @@ public class PowerLibrary : MonoBehaviour
 
             light.enabled = true;
             light.intensity = 1f;
+    }
+
+    // gestione mimetizzazione
+
+    private static IEnumerator CamouflageRoutine(Player player)
+    {
+        player.isInvisible = true;
+
+        // Effetto visivo: semitrasparente
+        SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
+
+        yield return new WaitForSeconds(5f);
+
+        player.isInvisible = false;
+
+        if (spriteRenderer != null)
+            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+
+        camouflageCoroutine = null;
     }
 
 

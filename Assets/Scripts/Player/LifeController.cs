@@ -13,6 +13,8 @@ public class LifeController : MonoBehaviour
     [SerializeField] private GameObject[] hearts;
     private Vector3 respawnPosition;
 
+    [SerializeField] private Palla palla;
+
 
     void Awake()
     {
@@ -28,7 +30,7 @@ public class LifeController : MonoBehaviour
         isInvincible = false;
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("Giocatore morto!");
         currentHealth = maxHealth;
@@ -36,6 +38,11 @@ public class LifeController : MonoBehaviour
         for (int i = 0; i < hearts.Length; i++)
         {
             hearts[i].SetActive(true);
+        }
+
+        if (palla != null)
+        {
+            palla.ResetPosition();
         }
 
         transform.position = respawnPosition;

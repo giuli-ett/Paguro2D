@@ -10,7 +10,8 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private KeyCode dashKey;
     [SerializeField] private KeyCode inventoryKey;
     [SerializeField] private KeyCode selectionKey;
-    
+    [SerializeField] private KeyCode camouflageKey;
+
     private float horizontalInput;
     public bool inputBlock = false;
 
@@ -68,7 +69,13 @@ public class PlayerInput : MonoBehaviour
             return Input.GetKeyDown(selectionKey);
         }
     }
-
+    public bool Camouflage
+    {
+        get
+        {
+            return Input.GetKeyDown(camouflageKey);
+        }
+    }
     private void GetInput()
     {
         if (Input.GetKey(rightInputKey))
