@@ -402,6 +402,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7611203065436843461}
     - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: collider2D
       value: 
       objectReference: {fileID: 0}

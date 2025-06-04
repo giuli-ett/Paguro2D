@@ -681,11 +681,11 @@ MonoBehaviour:
   luminescentLight: {fileID: 2504340725921723788}
   amo: {fileID: 6318172938522537986}
   moveSpeed: 13
-  acceleration: 29
-  deceleration: 29
+  acceleration: 33
+  deceleration: 33
   canMove: 1
   isClimbing: 0
-  jumpPower: 40
+  jumpPower: 85
   groundCheckPosition: {fileID: 2775212244258167595}
   groundCheckSize: {x: 6.39, y: 0.8}
   groundLayer:
