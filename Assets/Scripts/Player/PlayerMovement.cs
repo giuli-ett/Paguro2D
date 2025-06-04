@@ -129,7 +129,7 @@ public class Player : MonoBehaviour
 
     // FLIP DELLO SPRITE
 
-    public void Flip(InputAction.CallbackContext context)
+    public void Move(InputAction.CallbackContext context)
     {
         if (!canMove) return;
 
