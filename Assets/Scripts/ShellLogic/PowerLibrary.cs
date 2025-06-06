@@ -120,7 +120,8 @@ public class PowerLibrary : MonoBehaviour
 
     public static void NascondiScavaOn(Player player)
     {
-
+        Player.Instance.EnableScava();
+        Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
     public static void MimeticoOn(Player player)
@@ -139,13 +140,13 @@ public class PowerLibrary : MonoBehaviour
     public static void SpeedBoostOff(Player player)
     {
         Player.Instance.DisableDush();
-        Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
+        Debug.Log($"Hai rimossso il guscio: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
     public static void JumpBoostOff(Player player)
     {
         Player.Instance.DisableDoubleJump();
-        Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
+        Debug.Log($"Hai rimosso il guscio: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
     public static void LuminescenzaOff(Player player)
@@ -162,7 +163,8 @@ public class PowerLibrary : MonoBehaviour
 
     public static void NascondiScavaOff(Player player)
     {
-        
+        Player.Instance.DisableScava();
+        Debug.Log($"Hai rimosso il guscio: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
     public static void MimeticoOff(Player player)

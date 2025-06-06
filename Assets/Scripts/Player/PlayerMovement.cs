@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
     [Header("GUSCIO SCAVO")]
     [SerializeField] private float digRange = 5f;
     [SerializeField] private LayerMask diggableLayer;
+    public bool canDig = false;
 
     [Header("IMPULSO AMO")]
     [SerializeField] private float swingImpulseSpeed = 12f;
@@ -304,6 +306,16 @@ public class Player : MonoBehaviour
         isDashing = false;
     }
 
+    public void EnableScava()
+    {
+        canDig = true;
+    }
+
+    public void DisableScava()
+    {
+        canDig = false;
+    }
+
     public void Hide(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -315,37 +327,40 @@ public class Player : MonoBehaviour
         }
     }
 
+    // SCAVA
     public void Scava(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        //if (shellManager.currentShellPicker.shell.name != "NascondiScava") return;
+        if (shellManager.currentShellPicker.shell.name != "NascondiScava") return;
 
-        Vector2 origin = transform.position;
-        Vector2 direction;
+        if (canDig)
+        {
+            Vector2 origin = transform.position;
+            Vector2 direction;
 
-        if (verticalMovement < -0.5f) // Scava verso il basso
-        {
-            direction = Vector2.down;
-        }
-        else // Scava orizzontalmente, nella direzione dello sguardo
-        {
-            direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+            if (verticalMovement < -0.5f)
+            {
+                direction = Vector2.down;
+            }
+            else
+            {
+                direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+            }
+
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
+            Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
+
+            if (hit.collider != null)
+            {
+                Destroy(hit.collider.gameObject);
+                Debug.Log("✅ Blocco scavato in direzione: " + direction);
+            }
+            else
+            {
+                Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
+            }
         }
 
-        // Esegui il raycast nella direzione scelta
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
-        Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
-
-        if (hit.collider != null)
-        {
-            //animator.SetTrigger("Scava");
-            Destroy(hit.collider.gameObject);
-            Debug.Log("✅ Blocco scavato in direzione: " + direction);
-        }
-        else
-        {
-            Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
-        }
     }
 
 
