@@ -993,6 +993,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 234.03004
@@ -10190,6 +10194,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 240.03004
@@ -10313,6 +10321,10 @@ PrefabInstance:
     - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_Name
       value: Roccia (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10829,7 +10841,7 @@ GameObject:
   - component: {fileID: 938736889}
   - component: {fileID: 938736888}
   - component: {fileID: 938736887}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11738,6 +11750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 236.03001
@@ -12050,6 +12066,10 @@ PrefabInstance:
     - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_Name
       value: Roccia (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13033,6 +13053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 246.03001
@@ -13094,6 +13118,10 @@ PrefabInstance:
     - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_Name
       value: Roccia (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14978,6 +15006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 244.03001
@@ -16435,6 +16467,10 @@ PrefabInstance:
     - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_Name
       value: Roccia (63)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19048,7 +19084,7 @@ GameObject:
   - component: {fileID: 1560872221}
   - component: {fileID: 1560872220}
   - component: {fileID: 1560872219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21179,6 +21215,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Roccia (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 242.03004
@@ -22735,7 +22775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888089708}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22881,6 +22921,10 @@ PrefabInstance:
     - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_Name
       value: Roccia (64)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23699,6 +23743,10 @@ PrefabInstance:
     - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_Name
       value: Roccia (55)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107470189092797352, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
       propertyPath: m_LocalPosition.x

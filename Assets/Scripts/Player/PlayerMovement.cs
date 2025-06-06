@@ -288,6 +288,7 @@ public class Player : MonoBehaviour
         dashOnCooldown = false;
     }
 
+    // HIDE
     public void Hide(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
@@ -306,10 +307,10 @@ public class Player : MonoBehaviour
             {
                 isHiding = false;
                 canMove = true;
-                spriteRenderer.color = new Color(1f, 1f, 1f, 1f); 
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
             }
         }
-           
+
     }
 
     // SCAVA
@@ -348,6 +349,7 @@ public class Player : MonoBehaviour
 
     }
 
+    // GUSCIO MIMETICO
     private void HandleCamouflageInput()
     {
         if (playerInput == null || shellManager == null) return;
