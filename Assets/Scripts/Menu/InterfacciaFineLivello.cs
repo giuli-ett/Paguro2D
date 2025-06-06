@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class InterfacciaFineLivello : MonoBehaviour
 {
     public static InterfacciaFineLivello Instance;
-    public List<Collezionabili> collezionabili = new List<Collezionabili>();
-    public delegate void OnItemCollected(Collezionabili collezionabile);
-    public event OnItemCollected ItemCollected;
     public TextMeshProUGUI number;
 
     private void Awake()
@@ -20,6 +17,24 @@ public class InterfacciaFineLivello : MonoBehaviour
         }
         Instance = this;
     }
+    
+    private void OnEnable()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.ItemCollectedEvent += OnItemCollected;
+    }
+    
+    private void OnDisable()
+    {
+        if (GameManager.Instance != null)
+            GameManager.Instance.ItemCollectedEvent -= OnItemCollected;
+    }
+
+    private void Start()
+    {
+        AggiornaTestoUI();
+    }
+
     public void SceltaLivello()
     {
         SceneManager.LoadSceneAsync(1);
@@ -30,32 +45,16 @@ public class InterfacciaFineLivello : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
-    public void CollectItem(Collezionabili collezionabile)
+    private void OnItemCollected(Collezionabile collezionabile)
     {
-        if (!collezionabili.Contains(collezionabile))
-        {
-            collezionabili.Add(collezionabile);
-            Debug.Log($"✨ Collezionabile raccolto: {collezionabile}");
-
-            ItemCollected?.Invoke(collezionabile);
-
-            AggiornaTestoUI();
-        }
+        AggiornaTestoUI();
     }
-
-    public bool HasCollected(Collezionabili collezionabile)
-    {
-        return collezionabili.Contains(collezionabile);
-    }
-
-    public int TotalCollected => collezionabili.Count;
 
     private void AggiornaTestoUI()
     {
-        if (number != null)
+        if (number != null && GameManager.Instance != null)
         {
-            number.text = $"Collezionabili: {TotalCollected}/3";
+            number.text = $"Collezionabili: {GameManager.Instance.TotalCollected}/3";
         }
-            
     }
 }

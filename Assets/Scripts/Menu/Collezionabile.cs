@@ -1,7 +1,7 @@
 using UnityEditor.AssetImporters;
 using UnityEngine;
 
-public class Collezionabili : MonoBehaviour
+public class Collezionabile : MonoBehaviour
 {
     public string nome;
 
@@ -15,7 +15,7 @@ public class Collezionabili : MonoBehaviour
 
     public void Collect()
     {
-        InterfacciaFineLivello.Instance.CollectItem(this);
+        GameManager.Instance.CollectItem(this);
         Destroy(gameObject);
     }
 
