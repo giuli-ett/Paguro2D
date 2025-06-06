@@ -4,13 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Palla
-  - Enemy
-  - HealthPickup
-  - Checkpoint
   - Hook
+  - Enemy
   - Ground
-  - MovingPlatform
+  - Checkpoint
+  - HealthPickup
   layers:
   - Default
   - TransparentFX
@@ -19,10 +17,10 @@ TagManager:
   - Water
   - UI
   - Player
-  - Background
-  - Palla
-  - Pavimento
-  - 
+  - Guscio
+  - Diggable
+  - Forno
+  - Sportello
   - 
   - 
   - 
@@ -45,17 +43,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 673587149
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Guscio
-    uniqueID: 961248539
+    uniqueID: 1089442399
+    locked: 0
+  - name: Forno
+    uniqueID: 3760842435
+    locked: 0
+  - name: Sportello
+    uniqueID: 215363895
     locked: 0
   - name: Player
-    uniqueID: 2719607069
+    uniqueID: 492105805
     locked: 0
   m_RenderingLayers:
   - Default

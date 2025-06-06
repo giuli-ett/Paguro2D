@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     private static Player instance;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public SpriteRenderer spriteRendererShell;
     public Rigidbody2D rb;
     public ShellManager shellManager;
@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     float verticalMovement;
     public bool canMove = true;
     public bool isClimbing = false;
+    public bool isInForno = false;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
