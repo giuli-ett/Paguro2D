@@ -14,7 +14,6 @@ public class ShellManager : MonoBehaviour
     public ShellPicker currentShellPicker;
     public ShellPicker closeShell;
     public Dictionary<Shell, ShellPicker> equippedShellPickers = new();
-    public bool siStaCambiando = false;
 
     private void Awake()
     {
@@ -42,8 +41,8 @@ public class ShellManager : MonoBehaviour
     // EQUIPAGGIA GUSCIO
     public void WearShell(Shell shell, ShellPicker shellPicker)
     {
-        Debug.Log($"Hai equipaggiato il guscio {shell.name}");
         Player.Instance.animator.SetBool("isChange", true);
+        
         // Se hai già un guscio attivo, disattivalo
         if (currentShellPicker != null)
         {
@@ -81,7 +80,7 @@ public class ShellManager : MonoBehaviour
         }
         */
 
-        currentShellPicker.gameObject.SetActive(true);
+        //currentShellPicker.gameObject.SetActive(true);
         Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
         // Attiva il potere del guscio
@@ -123,11 +122,7 @@ public class ShellManager : MonoBehaviour
     public void OnChangeOver()
     {
         Player.Instance.animator.SetBool("isChange", false);
-        siStaCambiando = false;
+        currentShellPicker.gameObject.SetActive(true);
     }
 
-    public void OnChangeStart()
-    {
-        siStaCambiando = true;
-    }
 }
