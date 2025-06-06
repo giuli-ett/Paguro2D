@@ -7,17 +7,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public List<CollezionabiliLivello> listaLivelli = new();
     public List<Collezionabile> collectedItems = new();
+    public int currentLevel;
     public event Action<Collezionabile> ItemCollectedEvent;
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); 
+            Destroy(gameObject);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); 
+        DontDestroyOnLoad(gameObject);
     }
 
     public void CollectItem(Collezionabile item)
