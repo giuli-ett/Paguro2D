@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class InventarioUI : MonoBehaviour
 {
@@ -124,18 +125,18 @@ public class InventarioUI : MonoBehaviour
         }
     }
 
-    public void AggiungiGuscio (Shell nuovoGuscio)
+    public void AggiungiGuscio (Shell nuovoGuscio, ShellPicker shellPicker)
     {
         if (!shellList.Contains(nuovoGuscio))
         {
             shellList.Add(nuovoGuscio);
-
+            
             int slotIndex = shellList.Count - 1;
             if (slotIndex < shellSlots.Count)
             {
                 shellSlots[slotIndex].SetIcon(); 
             }
-
+            
             AggiornaInventarioUI();
         }
     }

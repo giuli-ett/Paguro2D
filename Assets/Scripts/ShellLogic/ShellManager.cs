@@ -74,10 +74,13 @@ public class ShellManager : MonoBehaviour
         currentShell = shell;
         currentShellPicker = equippedShellPickers[shell];
 
+        /*
         while (siStaCambiando)
         {
             Debug.Log("Mi sto cambiando");
         }
+        */
+
         currentShellPicker.gameObject.SetActive(true);
         Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
@@ -86,8 +89,10 @@ public class ShellManager : MonoBehaviour
 
         if (!inventario.shellList.Contains(shell))
         {
-            inventario.AggiungiGuscio(shell);
+            inventario.AggiungiGuscio(shell, currentShellPicker);
         }
+
+        Player.Instance.spriteRendererShell.flipX = Player.Instance.spriteRenderer.flipX;
     }
 
     // RIMUOVI GUSCIO
