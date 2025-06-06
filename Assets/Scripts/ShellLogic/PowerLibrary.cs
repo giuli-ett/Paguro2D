@@ -120,7 +120,7 @@ public class PowerLibrary : MonoBehaviour
 
     public static void NascondiScavaOn(Player player)
     {
-        Player.Instance.EnableScava();
+        Player.Instance.EnableNascondiScava();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
@@ -163,7 +163,7 @@ public class PowerLibrary : MonoBehaviour
 
     public static void NascondiScavaOff(Player player)
     {
-        Player.Instance.DisableScava();
+        Player.Instance.DisableNascondiScava();
         Debug.Log($"Hai rimosso il guscio: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 

@@ -87,36 +87,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "TriggerNetAnimation",
-                    "type": "Button",
-                    "id": "a43e1ea1-91b2-4e8d-b424-2146139b6488",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "TriggerMomAnimation",
-                    "type": "Button",
-                    "id": "34e99d67-ad07-4cc4-809f-b3b779557dab",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Detach",
-                    "type": "Button",
-                    "id": "21297105-3597-403e-b942-4e8314f251a2",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Scava",
                     "type": "Button",
                     "id": "c96f080c-bc4d-4189-b607-7e3f8a0240aa",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hide",
+                    "type": "Button",
+                    "id": "9926468e-1429-4702-b011-4075f14d0443",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -489,45 +471,23 @@
                 },
                 {
                     "name": "",
-                    "id": "5dd585a4-f4b7-4d82-a46d-ecccb8b7d2ec",
-                    "path": "<Keyboard>/g",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TriggerNetAnimation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "90c79171-f864-4022-a5ca-ca3679fd41ee",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TriggerMomAnimation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "808f33e5-f446-4a3a-8526-91f1eb735f04",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Detach",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "37e8b0f2-e62e-424a-9dc7-a701f20765e0",
                     "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Scava",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e55d6915-810d-4219-a362-f156bdcd6272",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

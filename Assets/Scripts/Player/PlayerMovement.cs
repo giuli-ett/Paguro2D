@@ -49,16 +49,18 @@ public class Player : MonoBehaviour
     [Header("GUSCIO SALTO")]
     public int maxJump = 1;
     public int jumpCount = 0;
-    
+
     [Header("GUSCIO LUMINOSO")]
     public bool InLuminescenceZone = false;
     public bool isInvisible = false;
     private PlayerInput playerInput;
 
-    [Header("GUSCIO SCAVO")]
+    [Header("GUSCIO NASCONDI/SCAVA")]
     [SerializeField] private float digRange = 5f;
     [SerializeField] private LayerMask diggableLayer;
     public bool canDig = false;
+    public bool canHide = false;
+    public bool isHiding = false;
 
     [Header("IMPULSO AMO")]
     [SerializeField] private float swingImpulseSpeed = 12f;
@@ -268,7 +270,7 @@ public class Player : MonoBehaviour
 
         StartCoroutine(PerformDash());
     }
-    
+
     // DASH
     private IEnumerator PerformDash()
     {
@@ -285,46 +287,28 @@ public class Player : MonoBehaviour
         dashOnCooldown = false;
     }
 
-    public void EnableDoubleJump()
-    {
-        maxJump = 2;
-    }
-
-    public void DisableDoubleJump()
-    {
-        maxJump = 1;
-    }
-
-    public void EnableDash()
-    {
-        canDash = true;
-    }
-
-    public void DisableDush()
-    {
-        canDash = false;
-        isDashing = false;
-    }
-
-    public void EnableScava()
-    {
-        canDig = true;
-    }
-
-    public void DisableScava()
-    {
-        canDig = false;
-    }
-
     public void Hide(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed) return;
+        if (shellManager.currentShellPicker.shell.name != "NascondiScava") return;
+
+        if (canHide)
         {
-            if (shellManager.currentShellPicker.shell.name == "NascondiScava")
+            if (!isHiding) // Hai premuto per entrare nel guscio
             {
-                // LOGICA NASCONDI
+                isHiding = true;
+                canMove = false;
+                rb.linearVelocity = Vector2.zero;
+                this.spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
+            }
+            else // Hai premuto per uscire dal guscio
+            {
+                isHiding = false;
+                canMove = true;
+                spriteRenderer.color = new Color(1f, 1f, 1f, 1f); 
             }
         }
+           
     }
 
     // SCAVA
@@ -363,8 +347,6 @@ public class Player : MonoBehaviour
 
     }
 
-
-
     private void HandleCamouflageInput()
     {
         if (playerInput == null || shellManager == null) return;
@@ -375,5 +357,39 @@ public class Player : MonoBehaviour
         {
             PowerLibrary.MimeticoOn(this);
         }
+    }
+    
+    // FUNZIONI ATTIVA/DISATTIVA FUNZIONALITA' DEL GUSCIO
+    public void EnableDoubleJump()
+    {
+        maxJump = 2;
+    }
+
+    public void DisableDoubleJump()
+    {
+        maxJump = 1;
+    }
+
+    public void EnableDash()
+    {
+        canDash = true;
+    }
+
+    public void DisableDush()
+    {
+        canDash = false;
+        isDashing = false;
+    }
+
+    public void EnableNascondiScava()
+    {
+        canHide = true;
+        canDig = true;
+    }
+
+    public void DisableNascondiScava()
+    {
+        canHide = false;
+        canDig = false;
     }
 }
