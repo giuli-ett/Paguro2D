@@ -7,6 +7,11 @@ public class Slot : MonoBehaviour
 
     public void SetIcon()
     {
-       transform.GetChild(0).GetComponent<Image>().sprite = icon;
+        transform.GetChild(0).GetComponent<Image>().sprite = icon;
+    }
+
+    public void SetCollezionabile()
+    {
+        this.GetComponent<Image>().sprite = icon;
     }
 }

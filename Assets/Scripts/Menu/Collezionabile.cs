@@ -4,6 +4,7 @@ using UnityEngine;
 public class Collezionabile : MonoBehaviour
 {
     public string nome;
+    public Slot slot;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,6 +16,7 @@ public class Collezionabile : MonoBehaviour
 
     public void Collect()
     {
+        slot.SetCollezionabile();
         GameManager.Instance.CollectItem(this);
         Destroy(gameObject);
     }
