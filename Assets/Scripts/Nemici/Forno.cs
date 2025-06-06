@@ -4,6 +4,7 @@ public class Forno : MonoBehaviour
 {
     public Collider2D solidCollider;
     public PlatformEffector2D platformEffector;
+    public Collider2D triggerFall;
     private Animator animator;
     public enum StatoForno { Chiuso, Aprendo, Aperto, Chiudendo }
     public StatoForno stato = StatoForno.Chiuso;
@@ -26,6 +27,7 @@ public class Forno : MonoBehaviour
             case "Aperto":
                 stato = StatoForno.Aperto;
                 solidCollider.enabled = false;
+                triggerFall.enabled = false;
                 platformEffector.enabled = true;
                 
                 if (Player.Instance.isInForno)
@@ -52,7 +54,13 @@ public class Forno : MonoBehaviour
             case "Chiuso":
                 stato = StatoForno.Chiuso;
                 solidCollider.enabled = true;
+                triggerFall.enabled = true;
                 platformEffector.enabled = false;
+
+                if (Player.Instance.isInForno)
+                {
+                    Player.Instance.GetComponent<LifeController>().TakeDamage();
+                }
                 break;
         }
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerForno : MonoBehaviour
+public class TriggerFornoPiattaforma : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
