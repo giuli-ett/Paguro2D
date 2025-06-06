@@ -253,9 +253,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 961248539
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 492105805
+  m_SortingLayer: 4
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 3b88572337507dc48babdcec4f205089, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -608,6 +608,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -840005439179654266, guid: fd11cca5725739646a1139ac6a3a8ae6, type: 3}
+    - target: {fileID: 6363822975420226135, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363822975420226135, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 492105805
+      objectReference: {fileID: 0}
     - target: {fileID: 6791695916221263428, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -697,6 +705,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7611203065436843461}
     - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: jumpPower
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: moveSpeed
       value: 15
       objectReference: {fileID: 0}
@@ -709,9 +721,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: swingImpulseSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: spriteRendererShell
       value: 
       objectReference: {fileID: 5099910149736752655}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: swingImpulseDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8760633644880311363, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

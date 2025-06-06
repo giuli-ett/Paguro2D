@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      forno.aperto_0: -9054791822162205424
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
