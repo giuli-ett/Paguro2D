@@ -10,7 +10,6 @@ public class Amo : MonoBehaviour
     private Transform currentClimbable;
     public Collider2D currentClimbableCollider;
     private Vector3 initialScale;
-    public float forceMagnitude;
 
     public Transform currentClimbTopLimit;
     public Transform currentClimbBottomLimit;

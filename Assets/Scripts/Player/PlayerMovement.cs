@@ -34,10 +34,6 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public bool isOnTopMedusa = false;
 
-    [Header("GUSCIO SALTO")]
-    public int maxJump = 1;
-    public int jumpCount = 0;
-    
     [Header("DASH")]
     [SerializeField] private float dashMultiplier = 2f;
     [SerializeField] private float dashDuration = 0.2f;
@@ -49,10 +45,18 @@ public class Player : MonoBehaviour
     private float jumpResetBuffer = 0.1f;
     public bool canDash;
 
+    [Header("GUSCIO SALTO")]
+    public int maxJump = 1;
+    public int jumpCount = 0;
+    
     [Header("GUSCIO LUMINOSO")]
     public bool InLuminescenceZone = false;
     public bool isInvisible = false;
     private PlayerInput playerInput;
+
+    [Header("GUSCIO SCAVO")]
+    [SerializeField] private float digRange = 5f;
+    [SerializeField] private LayerMask diggableLayer;
 
     [Header("IMPULSO AMO")]
     [SerializeField] private float swingImpulseSpeed = 12f;
@@ -122,7 +126,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"jumpCount = {jumpCount}");
+        //Debug.Log($"jumpCount = {jumpCount}");
         HandleCamouflageInput();
     }
 
@@ -236,7 +240,8 @@ public class Player : MonoBehaviour
     // CONTROLLO GROUNDED
     private void CheckGrounded()
     {
-        bool grounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, groundLayer);
+        int combinedLayerMask = groundLayer | diggableLayer;
+        bool grounded = Physics2D.OverlapBox(groundCheckPosition.position, groundCheckSize, 0f, combinedLayerMask);
 
         if (grounded || amo.isAttached)
         {
@@ -312,14 +317,38 @@ public class Player : MonoBehaviour
 
     public void Scava(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed) return;
+        //if (shellManager.currentShellPicker.shell.name != "NascondiScava") return;
+
+        Vector2 origin = transform.position;
+        Vector2 direction;
+
+        if (verticalMovement < -0.5f) // Scava verso il basso
         {
-            if (shellManager.currentShellPicker.shell.name == "NascondiScava")
-            {
-                // LOGICA SCAVA
-            }
+            direction = Vector2.down;
+        }
+        else // Scava orizzontalmente, nella direzione dello sguardo
+        {
+            direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+        }
+
+        // Esegui il raycast nella direzione scelta
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
+        Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
+
+        if (hit.collider != null)
+        {
+            //animator.SetTrigger("Scava");
+            Destroy(hit.collider.gameObject);
+            Debug.Log("✅ Blocco scavato in direzione: " + direction);
+        }
+        else
+        {
+            Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
         }
     }
+
+
 
     private void HandleCamouflageInput()
     {
