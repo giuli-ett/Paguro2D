@@ -6,6 +6,7 @@ public class TrascinamentoPesci : MonoBehaviour
     [SerializeField] private BancoPesci fishGroup;
 
     private GameObject playerOnTop;
+    private bool movementActivated = false; 
 
     private void Update()
     {
@@ -25,6 +26,13 @@ public class TrascinamentoPesci : MonoBehaviour
                 if (contact.normal.y < -0.5f)
                 {
                     playerOnTop = collision.gameObject;
+
+                    if (!movementActivated)
+                    {
+                        fishGroup.ActivateMovement(); 
+                        movementActivated = true;
+                    }
+
                     break;
                 }
             }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Tartaruga : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Tartaruga : MonoBehaviour
     [Header("VARIABILI")]
     [SerializeField] private float velocita = 2f;
     [SerializeField] private float distanza = 1.2f;
+
+    [Header("FORZA CORRETTIVA")]
+    [SerializeField] private float forzaCorrettiva = 5f;
 
     private float lastX;
     private Vector3 lastPosition;
@@ -29,9 +33,9 @@ public class Tartaruga : MonoBehaviour
         float newX = startPosition.x + Mathf.Sin(Time.time * velocita) * distanza;
         transform.position = new Vector3(newX, startPosition.y, startPosition.z);
 
-        
         float deltaX = newX - lastX;
 
+        // Flip sprite in base alla direzione
         if (deltaX > 0.01f)
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
@@ -48,11 +52,28 @@ public class Tartaruga : MonoBehaviour
     {
         Move();
 
-        // Se il player è sopra, si muove con la tartaruga
         if (playerOnTop != null)
         {
             Vector3 delta = transform.position - lastPosition;
             playerOnTop.transform.position += delta;
+
+            PlayerInput playerInput = playerOnTop.GetComponent<PlayerInput>();
+            Rigidbody2D rbPlayer = playerOnTop.GetComponent<Rigidbody2D>();
+
+            if (playerInput != null && rbPlayer != null)
+            {
+                float inputDir = Mathf.Sign(playerInput.Horizontal);
+                float turtleSpeed = (transform.position.x - lastPosition.x) / Time.deltaTime;
+                float playerSpeed = rbPlayer.linearVelocity.x;
+
+                if (Mathf.Abs(inputDir) > 0.1f)
+                {
+                    float speedDifference = turtleSpeed - playerSpeed;
+                    float forza = forzaCorrettiva * speedDifference;
+
+                    rbPlayer.AddForce(new Vector2(forza, 0), ForceMode2D.Force);
+                }
+            }
         }
 
         lastPosition = transform.position;
@@ -80,11 +101,9 @@ public class Tartaruga : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && playerOnTop == collision.gameObject)
         {
-            if (playerOnTop == collision.gameObject)
-                playerOnTop = null;
+            playerOnTop = null;
         }
     }
-
 }
