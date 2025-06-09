@@ -8,7 +8,17 @@ public class TriggerPalla : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            palla.StartRolling();
+            if (palla.flag == false) 
+                palla.StartRolling();
+            else
+            {
+                if (!palla.gameObject.activeSelf)
+                {
+                    palla.ResetPosition();
+                    palla.StartRolling();
+                }
+                    
+            }
         }
     }
 }
