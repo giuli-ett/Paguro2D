@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2077600292990186040}
   - component: {fileID: 1458851131858212056}
-  - component: {fileID: 3604925659520474115}
   - component: {fileID: 4773354563537560356}
+  - component: {fileID: 120990190191257261}
   m_Layer: 0
   m_Name: Piede
   m_TagString: Enemy
@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7539188395802105377}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.199997, y: 22.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3604925659520474115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7539188395802105377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b44fb9da5ac6ccf47b03903cf330bace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  "velocit\xE0": 1.5
-  altezza: 15
 --- !u!61 &4773354563537560356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +135,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 5.187889, y: 9.174274}
   m_EdgeRadius: 0
+--- !u!114 &120990190191257261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539188395802105377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba461d23ce84e44fab94635302998bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  upperLimit: 20
+  lowerLimit: 10
+  pauseTime: 2
