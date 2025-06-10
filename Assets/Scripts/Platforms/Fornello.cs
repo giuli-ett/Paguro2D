@@ -1,12 +1,20 @@
 using UnityEngine;
 
+using UnityEngine;
+
 public class Fornello : MonoBehaviour
 {
-    public float tempoSopportabile = 5f;
+    public float tempoSopportabile = 2f;
 
     private float timer = 0f;
     private bool playerSopra = false;
     private LifeController playerLife;
+    private Animator animator;
+
+    void Start()
+    {
+        animator = GetComponentInParent<Animator>();
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,7 +22,10 @@ public class Fornello : MonoBehaviour
         {
             playerSopra = true;
             playerLife = other.GetComponent<LifeController>();
-            timer = 0f; // reset del timer quando entra
+            timer = 0f; // Reset del timer
+
+            // Attiva la fiamma
+            animator.SetInteger("acceso", 1);
         }
     }
 
@@ -23,7 +34,12 @@ public class Fornello : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerSopra = false;
-            timer = 0f; // reset del timer se esce
+            timer = 0f; // Reset del timer
+
+            // Spegne la fiamma
+            animator.SetInteger("acceso", 0);
+            Debug.Log("Animazione tornata a idle");
+
         }
     }
 
@@ -36,7 +52,7 @@ public class Fornello : MonoBehaviour
             if (timer >= tempoSopportabile)
             {
                 playerLife.TakeDamage();
-                timer = 0f; // reset per evitare danni multipli ogni frame
+                timer = 0f; // Reset per evitare danni multipli ogni frame
             }
         }
     }
