@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shellName: Guscio luminescente
   shellPower: Fare luce
-  power: 3
+  power: 4

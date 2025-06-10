@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -54,7 +55,9 @@ public class Player : MonoBehaviour
     [Header("GUSCIO LUMINOSO")]
     public bool InLuminescenceZone = false;
     public bool isInvisible = false;
+    public float lightDuration = 10f;
     private PlayerInput playerInput;
+    
 
     [Header("GUSCIO NASCONDI/SCAVA")]
     [SerializeField] private float digRange = 5f;
@@ -67,6 +70,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float swingImpulseSpeed = 12f;
     [SerializeField] private float swingImpulseDuration = 0.3f;
     private bool isSwingImpulseActive = false;
+
+    [Header("LUCE")]
+    
 
 
     public static Player Instance
@@ -361,6 +367,8 @@ public class Player : MonoBehaviour
             PowerLibrary.MimeticoOn(this);
         }
     }
+    
+   
     
     // FUNZIONI ATTIVA/DISATTIVA FUNZIONALITA' DEL GUSCIO
     public void EnableDoubleJump()
