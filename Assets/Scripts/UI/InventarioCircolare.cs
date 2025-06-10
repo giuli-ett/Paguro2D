@@ -191,6 +191,13 @@ public class InventarioCircolare : MonoBehaviour
             Slot slot = shellSlots[i];
             if (slot == null) continue;
 
+            slot.gameObject.SetActive(true); 
+
+            if (i < shellList.Count)
+            {
+                slot.SetIcon(); 
+            }
+
             float currentAngle = startAngle + (i * angleStep);
 
             float angleRad = currentAngle * Mathf.Deg2Rad;

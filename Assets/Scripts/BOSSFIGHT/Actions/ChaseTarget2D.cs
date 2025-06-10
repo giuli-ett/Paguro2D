@@ -18,20 +18,34 @@ namespace Unity.Behavior
         [SerializeReference] public BlackboardVariable<float> Speed = new(2f);
         [SerializeReference] public BlackboardVariable<float> StopDistance = new(1.5f); // distanza di stop
 
+        private Animator agentAnimator;
+        [SerializeReference] public BlackboardVariable<string> IsWalkingParamName = new("isWalking");
+
         protected override Status OnStart()
         {
             if (Agent.Value == null || Target.Value == null)
             {
-                Debug.LogWarning("Chase2D: Agent or Target not assigned.");
+                Debug.LogWarning("Chase2D: Agent o Target non assegnati");
                 return Status.Failure;
             }
+
+            agentAnimator = Agent.Value.GetComponent<Animator>();
+            if (agentAnimator == null)
+            {
+                Debug.LogWarning("Chase2D: Agent non ha l'animator");
+                return Status.Failure;
+            }
+
             return Status.Running;
         }
 
         protected override Status OnUpdate()
         {
-            if (Agent.Value == null || Target.Value == null)
+            if (Agent.Value == null || Target.Value == null || agentAnimator == null)
+            {
+                SetWalkingAnimation(false);
                 return Status.Failure;
+            }
 
             Vector2 agentPos = Agent.Value.transform.position;
             Vector2 targetPos = Target.Value.transform.position;
@@ -39,7 +53,7 @@ namespace Unity.Behavior
 
             if (distance <= StopDistance.Value)
             {
-                // Troppo vicino, si ferma
+                SetWalkingAnimation(false);
                 return Status.Success;
             }
 
@@ -47,12 +61,56 @@ namespace Unity.Behavior
             Vector2 direction = (targetPos - agentPos).normalized;
             Agent.Value.transform.position += (Vector3)(direction * Speed.Value * Time.deltaTime);
 
+            if (Speed.Value > 0)
+            {
+                SetWalkingAnimation(true);
+            }
+            else
+            {
+                SetWalkingAnimation(false);
+            }
+
+            FlipAgent(direction.x);
             return Status.Running;
         }
 
         protected override void OnEnd()
         {
-            // Nessuna pulizia necessaria
+            SetWalkingAnimation(false);
+        }
+
+        private void SetWalkingAnimation(bool isWalking)
+        {
+            if (agentAnimator != null && !string.IsNullOrEmpty(IsWalkingParamName.Value))
+            {
+                foreach (AnimatorControllerParameter param in agentAnimator.parameters)
+                {
+                    if (param.name == IsWalkingParamName.Value && param.type == AnimatorControllerParameterType.Bool)
+                    {
+                        agentAnimator.SetBool(IsWalkingParamName.Value, isWalking);
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void FlipAgent(float directionX)
+        {
+            if (Agent.Value != null)
+            {
+                SpriteRenderer sr = Agent.Value.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    if (directionX > 0)
+                    {
+                        sr.flipX = false; // Guarda a destra
+                    }
+                    else if (directionX < 0)
+                    {
+                        sr.flipX = true; // Guarda a sinistra
+                    }
+                }
+            }
         }
     }
 }
