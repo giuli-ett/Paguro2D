@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pesceCattivo.fr01_0: -5356551643578295634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
