@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fornello.spento_0: -5544771720908806187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

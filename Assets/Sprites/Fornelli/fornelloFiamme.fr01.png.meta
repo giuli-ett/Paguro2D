@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fornelloFiamme.fr01_0: 6908676382672832784
+      fornelloFiamme.fr01_1: 7649378140332423770
+      fornelloFiamme.fr01_2: -7874582163885443313
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

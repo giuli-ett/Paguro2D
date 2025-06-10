@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pesceLanterna.fr01_0: -2090724011033487559
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

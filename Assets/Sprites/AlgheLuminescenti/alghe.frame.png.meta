@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      alghe.frame_0: 8175292515367814169
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

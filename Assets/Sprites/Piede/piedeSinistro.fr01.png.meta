@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      piedeSinistro.fr01_0: -2311325355215175914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

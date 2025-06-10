@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      palla.fr08_0: -2585721324287245104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
