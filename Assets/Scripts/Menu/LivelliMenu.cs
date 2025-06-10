@@ -5,7 +5,7 @@ public class LivelliMenu : MonoBehaviour
 {
     public void PlayLivelloUno()
     {
-        GameManager.Instance.SetCurrentLevel(0);
+        //GameManager.Instance.SetCurrentLevel(0);
         SceneManager.LoadSceneAsync(2);
     }
     public void PlayLivelloDue()

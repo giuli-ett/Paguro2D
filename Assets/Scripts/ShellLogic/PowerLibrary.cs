@@ -91,19 +91,17 @@ public class PowerLibrary : MonoBehaviour
     {
 
     }
+    public static void JumpBoostOn(Player player)
+    {
+        Player.Instance.EnableDoubleJump();
+        Debug.Log($"Hai disattivato il potere: {Player.Instance.shellManager.currentShell.shellPower}");
+    }
 
     public static void SpeedBoostOn(Player player)
     {
         Player.Instance.EnableDash();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
-
-    public static void JumpBoostOn(Player player)
-    {
-        Player.Instance.EnableDoubleJump();
-        Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
-    }
-
     public static void LuminescenzaOn(Player player)
     {
         var light = player.luminescentLight;
@@ -137,12 +135,6 @@ public class PowerLibrary : MonoBehaviour
 
     }
 
-    public static void SpeedBoostOff(Player player)
-    {
-        Player.Instance.DisableDush();
-        Debug.Log($"Hai rimossso il guscio: {Player.Instance.shellManager.currentShell.shellPower}");
-    }
-
     public static void JumpBoostOff(Player player)
     {
         Player.Instance.DisableDoubleJump();
@@ -159,6 +151,12 @@ public class PowerLibrary : MonoBehaviour
 
         light.enabled = false;
 
+    }
+
+    public static void SpeedBoostOff(Player player)
+    {
+        Player.Instance.DisableDash();
+        Debug.Log($"Hai disattivato il potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
     public static void NascondiScavaOff(Player player)

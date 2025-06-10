@@ -378,7 +378,7 @@ public class Player : MonoBehaviour
         canDash = true;
     }
 
-    public void DisableDush()
+    public void DisableDash()
     {
         canDash = false;
         isDashing = false;

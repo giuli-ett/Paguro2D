@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 2817527554706559216}
   - component: {fileID: 1449200533390545377}
   m_Layer: 0
-  m_Name: ShellPrefab
+  m_Name: GuscioLuminoso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,5 +480,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb32eb18888278e45b3b6386a107f066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shell: {fileID: 0}
+  shell: {fileID: 11400000, guid: e8a5393d9abbbba41a75c0058d229f4c, type: 2}
   text: {fileID: 1536839488874689640}

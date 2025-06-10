@@ -421,7 +421,6 @@ GameObject:
   - component: {fileID: 921159728}
   - component: {fileID: 921159727}
   - component: {fileID: 921159726}
-  - component: {fileID: 921159729}
   m_Layer: 5
   m_Name: Liv2
   m_TagString: Untagged
@@ -493,9 +492,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1734139820}
+        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
+        m_MethodName: PlayLivelloDue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -543,21 +542,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921159724}
   m_CullTransparentMesh: 1
---- !u!114 &921159729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921159724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8858f6a5b66a5fd4bb99ccac3ebc4e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nomeLivello: Livello 2
-  isCompleted: 0
-  collezionabiliLivello: {fileID: 11400000, guid: 7d70c93807267814e979dae9c3706e04, type: 2}
 --- !u!1 &1113295203
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,7 +796,6 @@ GameObject:
   - component: {fileID: 1258964310}
   - component: {fileID: 1258964309}
   - component: {fileID: 1258964308}
-  - component: {fileID: 1258964311}
   m_Layer: 5
   m_Name: Liv3
   m_TagString: Untagged
@@ -884,9 +867,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1734139820}
+        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
+        m_MethodName: PlayLivelloTre
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -934,21 +917,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258964306}
   m_CullTransparentMesh: 1
---- !u!114 &1258964311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258964306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8858f6a5b66a5fd4bb99ccac3ebc4e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nomeLivello: Livello 3
-  isCompleted: 0
-  collezionabiliLivello: {fileID: 11400000, guid: a74a52e7d16e5d944aae06ade404374a, type: 2}
 --- !u!1 &1415998482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,10 +1219,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livelli:
-  - {fileID: 1549339034}
-  - {fileID: 921159729}
-  - {fileID: 1258964311}
-  - {fileID: 1841231126}
+  - {fileID: 11400000, guid: eb36adf8b8839a346bddb26518558a6b, type: 2}
+  - {fileID: 11400000, guid: 4d691a5897c3745488c91c95814698d9, type: 2}
+  - {fileID: 11400000, guid: 1682b67b3734a7c43896f1544debb012, type: 2}
+  - {fileID: 11400000, guid: 5b48850c6fce41f468a6851fcb7b778f, type: 2}
   collectedItems: []
   currentLivello: {fileID: 0}
 --- !u!4 &1501159926
@@ -1284,7 +1252,6 @@ GameObject:
   - component: {fileID: 1549339033}
   - component: {fileID: 1549339032}
   - component: {fileID: 1549339031}
-  - component: {fileID: 1549339034}
   m_Layer: 5
   m_Name: Liv1
   m_TagString: Untagged
@@ -1406,21 +1373,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549339029}
   m_CullTransparentMesh: 1
---- !u!114 &1549339034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549339029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8858f6a5b66a5fd4bb99ccac3ebc4e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nomeLivello: Livello 1
-  isCompleted: 0
-  collezionabiliLivello: {fileID: 11400000, guid: 195160726ac68eb478436cf79ba59321, type: 2}
 --- !u!1 &1734139814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1583,7 +1535,6 @@ GameObject:
   - component: {fileID: 1841231125}
   - component: {fileID: 1841231124}
   - component: {fileID: 1841231123}
-  - component: {fileID: 1841231126}
   m_Layer: 5
   m_Name: Liv4
   m_TagString: Untagged
@@ -1655,9 +1606,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 1734139820}
+        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
+        m_MethodName: PlayLivelloQuattro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1705,21 +1656,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1841231121}
   m_CullTransparentMesh: 1
---- !u!114 &1841231126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1841231121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8858f6a5b66a5fd4bb99ccac3ebc4e28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nomeLivello: Livello 4
-  isCompleted: 0
-  collezionabiliLivello: {fileID: 11400000, guid: 60402afef8e68d74d91514344b9a20a4, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
