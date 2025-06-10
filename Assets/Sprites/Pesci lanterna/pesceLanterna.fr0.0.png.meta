@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 190b79a12ca1ede46840fd06d6e47768
+guid: e38df6f7b28eb514fb253b9ed635f49f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2090724011033487559
-    second: pesceLanterna.fr01_0
+      213: 8458787542857436811
+    second: pesceLanterna.fr0.0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pesceLanterna.fr01_0
+      name: pesceLanterna.fr0.0_0
       rect:
         serializedVersion: 2
-        x: 29
-        y: 190
-        width: 995
-        height: 701
+        x: 2
+        y: 176
+        width: 950
+        height: 683
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 93718fec6914cf2e0800000000000000
-      internalID: -2090724011033487559
+      spriteID: b8e44822476a36570800000000000000
+      internalID: 8458787542857436811
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pesceLanterna.fr01_0: -2090724011033487559
+      pesceLanterna.fr0.0_0: 8458787542857436811
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
