@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 05cf505ca1fa7c648a19358bf4973183
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7443767122918073710
+    second: bancoPesci.fr1.0.A_0
+  - first:
+      213: -6372367419290828121
+    second: bancoPesci.fr1.0.A_1
+  - first:
+      213: 6361952678653580521
+    second: bancoPesci.fr1.0.A_2
+  - first:
+      213: 5401586564304030190
+    second: bancoPesci.fr1.0.A_3
+  - first:
+      213: -6267271945352224136
+    second: bancoPesci.fr1.0.A_4
+  - first:
+      213: 7754905425883527019
+    second: bancoPesci.fr1.0.A_5
+  - first:
+      213: -2500348346610535902
+    second: bancoPesci.fr1.0.A_6
+  - first:
+      213: -1515985892258493228
+    second: bancoPesci.fr1.0.A_7
+  - first:
+      213: -2870658628685173061
+    second: bancoPesci.fr1.0.A_8
+  - first:
+      213: -3334764139897797992
+    second: bancoPesci.fr1.0.A_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_0
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 648
+        width: 209
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65634072c29d4760800000000000000
+      internalID: 7443767122918073710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_1
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 717
+        width: 179
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2c5ea289dc097a0800000000000000
+      internalID: -6372367419290828121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_2
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 695
+        width: 199
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4ddf011423a4850800000000000000
+      internalID: 6361952678653580521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_3
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 534
+        width: 203
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee94dd48c5a46fa40800000000000000
+      internalID: 5401586564304030190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_4
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 541
+        width: 200
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87262820f5d2609a0800000000000000
+      internalID: -6267271945352224136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_5
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 432
+        width: 202
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b677988c565fe9b60800000000000000
+      internalID: 7754905425883527019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 330
+        width: 180
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2223b891d6afc4dd0800000000000000
+      internalID: -2500348346610535902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_7
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 403
+        width: 227
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dccd6fecd226fae0800000000000000
+      internalID: -1515985892258493228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_8
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 318
+        width: 230
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbe6fc5cf2f5928d0800000000000000
+      internalID: -2870658628685173061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bancoPesci.fr1.0.A_9
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 266
+        width: 207
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8924eafdea988b1d0800000000000000
+      internalID: -3334764139897797992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bancoPesci.fr1.0.A_0: 7443767122918073710
+      bancoPesci.fr1.0.A_1: -6372367419290828121
+      bancoPesci.fr1.0.A_2: 6361952678653580521
+      bancoPesci.fr1.0.A_3: 5401586564304030190
+      bancoPesci.fr1.0.A_4: -6267271945352224136
+      bancoPesci.fr1.0.A_5: 7754905425883527019
+      bancoPesci.fr1.0.A_6: -2500348346610535902
+      bancoPesci.fr1.0.A_7: -1515985892258493228
+      bancoPesci.fr1.0.A_8: -2870658628685173061
+      bancoPesci.fr1.0.A_9: -3334764139897797992
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

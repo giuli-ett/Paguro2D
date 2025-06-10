@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 08d42aba7fec269449192f5ffc49f89d
+guid: cb1ef236878193544abdc9dd8b4f1fa8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5527241440441372451
-    second: anemoneRosso_0
+      213: 6120874360485970305
+    second: bancoPesci.fr2.0_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: anemoneRosso_0
+      name: bancoPesci.fr2.0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 723
-        height: 799
+        x: 68
+        y: 265
+        width: 918
+        height: 642
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd07caac13b4b43b0800000000000000
-      internalID: -5527241440441372451
+      spriteID: 18100931dc6b1f450800000000000000
+      internalID: 6120874360485970305
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      anemoneRosso_0: -5527241440441372451
+      bancoPesci.fr2.0_0: 6120874360485970305
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
