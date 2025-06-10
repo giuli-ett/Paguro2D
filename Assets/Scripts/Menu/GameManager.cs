@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public List<CollezionabiliLivello> listaLivelli = new();
+    public List<Livello> livelli;
     public List<Collezionabile> collectedItems = new();
-    public int currentLevel;
+    public Livello currentLivello;
     public event Action<Collezionabile> ItemCollectedEvent;
     private void Awake()
     {
@@ -29,6 +29,12 @@ public class GameManager : MonoBehaviour
             ItemCollectedEvent?.Invoke(item);
         }
     }
+
+    public void SetCurrentLevel(int numero)
+    {
+        currentLivello = livelli[numero];
+    }
+
 
     public int TotalCollected => collectedItems.Count;
 }
