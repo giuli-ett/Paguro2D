@@ -36,6 +36,7 @@ namespace Unity.Behavior
                 return Status.Failure;
             }
 
+            Debug.Log("Mano insegue paguro");
             return Status.Running;
         }
 
@@ -51,6 +52,8 @@ namespace Unity.Behavior
             Vector2 targetPos = Target.Value.transform.position;
             float distance = Vector2.Distance(agentPos, targetPos);
 
+            targetPos.y = agentPos.y;
+
             if (distance <= StopDistance.Value)
             {
                 SetWalkingAnimation(false);
@@ -59,7 +62,7 @@ namespace Unity.Behavior
 
             // Si muove verso il target
             Vector2 direction = (targetPos - agentPos).normalized;
-            Agent.Value.transform.position += (Vector3)(direction * Speed.Value * Time.deltaTime);
+            Agent.Value.transform.position += new Vector3(direction.x * Speed.Value * Time.deltaTime, 0 ,0);
 
             if (Speed.Value > 0)
             {
@@ -101,13 +104,9 @@ namespace Unity.Behavior
                 SpriteRenderer sr = Agent.Value.GetComponent<SpriteRenderer>();
                 if (sr != null)
                 {
-                    if (directionX > 0)
+                    if (Mathf.Abs(directionX) > 0.1f)
                     {
-                        sr.flipX = false; // Guarda a destra
-                    }
-                    else if (directionX < 0)
-                    {
-                        sr.flipX = true; // Guarda a sinistra
+                        sr.flipX = directionX < 0;
                     }
                 }
             }

@@ -86,6 +86,10 @@ public class LifeController : MonoBehaviour
         {
             TakeDamage();
         }
+        if (other.gameObject.CompareTag("Hand") && Hand.Instance.isSmashing)
+        {
+            TakeDamage();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

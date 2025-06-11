@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Checkpoint
   - HealthPickup
+  - Hand
   layers:
   - Default
   - TransparentFX
