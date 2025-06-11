@@ -39,6 +39,7 @@ public class PlayerOld : MonoBehaviour
     {
         get { return instance; }
     }
+    public bool IsGrounded => isGrounded;
 
     private void Awake()
     {
