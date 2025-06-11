@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d5863bcf7edff794a84d1370df3fd5a2
+guid: 96eee767c6573a2498761795e213ae9e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6034161477135539066
-    second: 76-769017_health-bar-vuota-health-bar-pixel-art-clipart_0
+      213: -6542148592986376839
+    second: soffitto.01_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 76-769017_health-bar-vuota-health-bar-pixel-art-clipart_0
+      name: soffitto.01_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
-        height: 320
+        width: 1095
+        height: 103
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7b9202a4e5adb350800000000000000
-      internalID: 6034161477135539066
+      spriteID: 975b937348e9535a0800000000000000
+      internalID: -6542148592986376839
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      76-769017_health-bar-vuota-health-bar-pixel-art-clipart_0: 6034161477135539066
+      soffitto.01_0: -6542148592986376839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
