@@ -15,80 +15,107 @@ namespace Unity.Behavior
     {
         [SerializeReference] public BlackboardVariable<GameObject> Agent;
         [SerializeReference] public BlackboardVariable<GameObject> Target;
-        [SerializeReference] public BlackboardVariable<float> GrabSpeed = new(10f);
+        [SerializeReference] public BlackboardVariable<float> MaxHeight;
+        [SerializeReference] public BlackboardVariable<float> LiftSpeed = new(2f);
         [SerializeReference] public BlackboardVariable<float> GrabRange = new(1f);
         [SerializeReference] public BlackboardVariable<float> HoldDuration = new(2f);
+        [SerializeReference] public BlackboardVariable<Transform> GrabPoint;
+        [SerializeReference] public BlackboardVariable<int> RequiredPresses = new(10);
+        [SerializeReference] public BlackboardVariable<float> ReturnSpeed = new(2f);
 
-        private enum State { Chasing, Holding, Releasing, Done }
+        private enum State { Holding, Releasing, Returning, Done }
         private State _state;
         private float _timer;
+        private Rigidbody2D rb;
+        private int escapeAttempts = 0;
+        private Player player;
+        private float startHeight;
 
         protected override Status OnStart()
         {
-            if (Agent.Value == null || Target.Value == null)
+            if (Agent.Value == null || Target.Value == null || GrabPoint.Value == null)
             {
                 Debug.LogWarning("GrabAttack2D: Missing references.");
                 return Status.Failure;
             }
 
-            _state = State.Chasing;
-            return Status.Running;
-        }
+            rb = Target.Value.GetComponent<Rigidbody2D>();
+            player = Target.Value.GetComponent<Player>();
 
-        protected override Status OnUpdate()
-        {
-            if (Agent.Value == null || Target.Value == null)
-                return Status.Failure;
-
-            Vector3 agentPos = Agent.Value.transform.position;
-            Vector3 targetPos = Target.Value.transform.position;
-
-            switch (_state)
+            float distance = Mathf.Abs(Agent.Value.transform.position.x - Target.Value.transform.position.x);
+            if (distance < GrabRange.Value)
             {
-                case State.Chasing:
-                    // Muove solo sull'asse X verso il target
-                    Vector3 chaseTarget = new Vector3(targetPos.x, agentPos.y, agentPos.z);
-                    Agent.Value.transform.position = Vector3.MoveTowards(agentPos, chaseTarget, GrabSpeed.Value * Time.deltaTime);
+                _state = State.Holding;
+                _timer = HoldDuration.Value;
 
-                    float distance = Mathf.Abs(agentPos.x - targetPos.x);
-                    if (distance < GrabRange.Value)
-                    {
-                        _state = State.Holding;
-                        _timer = HoldDuration.Value;
+                Target.Value.GetComponent<Player>().canMove = false;
+                player.isGrabbed = true;
+                player.escapeAttempts = 0;
 
-                        // Optional: blocca il movimento del player
-                        Target.Value.GetComponent<Player>().canMove = false;
-                    }
-                    break;
+                startHeight = Agent.Value.transform.position.y;
 
-                case State.Holding:
-                    // Posiziona il player sopra o vicino alla mano
-                    Target.Value.transform.position = Agent.Value.transform.position + Vector3.up * 1f;
-
-                    _timer -= Time.deltaTime;
-                    if (_timer <= 0f)
-                    {
-                        _state = State.Releasing;
-                    }
-                    break;
-
-                case State.Releasing:
-                    // Sblocca il player
-                    Target.Value.GetComponent<Player>().canMove = true;
-
-                    _state = State.Done;
-                    break;
-
-                case State.Done:
-                    return Status.Success;
+                Debug.Log("Mano acchiappa paguro!");
+            }
+            else
+            {
+                Debug.LogWarning("GrabAttack2D: Target fuori dal range, attacco fallito.");
+                return Status.Failure;
             }
 
             return Status.Running;
         }
 
+        protected override Status OnUpdate()
+        {
+            if (_state == State.Holding)
+            {
+                rb.gravityScale = 0f;
+                rb.linearVelocity = Vector2.zero;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                Target.Value.transform.position = GrabPoint.Value.position;
+                Agent.Value.transform.position += Vector3.up * LiftSpeed.Value * Time.deltaTime;
+
+                if (player.escapeAttempts >= player.requiredPresses) // Rileva input tramite Input System
+                {
+                    Debug.Log("Il paguro si è liberato!");
+                    _state = State.Releasing;
+                }
+
+                if (Agent.Value.transform.position.y >= MaxHeight.Value)
+                {
+                    Target.Value.GetComponent<LifeController>().Die();
+                    Debug.Log("Il paguro non è riuscito a liberarsi!");
+                    _state = State.Done;
+                }
+            }
+            else if (_state == State.Releasing)
+            {
+                player.isGrabbed = false;
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.gravityScale = 1f;
+                rb.AddForce(Vector2.down * 50f, ForceMode2D.Impulse);
+                Target.Value.GetComponent<Player>().canMove = true;
+                Debug.Log("Il paguro è stato rilasciato!");
+
+                _state = State.Returning;
+            }
+            else if (_state == State.Returning)
+            {
+                Agent.Value.transform.position = Vector3.MoveTowards(Agent.Value.transform.position, new Vector3(Agent.Value.transform.position.x, startHeight, Agent.Value.transform.position.z), ReturnSpeed.Value * Time.deltaTime);
+
+                if (Mathf.Abs(Agent.Value.transform.position.y - startHeight) < 0.05f)
+                {
+                    Debug.Log("La mano è tornata al livello iniziale.");
+                    _state = State.Done;
+                }
+            }
+
+            return _state == State.Done ? Status.Success : Status.Running;
+        }
+
         protected override void OnEnd()
         {
-            // Cleanup finale se necessario
+            player.isGrabbed = false;
         }
     }
 }

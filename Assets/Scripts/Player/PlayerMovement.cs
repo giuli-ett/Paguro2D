@@ -71,9 +71,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float swingImpulseDuration = 0.3f;
     private bool isSwingImpulseActive = false;
 
-    [Header("LUCE")]
-    
+    [Header("BOSSFIGHT")]
 
+    public int escapeAttempts = 0;
+    public int requiredPresses = 5;
+    public bool isGrabbed = false;
 
     public static Player Instance
     {
@@ -248,6 +250,21 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void EscapeGrab(InputAction.CallbackContext context)
+    {
+        if (context.performed && isGrabbed)
+        {
+            if (escapeAttempts >= requiredPresses)
+            {
+                Debug.Log("Il paguro si è liberato!");
+                return;
+            }
+
+            escapeAttempts++;
+            Debug.Log($"Tentativi di fuga: {escapeAttempts}/{requiredPresses}");
+        }
+    }
+
     // CONTROLLO GROUNDED
     private void CheckGrounded()
     {
@@ -367,8 +384,6 @@ public class Player : MonoBehaviour
             PowerLibrary.MimeticoOn(this);
         }
     }
-    
-   
     
     // FUNZIONI ATTIVA/DISATTIVA FUNZIONALITA' DEL GUSCIO
     public void EnableDoubleJump()
