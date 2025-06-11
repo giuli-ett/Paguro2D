@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public bool canMove = true;
     public bool isClimbing = false;
     public bool isInForno = false;
+    private Vector3 externalPlatformDelta = Vector3.zero;
+    private bool isOnMovingPlatform = false;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
@@ -402,5 +404,21 @@ public class Player : MonoBehaviour
     {
         canHide = false;
         canDig = false;
+    }
+
+    // GESTIONE PIATTAFORME MOBILI
+    public void SetExternalMovement(Vector3 delta)
+    {
+        externalPlatformDelta = delta;
+        isOnMovingPlatform = true;
+    }
+    private void LateUpdate()
+    {
+        if (isOnMovingPlatform)
+        {
+            rb.MovePosition(rb.position + (Vector2)externalPlatformDelta);
+            externalPlatformDelta = Vector3.zero;
+            isOnMovingPlatform = false;
+        }
     }
 }

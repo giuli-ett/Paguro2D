@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1524953286253481178}
   - component: {fileID: 4755921303668325244}
   - component: {fileID: 6797090568184330906}
-  - component: {fileID: 8229056766509088985}
+  - component: {fileID: 1025900542673454244}
   m_Layer: 3
   m_Name: TriggerFornelli
   m_TagString: Untagged
@@ -93,7 +93,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.9586296, y: 10.337925}
   m_EdgeRadius: 0
---- !u!212 &8229056766509088985
+--- !u!212 &1025900542673454244
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6686827898654909158}
   - component: {fileID: 2909991565868093305}
   - component: {fileID: 8184346840181932176}
-  - component: {fileID: 7249429061625258058}
+  - component: {fileID: 3992222867508395006}
   m_Layer: 3
   m_Name: Fornelli
   m_TagString: Untagged
@@ -284,7 +284,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.7924805, y: 2.605833}
   m_EdgeRadius: 0
---- !u!95 &7249429061625258058
+--- !u!95 &3992222867508395006
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0

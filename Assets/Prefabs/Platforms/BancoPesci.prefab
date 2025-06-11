@@ -215,8 +215,6 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   speed: 4
 --- !u!1 &5808582529243012481
 GameObject:
@@ -311,6 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishGroup: {fileID: 4132061457574393933}
+  velocitaBancoSuPlayer: 0.775
 --- !u!251 &2077743710693756636
 PlatformEffector2D:
   m_ObjectHideFlags: 0
