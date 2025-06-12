@@ -1,28 +1,34 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
-[System.Serializable] public class BackgroundLayer : MonoBehaviour
+public class BackgroundLayer : MonoBehaviour
 {
-    private Vector3 startPos;
-    [SerializeField] private bool followPlayer;
-    [SerializeField] private Transform camera;
-    [SerializeField] private Transform player;
+    private float startPos;
+    private float lenght;
+    [SerializeField] private GameObject cam;
     [SerializeField] private float parallaxFactor;
     void Start()
     {
-        if (followPlayer)
-            startPos = player.position;
-        else
-            startPos = transform.position;
+        startPos = transform.position.x;
+        lenght = GetComponent<SpriteRenderer>().bounds.size.x;
 
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float distance = camera.position.x * parallaxFactor;
-        if (followPlayer)
-            transform.position = player.position;
-        else
-            transform.position = new Vector3(startPos.x + distance, transform.position.y, transform.position.z);
+        float distance = cam.transform.position.x * parallaxFactor;
+        float movement = cam.transform.position.x * (1 - parallaxFactor);
+
+        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
+        if(movement > startPos + lenght)
+        {
+            startPos += lenght;
+        }
+        else if(movement < startPos - lenght)
+        {
+            startPos -= lenght;
+        }
     }
 }

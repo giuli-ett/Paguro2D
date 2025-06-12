@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7539188395802105377
+--- !u!1 &5871132321758421614
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2077600292990186040}
-  - component: {fileID: 1458851131858212056}
-  - component: {fileID: 4773354563537560356}
-  - component: {fileID: 120990190191257261}
-  m_Layer: 0
-  m_Name: Piede
-  m_TagString: Enemy
+  - component: {fileID: 8249069085903312944}
+  - component: {fileID: 5947353003854744806}
+  - component: {fileID: 5360438324982707941}
+  - component: {fileID: -5638408938441297088}
+  m_Layer: 3
+  m_Name: Sabbia
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2077600292990186040
+--- !u!4 &8249069085903312944
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7539188395802105377}
+  m_GameObject: {fileID: 5871132321758421614}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.199997, y: 22.2, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1458851131858212056
+--- !u!212 &5947353003854744806
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7539188395802105377}
+  m_GameObject: {fileID: 5871132321758421614}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -78,24 +78,24 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2311325355215175914, guid: 54bbb61dd4bce004d8ef53c18b271259, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 930d1f0d0b393b64596126bf8e5b46dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 128.06667, y: 72.066666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4773354563537560356
+--- !u!61 &5360438324982707941
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7539188395802105377}
+  m_GameObject: {fileID: 5871132321758421614}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -123,31 +123,29 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.20100403, y: 0.1967659}
+  m_Offset: {x: 1.4621124, y: 4.239604}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.09, y: 9.48}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 128.06667, y: 72.066666}
+    newSize: {x: 128.06667, y: 72.066666}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 5.187889, y: 9.174274}
+  m_Size: {x: 114.81448, y: 4.9206257}
   m_EdgeRadius: 0
---- !u!114 &120990190191257261
+--- !u!114 &-5638408938441297088
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7539188395802105377}
+  m_GameObject: {fileID: 5871132321758421614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aba461d23ce84e44fab94635302998bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 647e14d8b3a3107489fe925cf3211eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  upperLimit: 20
-  lowerLimit: 10
-  pauseTime: 2
+  cam: {fileID: 0}
+  parallaxFactor: 0.4
