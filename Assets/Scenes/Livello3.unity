@@ -237,6 +237,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2124775776}
     m_Modifications:
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 877019900}
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: parallaxFactor
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871132321758421614, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
       propertyPath: m_Name
       value: Sabbia
@@ -281,7 +289,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -331,6 +340,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2124775776}
     m_Modifications:
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 877019900}
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: parallaxFactor
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871132321758421614, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
       propertyPath: m_Name
       value: Sabbia (1)
@@ -375,7 +392,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -393,6 +411,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2124775776}
     m_Modifications:
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 877019900}
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: parallaxFactor
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871132321758421614, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
       propertyPath: m_Name
       value: Sabbia (2)
@@ -441,7 +467,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1714,6 +1741,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2124775776}
     m_Modifications:
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 877019900}
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: parallaxFactor
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871132321758421614, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
       propertyPath: m_Name
       value: Sabbia (3)
@@ -1758,7 +1793,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1885,6 +1921,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2124775776}
     m_Modifications:
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 877019900}
+    - target: {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
+      propertyPath: parallaxFactor
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871132321758421614, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
       propertyPath: m_Name
       value: sabbia.retta02
@@ -1929,7 +1973,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5638408938441297088, guid: 4a67cdeef8ae3544c821a53456a536dc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

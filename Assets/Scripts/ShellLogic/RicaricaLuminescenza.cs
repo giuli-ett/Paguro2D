@@ -16,16 +16,20 @@ public class RicaricaLuminescenza : MonoBehaviour
     {
         Player player = other.GetComponent<Player>();
 
-        if (fadeCoroutine != null)
-        {
-            StopCoroutine(fadeCoroutine);
-            fadeCoroutine = null;
-        }
+        
                 
         if (player != null && player.shellManager.currentShell.power == ShellPower.Luminescenza)
             {
+                if (player.lightFadeCoroutine != null)
+                {
+                    StopCoroutine(player.lightFadeCoroutine);
+                    player.lightFadeCoroutine = null;
+                }
+
                 Debug.Log("Player entered luminescence zone");
                 player.InLuminescenceZone = true;
+                player.luminescentLight.enabled = true;
+                player.luminescentLight.intensity = 1f;
                 PowerLibrary.RechargeLuminescence(player);
             }
     }
@@ -36,9 +40,8 @@ public class RicaricaLuminescenza : MonoBehaviour
         if (player != null && player.InLuminescenceZone && player.shellManager.currentShell.power == ShellPower.Luminescenza)
         {
             // Mantieni la luminosit� al massimo costantemente
-            player.luminescentLight.enabled = true;
+            
             player.luminescentLight.intensity = 1f;
-
         }
     }
 
@@ -53,7 +56,14 @@ public class RicaricaLuminescenza : MonoBehaviour
                
                 player.InLuminescenceZone = false;
                 player.lightDuration = durataRicarica;
-                StartCoroutine(FadeLightIntensity(player.luminescentLight, player.luminescentLight.intensity, 0f, durataRicarica));
+
+                 if (player.lightFadeCoroutine != null)
+                {
+                    StopCoroutine(player.lightFadeCoroutine);
+                    player.lightFadeCoroutine = null;
+                }
+
+                player.lightFadeCoroutine = StartCoroutine(FadeLightIntensity(player.luminescentLight, player.luminescentLight.intensity, 0f, durataRicarica));
                 PowerLibrary.LuminescenzaOn(player);
             }
         }

@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
     public bool InLuminescenceZone = false;
     public bool isInvisible = false;
     public float lightDuration = 10f;
+    public Coroutine lightFadeCoroutine;
     private PlayerInput playerInput;
     
 

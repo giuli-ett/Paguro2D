@@ -15,7 +15,6 @@ public class BackgroundLayer : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         float distance = cam.transform.position.x * parallaxFactor;

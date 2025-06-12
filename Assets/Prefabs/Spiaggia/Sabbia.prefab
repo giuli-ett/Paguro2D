@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8249069085903312944}
   - component: {fileID: 5947353003854744806}
   - component: {fileID: 5360438324982707941}
-  - component: {fileID: -5638408938441297088}
   m_Layer: 3
   m_Name: Sabbia
   m_TagString: Untagged
@@ -135,17 +134,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 114.81448, y: 4.9206257}
   m_EdgeRadius: 0
---- !u!114 &-5638408938441297088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5871132321758421614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647e14d8b3a3107489fe925cf3211eff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  parallaxFactor: 0.4
