@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 341287609398072237}
   - component: {fileID: 7664185720115153392}
   - component: {fileID: -6838886035219691230}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SixtTile3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

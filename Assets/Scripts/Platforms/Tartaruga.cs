@@ -7,13 +7,13 @@ public class Tartaruga : MonoBehaviour
     private Vector3 startPosition;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private Player player;
 
     [Header("VARIABILI")]
     [SerializeField] private float velocita = 2f;
     [SerializeField] private float distanza = 1.2f;
 
-    [Header("FORZA CORRETTIVA")]
-    [SerializeField] private float forzaCorrettiva = 5f;
+  
 
     private float lastX;
     private Vector3 lastPosition;
@@ -48,32 +48,24 @@ public class Tartaruga : MonoBehaviour
         lastX = newX;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
+        Vector2 platformVelocity = new Vector2((transform.position - lastPosition).x / Time.fixedDeltaTime, 0f);
 
         if (playerOnTop != null)
         {
-            Vector3 delta = transform.position - lastPosition;
-            playerOnTop.transform.position += delta;
-
-            PlayerInput playerInput = playerOnTop.GetComponent<PlayerInput>();
-            Rigidbody2D rbPlayer = playerOnTop.GetComponent<Rigidbody2D>();
-
-            if (playerInput != null && rbPlayer != null)
+            player = playerOnTop.GetComponent<Player>();
+            if (player != null && player.isGrounded)
             {
-                float inputDir = Mathf.Sign(playerInput.Horizontal);
-                float turtleSpeed = (transform.position.x - lastPosition.x) / Time.deltaTime;
-                float playerSpeed = rbPlayer.linearVelocity.x;
-
-                if (Mathf.Abs(inputDir) > 0.1f)
-                {
-                    float speedDifference = turtleSpeed - playerSpeed;
-                    float forza = forzaCorrettiva * speedDifference;
-
-                    rbPlayer.AddForce(new Vector2(forza, 0), ForceMode2D.Force);
-                }
+                player.SetPlatformVelocity(platformVelocity);
             }
+            else if(player !=null && !player.isGrounded)
+            {
+                player.SetPlatformVelocity(Vector2.zero);
+            }
+
+            lastPosition = transform.position;
         }
 
         lastPosition = transform.position;
@@ -103,6 +95,10 @@ public class Tartaruga : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && playerOnTop == collision.gameObject)
         {
+            if (player != null)
+        {
+            player.SetPlatformVelocity(Vector2.zero);
+        }
             playerOnTop = null;
         }
     }

@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 6585454424598874170}
   - component: {fileID: -2919023779863035356}
   - component: {fileID: 1850436350260834480}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FallingPlatform2tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

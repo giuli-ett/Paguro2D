@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 341287609398072237}
   - component: {fileID: 5353901914322842050}
   - component: {fileID: 4276982960051686142}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TwoTileBoth
   m_TagString: Untagged
   m_Icon: {fileID: 0}

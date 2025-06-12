@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public bool isInForno = false;
     private Vector3 externalPlatformDelta = Vector3.zero;
     private bool isOnMovingPlatform = false;
+    private Vector2 platformVelocity = Vector2.zero;
+    public float targetSpeed;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
@@ -174,7 +176,7 @@ public class Player : MonoBehaviour
 
         else
         {
-            float targetSpeed = horizontalMovement * moveSpeed;
+            targetSpeed = horizontalMovement * moveSpeed + platformVelocity.x;
             float speedDifference = targetSpeed - rb.linearVelocity.x;
             float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
 
@@ -182,6 +184,11 @@ public class Player : MonoBehaviour
 
             rb.AddForce(new Vector2(movement, 0));
         }
+    }
+    // SET VELOCITÀ PIATTAFORMA MOBILE
+    public void SetPlatformVelocity(Vector3 velocity)
+    {   
+    platformVelocity = velocity;
     }
 
     // ARRAMPICATA SULL'AMO

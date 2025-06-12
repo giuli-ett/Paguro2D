@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2246089550634846917}
   - component: {fileID: 7797924909664206146}
   - component: {fileID: -8954872543774453676}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ThreeTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: -2246089550634846917}
   - component: {fileID: 2093185166983234800}
   - component: {fileID: 4890444995626116885}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SixTile1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
