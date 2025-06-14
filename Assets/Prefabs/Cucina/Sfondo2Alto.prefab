@@ -271,9 +271,9 @@ GameObject:
   m_Component:
   - component: {fileID: 755767458075499302}
   - component: {fileID: 3981416789091692372}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sfondo2Alto
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

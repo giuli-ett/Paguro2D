@@ -1,33 +1,36 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class BackgroundLayer : MonoBehaviour
 {
-    private float startPos;
-    private float lenght;
-    [SerializeField] private GameObject cam;
-    [SerializeField] private float parallaxFactor;
+    private float lengthX;
+    [SerializeField] private GameObject camera;
+    [SerializeField] private Vector2 parallaxFactor;
+    [SerializeField] private int tileCount = 5; // Set this to your number of tiles
+
+    private float initialOffsetX;
+    private float initialOffsetY;
+
     void Start()
     {
-        startPos = transform.position.x;
-        lenght = GetComponent<SpriteRenderer>().bounds.size.x;
-
+        initialOffsetX = transform.position.x;
+        initialOffsetY = transform.position.y;
+        lengthX = GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-        float distance = cam.transform.position.x * parallaxFactor;
-        float movement = cam.transform.position.x * (1 - parallaxFactor);
+        float camX = camera.transform.position.x;
+        float camY = camera.transform.position.y;
 
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
-        if(movement > startPos + lenght)
-        {
-            startPos += lenght;
-        }
-        else if(movement < startPos - lenght)
-        {
-            startPos -= lenght;
-        }
+        // Parallax movement
+        float parallaxX = initialOffsetX + (camX - initialOffsetX) * parallaxFactor.x;
+        float parallaxY = initialOffsetY + (camY - initialOffsetY) * parallaxFactor.y;
+
+        // Calculate seamless horizontal looping using modulo
+        float totalWidth = lengthX * tileCount;
+        float relativeX = parallaxX - camX;
+        float loopedX = camX + Mathf.Repeat(relativeX + totalWidth * 0.5f, totalWidth) - totalWidth * 0.5f;
+
+        transform.position = new Vector3(loopedX, parallaxY, transform.position.z);
     }
 }
