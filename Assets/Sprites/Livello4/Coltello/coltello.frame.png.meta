@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      coltello.frame_0: -1393800219419336915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

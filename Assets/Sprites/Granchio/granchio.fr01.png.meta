@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      granchio.fr01_0: -6786205597327174230
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

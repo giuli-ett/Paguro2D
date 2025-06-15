@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paguroDamage.fr1.1_0: 3946934039259681100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
