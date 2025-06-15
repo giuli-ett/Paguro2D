@@ -1,11 +1,4 @@
-using NUnit.Framework;
-using System;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using static Unity.Burst.Intrinsics.Arm;
-using static Unity.Cinemachine.CinemachineFreeLookModifier;
-
 
 public class BancoPesci : MonoBehaviour
 {
@@ -14,8 +7,9 @@ public class BancoPesci : MonoBehaviour
     private int currentIndex = 0;
 
     private Vector3 lastPosition;
-    private Vector3 deltaMovement;
     private SpriteRenderer spriteRenderer;
+    private GameObject playerOnTop;
+    private Player player;
 
     private bool isActivated = false;
 
@@ -25,38 +19,79 @@ public class BancoPesci : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!isActivated || waypoints.Length == 0) return;
 
-        lastPosition = transform.position;
+         // Calculate velocity BEFORE moving
+    Vector3 currentPosition = transform.position;
 
-        Transform target = waypoints[currentIndex];
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+    // Move towards the current waypoint
+    Transform target = waypoints[currentIndex];
+    Vector3 newPosition = Vector3.MoveTowards(currentPosition, target.position, speed * Time.fixedDeltaTime);
+    Vector2 platformVelocity = (newPosition - currentPosition) / Time.fixedDeltaTime;
 
-        deltaMovement = transform.position - lastPosition;
+    transform.position = newPosition;
 
-        // Gestione flip sprite in base alla direzione
-        if (deltaMovement.x != 0)
+        // Flip sprite based on direction
+        if (platformVelocity.x != 0)
         {
-            spriteRenderer.flipX = deltaMovement.x < 0;
+            spriteRenderer.flipX = platformVelocity.x < 0;
         }
 
-        // Passa al waypoint successivo quando vicino abbastanza
+        // Switch to next waypoint if close enough
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             currentIndex = (currentIndex + 1) % waypoints.Length;
         }
+
+        // Move player with platform
+        if (playerOnTop != null)
+        {
+            player = playerOnTop.GetComponent<Player>();
+            if (player != null && player.isGrounded)
+            {
+                player.SetPlatformVelocity(platformVelocity);
+            }
+            else if (player != null && !player.isGrounded)
+            {
+                player.SetPlatformVelocity(Vector2.zero);
+            }
+        }
+
+        lastPosition = transform.position;
     }
 
-    // Metodo pubblico per ottenere lo spostamento frame-to-frame
     public Vector3 GetDeltaMovement()
     {
-        return deltaMovement;
+        return transform.position - lastPosition;
     }
 
-    public void ActivateMovement()
+    void OnCollisionEnter2D(Collision2D other)
     {
-        isActivated = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            foreach (ContactPoint2D contact in other.contacts)
+            {
+                if (contact.normal.y < -0.5f)
+                {
+                    isActivated = true;
+                    playerOnTop = other.gameObject;
+                    break;
+                }
+            }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && playerOnTop == other.gameObject)
+        {
+            if (player != null)
+            {
+                player.SetPlatformVelocity(Vector2.zero);
+            }
+            playerOnTop = null;
+        }
     }
 }

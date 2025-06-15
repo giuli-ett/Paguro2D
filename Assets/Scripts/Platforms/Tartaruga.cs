@@ -26,6 +26,7 @@ public class Tartaruga : MonoBehaviour
         animator.SetFloat("Schiacciato", 0f);
         lastX = startPosition.x;
         lastPosition = transform.position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Move()
@@ -38,11 +39,11 @@ public class Tartaruga : MonoBehaviour
         // Flip sprite in base alla direzione
         if (deltaX > 0.01f)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            spriteRenderer.flipX = false;
         }
         else if (deltaX < -0.01f)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            spriteRenderer.flipX = true;
         }
 
         lastX = newX;
@@ -52,6 +53,10 @@ public class Tartaruga : MonoBehaviour
     {
         Move();
         Vector2 platformVelocity = new Vector2((transform.position - lastPosition).x / Time.fixedDeltaTime, 0f);
+        if (playerOnTop == null)
+        {
+            return;
+        }
 
         if (playerOnTop != null)
         {
@@ -60,7 +65,7 @@ public class Tartaruga : MonoBehaviour
             {
                 player.SetPlatformVelocity(platformVelocity);
             }
-            else if(player !=null && !player.isGrounded)
+            else if (player != null && !player.isGrounded)
             {
                 player.SetPlatformVelocity(Vector2.zero);
             }
