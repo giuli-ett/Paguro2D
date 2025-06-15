@@ -99,7 +99,9 @@ GameObject:
   - component: {fileID: 5649329546190942522}
   - component: {fileID: 771645269096657347}
   - component: {fileID: 4132061457574393933}
-  m_Layer: 0
+  - component: {fileID: 4837096894903561520}
+  - component: {fileID: 2247616628203231163}
+  m_Layer: 3
   m_Name: BancoPesci
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +121,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2413715978575565793}
   - {fileID: 7510352067408578508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -186,8 +187,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1174316681
-  m_SortingLayer: -4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4ee45f2de4f40304f9d561c6b333a01d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,48 +216,14 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 4
---- !u!1 &5808582529243012481
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2413715978575565793}
-  - component: {fileID: 5970498696161807073}
-  - component: {fileID: 315476882390820539}
-  - component: {fileID: 2077743710693756636}
-  m_Layer: 3
-  m_Name: PiattaformaPesci
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2413715978575565793
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808582529243012481}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: -2.19, z: 0}
-  m_LocalScale: {x: 4, y: 0.1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 256907082214556728}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5970498696161807073
+  speed: 10
+--- !u!61 &4837096894903561520
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808582529243012481}
+  m_GameObject: {fileID: 1597658051777604453}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -284,46 +251,32 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.29356003}
+  m_Offset: {x: 0.078938484, y: -1.9849422}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 9.02, y: 6.22}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.37299585}
+  m_Size: {x: 8.4244175, y: 0.632483}
   m_EdgeRadius: 0
---- !u!114 &315476882390820539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808582529243012481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ec97ff715134d4d9f22402f80d91ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishGroup: {fileID: 4132061457574393933}
-  velocitaBancoSuPlayer: 0.775
---- !u!251 &2077743710693756636
+--- !u!251 &2247616628203231163
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5808582529243012481}
+  m_GameObject: {fileID: 1597658051777604453}
   m_Enabled: 1
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RotationalOffset: 0
-  m_UseOneWay: 1
+  m_UseOneWay: 0
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 180
   m_UseSideFriction: 0

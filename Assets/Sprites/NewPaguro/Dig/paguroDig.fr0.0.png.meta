@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: ddab80e7b0ef8ce4c97171381538fb46
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6595086052180918750
+    second: paguroDig.fr0.0_0
+  - first:
+      213: 1641455728026689794
+    second: paguroDig.fr0.0_1
+  - first:
+      213: -8149666059202764069
+    second: paguroDig.fr0.0_2
+  - first:
+      213: -7598668807781807698
+    second: paguroDig.fr0.0_3
+  - first:
+      213: 6821025907643919343
+    second: paguroDig.fr0.0_4
+  - first:
+      213: 135939788410966980
+    second: paguroDig.fr0.0_5
+  - first:
+      213: -3632532146593056853
+    second: paguroDig.fr0.0_6
+  - first:
+      213: 5802214817044949713
+    second: paguroDig.fr0.0_7
+  - first:
+      213: -8445506952315135317
+    second: paguroDig.fr0.0_8
+  - first:
+      213: 5906687692989234313
+    second: paguroDig.fr0.0_9
+  - first:
+      213: 8173420904804008773
+    second: paguroDig.fr0.0_10
+  - first:
+      213: -2733601077657716654
+    second: paguroDig.fr0.0_11
+  - first:
+      213: -4099711345243317871
+    second: paguroDig.fr0.0_12
+  - first:
+      213: -8000491560248174982
+    second: paguroDig.fr0.0_13
+  - first:
+      213: 4710868077170036575
+    second: paguroDig.fr0.0_14
+  - first:
+      213: 8970405377775153575
+    second: paguroDig.fr0.0_15
+  - first:
+      213: 2359562608326422182
+    second: paguroDig.fr0.0_16
+  - first:
+      213: 8346819161367667168
+    second: paguroDig.fr0.0_17
+  - first:
+      213: 8257530652618734552
+    second: paguroDig.fr0.0_18
+  - first:
+      213: -5091059993745994730
+    second: paguroDig.fr0.0_19
+  - first:
+      213: 137073769130897316
+    second: paguroDig.fr0.0_20
+  - first:
+      213: -640239710610724764
+    second: paguroDig.fr0.0_21
+  - first:
+      213: 8112290115416820924
+    second: paguroDig.fr0.0_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 706
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e7f948d2c8974a0800000000000000
+      internalID: -6595086052180918750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_1
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 563
+        width: 193
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201af8fa94f97c610800000000000000
+      internalID: 1641455728026689794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_2
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 684
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd2692fd5e196ee80800000000000000
+      internalID: -8149666059202764069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_3
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 644
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea903529afa1c8690800000000000000
+      internalID: -7598668807781807698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_4
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 636
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb2ad47ce629ae50800000000000000
+      internalID: 6821025907643919343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_5
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 572
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c3d31f6484f2e100800000000000000
+      internalID: 135939788410966980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_6
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 572
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba732273247a69dc0800000000000000
+      internalID: -3632532146593056853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_7
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 134
+        width: 651
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dae87872ab958050800000000000000
+      internalID: 5802214817044949713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_8
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 490
+        width: 153
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baa1a2f4c288bca80800000000000000
+      internalID: -8445506952315135317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_9
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 67
+        width: 756
+        height: 495
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c7bcb6925c8f150800000000000000
+      internalID: 5906687692989234313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_10
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 462
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543489e1203dd6170800000000000000
+      internalID: 8173420904804008773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_11
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 464
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25836989d4c401ad0800000000000000
+      internalID: -2733601077657716654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_12
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 384
+        width: 61
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1991221b046ea17c0800000000000000
+      internalID: -4099711345243317871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 444
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7695ea705b88f090800000000000000
+      internalID: -8000491560248174982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_14
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 435
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f82739e8d506140800000000000000
+      internalID: 4710868077170036575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_15
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 338
+        width: 120
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a1ba81f9284d7c70800000000000000
+      internalID: 8970405377775153575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_16
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 118
+        width: 560
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae2796d0b9deb020800000000000000
+      internalID: 2359562608326422182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_17
+      rect:
+        serializedVersion: 2
+        x: 1433
+        y: 180
+        width: 128
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e16ebdcdcbd5d370800000000000000
+      internalID: 8346819161367667168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_18
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 314
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db3d37d064a89270800000000000000
+      internalID: 8257530652618734552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_19
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 302
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61c4196c8ebe859b0800000000000000
+      internalID: -5091059993745994730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_20
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 247
+        width: 70
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4af2215eddbf6e100800000000000000
+      internalID: 137073769130897316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_21
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 109
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 468e2f510696d17f0800000000000000
+      internalID: -640239710610724764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paguroDig.fr0.0_22
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 46
+        width: 278
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc055411e4a49070800000000000000
+      internalID: 8112290115416820924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      paguroDig.fr0.0_0: -6595086052180918750
+      paguroDig.fr0.0_1: 1641455728026689794
+      paguroDig.fr0.0_10: 8173420904804008773
+      paguroDig.fr0.0_11: -2733601077657716654
+      paguroDig.fr0.0_12: -4099711345243317871
+      paguroDig.fr0.0_13: -8000491560248174982
+      paguroDig.fr0.0_14: 4710868077170036575
+      paguroDig.fr0.0_15: 8970405377775153575
+      paguroDig.fr0.0_16: 2359562608326422182
+      paguroDig.fr0.0_17: 8346819161367667168
+      paguroDig.fr0.0_18: 8257530652618734552
+      paguroDig.fr0.0_19: -5091059993745994730
+      paguroDig.fr0.0_2: -8149666059202764069
+      paguroDig.fr0.0_20: 137073769130897316
+      paguroDig.fr0.0_21: -640239710610724764
+      paguroDig.fr0.0_22: 8112290115416820924
+      paguroDig.fr0.0_3: -7598668807781807698
+      paguroDig.fr0.0_4: 6821025907643919343
+      paguroDig.fr0.0_5: 135939788410966980
+      paguroDig.fr0.0_6: -3632532146593056853
+      paguroDig.fr0.0_7: 5802214817044949713
+      paguroDig.fr0.0_8: -8445506952315135317
+      paguroDig.fr0.0_9: 5906687692989234313
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

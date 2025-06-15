@@ -31,6 +31,6 @@ public class BackgroundLayer : MonoBehaviour
         float relativeX = parallaxX - camX;
         float loopedX = camX + Mathf.Repeat(relativeX + totalWidth * 0.5f, totalWidth) - totalWidth * 0.5f;
 
-        transform.position = new Vector3(loopedX, parallaxY, transform.position.z);
+        transform.position = new Vector3(loopedX, camY + initialOffsetY, transform.position.z);
     }
 }
