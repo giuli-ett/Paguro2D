@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ruotaOn.02_0: 5090149657743788123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

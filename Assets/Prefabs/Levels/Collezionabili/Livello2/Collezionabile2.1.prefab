@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1475294204519169110, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_Name
-      value: Collezionabile
+      value: Collezionabile2.1
       objectReference: {fileID: 0}
     - target: {fileID: 6268722199922285825, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,8 +53,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8051385179627993476, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1c68a7ccd2ec779428faeaf5c8f9e2bd, type: 3}
+    - target: {fileID: 8051385179627993476, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_Color.b
-      value: 0.035848916
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8051385179627993476, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_Color.g
@@ -62,7 +66,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8051385179627993476, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_Color.r
-      value: 0.7249193
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680825118409762017, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 10.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8680825118409762017, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 10.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
