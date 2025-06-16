@@ -15,6 +15,10 @@ public class LifeController : MonoBehaviour
 
     [SerializeField] private Palla palla;
 
+    [Header("DANNO")]
+    [SerializeField] private float damageImpulseSpeed = 12f;
+    [SerializeField] private float damageImpulseDuration = 0.3f;
+    public bool isDamageImpulseActive = false;
 
     void Awake()
     {
@@ -32,6 +36,7 @@ public class LifeController : MonoBehaviour
 
     public void Die()
     {
+        //Player.Instance.animator.SetBool("isDead", true);
         Debug.Log("Giocatore morto!");
         currentHealth = maxHealth;
 
@@ -45,6 +50,7 @@ public class LifeController : MonoBehaviour
             palla.ResetPosition();
         }
 
+        StartCoroutine(WaitABit());
         transform.position = respawnPosition;
         StartCoroutine(InvincibilityCoroutine());
     }
@@ -66,6 +72,8 @@ public class LifeController : MonoBehaviour
         }
         else
         {
+            ApplayDamageImpulse();
+            Player.Instance.animator.SetBool("isTakingDamage", true);
             StartCoroutine(InvincibilityCoroutine());
         }
     }
@@ -85,6 +93,7 @@ public class LifeController : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();
+            
         }
         if (other.gameObject.CompareTag("Hand") && Hand.Instance.isSmashing)
         {
@@ -108,8 +117,43 @@ public class LifeController : MonoBehaviour
     }
 
 
-    /* void Update()
+    public void ApplayDamageImpulse()
     {
-        
-    } */
+        if (isDamageImpulseActive) return;
+        UnityEngine.Debug.Log("✅ Impulso da namico applicato");
+        StartCoroutine(PerformDamegeImpulse());
+    }
+
+    private IEnumerator PerformDamegeImpulse()
+    {
+        isDamageImpulseActive = true;
+
+        float direction = Player.Instance.spriteRenderer.flipX ? 1f : -1f;
+        float elapsed = 0f;
+
+        while (elapsed < damageImpulseDuration)
+        {
+            Player.Instance.rb.linearVelocity = new Vector2(direction * damageImpulseSpeed, Player.Instance.rb.linearVelocity.y);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        isDamageImpulseActive = false;
+    }
+
+    public void OnDamageAnimationOver()
+    {
+        Player.Instance.animator.SetBool("isTakingDamage", false);
+    }
+
+    private IEnumerator WaitABit()
+    {
+        yield return new WaitForSeconds(1.0f);
+    }
+
+    public void OnDeathAnimationOver()
+    {
+        Debug.Log("Fine animazione morte");
+        Player.Instance.animator.SetBool("isDead", false);
+    }
 }

@@ -188,6 +188,8 @@ public class PowerLibrary : MonoBehaviour
 
         light.intensity = 0f;
         light.enabled = false;
+
+        Player.Instance.GetComponent<LifeController>().Die();
     }
     public static void RechargeLuminescence(Player player)
     {

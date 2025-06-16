@@ -60,7 +60,7 @@ public class Amo : MonoBehaviour
         Player.Instance.isGrounded = true;
         currentClimbable = hook;
         currentClimbableCollider = hook.GetComponent<Collider2D>();
-        Player.Instance.isClimbing = true;
+        //Player.Instance.isClimbing = true;
     }
 
     public void Detach()
@@ -83,6 +83,9 @@ public class Amo : MonoBehaviour
 
             isClimbing = false;
             isAttached = false;
+            Player.Instance.animator.SetBool("isAttached", isAttached);
+            Player.Instance.animator.SetFloat("yClimbVelocity", 0f);
+
 
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 1f;

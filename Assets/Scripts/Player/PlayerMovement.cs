@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class Player : MonoBehaviour
 {
@@ -75,6 +77,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float swingImpulseSpeed = 12f;
     [SerializeField] private float swingImpulseDuration = 0.3f;
     private bool isSwingImpulseActive = false;
+    private float lastYPosition;
 
     [Header("BOSSFIGHT")]
 
@@ -101,9 +104,12 @@ public class Player : MonoBehaviour
         shellManager = GetComponent<ShellManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        amo = GetComponent<Amo>();
         isGrounded = true;
         originalMoveSpeed = moveSpeed;
         playerInput = GetComponent<PlayerInput>();
+
+        lastYPosition = transform.position.y;
     }
 
     private void FixedUpdate()
@@ -115,10 +121,10 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (this.GetComponent<Amo>().isAttached)
+        if (amo.isAttached)
         {
             Climb();
-            animator.SetFloat("xVelocity", 0f);
+            animator.SetFloat("yClimbVelocity", verticalMovement);
         }
         else
         {
@@ -126,7 +132,7 @@ public class Player : MonoBehaviour
             MovePlayer();
             float velocityInput = Mathf.Abs(horizontalMovement);
             animator.SetFloat("xVelocity", velocityInput);
-            animator.SetFloat("yVelocity", rb.linearVelocity.y);
+            animator.SetFloat("yJumpVelocity", rb.linearVelocity.y);
         }
 
         if (rb.linearVelocity.y > 0.1f && !isGrounded)
@@ -197,6 +203,7 @@ public class Player : MonoBehaviour
     {
         if (amo.isAttached)
         {
+            animator.SetBool("isAttached", true);
             rb.gravityScale = 0f;
             rb.linearVelocity = Vector2.zero;
 
@@ -216,7 +223,7 @@ public class Player : MonoBehaviour
     public void ApplySwingImpulse()
     {
         if (isSwingImpulseActive) return;
-        Debug.Log("✅ Impulso da amo applicato");
+        UnityEngine.Debug.Log("✅ Impulso da amo applicato");
         StartCoroutine(PerformSwingImpulse());
     }
 

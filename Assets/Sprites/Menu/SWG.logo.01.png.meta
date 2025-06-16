@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SWG.logo.01_0: -26799848560691922
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
