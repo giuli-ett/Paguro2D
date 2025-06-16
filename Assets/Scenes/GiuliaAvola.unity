@@ -5548,7 +5548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6564550428336411355, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6564550428336411355, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
       propertyPath: m_SortingLayerID
@@ -11580,6 +11580,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1728421276
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2107470189092797352, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_Name
+      value: Chiodi
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135.86855
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.520195
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655895543479302132, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b1f49b1d92be5ea439dd3d7e8fe3376c, type: 3}
 --- !u!1 &1752420689
 GameObject:
   m_ObjectHideFlags: 0
@@ -14443,6 +14500,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1250521280432839862, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: damageImpulseSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250521280432839862, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: damageImpulseDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1596563446125485217, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -14571,6 +14636,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4175186279423547188, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: inventario
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4243038333612531932, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -14598,6 +14667,10 @@ PrefabInstance:
     - target: {fileID: 5154712828131151487, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: digRange
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154712828131151487, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: inventarioUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5154712828131151487, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: climbTopLimit
@@ -14998,3 +15071,4 @@ SceneRoots:
   - {fileID: 203492472}
   - {fileID: 559124335}
   - {fileID: 1132250815}
+  - {fileID: 1728421276}
