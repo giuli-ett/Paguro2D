@@ -14,6 +14,10 @@ public class Amo : MonoBehaviour
     public Transform currentClimbTopLimit;
     public Transform currentClimbBottomLimit;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

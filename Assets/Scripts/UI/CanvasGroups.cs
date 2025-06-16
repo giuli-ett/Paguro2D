@@ -10,6 +10,11 @@ public class CanvasGroups : MonoBehaviour
     public CanvasGroup luminescenzaCanvas;
     public Dictionary<Shell, CanvasGroup> listaFeedbackGusci;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+    
     void Start()
     {
         listaFeedbackGusci = new Dictionary<Shell, CanvasGroup>();
