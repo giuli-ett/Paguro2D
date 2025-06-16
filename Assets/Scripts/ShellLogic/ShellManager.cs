@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +9,7 @@ public class ShellManager : MonoBehaviour
     [Header("RIFERIMENTI")]
 
     public InventarioUI inventario;
+    public UIController uIController;
     public Transform shellPosition;
     public Shell baseShell;
     public ShellPicker baseShellPicker;
@@ -42,7 +45,7 @@ public class ShellManager : MonoBehaviour
     public void WearShell(Shell shell, ShellPicker shellPicker)
     {
         Player.Instance.animator.SetBool("isChange", true);
-        
+
         // Se hai già un guscio attivo, disattivalo
         if (currentShellPicker != null)
         {
@@ -67,6 +70,7 @@ public class ShellManager : MonoBehaviour
             shellPicker.text.SetActive(false);
 
             equippedShellPickers[shell] = shellPicker;
+            StartCoroutine(uIController.FadeInAndOut(ShowShellUI(shell)));
         }
 
         // Aggiorna il riferimento corrente
@@ -125,4 +129,26 @@ public class ShellManager : MonoBehaviour
         currentShellPicker.gameObject.SetActive(true);
     }
 
+    public CanvasGroup ShowShellUI(Shell shell)
+    {
+        Dictionary<String, CanvasGroup> lista = Player.Instance.GetComponent<CanvasGroups>().listaFeedbackGusci;
+        CanvasGroup canvas = null;
+        foreach (KeyValuePair<String, CanvasGroup> pair in lista)
+        {
+            if (string.Equals(pair.Key, shell.shellName, System.StringComparison.OrdinalIgnoreCase))
+            {
+                canvas = pair.Value;
+            }
+        }
+
+        if (canvas != null)
+        {
+            return canvas;
+        }
+        else
+        {
+            Debug.Log("Nessun feedback associato al guscio");
+            return null;
+        }
+    }
 }
