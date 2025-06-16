@@ -17,6 +17,8 @@ public class ShellManager : MonoBehaviour
     public ShellPicker currentShellPicker;
     public ShellPicker closeShell;
     public Dictionary<Shell, ShellPicker> equippedShellPickers = new();
+    public CanvasGroup doppioSaltoCanvas;
+    public CanvasGroup luminescenzaCanvas;
 
     private void Awake()
     {
@@ -131,11 +133,11 @@ public class ShellManager : MonoBehaviour
 
     public CanvasGroup ShowShellUI(Shell shell)
     {
-        Dictionary<String, CanvasGroup> lista = Player.Instance.GetComponent<CanvasGroups>().listaFeedbackGusci;
+        Dictionary<Shell, CanvasGroup> lista = Player.Instance.GetComponent<CanvasGroups>().listaFeedbackGusci;
         CanvasGroup canvas = null;
-        foreach (KeyValuePair<String, CanvasGroup> pair in lista)
+        foreach (KeyValuePair<Shell, CanvasGroup> pair in lista)
         {
-            if (string.Equals(pair.Key, shell.shellName, System.StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(pair.Key.shellName, shell.shellName, System.StringComparison.OrdinalIgnoreCase))
             {
                 canvas = pair.Value;
             }

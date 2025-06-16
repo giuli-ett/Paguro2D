@@ -8,13 +8,13 @@ public class CanvasGroups : MonoBehaviour
     public Shell luminescenza;
     public CanvasGroup doppioSaltoCanvas;
     public CanvasGroup luminescenzaCanvas;
-    public Dictionary<String, CanvasGroup> listaFeedbackGusci;
+    public Dictionary<Shell, CanvasGroup> listaFeedbackGusci;
 
     void Start()
     {
-        listaFeedbackGusci = new Dictionary<String, CanvasGroup>();
+        listaFeedbackGusci = new Dictionary<Shell, CanvasGroup>();
 
-        listaFeedbackGusci.Add(doppioSalto.shellName, doppioSaltoCanvas);
-        listaFeedbackGusci.Add(luminescenza.shellName, luminescenzaCanvas);
+        listaFeedbackGusci.Add(doppioSalto, doppioSaltoCanvas);
+        listaFeedbackGusci.Add(luminescenza, luminescenzaCanvas);
     }
 }
