@@ -16,6 +16,15 @@ public class TimedPlatform : MonoBehaviour
         renderer = GetComponent<Renderer>();
     }
 
+    private void SetChildrenSpriteRenderers(bool enabled)
+    {
+        foreach (Transform child in transform)
+        {
+            var sr = child.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.enabled = enabled;
+        }
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -44,7 +53,7 @@ public class TimedPlatform : MonoBehaviour
             if (timer >= durata)
             {
                 collider.enabled = false;
-                renderer.enabled = false; 
+                SetChildrenSpriteRenderers(false);
                 //animazione
                 timer = 0f;
             }
@@ -59,7 +68,7 @@ public class TimedPlatform : MonoBehaviour
             if (timer >= cooldown)
             {
                 collider.enabled = true;
-                renderer.enabled = true;
+                SetChildrenSpriteRenderers(true);
                 //animazione
                 timer = 0f;
             }
