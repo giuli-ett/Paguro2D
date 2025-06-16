@@ -23,7 +23,7 @@ public class InventarioUI : MonoBehaviour
         panelInventario.SetActive(false);
 
         shellList = new List<Shell>();
-        shellList.Add(baseShell);
+        //shellList.Add(baseShell);
 
         AggiornaInventarioUI();
     }
@@ -66,10 +66,10 @@ public class InventarioUI : MonoBehaviour
     {
         foreach (var slot in shellSlots)
         {
-            slot.GetComponent<Image>().color = Color.white;
+            slot.DeselectSlot();
         }
 
-        shellSlots[selectedSlot].GetComponent<Outline>().effectColor = Color.white;
+        //shellSlots[selectedSlot].GetComponent<Outline>().effectColor = Color.white;
 
         selectedSlot += direction;
 
@@ -86,9 +86,10 @@ public class InventarioUI : MonoBehaviour
         HighlightSlot(selectedSlot);
     }
 
-    private void HighlightSlot (int indice)
+    private void HighlightSlot(int indice)
     {
-        shellSlots[indice].GetComponent<Image>().color = new Color(0.925f, 0.925f, 0.537f);
+        //shellSlots[indice].GetComponent<Image>().color = new Color(0.925f, 0.925f, 0.537f);
+        shellSlots[indice].GetComponent<Slot>().SelectSlot();
     }
 
     public void EquipaggiaGuscioSelezionato(InputAction.CallbackContext context)
