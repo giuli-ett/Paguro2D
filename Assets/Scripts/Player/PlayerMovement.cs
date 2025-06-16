@@ -1,13 +1,10 @@
 using System.Collections;
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
-using UnityEditor.Tilemaps;
-using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -103,6 +100,7 @@ public class Player : MonoBehaviour
         }
 
         instance = this;
+        DontDestroyOnLoad(gameObject);
 
         shellManager = GetComponent<ShellManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();

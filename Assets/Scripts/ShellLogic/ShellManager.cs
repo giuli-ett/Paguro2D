@@ -22,6 +22,7 @@ public class ShellManager : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         inventario = GameObject.FindAnyObjectByType<InventarioUI>();
         equippedShellPickers.Add(baseShell, baseShellPicker);
     }
