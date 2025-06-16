@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1297801028338580160, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Name
-      value: Collezionabile Variant 1
+      value: Collezionabile1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5802046766999559063, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7622271186035900178, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5349848390475250063, guid: c44aa4cfa5699aa47a79ec9ef9bc76b9, type: 3}
     - target: {fileID: 7622271186035900178, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Color.b
       value: 0.9360889
