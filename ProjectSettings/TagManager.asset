@@ -10,6 +10,8 @@ TagManager:
   - Checkpoint
   - HealthPickup
   - Hand
+  - TriggerWASD
+  - TriggerSPACE
   layers:
   - Default
   - TransparentFX

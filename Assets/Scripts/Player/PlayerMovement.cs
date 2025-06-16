@@ -6,6 +6,8 @@ using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
+using UnityEditor.Tilemaps;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public ShellManager shellManager;
     public InventarioUI inventarioUI;
+    public UIController uIController;
     public Animator animator;
     public CapsuleCollider2D collider2D;
     public Light2D luminescentLight;
@@ -64,7 +67,7 @@ public class Player : MonoBehaviour
     public float lightDuration = 10f;
     public Coroutine lightFadeCoroutine;
     private PlayerInput playerInput;
-    
+
 
     [Header("GUSCIO NASCONDI/SCAVA")]
     [SerializeField] private float digRange = 5f;
@@ -194,8 +197,8 @@ public class Player : MonoBehaviour
     }
     // SET VELOCITÀ PIATTAFORMA MOBILE
     public void SetPlatformVelocity(Vector3 velocity)
-    {   
-    platformVelocity = velocity;
+    {
+        platformVelocity = velocity;
     }
 
     // ARRAMPICATA SULL'AMO
@@ -401,7 +404,7 @@ public class Player : MonoBehaviour
             PowerLibrary.MimeticoOn(this);
         }
     }
-    
+
     // FUNZIONI ATTIVA/DISATTIVA FUNZIONALITA' DEL GUSCIO
     public void EnableDoubleJump()
     {
@@ -449,6 +452,22 @@ public class Player : MonoBehaviour
             rb.MovePosition(rb.position + (Vector2)externalPlatformDelta);
             externalPlatformDelta = Vector3.zero;
             isOnMovingPlatform = false;
+        }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("TriggerWASD"))
+        {
+            Debug.Log("Trigger WASD");
+            StartCoroutine(uIController.FadeInAndOut(uIController.bollaWASD));
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        else if (other.CompareTag("TriggerSPACE"))
+        {
+            Debug.Log("Trigger SPACE");
+            StartCoroutine(uIController.FadeInAndOut(uIController.bollaSPACE));
+            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 }
