@@ -217,6 +217,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 10
+  frontSpriteRenderer: {fileID: 253472518679715978}
 --- !u!61 &4837096894903561520
 BoxCollider2D:
   m_ObjectHideFlags: 0
