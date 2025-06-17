@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    public Sprite icon;
+    //public Sprite icon;
     public Image unlockIcon;
     public Image selectionIcon;
 
@@ -19,12 +19,11 @@ public class Slot : MonoBehaviour
     public void SetIcon()
     {
         unlockIcon.gameObject.SetActive(true);
-        //transform.GetChild(0).GetComponent<Image>().sprite = icon;
     }
 
-    public void SetCollezionabile()
+    public void SetCollezionabile(Sprite sprite)
     {
-        this.GetComponent<Image>().sprite = icon;
+        this.GetComponent<Image>().sprite = sprite;
     }
 
     public void SelectSlot()

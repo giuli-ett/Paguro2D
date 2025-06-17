@@ -12,6 +12,9 @@ TagManager:
   - Hand
   - TriggerWASD
   - TriggerSPACE
+  - Collezionabile1
+  - Collezionabile2
+  - Collezionabile3
   layers:
   - Default
   - TransparentFX
