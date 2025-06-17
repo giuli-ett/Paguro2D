@@ -49,28 +49,33 @@ public class Tartaruga : MonoBehaviour
         lastX = newX;
     }
 
-    void FixedUpdate()
+   void FixedUpdate()
     {
         Move();
+
         Vector2 platformVelocity = new Vector2((transform.position - lastPosition).x / Time.fixedDeltaTime, 0f);
-        if (playerOnTop == null)
-        {
-            return;
-        }
 
         if (playerOnTop != null)
         {
             player = playerOnTop.GetComponent<Player>();
-            if (player != null && player.isGrounded)
+            bool isOnPlatformNow = player != null && player.isGrounded;
+
+            if (isOnPlatformNow && !player.wasOnMovingPlatformLastFrame)
+            {
+                // Just landed: snap velocity
+                player.SetPlatformVelocity(platformVelocity, true);
+                // Optionally, also snap the player's rigidbody velocity:
+                player.rb.linearVelocity = new Vector2(platformVelocity.x, player.rb.linearVelocity.y);
+            }
+            else if (isOnPlatformNow)
             {
                 player.SetPlatformVelocity(platformVelocity);
             }
-            else if (player != null && !player.isGrounded)
+            else
             {
                 player.SetPlatformVelocity(Vector2.zero);
             }
-
-            lastPosition = transform.position;
+            player.wasOnMovingPlatformLastFrame = isOnPlatformNow;
         }
 
         lastPosition = transform.position;

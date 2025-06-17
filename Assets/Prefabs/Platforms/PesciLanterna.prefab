@@ -150,6 +150,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 4
+  frontSpriteRenderer: {fileID: 6548642478791651195}
 --- !u!212 &4660400045666297942
 SpriteRenderer:
   m_ObjectHideFlags: 0

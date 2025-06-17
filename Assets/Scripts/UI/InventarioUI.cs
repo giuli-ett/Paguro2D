@@ -36,6 +36,7 @@ public class InventarioUI : MonoBehaviour
             panelInventario.SetActive(isActive);
 
             Player.Instance.canMove = !isActive;
+            Time.timeScale = isActive ? 0f : 1f;
 
             if (isActive)
             {

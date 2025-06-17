@@ -33,7 +33,10 @@ public class Player : MonoBehaviour
     private Vector3 externalPlatformDelta = Vector3.zero;
     private bool isOnMovingPlatform = false;
     private Vector2 platformVelocity = Vector2.zero;
+    private Vector2 smoothedPlatformVelocity = Vector2.zero;
     public float targetSpeed;
+    public bool wasOnMovingPlatformLastFrame = false;
+    [SerializeField] private float platformLerpSpeed = 10f;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
@@ -121,6 +124,7 @@ public class Player : MonoBehaviour
             animator.SetFloat("xVelocity", 0f);
             return;
         }
+        smoothedPlatformVelocity = Vector2.Lerp(smoothedPlatformVelocity, platformVelocity, Time.fixedDeltaTime * platformLerpSpeed);
 
         if (amo.isAttached)
         {
@@ -184,7 +188,7 @@ public class Player : MonoBehaviour
 
         else
         {
-            targetSpeed = horizontalMovement * moveSpeed + platformVelocity.x;
+            targetSpeed = horizontalMovement * moveSpeed + smoothedPlatformVelocity.x;
             float speedDifference = targetSpeed - rb.linearVelocity.x;
             float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
 
@@ -194,9 +198,11 @@ public class Player : MonoBehaviour
         }
     }
     // SET VELOCITÀ PIATTAFORMA MOBILE
-    public void SetPlatformVelocity(Vector3 velocity)
+    public void SetPlatformVelocity(Vector3 velocity, bool instant = false)
     {
-        platformVelocity = velocity;
+         platformVelocity = velocity;
+        if (instant)
+        smoothedPlatformVelocity = velocity;
     }
 
     // ARRAMPICATA SULL'AMO
@@ -369,6 +375,10 @@ public class Player : MonoBehaviour
             {
                 direction = Vector2.down;
             }
+             else if (verticalMovement > 0.5f)
+            {
+                direction = Vector2.up;
+            }
             else
             {
                 direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
@@ -379,16 +389,31 @@ public class Player : MonoBehaviour
 
             if (hit.collider != null)
             {
-                Destroy(hit.collider.gameObject);
+                StartCoroutine(DigAnimationCoroutine());
+                var block = hit.collider.gameObject;
+                var blockSprite = block.GetComponent<SpriteRenderer>();
+                var blockCollider = block.GetComponent<Collider2D>();
+                if (blockSprite != null) blockSprite.enabled = false;
+                if (blockCollider != null) blockCollider.enabled = false;
                 Debug.Log("✅ Blocco scavato in direzione: " + direction);
             }
             else
             {
+                animator.SetBool("isDigging", false);
                 Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
             }
         }
-
     }
+
+        private IEnumerator DigAnimationCoroutine()
+    {
+        animator.SetBool("isDigging", true);
+        yield return new WaitForSeconds(0.2f);
+        animator.SetBool("isDigging", false);
+    }
+                
+
+            
 
     // GUSCIO MIMETICO
     private void HandleCamouflageInput()
