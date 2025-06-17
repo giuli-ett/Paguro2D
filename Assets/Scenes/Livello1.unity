@@ -20451,7 +20451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154712828131151487, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: maxJump
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5154712828131151487, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: jumpPower
@@ -31924,11 +31924,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 0079be234957f6b48835a528a4901152, type: 2}
     - target: {fileID: 1834323530993037294, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
       propertyPath: m_SortingLayer
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1834323530993037294, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
       propertyPath: m_SortingLayerID
-      value: 961248539
+      value: 1089442399
       objectReference: {fileID: 0}
     - target: {fileID: 2817527554706559216, guid: 6f209331084122b42805ec4c6052f69b, type: 3}
       propertyPath: m_IsTrigger
