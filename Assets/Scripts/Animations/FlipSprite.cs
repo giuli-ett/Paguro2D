@@ -3,7 +3,7 @@ using UnityEngine;
 public class FlipSprite : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool facingRight = false; // PARTENZA: guarda a sinistra
+    [SerializeField] bool facingRight = false; // PARTENZA: guarda a sinistra
 
     void Start()
     {

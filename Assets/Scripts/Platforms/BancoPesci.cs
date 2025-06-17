@@ -4,6 +4,8 @@ public class BancoPesci : MonoBehaviour
 {
     public Transform[] waypoints;
     [SerializeField] private float speed = 2f;
+    [SerializeField] private SpriteRenderer frontSpriteRenderer; 
+
     private int currentIndex = 0;
 
     private Vector3 lastPosition;
@@ -23,29 +25,28 @@ public class BancoPesci : MonoBehaviour
     {
         if (!isActivated || waypoints.Length == 0) return;
 
-         // Calculate velocity BEFORE moving
-    Vector3 currentPosition = transform.position;
+        Vector3 currentPosition = transform.position;
 
-    // Move towards the current waypoint
-    Transform target = waypoints[currentIndex];
-    Vector3 newPosition = Vector3.MoveTowards(currentPosition, target.position, speed * Time.fixedDeltaTime);
-    Vector2 platformVelocity = (newPosition - currentPosition) / Time.fixedDeltaTime;
+        Transform target = waypoints[currentIndex];
+        Vector3 newPosition = Vector3.MoveTowards(currentPosition, target.position, speed * Time.fixedDeltaTime);
+        Vector2 platformVelocity = (newPosition - currentPosition) / Time.fixedDeltaTime;
 
-    transform.position = newPosition;
+        transform.position = newPosition;
 
-        // Flip sprite based on direction
         if (platformVelocity.x != 0)
         {
-            spriteRenderer.flipX = platformVelocity.x < 0;
+            bool flip = platformVelocity.x < 0;
+            spriteRenderer.flipX = flip;
+
+            if (frontSpriteRenderer != null)
+                frontSpriteRenderer.flipX = flip;
         }
 
-        // Switch to next waypoint if close enough
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
             currentIndex = (currentIndex + 1) % waypoints.Length;
         }
 
-        // Move player with platform
         if (playerOnTop != null)
         {
             player = playerOnTop.GetComponent<Player>();
