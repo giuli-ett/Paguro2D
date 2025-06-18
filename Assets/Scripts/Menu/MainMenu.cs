@@ -9,10 +9,12 @@ public class MainMenu : MonoBehaviour
         // DA METTERE LA CUTSCENE INIZIALE
     }
 
+    /*
     public void ContinueGame()
     {
         SceneManager.LoadSceneAsync(1);
     }
+    */
 
     public void ExitGame()
     {
