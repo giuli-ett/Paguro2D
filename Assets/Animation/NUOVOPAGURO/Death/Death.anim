@@ -22,11 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 21300000, guid: 964c9098581be4f49a712eb8a088cb52, type: 3}
-    - time: 0.1
+    - time: 0.33333334
       value: {fileID: 21300000, guid: c5fbcf024e669204d996619c0441a657, type: 3}
-    - time: 0.2
-      value: {fileID: 21300000, guid: 4448078731c1c01488666f12c80970d1, type: 3}
     - time: 0.6666667
+      value: {fileID: 21300000, guid: 4448078731c1c01488666f12c80970d1, type: 3}
+    - time: 1.3333334
       value: {fileID: 21300000, guid: 4448078731c1c01488666f12c80970d1, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 1.35
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,11 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.6666667
-    functionName: OnDeathAnimationOver
-    data: 
-    objectReferenceParameter: {fileID: 2615224041347397696, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []

@@ -19,6 +19,7 @@ public class LifeController : MonoBehaviour
     [SerializeField] private float damageImpulseSpeed = 12f;
     [SerializeField] private float damageImpulseDuration = 0.3f;
     public bool isDamageImpulseActive = false;
+    [SerializeField] float deathAnimationDuration = 1.5f;
 
     void Awake()
     {
@@ -37,23 +38,12 @@ public class LifeController : MonoBehaviour
 
     public void Die()
     {
-        //Player.Instance.animator.SetBool("isDead", true);
         Debug.Log("Giocatore morto!");
-        currentHealth = maxHealth;
+        Player.Instance.animator.SetBool("isDead", true);
+        Player.Instance.DisableMovement(); // blocca movimento
 
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            hearts[i].SetActive(true);
-        }
-
-        if (palla != null)
-        {
-            palla.ResetPosition();
-        }
-
-        StartCoroutine(WaitABit());
-        transform.position = respawnPosition;
-        StartCoroutine(InvincibilityCoroutine());
+        // Avvia la coroutine per gestire il post-morte dopo l'animazione
+        StartCoroutine(HandleDeathSequence());
     }
 
     public void TakeDamage()
@@ -94,7 +84,7 @@ public class LifeController : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();
-            
+
         }
         if (other.gameObject.CompareTag("Hand") && Hand.Instance.isSmashing)
         {
@@ -121,7 +111,7 @@ public class LifeController : MonoBehaviour
     public void ApplayDamageImpulse()
     {
         if (isDamageImpulseActive) return;
-        UnityEngine.Debug.Log("✅ Impulso da namico applicato");
+        UnityEngine.Debug.Log("Impulso da namico applicato");
         StartCoroutine(PerformDamegeImpulse());
     }
 
@@ -152,9 +142,31 @@ public class LifeController : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
     }
 
-    public void OnDeathAnimationOver()
+    private IEnumerator HandleDeathSequence()
     {
-        Debug.Log("Fine animazione morte");
+        yield return new WaitForSeconds(deathAnimationDuration);
+        OnDeathAnimationFinished();
+    }
+
+    public void OnDeathAnimationFinished()
+    {
+        Debug.Log("Animazione di morte terminata. Resetting player...");
+        // Reset dopo la morte
+        Player.Instance.EnableMovement();
         Player.Instance.animator.SetBool("isDead", false);
+
+        currentHealth = maxHealth;
+
+        for (int i = 0; i < hearts.Length; i++)
+            hearts[i].SetActive(true);
+
+        if (palla != null)
+            palla.ResetPosition();
+
+        transform.position = respawnPosition;
+
+        StartCoroutine(InvincibilityCoroutine());
     }
 }
+
+

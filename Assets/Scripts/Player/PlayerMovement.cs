@@ -505,4 +505,18 @@ public class Player : MonoBehaviour
             other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
     }
+
+    public void DisableMovement()
+    {
+        canMove = false;
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+        horizontalMovement = 0f;
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
+    }
 }
