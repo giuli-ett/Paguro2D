@@ -1,30 +1,42 @@
 using System.Collections;
 using UnityEngine;
 
+using UnityEngine;
+using System.Collections;
+
 public class Palla : MonoBehaviour
 {
     [SerializeField] public float speed = 15f;
     [SerializeField] private float TempoVita = 5f;
     [SerializeField] private Transform startPoint;
 
+    // --- NUOVO FLAG PER LA DIREZIONE ---
+    [Header("Direzione Rotazione")]
+    [Tooltip("Se spuntato, la palla rotolerà verso destra. Altrimenti, rotolerà verso sinistra.")]
+    public bool rollRight = false; // Nuovo flag pubblico
+
     private Rigidbody2D rb;
     private Vector3 startPosition;
     private Coroutine lifetimeCoroutine;
     private bool isRolling = false;
-    public bool flag = false;
+    public bool flag = false; // Il tuo flag esistente, il nuovo 'rollRight' è per la direzione
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        // startPosition non è usata, quindi potresti rimuoverla o usarla per qualcosa
         transform.position = startPoint.position;
     }
 
     public void StartRolling()
     {
-        flag = true;
+        flag = true; // Questo flag sembra essere per indicare che la palla è in movimento
         isRolling = true;
         gameObject.SetActive(true); // Assicurati che sia attiva prima di iniziare a muoversi
-        rb.linearVelocity = new Vector2(-speed, 0f);
+
+        // --- APPLICA LA DIREZIONE IN BASE AL FLAG ---
+        float direction = rollRight ? 1f : -1f; // Se rollRight è true, direction è 1 (destra), altrimenti -1 (sinistra)
+        rb.linearVelocity = new Vector2(speed * direction, 0f); // Applica la velocità con la direzione scelta
 
         if (lifetimeCoroutine != null)
             StopCoroutine(lifetimeCoroutine);
@@ -52,6 +64,7 @@ public class Palla : MonoBehaviour
         }
 
         isRolling = false;
+        flag = false; // Assicurati di resettare anche questo flag se indica lo stato di "rotolamento"
 
         gameObject.SetActive(false); // disattiva prima
         transform.position = startPoint.position; // sposta dopo
