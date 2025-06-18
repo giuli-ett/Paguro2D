@@ -16,7 +16,6 @@ public class UIController : MonoBehaviour
     {
         bollaWASD.gameObject.SetActive(false);
         bollaSPACE.gameObject.SetActive(false);
-        bollaDoppioSalto.gameObject.SetActive(false);
         bollaLuminescente.gameObject.SetActive(false);
         bollaDash.gameObject.SetActive(false);
         bollaNascondiScava.gameObject.SetActive(false);
