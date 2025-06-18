@@ -50,6 +50,9 @@ public class Forziere : MonoBehaviour
         {
             var shellPicker = newShell.GetComponent<ShellPicker>();
             Player.Instance.shellManager.WearShell(shellPicker.shell, shellPicker);
+            this.gameObject.GetComponent<Collider2D>().enabled = false;
+            Player.Instance.GetComponent<ForziereController>().closeForziere = null;
+            
         });
     }
 }

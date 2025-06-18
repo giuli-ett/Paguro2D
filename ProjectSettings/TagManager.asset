@@ -15,6 +15,7 @@ TagManager:
   - Collezionabile1
   - Collezionabile2
   - Collezionabile3
+  - Forziere
   layers:
   - Default
   - TransparentFX

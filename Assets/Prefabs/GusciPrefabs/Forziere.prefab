@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 6186642947647106505}
   m_Layer: 0
   m_Name: Forziere
-  m_TagString: Untagged
+  m_TagString: Forziere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
