@@ -46,6 +46,11 @@ public class Player : MonoBehaviour
     public bool isGrounded;
     public bool isOnTopMedusa = false;
 
+    [Header("FLIP GUSCIO")]
+    [SerializeField] private Transform shellPositionTransform;
+    [SerializeField] private float shellOffsetX = 1.8f;
+    [SerializeField] private float shellRotationZ = 10f;
+
     [Header("DASH")]
     [SerializeField] private float dashMultiplier = 2f;
     [SerializeField] private float dashDuration = 0.2f;
@@ -161,7 +166,6 @@ public class Player : MonoBehaviour
 
 
     // FLIP DELLO SPRITE
-
     public void Move(InputAction.CallbackContext context)
     {
         if (!canMove) return;
@@ -171,13 +175,21 @@ public class Player : MonoBehaviour
 
         if (horizontalMovement > 0.01f)
         {
-            spriteRenderer.flipX = false; // Guarda a destra
+            // Guarda a destra
+            spriteRenderer.flipX = false;
             spriteRendererShell.flipX = false;
+
+            shellPositionTransform.localPosition = new Vector3(shellOffsetX, shellPositionTransform.localPosition.y, shellPositionTransform.localPosition.z);
+            shellPositionTransform.localEulerAngles = new Vector3(0, 0, shellRotationZ);
         }
         else if (horizontalMovement < -0.01f)
         {
-            spriteRenderer.flipX = true; // Guarda a sinistra
+            // Guarda a sinistra
+            spriteRenderer.flipX = true;
             spriteRendererShell.flipX = true;
+
+            shellPositionTransform.localPosition = new Vector3(-shellOffsetX, shellPositionTransform.localPosition.y, shellPositionTransform.localPosition.z);
+            shellPositionTransform.localEulerAngles = new Vector3(0, 0, -shellRotationZ);
         }
     }
 
