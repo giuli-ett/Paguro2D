@@ -27,6 +27,7 @@ public class ShellManager : MonoBehaviour
         equippedShellPickers.Add(baseShell, baseShellPicker);
     }
 
+    /*
     public void Interact(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -43,6 +44,7 @@ public class ShellManager : MonoBehaviour
             Debug.Log("Attendo input");
         }
     }
+    */
 
     // EQUIPAGGIA GUSCIO
     public void WearShell(Shell shell, ShellPicker shellPicker)
