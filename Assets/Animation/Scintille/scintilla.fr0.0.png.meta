@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 00ca3541083d0214a86b700a9e0a3e1b
+guid: 62e28459a3f5a8744854fd895fac27db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2613377094678278540
-    second: scintilla.fr2.0_0
+      213: -4488001550854568179
+    second: scintilla.fr0.0_0
   - first:
-      213: -6777201000086487369
-    second: scintilla.fr2.0_1
+      213: -8958710758505164647
+    second: scintilla.fr0.0_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -78,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: scintilla.fr2.0_0
+      name: scintilla.fr0.0_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
-        width: 69
-        height: 115
+        y: 69
+        width: 37
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c81f0701f94944420800000000000000
-      internalID: 2613377094678278540
+      spriteID: d0749e13e5a67b1c0800000000000000
+      internalID: -4488001550854568179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: scintilla.fr2.0_1
+      name: scintilla.fr0.0_1
       rect:
         serializedVersion: 2
-        x: 142
+        x: 138
         y: 0
-        width: 51
-        height: 57
+        width: 27
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7be3c6af89b82f1a0800000000000000
-      internalID: -6777201000086487369
+      spriteID: 99054d9c7044ca380800000000000000
+      internalID: -8958710758505164647
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      scintilla.fr2.0_0: 2613377094678278540
-      scintilla.fr2.0_1: -6777201000086487369
+      scintilla.fr0.0_0: -4488001550854568179
+      scintilla.fr0.0_1: -8958710758505164647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
