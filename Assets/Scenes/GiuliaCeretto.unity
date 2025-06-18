@@ -1339,14 +1339,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2136399076172317524, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: ShapeModule.type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136399076172317524, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3866405592984806071, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
       propertyPath: m_Name
       value: CratereBolle
@@ -1390,26 +1382,6 @@ PrefabInstance:
     - target: {fileID: 6088366047690136155, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273206898786953850, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: m_UseCustomVertexStreams
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273206898786953850, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: b64ffac31aa663743ad137166feccf3a, type: 2}
-    - target: {fileID: 7273206898786953850, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: m_VertexStreams.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273206898786953850, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: 'm_VertexStreams.Array.data[1]'
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7273206898786953850, guid: 8cb06aa107d38f1449019a75d75de332, type: 3}
-      propertyPath: 'm_VertexStreams.Array.data[2]'
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
