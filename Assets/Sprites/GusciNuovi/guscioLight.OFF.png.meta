@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      guscioLight.OFF_0: -3254898216949765977
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

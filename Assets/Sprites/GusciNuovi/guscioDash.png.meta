@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      guscioDash_0: 5578459386626117036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      guscioStandard_0: -2985817206507869359
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

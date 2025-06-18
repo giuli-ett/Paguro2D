@@ -28,6 +28,30 @@ public class InventarioUI : MonoBehaviour
         AggiornaInventarioUI();
     }
 
+    private void Update()
+    {
+        if (panelInventario.activeSelf)
+        {
+            for (int i = 0; i < shellSlots.Count; i++)
+            {
+                // I tasti numerici vanno da Alpha1 (1) a Alpha9 (9)
+                if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                {
+                    SelectSlotByNumber(i);
+                }
+            }
+        }
+    }
+
+    private void SelectSlotByNumber(int index)
+    {
+        if (index >= 0 && index < shellSlots.Count)
+        {
+            shellSlots[selectedSlot].DeselectSlot();
+            selectedSlot = index;
+            HighlightSlot(selectedSlot);
+        }
+    }
     public void MostraInventario(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -36,13 +60,28 @@ public class InventarioUI : MonoBehaviour
             panelInventario.SetActive(isActive);
 
             Player.Instance.canMove = !isActive;
-            Time.timeScale = isActive ? 0f : 1f;
+            //Time.timeScale = isActive ? 0f : 1f;
 
             if (isActive)
             {
                 AggiornaInventarioUI();
                 HighlightSlot(selectedSlot);
             }
+            else
+        {
+            // Quando chiudi l'inventario, cambia guscio se la selezione è diversa
+            if (selectedSlot >= 0 && selectedSlot < shellList.Count)
+            {
+                Shell selezionato = shellList[selectedSlot];
+                if (Player.Instance.shellManager.currentShell != selezionato)
+                {
+                    Player.Instance.animator.SetBool("isChange", true);
+                    Player.Instance.shellManager.RemoveShell();
+                    var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
+                    Player.Instance.shellManager.WearShell(selezionato, shellPicker);
+                }
+            }
+        }
         }
     }
 
