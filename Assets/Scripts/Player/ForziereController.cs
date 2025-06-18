@@ -6,22 +6,17 @@ public class ForziereController : MonoBehaviour
     public GameObject closeForziere = null;
     public void Interact(InputAction.CallbackContext context)
     {
-        Debug.Log($"[DEBUG] Interact chiamato. context.phase = {context.phase}");
-        Debug.Log($"closeForziere = {closeForziere}");
-
         if (closeForziere == null)
         {
-            Debug.LogWarning("closeForziere è NULL!");
             return;
         }
 
         bool isClose = closeForziere.GetComponent<Forziere>().isPlayerClose;
-        Debug.Log($"isPlayerClose: {isClose}");
 
         if (context.started && isClose)
         {
-            Debug.Log("Setto canOpen = true");
             closeForziere.GetComponent<Animator>().SetBool("canOpen", true);
+            Player.Instance.audioManager.PlayAperturaCassa();
             closeForziere.GetComponent<Forziere>().text.SetActive(false);
         }
     }
@@ -31,6 +26,7 @@ public class ForziereController : MonoBehaviour
         if (collision.gameObject.CompareTag("Forziere"))
         {
             Player.Instance.animator.SetBool("newShell", true);
+            Player.Instance.audioManager.PlayTrovaNuovoGuscio();
         }
     }
 
