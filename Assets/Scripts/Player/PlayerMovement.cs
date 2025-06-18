@@ -163,15 +163,27 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log($"jumpCount = {jumpCount}");
         HandleCamouflageInput();
+    }
+
+    public void EnableMovement()
+    {
+        canMove = true;
+        horizontalMovement = 0f;
+        verticalMovement = 0f; // <- AGGIUNTO
+        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 
 
     // FLIP DELLO SPRITE
     public void Move(InputAction.CallbackContext context)
     {
-        if (!canMove) return;
+        if (!canMove)
+        {
+            horizontalMovement = 0f;
+            verticalMovement = 0f;
+            return;
+        }
 
         horizontalMovement = context.ReadValue<Vector2>().x;
         verticalMovement = context.ReadValue<Vector2>().y;
@@ -182,7 +194,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            audioManager.StopWalking(); 
+            audioManager.StopWalking();
         }
 
         if (horizontalMovement > 0.01f)
@@ -537,12 +549,5 @@ public class Player : MonoBehaviour
         canMove = false;
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
-    }
-
-    public void EnableMovement()
-    {
-        canMove = true;
-        horizontalMovement = 0f;
-        rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
     }
 }
