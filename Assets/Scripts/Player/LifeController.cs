@@ -19,7 +19,11 @@ public class LifeController : MonoBehaviour
     [SerializeField] private float damageImpulseSpeed = 12f;
     [SerializeField] private float damageImpulseDuration = 0.3f;
     public bool isDamageImpulseActive = false;
+<<<<<<< Updated upstream
     [SerializeField] float deathAnimationDuration = 1.5f;
+=======
+    public bool isJellyDamage = false;
+>>>>>>> Stashed changes
 
     void Awake()
     {
@@ -39,8 +43,13 @@ public class LifeController : MonoBehaviour
     public void Die()
     {
         Debug.Log("Giocatore morto!");
+<<<<<<< Updated upstream
         Player.Instance.animator.SetBool("isDead", true);
         Player.Instance.DisableMovement(); // blocca movimento
+=======
+        Player.Instance.audioManager.PlayDie();
+        currentHealth = maxHealth;
+>>>>>>> Stashed changes
 
         // Avvia la coroutine per gestire il post-morte dopo l'animazione
         StartCoroutine(HandleDeathSequence());
@@ -65,6 +74,14 @@ public class LifeController : MonoBehaviour
         {
             ApplayDamageImpulse();
             Player.Instance.animator.SetBool("isTakingDamage", true);
+            if (isJellyDamage)
+            {
+                Player.Instance.audioManager.PlayJellyFishDamage();
+            }
+            else
+            {
+                Player.Instance.audioManager.PlayDamage();
+            }
             StartCoroutine(InvincibilityCoroutine());
         }
     }
