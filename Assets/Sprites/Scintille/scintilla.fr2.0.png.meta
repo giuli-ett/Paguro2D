@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scintilla.fr2.0_0: 2613377094678278540
+      scintilla.fr2.0_1: -6777201000086487369
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

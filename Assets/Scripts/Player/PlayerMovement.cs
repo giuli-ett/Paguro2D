@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public bool isGrounded;
     public bool isOnTopMedusa = false;
+    private bool isJumpingHeld = false;
 
     [Header("FLIP GUSCIO")]
     [SerializeField] private Transform shellPositionTransform;
@@ -267,9 +268,9 @@ public class Player : MonoBehaviour
     // SALTO
     public void Jump(InputAction.CallbackContext context)
     {
-        if (!canMove) { Debug.Log("Non posso muovermi"); return; }
+        if (!canMove) return;
 
-        if (context.performed)
+        if (context.started)
         {
             if (amo.isAttached)
             {
@@ -281,10 +282,21 @@ public class Player : MonoBehaviour
                 jumpCount++;
                 timeSinceLastJump = Time.time;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
+                isJumpingHeld = true; // Tasto appena premuto
                 animator.SetBool("isJumping", !isGrounded);
             }
         }
+
+        if (context.canceled)
+        {
+            isJumpingHeld = false; // Tasto rilasciato
+            if (rb.linearVelocity.y > 0)
+            {
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f); // taglia il salto
+            }
+        }
     }
+
 
     public void EscapeGrab(InputAction.CallbackContext context)
     {
