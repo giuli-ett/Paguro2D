@@ -7,6 +7,8 @@ public class UIController : MonoBehaviour
     public CanvasGroup bollaSPACE;
     public CanvasGroup bollaDoppioSalto;
     public CanvasGroup bollaLuminescente;
+    public CanvasGroup bollaDash;
+    public CanvasGroup bollaNascondiScava;
     public float fadeDuration = 0.5f;
     public float visibleDuration = 1f;
 
@@ -16,6 +18,8 @@ public class UIController : MonoBehaviour
         bollaSPACE.gameObject.SetActive(false);
         bollaDoppioSalto.gameObject.SetActive(false);
         bollaLuminescente.gameObject.SetActive(false);
+        bollaDash.gameObject.SetActive(false);
+        bollaNascondiScava.gameObject.SetActive(false);
     }
 
     public IEnumerator FadeIn(CanvasGroup group)
