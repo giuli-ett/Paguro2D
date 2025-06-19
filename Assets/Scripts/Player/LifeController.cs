@@ -103,6 +103,15 @@ public class LifeController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        Debug.Log("Trigger con: " + other.gameObject.name);
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Checkpoint"))
