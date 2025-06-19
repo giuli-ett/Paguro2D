@@ -11,7 +11,7 @@ public class TabTutorial : MonoBehaviour
     public CanvasGroup intro;
     public int currentLineIndex = 0;
     public float fadeDuration = 0.5f;
-    public float waitDuration = 2f;
+    public float waitDuration = 4f;
 
     public bool playerInTrigger = false;
     public bool tutorialStarted = false;
@@ -41,8 +41,14 @@ public class TabTutorial : MonoBehaviour
         if (playerInTrigger && !tutorialStarted && Input.GetKeyDown(KeyCode.Tab))
         {
             tutorialStarted = true;
-            canvasGroup.gameObject.SetActive(true);
-            AvanzaTutorial();
+
+            // Nasconde l'intro
+            DOTween.To(() => intro.alpha, x => intro.alpha = x, 0, fadeDuration).OnComplete(() =>
+            {
+                intro.gameObject.SetActive(false);
+                canvasGroup.gameObject.SetActive(true);
+                AvanzaTutorial(); // parte il tutorial
+            });
         }
     }
 
@@ -51,11 +57,10 @@ public class TabTutorial : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInTrigger = true;
-            ShowIntro();
             canvasGroup.gameObject.SetActive(true);
+            ShowIntro();
         }
     }
-
 
     public void AvanzaTutorial()
     {
@@ -87,30 +92,16 @@ public class TabTutorial : MonoBehaviour
         {
             isRunningTutorial = false; // tutorial finito
             canvasGroup.gameObject.SetActive(false);
+            this.GetComponent<BoxCollider2D>().enabled = false;
         });
-
         sequence.Play();
+
     }
 
     public void ShowIntro()
     {
         Debug.Log("Prima frase");
-        Sequence sequence = DOTween.Sequence();
-
-        sequence.AppendCallback(() =>
-        {
-            intro.gameObject.SetActive(true);
-            intro.alpha = 0;
-        });
-
-        sequence.Append(intro.DOFade(1, fadeDuration));
-        sequence.AppendInterval(waitDuration);
-        sequence.Append(intro.DOFade(0, fadeDuration));
-
-        sequence.AppendCallback(() =>
-        {
-            intro.gameObject.SetActive(false);
-        });
-        sequence.Play();
+        intro.gameObject.SetActive(true);
+        intro.alpha = 1; // mostralo subito
     }
 }
