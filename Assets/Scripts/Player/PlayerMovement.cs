@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public ShellManager shellManager;
     public InventarioUI inventarioUI;
     public UIController uIController;
-    public AudioManager audioManager;
     public Animator animator;
     public CapsuleCollider2D collider2D;
     public Light2D luminescentLight;
@@ -119,7 +118,6 @@ public class Player : MonoBehaviour
         isGrounded = true;
         originalMoveSpeed = moveSpeed;
         playerInput = GetComponent<PlayerInput>();
-        audioManager = GetComponent<AudioManager>();
 
         lastYPosition = transform.position.y;
     }
@@ -190,11 +188,11 @@ public class Player : MonoBehaviour
 
         if (Mathf.Abs(horizontalMovement) > 0.01f)
         {
-            audioManager.StartWalking();
+            AudioManager.Instance.StartWalking();
         }
         else
         {
-            audioManager.StopWalking();
+            AudioManager.Instance.StopWalking();
         }
 
         if (horizontalMovement > 0.01f)
@@ -302,7 +300,7 @@ public class Player : MonoBehaviour
 
             if (jumpCount < maxJump)
             {
-                audioManager.PlaySalto();
+                AudioManager.Instance.PlaySalto();
                 jumpCount++;
                 timeSinceLastJump = Time.time;
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower * 0.75f);
@@ -370,7 +368,7 @@ public class Player : MonoBehaviour
     // DASH
     private IEnumerator PerformDash()
     {
-        audioManager.PlayDash();
+        AudioManager.Instance.PlayDash();
         isDashing = true;
         dashOnCooldown = true;
 
@@ -417,7 +415,7 @@ public class Player : MonoBehaviour
 
         if (canDig)
         {
-            audioManager.PlayDig();
+            AudioManager.Instance.PlayDig();
             Vector2 origin = transform.position;
             Vector2 direction;
 

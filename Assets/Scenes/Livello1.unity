@@ -8887,7 +8887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7512884759751928740, guid: 2393d62068da09842b43a2eb716a8342, type: 3}
       propertyPath: m_MaskInteraction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21486,10 +21486,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2224998346723981918, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 325
-      objectReference: {fileID: 0}
     - target: {fileID: 2440446896230541687, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -45.6
@@ -21533,26 +21529,6 @@ PrefabInstance:
     - target: {fileID: 2615224041347397696, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_Name
       value: PAGUROCOMPILATO
-      objectReference: {fileID: 0}
-    - target: {fileID: 4549451780076249361, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5635961364671784608, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 322
-      objectReference: {fileID: 0}
-    - target: {fileID: 6569613944445600820, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 330
-      objectReference: {fileID: 0}
-    - target: {fileID: 7376354492213708688, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_MaskInteraction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9122035309517045941, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 330
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

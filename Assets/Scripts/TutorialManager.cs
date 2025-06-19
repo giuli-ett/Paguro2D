@@ -39,7 +39,7 @@ public class TutorialManager : MonoBehaviour
             spriteMask.gameObject.SetActive(true);
 
             Player.Instance.canMove = false;
-            Player.Instance.audioManager.StopWalking();
+            AudioManager.Instance.StopWalking();
 
             Sequence mostraTesto = DOTween.Sequence();
             mostraTesto.AppendInterval(2f);

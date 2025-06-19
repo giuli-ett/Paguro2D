@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FineLivello.unity
     guid: 15644fab8a86ba745bf8fc483456b339
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Livello1.unity
     guid: 7ae27146f490dab499f5bb81f581e1a5
   - enabled: 0

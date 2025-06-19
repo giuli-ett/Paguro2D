@@ -3,8 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    void Start()
+    {
+        MusicPlayer.Instance.PlayMenuMusic();
+    }
     public void PlayGame()
     {
+        AudioManager.Instance.PlayClick();
         SceneManager.LoadSceneAsync(1);
         // DA METTERE LA CUTSCENE INIZIALE
     }
@@ -18,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
+        AudioManager.Instance.PlayClick();
         Application.Quit();
     }
 }

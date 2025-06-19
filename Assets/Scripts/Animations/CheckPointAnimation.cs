@@ -13,6 +13,7 @@ public class CheckPointAnimation : MonoBehaviour
     {
         if (other.CompareTag("Player") && animator != null)
         {
+            AudioManager.Instance.PlayCheckPoint();
             animator.SetBool("playerInTrigger", true);
         }
     }

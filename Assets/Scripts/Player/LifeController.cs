@@ -42,7 +42,7 @@ public class LifeController : MonoBehaviour
         Debug.Log("Giocatore morto!");
         Player.Instance.animator.SetBool("isDead", true);
         Player.Instance.DisableMovement(); // blocca movimento
-        Player.Instance.audioManager.PlayDie();
+        AudioManager.Instance.PlayDie();
         currentHealth = maxHealth;
 
         // Avvia la coroutine per gestire il post-morte dopo l'animazione
@@ -70,11 +70,11 @@ public class LifeController : MonoBehaviour
             Player.Instance.animator.SetBool("isTakingDamage", true);
             if (isJellyDamage)
             {
-                Player.Instance.audioManager.PlayJellyFishDamage();
+                AudioManager.Instance.PlayJellyFishDamage();
             }
             else
             {
-                Player.Instance.audioManager.PlayDamage();
+                AudioManager.Instance.PlayDamage();
             }
             StartCoroutine(InvincibilityCoroutine());
         }

@@ -16,7 +16,7 @@ public class ForziereController : MonoBehaviour
         if (context.started && isClose)
         {
             closeForziere.GetComponent<Animator>().SetBool("canOpen", true);
-            Player.Instance.audioManager.PlayAperturaCassa();
+            AudioManager.Instance.PlayAperturaCassa();
             closeForziere.GetComponent<Forziere>().text.SetActive(false);
         }
     }
@@ -25,8 +25,8 @@ public class ForziereController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Forziere"))
         {
+            AudioManager.Instance.PlayTrovaNuovoGuscio();
             Player.Instance.animator.SetBool("newShell", true);
-            Player.Instance.audioManager.PlayTrovaNuovoGuscio();
         }
     }
 

@@ -59,6 +59,7 @@ public class InventarioUI : MonoBehaviour
 
         if (context.started)
         {
+            AudioManager.Instance.PlayClick();
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
 
@@ -93,7 +94,7 @@ public class InventarioUI : MonoBehaviour
         return;
 
         Vector2 navigation = context.ReadValue<Vector2>();
-
+        AudioManager.Instance.PlayNavigateInventory();
         if (navigation.x > 0.5f)
         {
             MoveSelection(1);
@@ -110,8 +111,6 @@ public class InventarioUI : MonoBehaviour
         {
             slot.DeselectSlot();
         }
-
-        //shellSlots[selectedSlot].GetComponent<Outline>().effectColor = Color.white;
 
         selectedSlot += direction;
 

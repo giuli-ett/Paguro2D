@@ -14,7 +14,7 @@ public class MusicPlayer : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // persiste tra scene
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -31,9 +31,13 @@ public class MusicPlayer : MonoBehaviour
 
     public void PlayLevel1Music()
     {
+        Debug.Log("BYE");
+        musicSource.Stop();
+        /*
         musicSource.clip = level1;
         musicSource.loop = true;
         musicSource.Play();
+        */
     }
     
     public void PlayLevel2Music()

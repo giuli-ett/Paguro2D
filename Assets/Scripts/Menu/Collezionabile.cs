@@ -10,6 +10,7 @@ public class Collezionabile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayCollezionabile();
             Collect();
         }
     }
