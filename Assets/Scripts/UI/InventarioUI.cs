@@ -54,15 +54,13 @@ public class InventarioUI : MonoBehaviour
     }
     public void MostraInventario(InputAction.CallbackContext context)
     {
-        if (TabTutorial.Instance != null && TabTutorial.Instance.isRunningTutorial)
-        return;
-
         if (context.started)
         {
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
 
             Player.Instance.canMove = !isActive;
+            //Time.timeScale = isActive ? 0f : 1f;
 
             if (isActive)
             {
@@ -70,20 +68,20 @@ public class InventarioUI : MonoBehaviour
                 HighlightSlot(selectedSlot);
             }
             else
+        {
+            // Quando chiudi l'inventario, cambia guscio se la selezione è diversa
+            if (selectedSlot >= 0 && selectedSlot < shellList.Count)
             {
-                // Quando chiudi l'inventario, cambia guscio se la selezione è diversa
-                if (selectedSlot >= 0 && selectedSlot < shellList.Count)
+                Shell selezionato = shellList[selectedSlot];
+                if (Player.Instance.shellManager.currentShell != selezionato)
                 {
-                    Shell selezionato = shellList[selectedSlot];
-                    if (Player.Instance.shellManager.currentShell != selezionato)
-                    {
-                        Player.Instance.animator.SetBool("isChange", true);
-                        Player.Instance.shellManager.RemoveShell();
-                        var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
-                        Player.Instance.shellManager.WearShell(selezionato, shellPicker);
-                    }
+                    Player.Instance.animator.SetBool("isChange", true);
+                    Player.Instance.shellManager.RemoveShell();
+                    var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
+                    Player.Instance.shellManager.WearShell(selezionato, shellPicker);
                 }
             }
+        }
         }
     }
 
