@@ -13,6 +13,18 @@ PrefabInstance:
       value: Collezionabile1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6268722199922285825, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268722199922285825, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268722199922285825, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6268722199922285825, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -74.4
       objectReference: {fileID: 0}

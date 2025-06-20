@@ -1264,6 +1264,7 @@ MonoBehaviour:
   navigateInventory: {fileID: 0}
   checkPoint: {fileID: 0}
   collezionabile: {fileID: 0}
+  vittoria: {fileID: 0}
 --- !u!82 &144641708
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11581,9 +11582,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paguro
       objectReference: {fileID: 0}
+    - target: {fileID: 5099602065549239991, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7530865788661161365, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841619413831781302, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_text
+      value: 'YOU FOUND THE YOU FOUND DOUBLE JUMP SHELL '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841619413831781302, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+    - target: {fileID: 8841619413831781302, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841619413831781302, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+    - target: {fileID: 8841619413831781302, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
