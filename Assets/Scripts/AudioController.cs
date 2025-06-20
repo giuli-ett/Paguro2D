@@ -124,4 +124,9 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = false;
         audioSource.PlayOneShot(jellyfishBounce);
     }
+    public void PlayBubbles()
+    {
+        audioSource.loop = false;
+        audioSource.PlayOneShot(bubbles);
+    }
 }
