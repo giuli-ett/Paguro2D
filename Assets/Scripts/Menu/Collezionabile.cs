@@ -4,6 +4,7 @@ public class Collezionabile : MonoBehaviour
 {
     public string nome;
     public Slot slot;
+    public Sprite spriteCollezionabile;
 
 
     private void OnTriggerEnter2D(Collider2D other)
