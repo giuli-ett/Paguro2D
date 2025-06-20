@@ -8,7 +8,7 @@ public class ReteCutscene : MonoBehaviour
     public Transform targetUscita;
 
     [Header("Impostazioni movimento")]
-    public float velocità = 3f;
+    public float velocita = 3f;
     public float tempoAttesa = 5f;
     public float traslazioneRete = 5f;
 
@@ -19,14 +19,23 @@ public class ReteCutscene : MonoBehaviour
     private bool staUscendo = false;
     private bool haRaggiuntoArrivo = false;
 
+    private SpriteRenderer spriteRenderer;
+
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = false; // Nasconde la sprite all'avvio
+
         StartCoroutine(IniziaCutscene());
     }
 
     IEnumerator IniziaCutscene()
     {
         yield return new WaitForSeconds(tempoAttesa);
+
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = true; // Mostra la sprite
 
         animator.SetBool("Pesca", true);
         inMovimento = true;
@@ -38,8 +47,7 @@ public class ReteCutscene : MonoBehaviour
 
         if (!staUscendo)
         {
-            // Vai verso targetArrivo
-            transform.position = Vector3.MoveTowards(transform.position, targetArrivo.position, velocità * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetArrivo.position, velocita * Time.deltaTime);
 
             if (!haRaggiuntoArrivo && Vector3.Distance(transform.position, targetArrivo.position) < 0.05f)
             {
@@ -49,8 +57,7 @@ public class ReteCutscene : MonoBehaviour
         }
         else
         {
-            // Vai verso targetUscita
-            transform.position = Vector3.MoveTowards(transform.position, targetUscita.position, velocità * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetUscita.position, velocita * Time.deltaTime);
         }
     }
 

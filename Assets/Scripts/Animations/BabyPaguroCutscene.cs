@@ -1,16 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-public class MammaPaguroCutscene : MonoBehaviour
+public class BabyPaguroCutscene : MonoBehaviour
 {
     public Transform puntoDestinazione;
     public float velocita = 2f;
     public Animator animator;
-    public Transform rete;
-    public float attesa = 2f;
+    public float attesa = 2f; // Tempo di attesa prima dell'animazione "Hide"
 
     private bool haRaggiuntoDestinazione = false;
-    private bool ËCatturata = false;
 
     void Start()
     {
@@ -37,28 +35,15 @@ public class MammaPaguroCutscene : MonoBehaviour
         {
             haRaggiuntoDestinazione = true;
             animator.SetBool("Walk", false);
-            animator.SetBool("Idle", true);
 
-            // Avvia la coroutine per passare a Pick dopo 1 secondo
-            StartCoroutine(AttivaAnimazionePick());
+            // Avvia la coroutine che attende e poi attiva Hide
+            StartCoroutine(PassaAHideDopoAttesa());
         }
     }
 
-    private IEnumerator AttivaAnimazionePick()
+    private IEnumerator PassaAHideDopoAttesa()
     {
         yield return new WaitForSeconds(attesa);
-
-        animator.SetBool("Idle", false);
-        animator.SetTrigger("Pick");
-        Cattura();
-    }
-
-    public void Cattura()
-    {
-        if (!ËCatturata)
-        {
-            ËCatturata = true;
-            transform.SetParent(rete);
-        }
+        animator.SetBool("Hide", true);
     }
 }
