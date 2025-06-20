@@ -1325,57 +1325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434770960}
   m_CullTransparentMesh: 1
---- !u!1 &1501159924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1501159926}
-  - component: {fileID: 1501159925}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1501159925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501159924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0adacfdaacc9e9748bac3823c9c7f817, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  livelli:
-  - {fileID: 11400000, guid: eb36adf8b8839a346bddb26518558a6b, type: 2}
-  - {fileID: 11400000, guid: 4d691a5897c3745488c91c95814698d9, type: 2}
-  - {fileID: 11400000, guid: 1682b67b3734a7c43896f1544debb012, type: 2}
-  - {fileID: 11400000, guid: 5b48850c6fce41f468a6851fcb7b778f, type: 2}
-  collectedItems: []
-  currentLivello: {fileID: 0}
---- !u!4 &1501159926
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1501159924}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 896.27875, y: 536.4574, z: 5.0107975}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1549339029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b07073683469dd4a9983976f7e6cd21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 0}
 --- !u!1 &1747078219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,4 +2145,3 @@ SceneRoots:
   - {fileID: 1734139819}
   - {fileID: 635116202}
   - {fileID: 1113295207}
-  - {fileID: 1501159926}
