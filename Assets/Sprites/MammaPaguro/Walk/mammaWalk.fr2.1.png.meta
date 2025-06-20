@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mammaWalk.fr2.1_0: 712906115692294916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

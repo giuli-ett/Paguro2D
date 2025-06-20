@@ -370,10 +370,12 @@ public class Player : MonoBehaviour
     {
         AudioManager.Instance.PlayDash();
         isDashing = true;
+        animator.SetBool("isDashing", true);
         dashOnCooldown = true;
 
         moveSpeed *= dashMultiplier;
         yield return new WaitForSeconds(dashDuration);
+        animator.SetBool("isDashing", false);
 
         moveSpeed = originalMoveSpeed;
         isDashing = false;

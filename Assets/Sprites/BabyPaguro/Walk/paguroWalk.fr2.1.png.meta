@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paguroWalk.fr2.1_0: 1659391523389216208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

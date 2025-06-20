@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paguroIdle.fr0.0_0: -7516466045992352962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

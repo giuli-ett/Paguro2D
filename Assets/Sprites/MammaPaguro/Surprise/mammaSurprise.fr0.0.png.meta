@@ -234,7 +234,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mammaSurprise.fr0.0_0: -1999280144879471495
+      mammaSurprise.fr0.0_1: -3727869222325324801
+      mammaSurprise.fr0.0_2: -8425567198559190049
+      mammaSurprise.fr0.0_3: -5500530344080275894
+      mammaSurprise.fr0.0_4: -7755145685732776518
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

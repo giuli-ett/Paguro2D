@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paguroHide.fr.0.0_0: -7088475759923017853
+      paguroHide.fr.0.0_1: 3112545084187592790
+      paguroHide.fr.0.0_2: -1006866097839926415
+      paguroHide.fr.0.0_3: -5867903499432087281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

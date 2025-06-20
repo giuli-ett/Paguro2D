@@ -8,7 +8,7 @@ public class LivelliMenu : MonoBehaviour
         //GameManager.Instance.SetCurrentLevel(0);
 
         AudioManager.Instance.PlayClick();
-        SceneManager.LoadSceneAsync(6);
+        SceneManager.LoadSceneAsync(2);
         MusicPlayer.Instance.PlayLevel1Music();
     }
     public void PlayLivelloDue()

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fishnet.fr0.0_0: 4523353586667701685
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

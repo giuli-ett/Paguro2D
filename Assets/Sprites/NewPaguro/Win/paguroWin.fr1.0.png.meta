@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      paguroWin.fr1.0_0: -2523268249732395418
+      paguroWin.fr1.0_1: 8731111863685757551
+      paguroWin.fr1.0_2: -7617147518483935941
+      paguroWin.fr1.0_3: 3584941062912281912
+      paguroWin.fr1.0_4: -6008042131416713171
+      paguroWin.fr1.0_5: 7643590978873570003
+      paguroWin.fr1.0_6: -9105605665336543281
+      paguroWin.fr1.0_7: 2662297157099015905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

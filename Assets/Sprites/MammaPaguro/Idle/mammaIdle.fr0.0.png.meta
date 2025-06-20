@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      mammaIdle.fr0.0_0: 8037410776162804837
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
