@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TabTutorial : MonoBehaviour
 {
+    /*
     public static TabTutorial Instance;
     public CanvasGroup canvasGroup;
     public List<GameObject> lines;
@@ -36,6 +37,7 @@ public class TabTutorial : MonoBehaviour
         }
     }
 
+    /*
     void Update()
     {
         if (playerInTrigger && !tutorialStarted && Input.GetKeyDown(KeyCode.Tab))
@@ -51,17 +53,17 @@ public class TabTutorial : MonoBehaviour
             });
         }
     }
+    */
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            playerInTrigger = true;
-            canvasGroup.gameObject.SetActive(true);
-            ShowIntro();
+            FeedbackTartaruga.Instance.StartSwimForTutorialIntro();
         }
     }
 
+    /*
     public void AvanzaTutorial()
     {
         isRunningTutorial = true;
@@ -104,4 +106,5 @@ public class TabTutorial : MonoBehaviour
         intro.gameObject.SetActive(true);
         intro.alpha = 1; // mostralo subito
     }
+    */
 }

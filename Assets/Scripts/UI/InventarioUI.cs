@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
 
 public class InventarioUI : MonoBehaviour
 {
@@ -17,14 +16,10 @@ public class InventarioUI : MonoBehaviour
     public List<Slot> shellSlots;
     public int selectedSlot = 0;
 
-
     private void Start()
     {
         panelInventario.SetActive(false);
-
         shellList = new List<Shell>();
-        //shellList.Add(baseShell);
-
         AggiornaInventarioUI();
     }
 
@@ -34,7 +29,6 @@ public class InventarioUI : MonoBehaviour
         {
             for (int i = 0; i < shellSlots.Count; i++)
             {
-                // I tasti numerici vanno da Alpha1 (1) a Alpha9 (9)
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
                     SelectSlotByNumber(i);
@@ -52,20 +46,33 @@ public class InventarioUI : MonoBehaviour
             HighlightSlot(selectedSlot);
         }
     }
+
     public void MostraInventario(InputAction.CallbackContext context)
     {
-        if (TabTutorial.Instance != null && TabTutorial.Instance.isRunningTutorial)
-        return;
+        if (FeedbackTartaruga.Instance != null)
+        {
+            if (FeedbackTartaruga.Instance.tutorialInCorso)
+            {
+                // Se siamo nel tutorial, permetti apertura solo alla prima frase
+                if (!panelInventario.activeSelf && FeedbackTartaruga.Instance.IsOnFirstFrase())
+                {
+                    // consenti apertura
+                }
+                else
+                {
+                    return; // blocca apertura o chiusura durante il resto del tutorial
+                }
+            }
+        }
 
         if (!Player.Instance.isGrounded)
-        return;
+            return;
 
         if (context.started)
         {
             AudioManager.Instance.PlayClick();
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
-
             Player.Instance.canMove = !isActive;
 
             if (isActive)
@@ -75,7 +82,6 @@ public class InventarioUI : MonoBehaviour
             }
             else
             {
-                // Quando chiudi l'inventario, cambia guscio se la selezione è diversa
                 if (selectedSlot >= 0 && selectedSlot < shellList.Count)
                 {
                     Shell selezionato = shellList[selectedSlot];
@@ -94,10 +100,11 @@ public class InventarioUI : MonoBehaviour
     public void Naviga(InputAction.CallbackContext context)
     {
         if (!panelInventario.activeSelf)
-        return;
+            return;
 
         Vector2 navigation = context.ReadValue<Vector2>();
         AudioManager.Instance.PlayNavigateInventory();
+
         if (navigation.x > 0.5f)
         {
             MoveSelection(1);
@@ -108,7 +115,7 @@ public class InventarioUI : MonoBehaviour
         }
     }
 
-    private void MoveSelection (int direction)
+    private void MoveSelection(int direction)
     {
         foreach (var slot in shellSlots)
         {
@@ -117,7 +124,7 @@ public class InventarioUI : MonoBehaviour
 
         selectedSlot += direction;
 
-        if (selectedSlot < 0) 
+        if (selectedSlot < 0)
         {
             selectedSlot = shellSlots.Count - 1;
         }
@@ -132,14 +139,13 @@ public class InventarioUI : MonoBehaviour
 
     private void HighlightSlot(int indice)
     {
-        //shellSlots[indice].GetComponent<Image>().color = new Color(0.925f, 0.925f, 0.537f);
         shellSlots[indice].GetComponent<Slot>().SelectSlot();
     }
 
     public void EquipaggiaGuscioSelezionato(InputAction.CallbackContext context)
     {
         if (!panelInventario.activeSelf)
-        return;
+            return;
 
         if (context.started)
         {
@@ -170,18 +176,18 @@ public class InventarioUI : MonoBehaviour
         }
     }
 
-    public void AggiungiGuscio (Shell nuovoGuscio, ShellPicker shellPicker)
+    public void AggiungiGuscio(Shell nuovoGuscio, ShellPicker shellPicker)
     {
         if (!shellList.Contains(nuovoGuscio))
         {
             shellList.Add(nuovoGuscio);
-            
+
             int slotIndex = shellList.Count - 1;
             if (slotIndex < shellSlots.Count)
             {
-                shellSlots[slotIndex].SetIcon(); 
+                shellSlots[slotIndex].SetIcon();
             }
-            
+
             AggiornaInventarioUI();
         }
     }
@@ -190,7 +196,8 @@ public class InventarioUI : MonoBehaviour
     {
         for (int i = 0; i < shellSlots.Count; i++)
         {
-            shellSlots[i].gameObject.SetActive(true); 
+            shellSlots[i].gameObject.SetActive(true);
         }
     }
 }
+
