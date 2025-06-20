@@ -55,14 +55,14 @@ PrefabInstance:
     - target: {fileID: 7622271186035900178, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5349848390475250063, guid: c44aa4cfa5699aa47a79ec9ef9bc76b9, type: 3}
+      objectReference: {fileID: 5624180259456911083, guid: a14da3aff85b9ea4cbe48509659a265c, type: 3}
     - target: {fileID: 7622271186035900178, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Color.b
-      value: 0.9360889
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7622271186035900178, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Color.g
-      value: 0.020754695
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7622271186035900178, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Color.r
