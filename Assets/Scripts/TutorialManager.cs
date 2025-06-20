@@ -9,7 +9,7 @@ public class TutorialManager : MonoBehaviour
     public SpriteMask spriteMask;
     public GameObject darkOverlay;
     public bool tutorialMode = false;
-    public float fadeDuration = 0.5f;
+    public float fadeDuration = 1f;
 
     void Awake()
     {

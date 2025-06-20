@@ -25,8 +25,11 @@ public class ForziereController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Forziere"))
         {
-            AudioManager.Instance.PlayTrovaNuovoGuscio();
-            Player.Instance.animator.SetBool("newShell", true);
+            if (closeForziere != null && !closeForziere.GetComponent<Forziere>().sorpresa)
+            {
+                AudioManager.Instance.PlayTrovaNuovoGuscio();
+                Player.Instance.animator.SetBool("newShell", true);
+            }
         }
     }
 

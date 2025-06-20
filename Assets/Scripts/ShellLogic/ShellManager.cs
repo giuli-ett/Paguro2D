@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class ShellManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ShellManager : MonoBehaviour
 
     public InventarioUI inventario;
     public UIController uIController;
+    public FeedbackTartaruga feedbackTartaruga;
     public Transform shellPosition;
     public Shell baseShell;
     public ShellPicker baseShellPicker;
@@ -49,6 +51,7 @@ public class ShellManager : MonoBehaviour
     // EQUIPAGGIA GUSCIO
     public void WearShell(Shell shell, ShellPicker shellPicker)
     {
+        Debug.Log($"Cambio guscio con {shellPicker} , {shell}");
         Player.Instance.animator.SetBool("isChange", true);
 
         // Se hai già un guscio attivo, disattivalo
@@ -60,9 +63,10 @@ public class ShellManager : MonoBehaviour
         // Se è un nuovo guscio, aggiungilo alla lista
         if (!equippedShellPickers.ContainsKey(shell))
         {
-            shellPicker.transform.position = shellPosition.position; // Prima sposta
+            Debug.Log("Nuovo guscio, lo aggiungo.");
+            shellPicker.transform.position = shellPosition.position; 
             shellPicker.transform.rotation = shellPosition.rotation;
-            shellPicker.transform.SetParent(shellPosition);          // Poi setta il genitore
+            shellPicker.transform.SetParent(shellPosition);         
             Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
             var rb = shellPicker.GetComponent<Rigidbody2D>();
@@ -75,19 +79,13 @@ public class ShellManager : MonoBehaviour
             shellPicker.text.SetActive(false);
 
             equippedShellPickers[shell] = shellPicker;
-            StartCoroutine(uIController.FadeInAndOut(ShowShellUI(shell)));
         }
 
         // Aggiorna il riferimento corrente
+        Debug.Log("Aggiorno riferimento");
         currentShell = shell;
         currentShellPicker = equippedShellPickers[shell];
 
-        /*
-        while (siStaCambiando)
-        {
-            Debug.Log("Mi sto cambiando");
-        }
-        */
 
         //currentShellPicker.gameObject.SetActive(true);
         Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
@@ -131,7 +129,11 @@ public class ShellManager : MonoBehaviour
     public void OnChangeOver()
     {
         Player.Instance.animator.SetBool("isChange", false);
-        currentShellPicker.gameObject.SetActive(true);
+        if (currentShellPicker != null)
+        {
+            currentShellPicker.gameObject.SetActive(true);
+        }
+        feedbackTartaruga.StartSwim();
     }
 
     public CanvasGroup ShowShellUI(Shell shell)

@@ -57,6 +57,9 @@ public class InventarioUI : MonoBehaviour
         if (TabTutorial.Instance != null && TabTutorial.Instance.isRunningTutorial)
         return;
 
+        if (!Player.Instance.isGrounded)
+        return;
+
         if (context.started)
         {
             AudioManager.Instance.PlayClick();

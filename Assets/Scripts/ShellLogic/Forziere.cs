@@ -9,6 +9,7 @@ public class Forziere : MonoBehaviour
     public GameObject shellPrefab;
     public GameObject text;
     public bool isPlayerClose;
+    public bool sorpresa = false;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,11 +20,13 @@ public class Forziere : MonoBehaviour
                 text.SetActive(true);
                 Player.Instance.GetComponent<ForziereController>().closeForziere = this.gameObject;
                 isPlayerClose = true;
+                sorpresa = true;
             }
             else
             {
                 Player.Instance.GetComponent<ForziereController>().closeForziere = this.gameObject;
                 isPlayerClose = true;
+                sorpresa = true;
             }
         }
     }
@@ -53,7 +56,8 @@ public class Forziere : MonoBehaviour
 
         moveShell.OnComplete(() =>
         {
-            var shellPicker = newShell.GetComponent<ShellPicker>();
+            ShellPicker shellPicker = newShell.GetComponent<ShellPicker>();
+            Debug.Log($"ShellPicker {shellPicker.name}");
             Player.Instance.shellManager.WearShell(shellPicker.shell, shellPicker);
             this.gameObject.GetComponent<Collider2D>().enabled = false;
             Player.Instance.GetComponent<ForziereController>().closeForziere = null;
