@@ -491,19 +491,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 921159727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1734139820}
-        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
-        m_MethodName: PlayLivelloDue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &921159727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,19 +858,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1258964309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1734139820}
-        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
-        m_MethodName: PlayLivelloTre
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1258964309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,19 +978,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1405617555}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1734139820}
-        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
-        m_MethodName: PlayLivelloDue
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1405617555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1690,19 +1654,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747078222}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1734139820}
-        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
-        m_MethodName: PlayLivelloQuattro
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1747078222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,19 +1907,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1841231124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1734139820}
-        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
-        m_MethodName: PlayLivelloQuattro
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1841231124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2087,19 +2027,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1944691972}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1734139820}
-        m_TargetAssemblyTypeName: LivelliMenu, Assembly-CSharp
-        m_MethodName: PlayLivelloTre
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1944691972
 MonoBehaviour:
   m_ObjectHideFlags: 0
