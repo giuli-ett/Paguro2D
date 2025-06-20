@@ -1,0 +1,35 @@
+using System.Collections;
+using UnityEngine;
+
+public class SpriteBlinkTimer : MonoBehaviour
+{
+    public float tempoPrimaApparizione = 10f; // Tempo in secondi prima che la sprite appaia
+
+    private SpriteRenderer spriteRenderer;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = false; // Nascondi la sprite all'inizio
+            StartCoroutine(GestisciApparizione());
+        }
+        else
+        {
+            Debug.LogWarning("SpriteRenderer non trovato su " + gameObject.name);
+        }
+    }
+
+    private IEnumerator GestisciApparizione()
+    {
+        yield return new WaitForSeconds(tempoPrimaApparizione);
+
+        spriteRenderer.enabled = true; // Mostra la sprite
+
+        yield return new WaitForSeconds(3f); // Aspetta 2 secondi
+
+        spriteRenderer.enabled = false; // Nascondi di nuovo la sprite
+    }
+}
