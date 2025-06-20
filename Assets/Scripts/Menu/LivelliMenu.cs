@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LivelliMenu : MonoBehaviour
 {
+    public GameObject loadingScreen;
     public void PlayLivelloUno()
     {
         //GameManager.Instance.SetCurrentLevel(0);
