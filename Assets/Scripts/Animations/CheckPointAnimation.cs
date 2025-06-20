@@ -25,4 +25,9 @@ public class CheckPointAnimation : MonoBehaviour
             animator.SetBool("playerInTrigger", false);
         }
     }
+
+    public void OnAnimationEnd()
+    {
+        this.GetComponent<Collider2D>().enabled = false;
+    }
 }
