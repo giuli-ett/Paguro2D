@@ -4,6 +4,7 @@ using UnityEngine;
 public class SpriteBlinkTimer : MonoBehaviour
 {
     public float tempoPrimaApparizione = 10f; // Tempo in secondi prima che la sprite appaia
+    public float tempoSorpresa = 3f;
 
     private SpriteRenderer spriteRenderer;
 
@@ -28,7 +29,7 @@ public class SpriteBlinkTimer : MonoBehaviour
 
         spriteRenderer.enabled = true; // Mostra la sprite
 
-        yield return new WaitForSeconds(3f); // Aspetta 2 secondi
+        yield return new WaitForSeconds(tempoSorpresa); // Aspetta 2 secondi
 
         spriteRenderer.enabled = false; // Nascondi di nuovo la sprite
     }

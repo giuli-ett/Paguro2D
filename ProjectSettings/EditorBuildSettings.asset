@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/NuovoLivello1.unity
     guid: 2d1f1c2971e16f749bdcbb368e9696bd
   - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: ce627b2fc66e4c6458c056ac28aa33ec
+  - enabled: 1
     path: Assets/Scenes/Livello2.unity
     guid: dc98cfab48a1e0d479015581fa78c406
   - enabled: 1
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GiuliaCeretto.unity
     guid: 88dd3fc7489370546b004c6ad0ef4af1
-  - enabled: 0
-    path: Assets/Scenes/Trailer.unity
-    guid: ce627b2fc66e4c6458c056ac28aa33ec
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 99f9c9493070a9d4c979a8fec7c5a8d3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
