@@ -49,30 +49,32 @@ public class InventarioUI : MonoBehaviour
 
     public void MostraInventario(InputAction.CallbackContext context)
     {
-        if (FeedbackTartaruga.Instance != null)
-        {
-            if (FeedbackTartaruga.Instance.tutorialInCorso)
-            {
-                // Se siamo nel tutorial, permetti apertura solo alla prima frase
-                if (!panelInventario.activeSelf && FeedbackTartaruga.Instance.IsOnFirstFrase())
-                {
-                    // consenti apertura
-                }
-                else
-                {
-                    return; // blocca apertura o chiusura durante il resto del tutorial
-                }
-            }
-        }
-
-        if (!Player.Instance.isGrounded)
-            return;
-
         if (context.started)
         {
+            // ❌ Blocca sempre durante il tutorial, tranne che nella prima frase
+            if (FeedbackTartaruga.Instance != null)
+            {
+                if (FeedbackTartaruga.Instance.tutorialInCorso)
+                {
+                    if (!FeedbackTartaruga.Instance.PuoAprireInventarioDuranteTutorial())
+                    {
+                        Debug.Log("Inventario bloccato durante il tutorial");
+                        return;
+                    }
+                }
+            }
+
+            if (!Player.Instance.isGrounded)
+            {
+                Debug.Log("Non puoi aprire l'inventario mentre sei in aria");
+                return;
+            }
+
             AudioManager.Instance.PlayClick();
+
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
+
             Player.Instance.canMove = !isActive;
 
             if (isActive)
@@ -82,6 +84,7 @@ public class InventarioUI : MonoBehaviour
             }
             else
             {
+                // Equipaggiamento solo se valido
                 if (selectedSlot >= 0 && selectedSlot < shellList.Count)
                 {
                     Shell selezionato = shellList[selectedSlot];
@@ -96,6 +99,8 @@ public class InventarioUI : MonoBehaviour
             }
         }
     }
+
+
 
     public void Naviga(InputAction.CallbackContext context)
     {

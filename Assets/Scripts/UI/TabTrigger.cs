@@ -60,8 +60,10 @@ public class TabTutorial : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             FeedbackTartaruga.Instance.StartSwimForTutorialIntro();
+            this.GetComponent<Collider2D>().enabled = false;
         }
     }
+
 
     /*
     public void AvanzaTutorial()

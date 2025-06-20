@@ -20,13 +20,23 @@ public class Forziere : MonoBehaviour
                 text.SetActive(true);
                 Player.Instance.GetComponent<ForziereController>().closeForziere = this.gameObject;
                 isPlayerClose = true;
-                sorpresa = true;
+
+                if (!sorpresa)
+                {
+                    sorpresa = true;
+                    Player.Instance.animator.SetBool("newShell", true);
+                }
             }
             else
             {
                 Player.Instance.GetComponent<ForziereController>().closeForziere = this.gameObject;
                 isPlayerClose = true;
-                sorpresa = true;
+
+                if (!sorpresa)
+                {
+                    sorpresa = true;
+                    Player.Instance.animator.SetBool("newShell", true);
+                }
             }
         }
     }

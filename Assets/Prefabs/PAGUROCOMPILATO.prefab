@@ -783,9 +783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5108a65bb08404d8ac8c04f1f0baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimDuration: 15
+  swimDuration: 10
   pauseDuration: 2
-  exitOffset: 2000
+  exitOffset: 1200
   targetPosition: {x: -512, y: 344.0002}
   canvasRect: {fileID: 3531990352230672263}
   rectTransform: {fileID: 0}
@@ -1315,16 +1315,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2309739608891458978}
-  m_LocalRotation: {x: -0, y: -0, z: -0.012511878, w: 0.99992174}
+  m_LocalRotation: {x: -0, y: -0, z: 0.120811865, w: 0.9926755}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.91000444, y: 1.156636, z: 1}
+  m_LocalScale: {x: 0.62905014, y: 0.79953676, z: 0.6912605}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8896446731880611614}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 13.878}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 122.171005, y: -146.50067}
+  m_AnchoredPosition: {x: 123.4, y: -150}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &67994745291610229
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2309739608891458978}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1355,7 +1355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5622e1d873d1e9248ab25caf6ee18d91, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3541,7 +3541,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b515ce83e7d14be4c9f0b22d8ba96613, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 93d1bd360cb56044b91e59f196a4febf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5671,7 +5671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292597840865899696, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -78.4
       objectReference: {fileID: 0}
     - target: {fileID: 2292597840865899696, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_LocalPosition.y

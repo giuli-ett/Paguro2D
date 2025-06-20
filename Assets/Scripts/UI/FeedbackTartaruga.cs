@@ -13,6 +13,7 @@ public class FeedbackTartaruga : MonoBehaviour
     public float pauseDuration = 2f;
     public float exitOffset = 200f;
     public Vector2 targetPosition;
+    private Vector2 startFixedPosition;
 
     [Header("RIFERIMENTI")]
     public RectTransform canvasRect;
@@ -35,6 +36,7 @@ public class FeedbackTartaruga : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rectTransform = GetComponent<RectTransform>();
+        startFixedPosition = rectTransform.anchoredPosition;
 
         doppioSalto.SetActive(false);
         dash.SetActive(false);
@@ -46,13 +48,13 @@ public class FeedbackTartaruga : MonoBehaviour
         }
 
         if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void StartSwimForShellFeedback()
@@ -61,12 +63,9 @@ public class FeedbackTartaruga : MonoBehaviour
 
         float canvasWidth = canvasRect.rect.width;
         float turtleWidth = rectTransform.rect.width;
-
-        Vector2 startPos = new Vector2(canvasWidth / 2 + turtleWidth + exitOffset, targetPosition.y);
         Vector2 finalPos = new Vector2(-canvasWidth / 2 - turtleWidth - exitOffset, targetPosition.y);
 
-        rectTransform.anchoredPosition = startPos;
-
+        rectTransform.anchoredPosition = startFixedPosition;
         animator.SetBool("isMoving", true);
 
         swimSequence = DOTween.Sequence();
@@ -113,16 +112,12 @@ public class FeedbackTartaruga : MonoBehaviour
 
     public void StartSwimForTutorialIntro()
     {
+        ShowFrase(currentFraseIndex);
         currentFraseIndex = 0;
         tutorialInCorso = true;
         swimSequence?.Kill();
 
-        float canvasWidth = canvasRect.rect.width;
-        float turtleWidth = rectTransform.rect.width;
-
-        Vector2 startPos = new Vector2(canvasWidth / 2 + turtleWidth + exitOffset, targetPosition.y);
-        rectTransform.anchoredPosition = startPos;
-
+        rectTransform.anchoredPosition = startFixedPosition;
         animator.SetBool("isMoving", true);
 
         swimSequence = DOTween.Sequence();
@@ -130,7 +125,6 @@ public class FeedbackTartaruga : MonoBehaviour
         swimSequence.AppendCallback(() =>
         {
             animator.SetBool("isMoving", false);
-            ShowFrase(currentFraseIndex);
             isWaitingForInput = true;
         });
     }
@@ -170,12 +164,16 @@ public class FeedbackTartaruga : MonoBehaviour
             });
 
             swimSequence.AppendInterval(timePerFrase);
-            swimSequence.AppendCallback(() =>
-            {
-                frasi[index].SetActive(false);
-            });
-        }
 
+            if (i < frasi.Count - 1)
+            {
+                swimSequence.AppendCallback(() =>
+                {
+                    frasi[index].SetActive(false);
+                });
+            }
+        }
+        
         swimSequence.AppendCallback(() =>
         {
             currentFraseIndex = frasi.Count;
@@ -185,6 +183,7 @@ public class FeedbackTartaruga : MonoBehaviour
 
     private void StartExitAfterTutorial()
     {
+        tutorialInCorso = false;
         float canvasWidth = canvasRect.rect.width;
         float turtleWidth = rectTransform.rect.width;
         Vector2 finalPos = new Vector2(-canvasWidth / 2 - turtleWidth - exitOffset, targetPosition.y);
@@ -196,7 +195,6 @@ public class FeedbackTartaruga : MonoBehaviour
         swimSequence.OnComplete(() =>
         {
             animator.SetBool("isMoving", false);
-            tutorialInCorso = false;
             foreach (var f in frasi) f.SetActive(false);
         });
     }
@@ -204,6 +202,11 @@ public class FeedbackTartaruga : MonoBehaviour
     public bool IsOnFirstFrase()
     {
         return currentFraseIndex == 0 && isWaitingForInput;
+    }
+
+    public bool PuoAprireInventarioDuranteTutorial()
+    {
+        return tutorialInCorso && currentFraseIndex == 0 && isWaitingForInput;
     }
 }
 
