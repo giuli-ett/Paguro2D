@@ -151,7 +151,7 @@ MonoBehaviour:
   aperturaCassa: {fileID: 8300000, guid: 6437131b2ff209441bd8115d41177ed3, type: 3}
   damage: {fileID: 8300000, guid: 7aa6405e8ee61584e915319970f92164, type: 3}
   die: {fileID: 8300000, guid: 2acf894ad0f9e4891809be59a82c30e6, type: 3}
-  jellyfishDamage: {fileID: 0}
+  jellyfishDamage: {fileID: 8300000, guid: 53bec2d43060542cebe715065f125401, type: 3}
   bubbles: {fileID: 8300000, guid: b97d8eabef3a0465b9770ad4ea842a8a, type: 3}
   click: {fileID: 8300000, guid: 487642650b4b4402aa72348465bc2d37, type: 3}
   navigateInventory: {fileID: 8300000, guid: aa0493780168dd848bd88893d3d601e7, type: 3}
