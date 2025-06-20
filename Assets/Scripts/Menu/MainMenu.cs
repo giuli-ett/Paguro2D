@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         AudioManager.Instance.PlayClick();
+        Cursor.visible = false;
         SceneManager.LoadSceneAsync(3);
     }
 

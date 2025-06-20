@@ -557,6 +557,7 @@ public class Player : MonoBehaviour
         if (context.performed)
         {
             SceneManager.LoadSceneAsync(0);
+            Cursor.visible = true;
         }
     }
 }

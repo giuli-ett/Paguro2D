@@ -10,6 +10,7 @@ public class LivelliMenu : MonoBehaviour
 
         AudioManager.Instance.PlayClick();
         SceneManager.LoadSceneAsync(2);
+        Cursor.visible = false;
         MusicPlayer.Instance.PlayLevel1Music();
     }
     public void PlayLivelloDue()
@@ -25,11 +26,13 @@ public class LivelliMenu : MonoBehaviour
             Debug.Log($"Devi prima completare {GameManager.Instance.currentLivello.nomeLivello}");
         }
         */
-
+        
         AudioManager.Instance.PlayClick();
+        /*
         GameManager.Instance.SetCurrentLevel(1);
         SceneManager.LoadSceneAsync(3);
         MusicPlayer.Instance.PlayLevel2Music();
+        */
     }
     public void PlayLivelloTre()
     {
@@ -44,9 +47,11 @@ public class LivelliMenu : MonoBehaviour
             Debug.Log($"Devi prima completare {GameManager.Instance.currentLivello.nomeLivello}");
         }
         */
-
+        AudioManager.Instance.PlayClick();
+        /*
         GameManager.Instance.SetCurrentLevel(2);
         SceneManager.LoadSceneAsync(4);
+        */
             
     }
     public void PlayLivelloQuattro()
@@ -62,9 +67,11 @@ public class LivelliMenu : MonoBehaviour
             Debug.Log($"Devi prima completare {GameManager.Instance.currentLivello.nomeLivello}");
         }
         */
-
+        AudioManager.Instance.PlayClick();
+        /*
         GameManager.Instance.SetCurrentLevel(3);
         SceneManager.LoadSceneAsync(5);
+        */
             
     }
     

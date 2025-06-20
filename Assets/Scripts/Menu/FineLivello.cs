@@ -30,6 +30,7 @@ public class FineLivello : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
 
         // Cambia scena
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(4);
+        Cursor.visible = true;
     }
 }
