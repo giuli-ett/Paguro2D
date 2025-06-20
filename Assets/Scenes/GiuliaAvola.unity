@@ -11538,6 +11538,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153127178433869687, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
     - target: {fileID: 2440446896230541687, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -78.4
@@ -11582,6 +11586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paguro
       objectReference: {fileID: 0}
+    - target: {fileID: 6938239993658078685, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
