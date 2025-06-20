@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
         currentLivello = livelli[0];
         DontDestroyOnLoad(gameObject);
     }
+    void Start()
+    {
+        Cursor.visible = false;
+    }
 
     public void CollectItem(Collezionabile item)
     {
