@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 using System.Diagnostics;
 using Debug = UnityEngine.Debug;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -234,9 +235,9 @@ public class Player : MonoBehaviour
     // SET VELOCITÀ PIATTAFORMA MOBILE
     public void SetPlatformVelocity(Vector3 velocity, bool instant = false)
     {
-         platformVelocity = velocity;
+        platformVelocity = velocity;
         if (instant)
-        smoothedPlatformVelocity = velocity;
+            smoothedPlatformVelocity = velocity;
     }
 
     // ARRAMPICATA SULL'AMO
@@ -392,14 +393,14 @@ public class Player : MonoBehaviour
 
         if (canHide)
         {
-            if (!isHiding) 
+            if (!isHiding)
             {
                 isHiding = true;
                 canMove = false;
                 rb.linearVelocity = Vector2.zero;
                 this.spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
             }
-            else 
+            else
             {
                 isHiding = false;
                 canMove = true;
@@ -417,7 +418,6 @@ public class Player : MonoBehaviour
 
         if (canDig)
         {
-            AudioManager.Instance.PlayDig();
             Vector2 origin = transform.position;
             Vector2 direction;
 
@@ -425,7 +425,7 @@ public class Player : MonoBehaviour
             {
                 direction = Vector2.down;
             }
-             else if (verticalMovement > 0.5f)
+            else if (verticalMovement > 0.5f)
             {
                 direction = Vector2.up;
             }
@@ -439,6 +439,7 @@ public class Player : MonoBehaviour
 
             if (hit.collider != null)
             {
+                AudioManager.Instance.PlayDig();
                 StartCoroutine(DigAnimationCoroutine());
                 var block = hit.collider.gameObject;
                 var blockSprite = block.GetComponent<SpriteRenderer>();
@@ -455,15 +456,15 @@ public class Player : MonoBehaviour
         }
     }
 
-        private IEnumerator DigAnimationCoroutine()
+    private IEnumerator DigAnimationCoroutine()
     {
         animator.SetBool("isDigging", true);
         yield return new WaitForSeconds(0.2f);
         animator.SetBool("isDigging", false);
     }
-                
 
-            
+
+
 
     // GUSCIO MIMETICO
     private void HandleCamouflageInput()
@@ -549,5 +550,13 @@ public class Player : MonoBehaviour
         canMove = false;
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
+    }
+
+    public void Escape(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
     }
 }
