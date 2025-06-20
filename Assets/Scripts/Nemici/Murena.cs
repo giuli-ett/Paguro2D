@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Murena : MonoBehaviour
 {
-    [SerializeField] private float velocità = 2f;          
+    [SerializeField] private float velocita = 2f;          
     [SerializeField] private float altezza = 1.2f;       
 
     private Vector3 startPos;
@@ -14,7 +14,7 @@ public class Murena : MonoBehaviour
 
     void Update()
     {
-        float newY = startPos.y + Mathf.Sin(Time.time * velocità) * altezza;
+        float newY = startPos.y + Mathf.Sin(Time.time * velocita) * altezza;
         transform.position = new Vector3(startPos.x, newY, startPos.z);
     }
 }

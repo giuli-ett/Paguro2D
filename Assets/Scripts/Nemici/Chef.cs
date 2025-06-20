@@ -7,9 +7,9 @@ public class Chef : MonoBehaviour
     private Transform target;
 
     [Header("Parametri movimento")]
-    [SerializeField] private float velocitàMovimento = 3f;
+    [SerializeField] private float velocitaMovimento = 3f;
     [SerializeField] private float distanzaStop = 1f;
-    [SerializeField] private float velocitàPresa = 5f;
+    [SerializeField] private float velocitaPresa = 5f;
     [SerializeField] private float durataPresa = 2f;
     [SerializeField] private float tempoMassimoAttivo = 5f;
 
@@ -38,7 +38,7 @@ public class Chef : MonoBehaviour
         if (isGrabbing)
         {
             grabTimer += Time.deltaTime;
-            transform.position += Vector3.up * velocitàPresa * Time.deltaTime;
+            transform.position += Vector3.up * velocitaPresa * Time.deltaTime;
 
             if (grabTimer >= durataPresa)
             {
@@ -71,7 +71,7 @@ public class Chef : MonoBehaviour
         if (distance > distanzaStop)
         {
             Vector2 direction = (target.position - transform.position).normalized;
-            transform.position += (Vector3)(direction * velocitàMovimento * Time.deltaTime);
+            transform.position += (Vector3)(direction * velocitaMovimento * Time.deltaTime);
         }
 
         if (activeTimer >= tempoMassimoAttivo)
@@ -127,7 +127,7 @@ public class Chef : MonoBehaviour
         float altezzaFinale = transform.position.y + 5f;
         while (transform.position.y < altezzaFinale)
         {
-            transform.position += Vector3.up * velocitàPresa * Time.deltaTime;
+            transform.position += Vector3.up * velocitaPresa * Time.deltaTime;
             yield return null;
         }
 
