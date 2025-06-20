@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         AudioManager.Instance.PlayClick();
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(3);
         // DA METTERE LA CUTSCENE INIZIALE
     }
 
