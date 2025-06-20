@@ -399,6 +399,9 @@ MonoBehaviour:
   jellyfishDamage: {fileID: 0}
   bubbles: {fileID: 0}
   click: {fileID: 8300000, guid: 3a9b6f1827e36ec4280681ca08008b8e, type: 3}
+  navigateInventory: {fileID: 0}
+  checkPoint: {fileID: 0}
+  collezionabile: {fileID: 0}
 --- !u!82 &382546371
 AudioSource:
   m_ObjectHideFlags: 0
@@ -981,7 +984,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 300}
+  m_AnchoredPosition: {x: 0, y: 244}
   m_SizeDelta: {x: 500, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1768784381
