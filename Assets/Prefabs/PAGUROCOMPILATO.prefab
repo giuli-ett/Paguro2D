@@ -418,8 +418,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'BUT THE JOURNEY IS FULL  '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1763,7 +1763,7 @@ MonoBehaviour:
 
     TO JUMP'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3516849660190336739
@@ -3033,8 +3033,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PRESS TAB TO SEE YOUR SHELL
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3828,8 +3828,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'YOU FOUND DIG SHELL '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4353,8 +4353,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'YOU FOUND DOUBLE JUMP SHELL '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4490,8 +4490,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PRESS ENTER TO EQUIP
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4628,7 +4628,7 @@ MonoBehaviour:
 
     TO MOVE'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4694,7 +4694,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7143433261184448924
@@ -4909,8 +4909,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: NOW YOU ONLY HAVE ONE...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5045,8 +5045,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'YOU FOUND DASH SHELL '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
-  m_sharedMaterial: {fileID: -6133944745210740499, guid: 123e44c3e7a78a240b87d9573e1ae257, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
+  m_sharedMaterial: {fileID: 3108869643773114046, guid: 3a0fe58ea89cb92448b8f28b076e78b8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5671,11 +5671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2292597840865899696, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -78.4
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2292597840865899696, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 2292597840865899696, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6034,6 +6034,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7611203065436843461}
     - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: canDig
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: canDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
+      propertyPath: maxJump
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: digRange
       value: 6
       objectReference: {fileID: 0}
@@ -6095,7 +6107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: groundLayer.m_Bits
-      value: 8
+      value: 520
       objectReference: {fileID: 0}
     - target: {fileID: 8757245158263428024, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: spriteRendererShell
