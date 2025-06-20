@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip navigateInventory;
     public AudioClip checkPoint;
     public AudioClip collezionabile;
+    public AudioClip vittoria;
 
     void Awake()
     {
@@ -128,5 +129,10 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.loop = false;
         audioSource.PlayOneShot(bubbles);
+    }
+    public void PlayVittoria()
+    {
+        audioSource.loop = false;
+        audioSource.PlayOneShot(vittoria);
     }
 }

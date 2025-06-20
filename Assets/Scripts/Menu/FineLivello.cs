@@ -8,7 +8,6 @@ public class FineLivello : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-
             // Imposta il livello come completato
             GameManager.Instance.currentLivello.isCompleted = true;
 
@@ -23,6 +22,7 @@ public class FineLivello : MonoBehaviour
         Animator anim = player.GetComponent<Animator>();
         if (anim != null)
         {
+            AudioManager.Instance.PlayVittoria();
             anim.SetBool("isWinning", true);
         }
 
