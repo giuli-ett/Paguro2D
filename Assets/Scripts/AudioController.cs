@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip damage;
     public AudioClip die;
     public AudioClip jellyfishDamage;
+    public AudioClip jellyfishBounce;
 
     [Header("GENERALI")]
     public AudioClip bubbles;
@@ -84,10 +85,6 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayTrovaNuovoGuscio()
     {
-        /*
-        audioSource.loop = false;
-        audioSource.PlayOneShot(trovaNuovoGuscio);
-        */
         audioSource.clip = trovaNuovoGuscio;
         audioSource.loop = false;
         audioSource.Play();
@@ -121,5 +118,10 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.loop = false;
         audioSource.PlayOneShot(checkPoint);
+    }
+    public void PlayJellyfishBounce()
+    {
+        audioSource.loop = false;
+        audioSource.PlayOneShot(jellyfishBounce);
     }
 }

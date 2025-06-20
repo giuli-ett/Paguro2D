@@ -392,14 +392,14 @@ public class Player : MonoBehaviour
 
         if (canHide)
         {
-            if (!isHiding) // Hai premuto per entrare nel guscio
+            if (!isHiding) 
             {
                 isHiding = true;
                 canMove = false;
                 rb.linearVelocity = Vector2.zero;
                 this.spriteRenderer.color = new Color(1f, 1f, 1f, 0.3f);
             }
-            else // Hai premuto per uscire dal guscio
+            else 
             {
                 isHiding = false;
                 canMove = true;

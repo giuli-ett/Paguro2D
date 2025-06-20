@@ -9,6 +9,7 @@ public class MedusaBounce : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player collided with Medusa");
+            AudioManager.Instance.PlayJellyfishBounce();
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceStrength, ForceMode2D.Impulse);
 
             Player.Instance.jumpCount = Player.Instance.maxJump;

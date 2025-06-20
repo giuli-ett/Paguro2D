@@ -91,6 +91,8 @@ public class LifeController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        isJellyDamage = false;
+        
         Debug.Log("Trigger con: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -99,6 +101,11 @@ public class LifeController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Hand") && Hand.Instance.isSmashing)
         {
+            TakeDamage();
+        }
+        if (other.gameObject.CompareTag("Tentacoli"))
+        {
+            isJellyDamage = true;
             TakeDamage();
         }
     }

@@ -8632,7 +8632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a5108a65bb08404d8ac8c04f1f0baa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swimDuration: 5
+  swimDuration: 15
   pauseDuration: 2
   exitOffset: 200
   targetPosition: {x: -686, y: 344.0002}
