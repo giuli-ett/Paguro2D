@@ -64,9 +64,9 @@ public class ShellManager : MonoBehaviour
         if (!equippedShellPickers.ContainsKey(shell))
         {
             Debug.Log("Nuovo guscio, lo aggiungo.");
-            shellPicker.transform.position = shellPosition.position; 
+            shellPicker.transform.position = shellPosition.position;
             shellPicker.transform.rotation = shellPosition.rotation;
-            shellPicker.transform.SetParent(shellPosition);         
+            shellPicker.transform.SetParent(shellPosition);
             Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
             var rb = shellPicker.GetComponent<Rigidbody2D>();
@@ -79,18 +79,14 @@ public class ShellManager : MonoBehaviour
             shellPicker.text.SetActive(false);
 
             equippedShellPickers[shell] = shellPicker;
+            feedbackTartaruga.StartSwimForShellFeedback();
         }
 
-        // Aggiorna il riferimento corrente
-        Debug.Log("Aggiorno riferimento");
         currentShell = shell;
         currentShellPicker = equippedShellPickers[shell];
 
-
-        //currentShellPicker.gameObject.SetActive(true);
         Player.Instance.spriteRendererShell = shellPicker.GetComponent<SpriteRenderer>();
 
-        // Attiva il potere del guscio
         shell.PowerOn(Player.Instance);
 
         if (!inventario.shellList.Contains(shell))
@@ -133,7 +129,6 @@ public class ShellManager : MonoBehaviour
         {
             currentShellPicker.gameObject.SetActive(true);
         }
-        feedbackTartaruga.StartSwim();
     }
 
     public CanvasGroup ShowShellUI(Shell shell)

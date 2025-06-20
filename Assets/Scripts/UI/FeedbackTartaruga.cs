@@ -20,15 +20,22 @@ public class FeedbackTartaruga : MonoBehaviour
     private Sequence swimSequence;
     private Animator animator;
 
-
+    [Header("TESTI GUSCI")]
+    public GameObject doppioSalto;
+    public GameObject dash;
+    public GameObject scava;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
         rectTransform = GetComponent<RectTransform>();
+
+        doppioSalto.SetActive(false);
+        dash.SetActive(false);
+        scava.SetActive(false);
     }
 
-    public void StartSwim()
+    public void StartSwimForShellFeedback()
     {
         swimSequence?.Kill();
 
@@ -46,18 +53,41 @@ public class FeedbackTartaruga : MonoBehaviour
         swimSequence.Append(rectTransform.DOAnchorPos(targetPosition, swimDuration / 2f).SetEase(Ease.Linear));
         swimSequence.AppendCallback(() =>
         {
-            animator.SetBool("isMoving", false); 
+            animator.SetBool("isMoving", false);
         });
         swimSequence.AppendInterval(pauseDuration);
         swimSequence.AppendCallback(() =>
         {
-            animator.SetBool("isMoving", true); 
+            animator.SetBool("isMoving", true);
         });
         swimSequence.Append(rectTransform.DOAnchorPos(finalPos, swimDuration / 2f).SetEase(Ease.Linear));
 
         swimSequence.OnComplete(() =>
         {
-            animator.SetBool("isMoving", false); 
+            animator.SetBool("isMoving", false);
+            doppioSalto.SetActive(false);
+            dash.SetActive(false);
+            scava.SetActive(false);
         });
+    }
+
+    public void SetText(Shell shell)
+    {
+        if (shell == null)
+        {
+            Debug.Log("Nessun guscio");
+        }
+        else if (shell.shellName == "Guscio salterino")
+        {
+            doppioSalto.SetActive(true);
+        }
+        else if (shell.shellName == "Guscio Dash")
+        {
+            dash.SetActive(true);
+        }
+        else if (shell.shellName == "NascondiScava")
+        {
+            scava.SetActive(true);
+        }
     }
 }
