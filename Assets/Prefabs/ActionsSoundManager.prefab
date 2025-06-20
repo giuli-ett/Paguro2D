@@ -152,8 +152,10 @@ MonoBehaviour:
   damage: {fileID: 8300000, guid: 7aa6405e8ee61584e915319970f92164, type: 3}
   die: {fileID: 8300000, guid: 2acf894ad0f9e4891809be59a82c30e6, type: 3}
   jellyfishDamage: {fileID: 8300000, guid: 53bec2d43060542cebe715065f125401, type: 3}
+  jellyfishBounce: {fileID: 8300000, guid: 4c43a87fe2c554608b48606dcfc1352d, type: 3}
   bubbles: {fileID: 8300000, guid: b97d8eabef3a0465b9770ad4ea842a8a, type: 3}
   click: {fileID: 8300000, guid: 487642650b4b4402aa72348465bc2d37, type: 3}
   navigateInventory: {fileID: 8300000, guid: aa0493780168dd848bd88893d3d601e7, type: 3}
   checkPoint: {fileID: 8300000, guid: d2b5c0ad521f54593841b124af600e3a, type: 3}
   collezionabile: {fileID: 8300000, guid: 1cc862d495a584780b8f4007304000b9, type: 3}
+  vittoria: {fileID: 8300000, guid: 70ef43354a4e942d8b489481c731ffcb, type: 3}

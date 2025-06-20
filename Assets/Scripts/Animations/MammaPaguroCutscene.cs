@@ -10,7 +10,7 @@ public class MammaPaguroCutscene : MonoBehaviour
     public float attesa = 2f;
 
     private bool haRaggiuntoDestinazione = false;
-    private bool ËCatturata = false;
+    private bool eCatturata = false;
 
     void Start()
     {
@@ -55,9 +55,9 @@ public class MammaPaguroCutscene : MonoBehaviour
 
     public void Cattura()
     {
-        if (!ËCatturata)
+        if (!eCatturata)
         {
-            ËCatturata = true;
+            eCatturata = true;
             transform.SetParent(rete);
         }
     }
