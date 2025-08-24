@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5939595900545450253}
   - component: {fileID: 5407403442845341350}
   - component: {fileID: 7100603078440854295}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: ForzaBolle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 6564550428336411355}
   - component: {fileID: 2467842743798858680}
   - component: {fileID: 7862145889167590645}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: CratereBolle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2510107261282234373}
   - component: {fileID: 7097637429512727198}
   - component: {fileID: 4417449668990815753}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Medusa
   m_TagString: Medusa
   m_Icon: {fileID: 0}
