@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutscene.unity
     guid: ce627b2fc66e4c6458c056ac28aa33ec
   - enabled: 0
-    path: Assets/Scenes/Livello2.unity
+    path: Assets/Scenes/Livello2DEMO.unity
     guid: dc98cfab48a1e0d479015581fa78c406
   - enabled: 0
     path: Assets/Scenes/Livello3.unity
