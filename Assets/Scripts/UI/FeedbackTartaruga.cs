@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.UI;
 
 public class FeedbackTartaruga : MonoBehaviour
@@ -49,7 +50,6 @@ public class FeedbackTartaruga : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -70,7 +70,7 @@ public class FeedbackTartaruga : MonoBehaviour
 
         swimSequence = DOTween.Sequence();
 
-        swimSequence.Append(rectTransform.DOAnchorPos(targetPosition, swimDuration / 2f).SetEase(Ease.Linear));
+        swimSequence.Append(rectTransform.DOAnchorPos(targetPosition, swimDuration / 2f).SetEase(Ease.Linear).SetUpdate(UpdateType.Normal, true));
         swimSequence.AppendCallback(() =>
         {
             animator.SetBool("isMoving", false);
@@ -80,7 +80,7 @@ public class FeedbackTartaruga : MonoBehaviour
         {
             animator.SetBool("isMoving", true);
         });
-        swimSequence.Append(rectTransform.DOAnchorPos(finalPos, swimDuration / 2f).SetEase(Ease.Linear));
+        swimSequence.Append(rectTransform.DOAnchorPos(finalPos, swimDuration / 2f).SetEase(Ease.Linear).SetUpdate(UpdateType.Normal, true));
 
         swimSequence.OnComplete(() =>
         {
@@ -90,7 +90,6 @@ public class FeedbackTartaruga : MonoBehaviour
             scava.SetActive(false);
         });
     }
-
 
     public void SetText(Shell shell)
     {
@@ -151,6 +150,7 @@ public class FeedbackTartaruga : MonoBehaviour
             currentFraseIndex++;
             StartFrasiSequence();
         }
+
     }
 
     private void StartFrasiSequence()
@@ -211,3 +211,4 @@ public class FeedbackTartaruga : MonoBehaviour
         return tutorialInCorso && currentFraseIndex == 0 && isWaitingForInput;
     }
 }
+
