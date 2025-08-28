@@ -108,7 +108,7 @@ public class InventarioUI : MonoBehaviour
             return;
 
         Vector2 navigation = context.ReadValue<Vector2>();
-        AudioManager.Instance.PlayNavigateInventory();
+        AudioManager.Instance.PlayClick();
 
         if (navigation.x > 0.5f)
         {

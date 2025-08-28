@@ -63,7 +63,7 @@ public class BolleNEW : MonoBehaviour
             liftTimer += Time.fixedDeltaTime;
             float t = Mathf.Clamp01(liftTimer / liftDuration);
             float appliedForce = force * forceCurve.Evaluate(t);
-            Debug.Log($"inspector force: {force}, appliedForce: {appliedForce}");
+            //Debug.Log($"inspector force: {force}, appliedForce: {appliedForce}");
             playerRb.AddForce(Vector2.up * appliedForce, ForceMode2D.Force);
         }
         else

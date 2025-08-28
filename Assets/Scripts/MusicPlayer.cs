@@ -31,13 +31,9 @@ public class MusicPlayer : MonoBehaviour
 
     public void PlayLevel1Music()
     {
-        Debug.Log("BYE");
-        musicSource.Stop();
-        /*
         musicSource.clip = level1;
         musicSource.loop = true;
-        musicSource.Play();
-        */
+        musicSource.Play();   
     }
     
     public void PlayLevel2Music()

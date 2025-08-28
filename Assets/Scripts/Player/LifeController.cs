@@ -93,7 +93,7 @@ public class LifeController : MonoBehaviour
     {
         isJellyDamage = false;
         
-        Debug.Log("Trigger con: " + other.gameObject.name);
+        //Debug.Log("Trigger con: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();
@@ -112,7 +112,7 @@ public class LifeController : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        Debug.Log("Trigger con: " + other.gameObject.name);
+        //Debug.Log("Trigger con: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();

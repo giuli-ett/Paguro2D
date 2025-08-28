@@ -3,7 +3,8 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
-    public AudioSource audioSource;
+    public AudioSource walkAudioSource;
+    public AudioSource oneShotAudioSource;
 
     [Header("MOVIMENTO")]
     public AudioClip salto;
@@ -44,95 +45,84 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClick()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(click);
+        oneShotAudioSource.PlayOneShot(click);
     }
     public void PlayNavigateInventory()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(navigateInventory);
+        oneShotAudioSource.PlayOneShot(navigateInventory);
     }
 
     public void PlaySalto()
     {
-        audioSource.Stop();
-        audioSource.loop = false;
-        audioSource.PlayOneShot(salto);
+        oneShotAudioSource.PlayOneShot(salto);
     }
     public void StartWalking()
     {
-        if (audioSource.isPlaying && audioSource.clip == walking)
+        if (walkAudioSource.isPlaying && walkAudioSource.clip == walking)
             return;
 
-        audioSource.clip = walking;
-        audioSource.loop = true;
-        audioSource.Play();
+        walkAudioSource.clip = walking;
+        walkAudioSource.loop = true;
+        walkAudioSource.Play();
     }
     public void StopWalking()
     {
-        if (audioSource.clip == walking)
-            audioSource.Stop();
+        if (walkAudioSource.clip == walking)
+            walkAudioSource.Stop();
     }
 
     public void PlayDig()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(digging);
+        oneShotAudioSource.PlayOneShot(digging);
     }
     public void PlayDash()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(dash);
+        oneShotAudioSource.PlayOneShot(dash);
     }
     public void PlayTrovaNuovoGuscio()
     {
-        audioSource.clip = trovaNuovoGuscio;
-        audioSource.loop = false;
-        audioSource.Play();
+        /*
+        oneShotAudioSource.clip = trovaNuovoGuscio;
+        oneShotAudioSource.loop = false;
+        oneShotAudioSource.Play();
+        */
+        Debug.Log("Suono trovato suono guscio!");
+        oneShotAudioSource.PlayOneShot(trovaNuovoGuscio);
     }
     public void PlayAperturaCassa()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(aperturaCassa);
+        oneShotAudioSource.PlayOneShot(aperturaCassa);
     }
     public void PlayDamage()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(damage);
+        oneShotAudioSource.PlayOneShot(damage);
     }
     public void PlayDie()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(die);
+        oneShotAudioSource.PlayOneShot(die);
     }
     public void PlayJellyFishDamage()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(jellyfishDamage);
+        oneShotAudioSource.PlayOneShot(jellyfishDamage);
     }
     public void PlayCollezionabile()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(collezionabile);
+        oneShotAudioSource.PlayOneShot(collezionabile);
     }
     public void PlayCheckPoint()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(checkPoint);
+        oneShotAudioSource.PlayOneShot(checkPoint);
     }
     public void PlayJellyfishBounce()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(jellyfishBounce);
+        oneShotAudioSource.PlayOneShot(jellyfishBounce);
     }
     public void PlayBubbles()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(bubbles);
+        oneShotAudioSource.PlayOneShot(bubbles);
     }
     public void PlayVittoria()
     {
-        audioSource.loop = false;
-        audioSource.PlayOneShot(vittoria);
+        oneShotAudioSource.PlayOneShot(vittoria);
     }
 }
