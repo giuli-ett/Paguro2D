@@ -1,71 +1,65 @@
 using UnityEngine;
-using DG.Tweening;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
+
 public class RicaricaLuminescenza : MonoBehaviour
 {
-    public float durataRicarica = 5f; // Durata luce quando esco da alga
-    private Coroutine fadeCoroutine;
+    public float durataRicarica = 5f;
 
-    private void Start()
+   private void HandleLuminescence(Player player, bool isEntering)
+{
+    if (player == null || player.shellManager.currentShell.power != ShellPower.Luminescenza) 
+        return;
+
+    if (player.lightFadeCoroutine != null)
     {
-        // Inizializza la coroutine a null
-        fadeCoroutine = null;
+        StopCoroutine(player.lightFadeCoroutine);
+        player.lightFadeCoroutine = null;
     }
+
+    player.InLuminescenceZone = isEntering;
+    player.luminescentLight.enabled = true;
+    player.luminescentLight.intensity = 1f;
+
+    if (isEntering)
+    {
+        PowerLibrary.RechargeLight(player);
+        Debug.Log("Player entered luminescence zone");
+    }
+    else
+    {
+        // Only start fading when leaving the trigger area
+        player.lightDuration = durataRicarica;
+        player.lightFadeCoroutine = StartCoroutine(FadeLightIntensity(
+            player.luminescentLight, 
+            1f, 
+            0f, 
+            durataRicarica
+        ));
+        Debug.Log("Player exited luminescence zone");
+    }
+}
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Player player = other.GetComponent<Player>();
-
-        
-                
-        if (player != null && player.shellManager.currentShell.power == ShellPower.Luminescenza)
-            {
-                if (player.lightFadeCoroutine != null)
-                {
-                    StopCoroutine(player.lightFadeCoroutine);
-                    player.lightFadeCoroutine = null;
-                }
-
-                Debug.Log("Player entered luminescence zone");
-                player.InLuminescenceZone = true;
-                player.luminescentLight.enabled = true;
-                player.luminescentLight.intensity = 1f;
-                PowerLibrary.RechargeLuminescence(player);
-            }
+        HandleLuminescence(other.GetComponent<Player>(), true);
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        Player player = other.GetComponent<Player>();
-        if (player != null && player.InLuminescenceZone && player.shellManager.currentShell.power == ShellPower.Luminescenza)
+        var player = other.GetComponent<Player>();
+        if (player != null && player.InLuminescenceZone && 
+            player.shellManager.currentShell.power == ShellPower.Luminescenza)
         {
-            // Mantieni la luminosit� al massimo costantemente
-            
             player.luminescentLight.intensity = 1f;
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Player exited luminescence zone");
-            Player player = other.GetComponent<Player>();
-            if (player != null && player.shellManager.currentShell.power == ShellPower.Luminescenza)
-            {
-               
-                player.InLuminescenceZone = false;
-                player.lightDuration = durataRicarica;
-
-                 if (player.lightFadeCoroutine != null)
-                {
-                    StopCoroutine(player.lightFadeCoroutine);
-                    player.lightFadeCoroutine = null;
-                }
-
-                player.lightFadeCoroutine = StartCoroutine(FadeLightIntensity(player.luminescentLight, player.luminescentLight.intensity, 0f, durataRicarica));
-                PowerLibrary.LuminescenzaOn(player);
-            }
+            HandleLuminescence(other.GetComponent<Player>(), false);
         }
     }
     
@@ -78,6 +72,6 @@ public class RicaricaLuminescenza : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        light.intensity = endIntensity; // Assicurati che l'intensit� finale sia impostata correttamente
+        light.intensity = endIntensity;
     }
 }

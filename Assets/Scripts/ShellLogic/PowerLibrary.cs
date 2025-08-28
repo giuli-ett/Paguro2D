@@ -102,8 +102,9 @@ public class PowerLibrary : MonoBehaviour
         Player.Instance.EnableDash();
         Debug.Log($"Hai un nuovo super potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
-    public static void LuminescenzaOn(Player player)
+    public static void LuminescenzaOn(Player player, float duration = 10f)
     {
+        player.lightDuration = duration;
         var light = player.luminescentLight;
         if (light == null) return;
 
@@ -111,9 +112,11 @@ public class PowerLibrary : MonoBehaviour
         light.intensity = 1f;
 
         if (luminescenceCoroutine != null)
+        {
             player.StopCoroutine(luminescenceCoroutine);
-
-        luminescenceCoroutine = player.StartCoroutine(LuminescenceFade(light, 10f));
+        }
+        player.lightDuration = duration;
+        luminescenceCoroutine = player.StartCoroutine(LightFade(light, player.lightDuration));
     }
 
     public static void NascondiScavaOn(Player player)
@@ -174,7 +177,7 @@ public class PowerLibrary : MonoBehaviour
 
     // gestione luminescenza
 
-    private static IEnumerator LuminescenceFade(Light2D light, float duration)
+    private static IEnumerator LightFade(Light2D light, float duration)
     {
         float startIntensity = 1f;
         float elapsed = 0f;
@@ -191,7 +194,7 @@ public class PowerLibrary : MonoBehaviour
 
         Player.Instance.GetComponent<LifeController>().Die();
     }
-    public static void RechargeLuminescence(Player player)
+    public static void RechargeLight(Player player)
     {
             var light = player.luminescentLight;
             if (light == null) return;

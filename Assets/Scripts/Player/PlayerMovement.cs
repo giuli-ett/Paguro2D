@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
     [Header("GUSCIO LUMINOSO")]
     public bool InLuminescenceZone = false;
     public bool isInvisible = false;
-    public float lightDuration = 10f;
+    public float lightDuration;
     public Coroutine lightFadeCoroutine;
     private PlayerInput playerInput;
 
