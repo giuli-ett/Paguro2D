@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public float targetSpeed;
     public bool wasOnMovingPlatformLastFrame = false;
     [SerializeField] private float platformLerpSpeed = 10f;
+    public bool isFacingRight = true;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
@@ -201,6 +202,7 @@ public class Player : MonoBehaviour
             // Guarda a destra
             spriteRenderer.flipX = false;
             spriteRendererShell.flipX = false;
+            isFacingRight = true;
 
             shellPositionTransform.localPosition = new Vector3(shellOffsetX, shellPositionTransform.localPosition.y, shellPositionTransform.localPosition.z);
             shellPositionTransform.localEulerAngles = new Vector3(0, 0, shellRotationZ);
@@ -210,6 +212,7 @@ public class Player : MonoBehaviour
             // Guarda a sinistra
             spriteRenderer.flipX = true;
             spriteRendererShell.flipX = true;
+            isFacingRight = false;
 
             shellPositionTransform.localPosition = new Vector3(-shellOffsetX, shellPositionTransform.localPosition.y, shellPositionTransform.localPosition.z);
             shellPositionTransform.localEulerAngles = new Vector3(0, 0, -shellRotationZ);
