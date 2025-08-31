@@ -414,57 +414,71 @@ public class Player : MonoBehaviour
     }
 
     // SCAVA
-    public void Scava(InputAction.CallbackContext context)
+    private bool isDigging = false;
+
+// Modificare la funzione Scava esistente
+public void Scava(InputAction.CallbackContext context)
+{
+    if (!canDig || shellManager.currentShellPicker.shell.name != "NascondiScava") return;
+
+    if (context.started)
     {
-        if (!context.performed) return;
-        if (shellManager.currentShellPicker.shell.name != "NascondiScava") return;
-
-        if (canDig)
-        {
-            Vector2 origin = transform.position;
-            Vector2 direction;
-
-            if (verticalMovement < -0.5f)
-            {
-                direction = Vector2.down;
-            }
-            else if (verticalMovement > 0.5f)
-            {
-                direction = Vector2.up;
-            }
-            else
-            {
-                direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-            }
-
-            RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
-            Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
-
-            if (hit.collider != null)
-            {
-                AudioManager.Instance.PlayDig();
-                StartCoroutine(DigAnimationCoroutine());
-                var block = hit.collider.gameObject;
-                var blockSprite = block.GetComponent<SpriteRenderer>();
-                var blockCollider = block.GetComponent<Collider2D>();
-                if (blockSprite != null) blockSprite.enabled = false;
-                if (blockCollider != null) blockCollider.enabled = false;
-                Debug.Log("✅ Blocco scavato in direzione: " + direction);
-            }
-            else
-            {
-                animator.SetBool("isDigging", false);
-                Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
-            }
-        }
+        isDigging = true;
+        StartCoroutine(ContinuousDigging());
     }
-
-    private IEnumerator DigAnimationCoroutine()
+    else if (context.canceled)
     {
-        animator.SetBool("isDigging", true);
-        yield return new WaitForSeconds(0.2f);
+        isDigging = false;
         animator.SetBool("isDigging", false);
     }
+}
+
+private IEnumerator ContinuousDigging()
+{
+    while (isDigging)
+    {
+        Vector2 origin = transform.position;
+        Vector2 direction;
+
+        if (verticalMovement < -0.5f)
+        {
+            direction = Vector2.down;
+        }
+        else if (verticalMovement > 0.5f)
+        {
+            direction = Vector2.up;
+        }
+        else
+        {
+            direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+        }
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
+        Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
+
+        if (hit.collider != null)
+        {
+            AudioManager.Instance.PlayDig();
+            animator.SetBool("isDigging", true);
+            var block = hit.collider.gameObject;
+            var blockSprite = block.GetComponent<SpriteRenderer>();
+            var blockCollider = block.GetComponent<Collider2D>();
+            if (blockSprite != null) blockSprite.enabled = false;
+            if (blockCollider != null) blockCollider.enabled = false;
+            Debug.Log("✅ Blocco scavato in direzione: " + direction);
+            
+            // Piccola pausa tra uno scavo e l'altro
+            yield return new WaitForSeconds(0.2f);
+        }
+        else
+        {
+            animator.SetBool("isDigging", false);
+            Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
+        }
+
+        yield return null;
+    }
+}
 
 
 
