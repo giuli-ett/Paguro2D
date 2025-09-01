@@ -7,40 +7,32 @@ public class RicaricaLuminescenza : MonoBehaviour
     public float durataRicarica = 5f;
     
     private void HandleLuminescence(Player player, bool isEntering)
-    {
-        if (player == null || player.shellManager.currentShell.power != ShellPower.Luminescenza)
-            return;
+{
+    if (player == null || player.shellManager.currentShell.power != ShellPower.Luminescenza)
+        return;
 
+    player.InLuminescenceZone = isEntering;
+    
+    if (isEntering)
+    {
+        // When entering recharge zone, stop any existing fade and set to full
         if (player.lightFadeCoroutine != null)
         {
-            StopCoroutine(player.lightFadeCoroutine);
+            player.StopCoroutine(player.lightFadeCoroutine);
             player.lightFadeCoroutine = null;
         }
-
-        player.InLuminescenceZone = isEntering;
-        player.luminescentLight.enabled = true;
-        LightProgressBar.Instance.Show();
         player.luminescentLight.intensity = 1f;
-
-        if (isEntering)
-        {
-            PowerLibrary.RechargeLight(player);
-            LightProgressBar.Instance.UpdateProgress(100f);
-            Debug.Log("Player entered luminescence zone");
-        }
-        else
-        {
-            // Only start fading when leaving the trigger area
-            player.lightDuration = durataRicarica;
-            player.lightFadeCoroutine = StartCoroutine(FadeLightIntensity(
-                player.luminescentLight,
-                1f,
-                0f,
-                durataRicarica
-            ));
-            Debug.Log("Player exited luminescence zone");
-        }
+        player.lastLightIntensity = 1f;
+        LightProgressBar.Instance.UpdateProgress(100f);
+        Debug.Log("Player entered luminescence zone");
     }
+    else
+    {
+        // When exiting, start new fade from current intensity
+        PowerLibrary.LuminescenzaOn(player, durataRicarica);
+        Debug.Log("Player exited luminescence zone");
+    }
+}
 
     private void OnTriggerEnter2D(Collider2D other)
     {

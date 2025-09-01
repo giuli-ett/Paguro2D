@@ -161,6 +161,7 @@ MonoBehaviour:
   checkPoint: {fileID: 8300000, guid: d2b5c0ad521f54593841b124af600e3a, type: 3}
   collezionabile: {fileID: 8300000, guid: 1cc862d495a584780b8f4007304000b9, type: 3}
   vittoria: {fileID: 8300000, guid: 70ef43354a4e942d8b489481c731ffcb, type: 3}
+  crack: {fileID: 8300000, guid: 57362fb80eb7c6343a5811b083ed4af3, type: 3}
 --- !u!82 &4318467132129668572
 AudioSource:
   m_ObjectHideFlags: 0

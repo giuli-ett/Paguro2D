@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip checkPoint;
     public AudioClip collezionabile;
     public AudioClip vittoria;
+    public AudioClip crack;
 
     void Awake()
     {
@@ -124,5 +125,16 @@ public class AudioManager : MonoBehaviour
     public void PlayVittoria()
     {
         oneShotAudioSource.PlayOneShot(vittoria);
+    }
+    public void PlayCrack()
+    {
+        oneShotAudioSource.PlayOneShot(crack);
+    }
+    public void StopCrack()
+    {
+        if (oneShotAudioSource.clip == crack)
+        {
+            oneShotAudioSource.Stop();
+        }
     }
 }

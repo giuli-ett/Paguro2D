@@ -75,6 +75,9 @@ public class Player : MonoBehaviour
     public float lightDuration;
     public Coroutine lightFadeCoroutine;
     private PlayerInput playerInput;
+     public bool isLuminescenceActive = false;
+     public float lastLightIntensity = 1f;
+
 
 
     [Header("GUSCIO NASCONDI/SCAVA")]

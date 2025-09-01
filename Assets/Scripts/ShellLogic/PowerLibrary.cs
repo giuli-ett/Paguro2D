@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class PowerLibrary : MonoBehaviour
 {
-    private static Coroutine luminescenceCoroutine;
+    //private static Coroutine luminescenceCoroutine;
     private static Coroutine camouflageCoroutine;
 
 
@@ -105,21 +105,40 @@ public class PowerLibrary : MonoBehaviour
     }
     public static void LuminescenzaOn(Player player, float duration = 10f)
     {
+        player.isLuminescenceActive = true;
         player.lightDuration = duration;
         var light = player.luminescentLight;
         if (light == null) return;
 
         light.enabled = true;
-        light.intensity = 1f;
+        light.intensity = player.lastLightIntensity;
+        LightProgressBar.Instance.UpdateProgress((player.lastLightIntensity) * 100f);
+        LightProgressBar.Instance.Show();
 
-        if (luminescenceCoroutine != null)
+        if (player.lightFadeCoroutine != null)
         {
-            player.StopCoroutine(luminescenceCoroutine);
+            player.StopCoroutine(player.lightFadeCoroutine);
+            player.lightFadeCoroutine = null;
         }
-        player.lightDuration = duration;
-        luminescenceCoroutine = player.StartCoroutine(LightFade(light, player.lightDuration));
+        player.lightFadeCoroutine = player.StartCoroutine(LightFade(light, player));
     }
 
+        public static void LuminescenzaOff(Player player)
+    {
+        var light = player.luminescentLight;
+        if (light == null) return;
+
+        if (player.lightFadeCoroutine != null)
+        {
+            player.StopCoroutine(player.lightFadeCoroutine);
+            player.lightFadeCoroutine = null;
+        }
+
+        player.lastLightIntensity = light.intensity;
+        light.enabled = false;
+        LightProgressBar.Instance.Hide();
+
+    }
     public static void NascondiScavaOn(Player player)
     {
         Player.Instance.EnableNascondiScava();
@@ -145,17 +164,7 @@ public class PowerLibrary : MonoBehaviour
         Debug.Log($"Hai rimosso il guscio: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
-    public static void LuminescenzaOff(Player player)
-    {
-        var light = player.luminescentLight;
-        if (light == null) return;
 
-        if (luminescenceCoroutine != null)
-            player.StopCoroutine(luminescenceCoroutine);
-
-        light.enabled = false;
-
-    }
 
     public static void SpeedBoostOff(Player player)
     {
@@ -178,20 +187,26 @@ public class PowerLibrary : MonoBehaviour
 
     // gestione luminescenza
 
-    private static IEnumerator LightFade(Light2D light, float duration)
+    private static IEnumerator LightFade(Light2D light, Player player)
     {
-        float startIntensity = 1f;
-        float elapsed = 0f;
+        float elapsedTime = (1 - player.lastLightIntensity) * player.lightDuration;
+        float startIntensity = player.lastLightIntensity; 
 
-        while (elapsed < duration)
+        while (elapsedTime < player.lightDuration)
         {
-            elapsed += Time.deltaTime;
-            light.intensity = Mathf.Lerp(startIntensity, 0f, elapsed / duration);
+            if (player.isLuminescenceActive)
+            {
+                elapsedTime += Time.deltaTime;
+                light.intensity = Mathf.Lerp(startIntensity, 0f, elapsedTime / player.lightDuration);
+                player.lastLightIntensity = light.intensity;
+                float percentageRemaining = (light.intensity) * 100f;
+                LightProgressBar.Instance.UpdateProgress(percentageRemaining);
+            }
             yield return null;
         }
 
-        light.intensity = 0f;
         light.enabled = false;
+        LightProgressBar.Instance.Hide();
 
         Player.Instance.GetComponent<LifeController>().Die();
     }
@@ -200,8 +215,8 @@ public class PowerLibrary : MonoBehaviour
             var light = player.luminescentLight;
             if (light == null) return;
 
-            if (luminescenceCoroutine != null)
-                player.StopCoroutine(luminescenceCoroutine);
+            if (player.lightFadeCoroutine != null)
+                player.StopCoroutine(player.lightFadeCoroutine);
 
             light.enabled = true;
             light.intensity = 1f;
