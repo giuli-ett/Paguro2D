@@ -222,4 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be50998ce9aaa3046b77ec46629170b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  durataRicarica: 7
+  durataRicarica: 8
+  lightProgressBar: {fileID: 0}

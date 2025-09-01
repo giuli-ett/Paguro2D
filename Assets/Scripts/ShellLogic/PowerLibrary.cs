@@ -65,6 +65,7 @@ public class PowerLibrary : MonoBehaviour
 
             case ShellPower.Luminescenza:
                 LuminescenzaOff(player);
+                LightProgressBar.Instance.Hide();
                 break;
 
             case ShellPower.NascondiScava:

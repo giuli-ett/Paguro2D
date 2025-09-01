@@ -5,40 +5,42 @@ using UnityEngine.Rendering.Universal;
 public class RicaricaLuminescenza : MonoBehaviour
 {
     public float durataRicarica = 5f;
-
-   private void HandleLuminescence(Player player, bool isEntering)
-{
-    if (player == null || player.shellManager.currentShell.power != ShellPower.Luminescenza) 
-        return;
-
-    if (player.lightFadeCoroutine != null)
+    
+    private void HandleLuminescence(Player player, bool isEntering)
     {
-        StopCoroutine(player.lightFadeCoroutine);
-        player.lightFadeCoroutine = null;
-    }
+        if (player == null || player.shellManager.currentShell.power != ShellPower.Luminescenza)
+            return;
 
-    player.InLuminescenceZone = isEntering;
-    player.luminescentLight.enabled = true;
-    player.luminescentLight.intensity = 1f;
+        if (player.lightFadeCoroutine != null)
+        {
+            StopCoroutine(player.lightFadeCoroutine);
+            player.lightFadeCoroutine = null;
+        }
 
-    if (isEntering)
-    {
-        PowerLibrary.RechargeLight(player);
-        Debug.Log("Player entered luminescence zone");
+        player.InLuminescenceZone = isEntering;
+        player.luminescentLight.enabled = true;
+        LightProgressBar.Instance.Show();
+        player.luminescentLight.intensity = 1f;
+
+        if (isEntering)
+        {
+            PowerLibrary.RechargeLight(player);
+            LightProgressBar.Instance.UpdateProgress(100f);
+            Debug.Log("Player entered luminescence zone");
+        }
+        else
+        {
+            // Only start fading when leaving the trigger area
+            player.lightDuration = durataRicarica;
+            player.lightFadeCoroutine = StartCoroutine(FadeLightIntensity(
+                player.luminescentLight,
+                1f,
+                0f,
+                durataRicarica
+            ));
+            Debug.Log("Player exited luminescence zone");
+        }
     }
-    else
-    {
-        // Only start fading when leaving the trigger area
-        player.lightDuration = durataRicarica;
-        player.lightFadeCoroutine = StartCoroutine(FadeLightIntensity(
-            player.luminescentLight, 
-            1f, 
-            0f, 
-            durataRicarica
-        ));
-        Debug.Log("Player exited luminescence zone");
-    }
-}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,16 +64,26 @@ public class RicaricaLuminescenza : MonoBehaviour
             HandleLuminescence(other.GetComponent<Player>(), false);
         }
     }
-    
-    private IEnumerator FadeLightIntensity(Light2D light, float startIntensity, float endIntensity, float duration)
+
+   private IEnumerator FadeLightIntensity(Light2D light, float startIntensity, float endIntensity, float duration)
     {
         float elapsedTime = 0f;
         while (elapsedTime < duration)
         {
-            light.intensity = Mathf.Lerp(startIntensity, endIntensity, elapsedTime / duration);
+            float currentIntensity = Mathf.Lerp(startIntensity, endIntensity, elapsedTime / duration);
+            light.intensity = currentIntensity;
+            
+            // Usa il singleton invece del riferimento locale
+            float percentageRemaining = (currentIntensity / startIntensity) * 100f;
+            LightProgressBar.Instance.UpdateProgress(percentageRemaining);
+            
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        
         light.intensity = endIntensity;
+        light.enabled = false;
+        LightProgressBar.Instance.UpdateProgress(0f);
+        Player.Instance.GetComponent<LifeController>().Die();
     }
 }
