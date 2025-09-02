@@ -20102,38 +20102,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 236920951183921654, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: canvasGroup
-      value: 
-      objectReference: {fileID: 1771008552}
-    - target: {fileID: 942174683273204062, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3340277010399735326, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7810049359623164034, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7810049359623164034, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7810049359623164034, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 4.789978
-      objectReference: {fileID: 0}
-    - target: {fileID: 7810049359623164034, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -580
-      objectReference: {fileID: 0}
-    - target: {fileID: 7810049359623164034, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -195.99976
-      objectReference: {fileID: 0}
     - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -20164,18 +20132,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
@@ -20230,18 +20186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasFeedback
       objectReference: {fileID: 0}
-    - target: {fileID: 9005026361541357155, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 4128205263749212887, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8299060622739350974, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1771008552}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
 --- !u!1001 &486661946
 PrefabInstance:
@@ -67510,23 +67458,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd6b6a4102107c42a8cb935f1df0556, type: 3}
---- !u!1 &1771008550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8299060622739350974, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
-  m_PrefabInstance: {fileID: 485311447}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1771008552
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771008550}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1001 &1772304265
 PrefabInstance:
   m_ObjectHideFlags: 0
