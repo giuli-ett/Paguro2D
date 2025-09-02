@@ -8,23 +8,17 @@ public class FeedbackTartaruga : MonoBehaviour
 {
     public static FeedbackTartaruga Instance;
 
-    [Header("MOVIMENTO")]
-    public float swimDuration = 5f;
-    public float pauseDuration = 2f;
-    public float exitOffset = 200f;
-    public Vector2 targetPosition;
-    private Vector2 startFixedPosition;
-
-    [Header("RIFERIMENTI")]
-    public RectTransform canvasRect;
-    public RectTransform rectTransform;
-    private Sequence swimSequence;
-    private Animator animator;
+    [Header("ANIMAZIONE FADE")]
+    public float fadeDuration = 1f;
+    public float visibleDuration = 2f;
+    public CanvasGroup canvasGroup;
+    private Sequence fadeSequence;
 
     [Header("TESTI GUSCI")]
     public GameObject doppioSalto;
     public GameObject dash;
     public GameObject scava;
+    public GameObject luminoso;
     [Header("TESTI TUTORIAL")]
     public List<GameObject> frasi;
     private int currentFraseIndex = 0;
@@ -34,13 +28,12 @@ public class FeedbackTartaruga : MonoBehaviour
 
     void Awake()
     {
-        animator = GetComponent<Animator>();
-        rectTransform = GetComponent<RectTransform>();
-        startFixedPosition = rectTransform.anchoredPosition;
+        canvasGroup.alpha = 0f;
 
         doppioSalto.SetActive(false);
         dash.SetActive(false);
         scava.SetActive(false);
+        luminoso.SetActive(false);
 
         foreach (var v in frasi)
         {
@@ -57,37 +50,23 @@ public class FeedbackTartaruga : MonoBehaviour
         }
     }
 
-    public void StartSwimForShellFeedback()
+    public void StartShellFeedback(Shell shell)
     {
-        swimSequence?.Kill();
+        SetText(shell);
 
-        float canvasWidth = canvasRect.rect.width;
-        float turtleWidth = rectTransform.rect.width;
-        Vector2 finalPos = new Vector2(-canvasWidth / 2 - turtleWidth - exitOffset, targetPosition.y);
+        fadeSequence?.Kill();
+        fadeSequence = DOTween.Sequence();
 
-        rectTransform.anchoredPosition = startFixedPosition;
-        animator.SetBool("isMoving", true);
+        fadeSequence.Append(canvasGroup.DOFade(1f, fadeDuration));
+        fadeSequence.AppendInterval(visibleDuration);
+        fadeSequence.Append(canvasGroup.DOFade(0f, fadeDuration));
 
-        swimSequence = DOTween.Sequence();
-
-        swimSequence.Append(rectTransform.DOAnchorPos(targetPosition, swimDuration / 2f).SetEase(Ease.Linear).SetUpdate(UpdateType.Normal, true));
-        swimSequence.AppendCallback(() =>
+        fadeSequence.OnComplete(() =>
         {
-            animator.SetBool("isMoving", false);
-        });
-        swimSequence.AppendInterval(pauseDuration);
-        swimSequence.AppendCallback(() =>
-        {
-            animator.SetBool("isMoving", true);
-        });
-        swimSequence.Append(rectTransform.DOAnchorPos(finalPos, swimDuration / 2f).SetEase(Ease.Linear).SetUpdate(UpdateType.Normal, true));
-
-        swimSequence.OnComplete(() =>
-        {
-            animator.SetBool("isMoving", false);
             doppioSalto.SetActive(false);
             dash.SetActive(false);
             scava.SetActive(false);
+            luminoso.SetActive(false);
         });
     }
 
@@ -96,47 +75,13 @@ public class FeedbackTartaruga : MonoBehaviour
         if (shell == null)
         {
             Debug.Log("Nessun guscio");
+            return;
         }
-        else if (shell.shellName == "Guscio salterino")
-        {
-            doppioSalto.SetActive(true);
-        }
-        else if (shell.shellName == "Guscio Dash")
-        {
-            dash.SetActive(true);
-        }
-        else if (shell.shellName == "NascondiScava")
-        {
-            scava.SetActive(true);
-        }
-    }
 
-    public void StartSwimForTutorialIntro()
-    {
-        ShowFrase(currentFraseIndex);
-        currentFraseIndex = 0;
-        tutorialInCorso = true;
-        swimSequence?.Kill();
-
-        rectTransform.anchoredPosition = startFixedPosition;
-        animator.SetBool("isMoving", true);
-
-        swimSequence = DOTween.Sequence();
-        swimSequence.Append(rectTransform.DOAnchorPos(targetPosition, swimDuration / 2f).SetEase(Ease.Linear));
-        swimSequence.AppendCallback(() =>
-        {
-            animator.SetBool("isMoving", false);
-            isWaitingForInput = true;
-        });
-    }
-
-    private void ShowFrase(int index)
-    {
-        foreach (var f in frasi) f.SetActive(false);
-        if (index < frasi.Count)
-        {
-            frasi[index].SetActive(true);
-        }
+        doppioSalto.SetActive(shell.shellName == "Guscio salterino");
+        dash.SetActive(shell.shellName == "Guscio Dash");
+        scava.SetActive(shell.shellName == "NascondiScava");
+        luminoso.SetActive(shell.shellName == "Guscio luminescente");
     }
 
     void Update()
@@ -150,65 +95,65 @@ public class FeedbackTartaruga : MonoBehaviour
             currentFraseIndex++;
             StartFrasiSequence();
         }
-
     }
 
     private void StartFrasiSequence()
     {
-        swimSequence = DOTween.Sequence();
+        fadeSequence = DOTween.Sequence();
 
         for (int i = currentFraseIndex; i < frasi.Count; i++)
         {
             int index = i;
-            swimSequence.AppendCallback(() =>
-            {
-                ShowFrase(index);
-            });
-
-            swimSequence.AppendInterval(timePerFrase);
-
+            fadeSequence.AppendCallback(() => ShowFrase(index));
+            fadeSequence.AppendInterval(timePerFrase);
             if (i < frasi.Count - 1)
             {
-                swimSequence.AppendCallback(() =>
-                {
-                    frasi[index].SetActive(false);
-                });
+                fadeSequence.AppendCallback(() => frasi[index].SetActive(false));
             }
         }
-        
-        swimSequence.AppendCallback(() =>
+
+        fadeSequence.AppendCallback(() =>
         {
             currentFraseIndex = frasi.Count;
-            StartExitAfterTutorial();
+            EndTutorial();
+        });
+    }
+    
+    public void StartTutorialIntro()
+    {
+        currentFraseIndex = 0;
+        tutorialInCorso = true;
+        ShowFrase(currentFraseIndex);
+
+        fadeSequence?.Kill();
+        fadeSequence = DOTween.Sequence();
+
+        fadeSequence.Append(canvasGroup.DOFade(1f, fadeDuration));
+        fadeSequence.AppendCallback(() =>
+        {
+            isWaitingForInput = true;
         });
     }
 
-    private void StartExitAfterTutorial()
+        private void ShowFrase(int index)
+        {
+            foreach (var f in frasi) f.SetActive(false);
+            if (index < frasi.Count) frasi[index].SetActive(true);
+        }
+
+    private void EndTutorial()
     {
         tutorialInCorso = false;
-        float canvasWidth = canvasRect.rect.width;
-        float turtleWidth = rectTransform.rect.width;
-        Vector2 finalPos = new Vector2(-canvasWidth / 2 - turtleWidth - exitOffset, targetPosition.y);
-
-        animator.SetBool("isMoving", true);
-
-        swimSequence = DOTween.Sequence();
-        swimSequence.Append(rectTransform.DOAnchorPos(finalPos, swimDuration / 2f).SetEase(Ease.Linear));
-        swimSequence.OnComplete(() =>
+        fadeSequence = DOTween.Sequence();
+        fadeSequence.Append(canvasGroup.DOFade(0f, fadeDuration));
+        fadeSequence.OnComplete(() =>
         {
-            animator.SetBool("isMoving", false);
             foreach (var f in frasi) f.SetActive(false);
         });
     }
 
-    public bool IsOnFirstFrase()
-    {
-        return currentFraseIndex == 0 && isWaitingForInput;
-    }
-
-    public bool PuoAprireInventarioDuranteTutorial()
-    {
-        return tutorialInCorso && currentFraseIndex == 0 && isWaitingForInput;
-    }
+    // Utility
+    public bool IsOnFirstFrase() => currentFraseIndex == 0 && isWaitingForInput;
+    public bool PuoAprireInventarioDuranteTutorial() => tutorialInCorso && currentFraseIndex == 0 && isWaitingForInput;
 }
 

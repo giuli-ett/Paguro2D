@@ -80,7 +80,7 @@ public class ShellManager : MonoBehaviour
 
             equippedShellPickers[shell] = shellPicker;
             feedbackTartaruga.SetText(shell);
-            feedbackTartaruga.StartSwimForShellFeedback();
+            feedbackTartaruga.StartShellFeedback(shell);
         }
 
         currentShell = shell;
