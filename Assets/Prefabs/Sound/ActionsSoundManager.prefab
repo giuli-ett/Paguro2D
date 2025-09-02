@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkAudioSource: {fileID: 4222109423463526082}
+  granchioAudioSource: {fileID: 0}
   oneShotAudioSource: {fileID: 4318467132129668572}
   salto: {fileID: 8300000, guid: 2e017aad46ddbcf44b36cb696e8135e8, type: 3}
   walking: {fileID: 8300000, guid: 0d3a15598daa24b4bbea5e05d852aa5d, type: 3}
