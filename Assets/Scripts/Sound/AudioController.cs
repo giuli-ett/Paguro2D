@@ -118,60 +118,16 @@ public class AudioManager : MonoBehaviour
     {
         oneShotAudioSource.PlayOneShot(jellyfishBounce);
     }
-    public void PlayBubbles()
-    {
-        oneShotAudioSource.PlayOneShot(bubbles);
-    }
     public void PlayVittoria()
     {
         oneShotAudioSource.PlayOneShot(vittoria);
-    }
-    public void PlayCrack()
-    {
-        oneShotAudioSource.PlayOneShot(crack);
-    }
-    public void StopCrack()
-    {
-        if (oneShotAudioSource.clip == crack)
-        {
-            oneShotAudioSource.Stop();
-        }
     }
     public void PlayWoodBreaking()
     {
         oneShotAudioSource.PlayOneShot(woodBreaking);
     }
-
     public void PlayMelma()
     {
         oneShotAudioSource.PlayOneShot(melma);
-    }
-    public void PlayFantasma()
-    {
-        oneShotAudioSource.PlayOneShot(fantasma);
-    }
-    public void PlayGranchio()
-    {
-        oneShotAudioSource.PlayOneShot(granchio);
-    }
-
-    public void PlayFishMoving()
-    {
-        oneShotAudioSource.PlayOneShot(fishMoving);
-    } 
-    
-    public void StartGranchio()
-    {
-        if (granchioAudioSource.isPlaying && granchioAudioSource.clip == granchio)
-            return;
-
-        granchioAudioSource.clip = granchio;
-        granchioAudioSource.loop = true;
-        granchioAudioSource.Play();
-    }
-    public void StopGranchio()
-    {
-        if (granchioAudioSource.clip == granchio)
-            granchioAudioSource.Stop();
     }
 }

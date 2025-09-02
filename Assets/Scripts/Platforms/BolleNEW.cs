@@ -81,7 +81,6 @@ public class BolleNEW : MonoBehaviour
             playerInside = true;
             liftTimer = 0f;
             playerRb = other.GetComponent<Rigidbody2D>();
-            AudioManager.Instance.PlayBubbles();
         }
     }
 
