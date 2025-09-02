@@ -8,8 +8,6 @@ public class InventarioUI : MonoBehaviour
     [Header("RIFERIMENTI")]
     public GameObject panelInventario;
     public List<Shell> shellList;
-    public ShellPicker shellPrefab;
-    public Shell baseShell;
 
     [Header("SLOT NAVIGATION")]
     public List<Slot> shellSlots;

@@ -4,11 +4,10 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
-    //public Sprite icon;
     public Image unlockIcon;
     public Image selectionIcon;
 
-    void Start()
+    void Awake()
     {
         if (selectionIcon != null)
         {
@@ -18,6 +17,7 @@ public class Slot : MonoBehaviour
     }
     public void SetIcon()
     {
+        Debug.Log("Unlock slot icon");
         unlockIcon.gameObject.SetActive(true);
     }
 
