@@ -28,7 +28,7 @@ public class TimedPlatform : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player") || isBreaking) return;
 
-        AudioManager.Instance.PlayWoodBreaking();
+        //AudioManager.Instance.PlayWoodBreaking();
         StartBreaking();
     }
 
@@ -44,6 +44,7 @@ public class TimedPlatform : MonoBehaviour
 
     private IEnumerator ShakePlatform()
     {
+        AudioManager.Instance.PlayWoodBreaking();
         while (isBreaking)
         {
             transform.position = originalPosition + Random.insideUnitSphere * shakeIntensity;
@@ -66,7 +67,7 @@ public class TimedPlatform : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("Break");
 
-        AudioManager.Instance.StopCrack();
+        //AudioManager.Instance.StopCrack();
         isBreaking = false;
 
         // Start respawn countdown
