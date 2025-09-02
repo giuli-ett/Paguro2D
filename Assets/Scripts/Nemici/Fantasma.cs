@@ -18,15 +18,24 @@ public class Fantasma : MonoBehaviour
     private float activeTimer = 0f;
     private Vector3 posizioneIniziale;
 
+    // Animazione
+    private Animator animator;
+    private bool lastIsStop = false;
+
     void Start()
     {
         posizioneIniziale = transform.position;
         gameObject.SetActive(false); // parte disattivato
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (!isActive || isCoolingDown || player == null || player.isInvisible) return;
+        if (!isActive || isCoolingDown || player == null || player.isInvisible)
+        {
+            SetAnimazioneStop(true);
+            return;
+        }
 
         activeTimer += Time.deltaTime;
 
@@ -36,20 +45,29 @@ public class Fantasma : MonoBehaviour
             return;
         }
 
-        // Controlla se il giocatore � girato di spalle rispetto al fantasma
+        // Controlla se il giocatore è girato di spalle rispetto al fantasma
         bool playerFacingRight = player.isFacingRight;
         bool ghostIsOnRight = transform.position.x > target.position.x;
-
         bool playerIsFacingGhost = (playerFacingRight && ghostIsOnRight) || (!playerFacingRight && !ghostIsOnRight);
 
-        if (!playerIsFacingGhost)
+        float distance = Vector2.Distance(transform.position, target.position);
+        bool shouldStop = distance <= distanzaStop || playerIsFacingGhost;
+
+        SetAnimazioneStop(shouldStop);
+
+        if (!shouldStop)
         {
-            float distance = Vector2.Distance(transform.position, target.position);
-            if (distance > distanzaStop)
-            {
-                Vector2 direction = (target.position - transform.position).normalized;
-                transform.position += (Vector3)(direction * velocitaMovimento * Time.deltaTime);
-            }
+            Vector2 direction = (target.position - transform.position).normalized;
+            transform.position += (Vector3)(direction * velocitaMovimento * Time.deltaTime);
+        }
+    }
+
+    private void SetAnimazioneStop(bool value)
+    {
+        if (value != lastIsStop)
+        {
+            animator.SetBool("isStop", value);
+            lastIsStop = value;
         }
     }
 
@@ -67,6 +85,7 @@ public class Fantasma : MonoBehaviour
     private IEnumerator PausaDopoColpo()
     {
         isCoolingDown = true;
+        SetAnimazioneStop(true);
         yield return new WaitForSeconds(tempoFermoDopoColpo);
         isCoolingDown = false;
     }
