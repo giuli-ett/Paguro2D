@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5072594575273255250
 Transform:
@@ -154,7 +154,11 @@ MonoBehaviour:
   damage: {fileID: 8300000, guid: 7aa6405e8ee61584e915319970f92164, type: 3}
   die: {fileID: 8300000, guid: 2acf894ad0f9e4891809be59a82c30e6, type: 3}
   jellyfishDamage: {fileID: 8300000, guid: 53bec2d43060542cebe715065f125401, type: 3}
-  jellyfishBounce: {fileID: 8300000, guid: 4c43a87fe2c554608b48606dcfc1352d, type: 3}
+  jellyfishBounce: {fileID: 8300000, guid: 123287c46a3084ad4be82012880182bf, type: 3}
+  woodBreaking: {fileID: 8300000, guid: 57362fb80eb7c6343a5811b083ed4af3, type: 3}
+  melma: {fileID: 8300000, guid: 4a71d91ad0aa646d28fd1d9646a17aa8, type: 3}
+  fantasma: {fileID: 8300000, guid: e1177e58bbe334a20a4b7408fdbd586b, type: 3}
+  granchio: {fileID: 8300000, guid: 923fe779a578e40a0b53a1c4ad7a69e0, type: 3}
   bubbles: {fileID: 8300000, guid: b97d8eabef3a0465b9770ad4ea842a8a, type: 3}
   click: {fileID: 8300000, guid: 487642650b4b4402aa72348465bc2d37, type: 3}
   navigateInventory: {fileID: 8300000, guid: aa0493780168dd848bd88893d3d601e7, type: 3}
@@ -162,6 +166,7 @@ MonoBehaviour:
   collezionabile: {fileID: 8300000, guid: 1cc862d495a584780b8f4007304000b9, type: 3}
   vittoria: {fileID: 8300000, guid: 70ef43354a4e942d8b489481c731ffcb, type: 3}
   crack: {fileID: 8300000, guid: 57362fb80eb7c6343a5811b083ed4af3, type: 3}
+  fishMoving: {fileID: 8300000, guid: d64ff531e106742538d7dbae53010066, type: 3}
 --- !u!82 &4318467132129668572
 AudioSource:
   m_ObjectHideFlags: 0
