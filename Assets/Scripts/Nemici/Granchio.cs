@@ -1,32 +1,56 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class Tartaruga : MonoBehaviour
+public class Granchio : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     private Vector3 startPosition;
-    private Animator animator;
     public SpriteRenderer spriteRenderer;
     private Player player;
 
     [Header("VARIABILI")]
     [SerializeField] private float velocita = 2f;
     [SerializeField] private float distanza = 1.2f;
-
-  
-
     private float lastX;
     private Vector3 lastPosition;
     private GameObject playerOnTop;
 
+    [Header("VARIABILI SUONO")]
+    [SerializeField] private float distanzaAttivazione = 5;
+    public bool isPlayerInRaggio = false;
+
     void Start()
     {
         startPosition = transform.position;
-        animator = GetComponent<Animator>();
-        animator.SetFloat("Schiacciato", 0f);
         lastX = startPosition.x;
         lastPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        ControllaVista();
+    }
+
+    public void ControllaVista()
+    {
+        float distanzaDalPlayer = Vector2.Distance(transform.position, Player.Instance.transform.position);
+
+        if (distanzaDalPlayer <= distanzaAttivazione)
+        {
+            if (!isPlayerInRaggio)
+            {
+                AudioManager.Instance.StartGranchio();
+                isPlayerInRaggio = true;
+            }
+        }
+        else
+        {
+            if (isPlayerInRaggio)
+            {
+                AudioManager.Instance.StopGranchio();
+                isPlayerInRaggio = false;
+            }
+        }
     }
 
     private void Move()
@@ -49,7 +73,7 @@ public class Tartaruga : MonoBehaviour
         lastX = newX;
     }
 
-   void FixedUpdate()
+    void FixedUpdate()
     {
         Move();
 
@@ -81,10 +105,6 @@ public class Tartaruga : MonoBehaviour
         lastPosition = transform.position;
     }
 
-    public void SetSchiacciato(bool valore)
-    {
-        animator.SetFloat("Schiacciato", valore ? 1f : 0f);
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -106,10 +126,17 @@ public class Tartaruga : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && playerOnTop == collision.gameObject)
         {
             if (player != null)
-        {
-            player.SetPlatformVelocity(Vector2.zero);
-        }
+            {
+                player.SetPlatformVelocity(Vector2.zero);
+            }
             playerOnTop = null;
         }
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        // Disegna il raggio di vista in scena per debug
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanzaAttivazione);
     }
 }

@@ -4,6 +4,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
     public AudioSource walkAudioSource;
+    public AudioSource granchioAudioSource;
     public AudioSource oneShotAudioSource;
 
     [Header("MOVIMENTO")]
@@ -21,10 +22,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip die;
     public AudioClip jellyfishDamage;
     public AudioClip jellyfishBounce;
-    public AudioClip woodBreaking; 
-    public AudioClip melma; 
-    public AudioClip fantasma; 
-    public AudioClip granchio; 
+    public AudioClip woodBreaking;
+    public AudioClip melma;
+    public AudioClip fantasma;
+    public AudioClip granchio;
 
     [Header("GENERALI")]
     public AudioClip bubbles;
@@ -34,7 +35,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip collezionabile;
     public AudioClip vittoria;
     public AudioClip crack;
-    public AudioClip fishMoving; 
+    public AudioClip fishMoving;
 
     void Awake()
     {
@@ -136,26 +137,41 @@ public class AudioManager : MonoBehaviour
             oneShotAudioSource.Stop();
         }
     }
-    public void PlayWoodBreaking() 
+    public void PlayWoodBreaking()
     {
         oneShotAudioSource.PlayOneShot(woodBreaking);
     }
-         
-    public void PlayMelma() 
+
+    public void PlayMelma()
     {
         oneShotAudioSource.PlayOneShot(melma);
-    } 
-    public void PlayFantasma() 
+    }
+    public void PlayFantasma()
     {
-         oneShotAudioSource.PlayOneShot(fantasma);
+        oneShotAudioSource.PlayOneShot(fantasma);
     }
     public void PlayGranchio()
     {
         oneShotAudioSource.PlayOneShot(granchio);
     }
 
-    public void PlayFishMoving() 
+    public void PlayFishMoving()
     {
         oneShotAudioSource.PlayOneShot(fishMoving);
     } 
+    
+    public void StartGranchio()
+    {
+        if (granchioAudioSource.isPlaying && granchioAudioSource.clip == granchio)
+            return;
+
+        granchioAudioSource.clip = granchio;
+        granchioAudioSource.loop = true;
+        granchioAudioSource.Play();
+    }
+    public void StopGranchio()
+    {
+        if (granchioAudioSource.clip == granchio)
+            granchioAudioSource.Stop();
+    }
 }
