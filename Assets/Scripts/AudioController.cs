@@ -21,6 +21,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip die;
     public AudioClip jellyfishDamage;
     public AudioClip jellyfishBounce;
+    public AudioClip woodBreaking; 
+    public AudioClip melma; 
+    public AudioClip fantasma; 
+    public AudioClip granchio; 
 
     [Header("GENERALI")]
     public AudioClip bubbles;
@@ -30,6 +34,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip collezionabile;
     public AudioClip vittoria;
     public AudioClip crack;
+    public AudioClip fishMoving; 
 
     void Awake()
     {
@@ -137,4 +142,26 @@ public class AudioManager : MonoBehaviour
             oneShotAudioSource.Stop();
         }
     }
+    public void PlayWoodBreaking() 
+    {
+        oneShotAudioSource.PlayOneShot(woodBreaking);
+    }
+         
+    public void PlayMelma() 
+    {
+        oneShotAudioSource.PlayOneShot(melma);
+    } 
+    public void PlayFantasma() 
+    {
+         oneShotAudioSource.PlayOneShot(fantasma);
+    }
+    public void PlayGranchio()
+    {
+        oneShotAudioSource.PlayOneShot(granchio);
+    }
+
+    public void PlayFishMoving() 
+    {
+        oneShotAudioSource.PlayOneShot(fishMoving);
+    } 
 }

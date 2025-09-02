@@ -45196,6 +45196,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5303184050393575259, guid: 64da72a8cfb67bb41a187523d6483552, type: 3}
+      propertyPath: jellyfishBounce
+      value: 
+      objectReference: {fileID: 8300000, guid: 123287c46a3084ad4be82012880182bf, type: 3}
     - target: {fileID: 7198353144319378923, guid: 64da72a8cfb67bb41a187523d6483552, type: 3}
       propertyPath: m_Name
       value: ActionsSoundManager
