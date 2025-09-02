@@ -36,7 +36,7 @@ public class Fantasma : MonoBehaviour
             return;
         }
 
-        // Controlla se il giocatore è girato di spalle rispetto al fantasma
+        // Controlla se il giocatore ï¿½ girato di spalle rispetto al fantasma
         bool playerFacingRight = player.isFacingRight;
         bool ghostIsOnRight = transform.position.x > target.position.x;
 
@@ -59,6 +59,7 @@ public class Fantasma : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayFantasma();
             StartCoroutine(PausaDopoColpo());
         }
     }

@@ -87,12 +87,6 @@ public class AudioManager : MonoBehaviour
     }
     public void PlayTrovaNuovoGuscio()
     {
-        /*
-        oneShotAudioSource.clip = trovaNuovoGuscio;
-        oneShotAudioSource.loop = false;
-        oneShotAudioSource.Play();
-        */
-        Debug.Log("Suono trovato suono guscio!");
         oneShotAudioSource.PlayOneShot(trovaNuovoGuscio);
     }
     public void PlayAperturaCassa()

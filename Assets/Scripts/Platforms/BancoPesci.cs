@@ -72,6 +72,8 @@ public class BancoPesci : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayFishMoving();
+
             foreach (ContactPoint2D contact in other.contacts)
             {
                 if (contact.normal.y < -0.5f)

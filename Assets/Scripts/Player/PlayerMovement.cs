@@ -39,6 +39,10 @@ public class Player : MonoBehaviour
     public bool wasOnMovingPlatformLastFrame = false;
     [SerializeField] private float platformLerpSpeed = 10f;
     public bool isFacingRight = true;
+    [Header("MELMA")]
+    public float slowMultiplier = 0.5f;
+    public float durataMelma = 2f;
+    public bool isMelmato = false;
 
     [Header("SALTO")]
     public float jumpPower = 18f;
@@ -75,8 +79,8 @@ public class Player : MonoBehaviour
     public float lightDuration;
     public Coroutine lightFadeCoroutine;
     private PlayerInput playerInput;
-     public bool isLuminescenceActive = false;
-     public float lastLightIntensity = 1f;
+    public bool isLuminescenceActive = false;
+    public float lastLightIntensity = 1f;
 
 
 
@@ -419,69 +423,69 @@ public class Player : MonoBehaviour
     // SCAVA
     private bool isDigging = false;
 
-// Modificare la funzione Scava esistente
-public void Scava(InputAction.CallbackContext context)
-{
-    if (!canDig || shellManager.currentShellPicker.shell.name != "NascondiScava") return;
-
-    if (context.started)
+    // Modificare la funzione Scava esistente
+    public void Scava(InputAction.CallbackContext context)
     {
-        isDigging = true;
-        StartCoroutine(ContinuousDigging());
-    }
-    else if (context.canceled)
-    {
-        isDigging = false;
-        animator.SetBool("isDigging", false);
-    }
-}
+        if (!canDig || shellManager.currentShellPicker.shell.name != "NascondiScava") return;
 
-private IEnumerator ContinuousDigging()
-{
-    while (isDigging)
-    {
-        Vector2 origin = transform.position;
-        Vector2 direction;
-
-        if (verticalMovement < -0.5f)
+        if (context.started)
         {
-            direction = Vector2.down;
+            isDigging = true;
+            StartCoroutine(ContinuousDigging());
         }
-        else if (verticalMovement > 0.5f)
+        else if (context.canceled)
         {
-            direction = Vector2.up;
-        }
-        else
-        {
-            direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
-        }
-
-        RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
-        Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
-
-        if (hit.collider != null)
-        {
-            AudioManager.Instance.PlayDig();
-            animator.SetBool("isDigging", true);
-            var block = hit.collider.gameObject;
-            var blockSprite = block.GetComponent<SpriteRenderer>();
-            var blockCollider = block.GetComponent<Collider2D>();
-            if (blockSprite != null) blockSprite.enabled = false;
-            if (blockCollider != null) blockCollider.enabled = false;
-            Debug.Log("✅ Blocco scavato in direzione: " + direction);
-            
-            // Piccola pausa tra uno scavo e l'altro
-            yield return new WaitForSeconds(0.2f);
-        }
-        else
-        {
+            isDigging = false;
             animator.SetBool("isDigging", false);
-            Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
         }
-
-        yield return null;
     }
-}
+
+    private IEnumerator ContinuousDigging()
+    {
+        while (isDigging)
+        {
+            Vector2 origin = transform.position;
+            Vector2 direction;
+
+            if (verticalMovement < -0.5f)
+            {
+                direction = Vector2.down;
+            }
+            else if (verticalMovement > 0.5f)
+            {
+                direction = Vector2.up;
+            }
+            else
+            {
+                direction = spriteRenderer.flipX ? Vector2.left : Vector2.right;
+            }
+
+            RaycastHit2D hit = Physics2D.Raycast(origin, direction, digRange, diggableLayer);
+            Debug.DrawRay(origin, direction * digRange, Color.red, 5f);
+
+            if (hit.collider != null)
+            {
+                AudioManager.Instance.PlayDig();
+                animator.SetBool("isDigging", true);
+                var block = hit.collider.gameObject;
+                var blockSprite = block.GetComponent<SpriteRenderer>();
+                var blockCollider = block.GetComponent<Collider2D>();
+                if (blockSprite != null) blockSprite.enabled = false;
+                if (blockCollider != null) blockCollider.enabled = false;
+                Debug.Log("✅ Blocco scavato in direzione: " + direction);
+
+                // Piccola pausa tra uno scavo e l'altro
+                yield return new WaitForSeconds(0.2f);
+            }
+            else
+            {
+                animator.SetBool("isDigging", false);
+                Debug.Log("❌ Nessun blocco scavabile in direzione: " + direction);
+            }
+
+            yield return null;
+        }
+    }
 
 
 
@@ -579,5 +583,26 @@ private IEnumerator ContinuousDigging()
             SceneManager.LoadSceneAsync(0);
             Cursor.visible = true;
         }
+    }
+
+    public void Melmato()
+    {
+        if (!isMelmato)
+        {
+            StartCoroutine(ApplyMelma(durataMelma, slowMultiplier));
+        }
+    }
+
+    private IEnumerator ApplyMelma(float durata, float slowMultiplier)
+    {
+        isMelmato = true;
+
+        float originalMoveSpeed = moveSpeed;
+        moveSpeed *= slowMultiplier;
+
+        yield return new WaitForSeconds(durata);
+
+        moveSpeed = originalMoveSpeed;
+        isMelmato = false;
     }
 }

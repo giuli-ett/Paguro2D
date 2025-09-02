@@ -14,20 +14,7 @@ public class MedusaBounce : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounceStrength, ForceMode2D.Impulse);
 
             Player.Instance.jumpCount = 1;
-            
-            //Player.Instance.MedusaJump();
-            //Player.Instance.isOnTopMedusa = true;
-        }
-    }
 
-    /*
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Player.Instance.ResetMedusaJump();
-            //Player.Instance.isOnTopMedusa = false;
         }
     }
-    */
 }

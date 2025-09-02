@@ -88,6 +88,8 @@ public class Tartaruga : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioManager.Instance.PlayGranchio();
+
         if (collision.gameObject.CompareTag("Player"))
         {
             foreach (ContactPoint2D contact in collision.contacts)

@@ -28,7 +28,7 @@ public class TimedPlatform : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player") || isBreaking) return;
 
-        AudioManager.Instance.PlayCrack();
+        AudioManager.Instance.PlayWoodBreaking();
         StartBreaking();
     }
 
