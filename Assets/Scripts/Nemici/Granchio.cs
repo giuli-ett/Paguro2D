@@ -17,6 +17,7 @@ public class Granchio : MonoBehaviour
     [Header("VARIABILI SUONO")]
     [SerializeField] private float distanzaAttivazione = 5;
     public bool isPlayerInRaggio = false;
+    public SuonoGranchio suonoGranchio;
 
     void Start()
     {
@@ -39,7 +40,7 @@ public class Granchio : MonoBehaviour
         {
             if (!isPlayerInRaggio)
             {
-                AudioManager.Instance.StartGranchio();
+                suonoGranchio.StartSound();
                 isPlayerInRaggio = true;
             }
         }
@@ -47,7 +48,7 @@ public class Granchio : MonoBehaviour
         {
             if (isPlayerInRaggio)
             {
-                AudioManager.Instance.StopGranchio();
+                suonoGranchio.StopSound();
                 isPlayerInRaggio = false;
             }
         }

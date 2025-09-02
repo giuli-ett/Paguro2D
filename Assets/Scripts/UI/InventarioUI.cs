@@ -7,7 +7,6 @@ public class InventarioUI : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     public GameObject panelInventario;
-    public PlayerInput input;
     public List<Shell> shellList;
     public ShellPicker shellPrefab;
     public Shell baseShell;
@@ -51,7 +50,6 @@ public class InventarioUI : MonoBehaviour
     {
         if (context.started)
         {
-            // ❌ Blocca sempre durante il tutorial, tranne che nella prima frase
             if (FeedbackTartaruga.Instance != null)
             {
                 if (FeedbackTartaruga.Instance.tutorialInCorso)

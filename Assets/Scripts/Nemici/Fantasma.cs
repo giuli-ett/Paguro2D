@@ -18,6 +18,11 @@ public class Fantasma : MonoBehaviour
     private float activeTimer = 0f;
     private Vector3 posizioneIniziale;
 
+    [Header("VARIABILI SUONO")]
+    [SerializeField] private float distanzaAttivazione = 5;
+    public bool isPlayerInRaggio = false;
+    public SuonoFantasma suonoFantasma;
+
     // Animazione
     private Animator animator;
     private bool lastIsStop = false;
@@ -60,6 +65,8 @@ public class Fantasma : MonoBehaviour
             Vector2 direction = (target.position - transform.position).normalized;
             transform.position += (Vector3)(direction * velocitaMovimento * Time.deltaTime);
         }
+
+        ControllaVista();
     }
 
     private void SetAnimazioneStop(bool value)
@@ -77,7 +84,6 @@ public class Fantasma : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            AudioManager.Instance.PlayFantasma();
             StartCoroutine(PausaDopoColpo());
         }
     }
@@ -107,7 +113,29 @@ public class Fantasma : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, distanzaStop);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, distanzaAttivazione);
+    }
+
+    public void ControllaVista()
+    {
+        float distanzaDalPlayer = Vector2.Distance(transform.position, Player.Instance.transform.position);
+
+        if (distanzaDalPlayer <= distanzaAttivazione)
+        {
+            if (!isPlayerInRaggio)
+            {
+                suonoFantasma.StartSound();
+                isPlayerInRaggio = true;
+            }
+        }
+        else
+        {
+            if (isPlayerInRaggio)
+            {
+                suonoFantasma.StopSound();
+                isPlayerInRaggio = false;
+            }
+        }
     }
 }
