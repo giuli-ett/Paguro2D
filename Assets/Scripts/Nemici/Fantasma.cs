@@ -113,8 +113,8 @@ public class Fantasma : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, distanzaAttivazione);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, distanzaStop);
     }
 
     public void ControllaVista()
