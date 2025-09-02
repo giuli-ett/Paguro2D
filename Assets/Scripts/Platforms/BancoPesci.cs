@@ -14,11 +14,25 @@ public class BancoPesci : MonoBehaviour
     private Player player;
 
     private bool isActivated = false;
+    public bool isPlayerOnTop = false;
+    public SuonoBancoPesci suonoBancoPesci;
 
     void Start()
     {
         lastPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
+        if (isPlayerOnTop)
+        {
+            suonoBancoPesci.StartSound();
+        }
+        else
+        {
+            suonoBancoPesci.StopSound();
+        }
     }
 
     void FixedUpdate()
@@ -72,14 +86,13 @@ public class BancoPesci : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            AudioManager.Instance.PlayFishMoving();
-
             foreach (ContactPoint2D contact in other.contacts)
             {
                 if (contact.normal.y < -0.5f)
                 {
                     isActivated = true;
                     playerOnTop = other.gameObject;
+                    isPlayerOnTop = true;
                     break;
                 }
             }
@@ -95,6 +108,7 @@ public class BancoPesci : MonoBehaviour
                 player.SetPlatformVelocity(Vector2.zero);
             }
             playerOnTop = null;
+            isPlayerOnTop = false;
         }
     }
 }
