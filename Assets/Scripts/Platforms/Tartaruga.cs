@@ -6,7 +6,7 @@ public class Tartaruga : MonoBehaviour
     [Header("RIFERIMENTI")]
     private Vector3 startPosition;
     private Animator animator;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     private Player player;
 
     [Header("VARIABILI")]

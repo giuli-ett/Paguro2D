@@ -596,6 +596,7 @@ public class Player : MonoBehaviour
     private IEnumerator ApplyMelma(float durata, float slowMultiplier)
     {
         isMelmato = true;
+        Debug.Log("Applico melma");
 
         float originalMoveSpeed = moveSpeed;
         moveSpeed *= slowMultiplier;
