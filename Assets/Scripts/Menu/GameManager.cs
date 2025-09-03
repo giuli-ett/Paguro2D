@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public LivelloData currentLivello;
     public event Action<Collezionabile> ItemCollectedEvent;
     public List<int> idCollezionabiliRaccolti = new();
+    public bool livello1Completato = false;
+    public bool livello2Completato = false;
 
     private void Awake()
     {
@@ -23,6 +25,18 @@ public class GameManager : MonoBehaviour
         Instance = this;
         currentLivello = livelli[0];
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            string currentScene = SceneManager.GetActiveScene().name;
+            if (currentScene == "Livello1DEMO" || currentScene == "Livello2DEMO")
+            {
+                PauseManager.Instance.Pausa();
+            }
+        }
     }
 
     public void CollectItem(Collezionabile item)

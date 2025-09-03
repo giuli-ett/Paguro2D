@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cassa.01_0: 246661993569055290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

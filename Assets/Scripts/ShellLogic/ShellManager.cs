@@ -24,7 +24,7 @@ public class ShellManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         equippedShellPickers.Add(baseShell, baseShellPicker);
     }
 

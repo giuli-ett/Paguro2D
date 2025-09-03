@@ -96,25 +96,26 @@ public class InventarioUI : MonoBehaviour
                 }
             }
 
-            /*
-            if (!Player.Instance.isGrounded)
-            {
-                Debug.Log("Non puoi aprire l'inventario mentre sei in aria");
-                return;
-            }
-            */
-
-            //AudioManager.Instance.PlayClick();
-
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
-
-            //Player.Instance.canMove = !isActive;
 
             if (isActive)
             {
                 AggiornaInventarioUI();
+
+                Shell currentShell = Player.Instance.shellManager.currentShell;
+
+                if (currentShell != null && shellSlotMap.TryGetValue(currentShell.power, out int slotIndex))
+                {
+                    selectedSlot = slotIndex;
+                }
+                else
+                {
+                    selectedSlot = 0;
+                }
+
                 HighlightSlot(selectedSlot);
+                SelectSlotByNumber(selectedSlot);
             }
         }
     }
@@ -126,13 +127,8 @@ public class InventarioUI : MonoBehaviour
         if (!panelInventario.activeSelf)
             return;
 
-        /*
-        if (Player.Instance.amo.isAttached)
-            return;
-         */
-            
         Vector2 navigation = context.ReadValue<Vector2>();
-        AudioManager.Instance.PlayClick();
+        //AudioManager.Instance.PlayClick();
 
         if (navigation.y > 0.5f)
         {
@@ -172,35 +168,6 @@ public class InventarioUI : MonoBehaviour
     {
         shellSlots[indice].GetComponent<Slot>().SelectSlot();
     }
-
-    /*
-    public void EquipaggiaGuscioSelezionato(InputAction.CallbackContext context)
-    {
-        if (!panelInventario.activeSelf || !context.started)
-            return;
-
-        ShellPower selezionato = shellSlotMap.FirstOrDefault(x => x.Value == selectedSlot).Key;
-
-        if (!shellInventory.TryGetValue(selezionato, out Shell guscioSelezionato))
-        {
-            Debug.Log("Non hai ancora trovato questo guscio!");
-            return;
-        }
-
-        if (guscioSelezionato == null)
-        {
-            Player.Instance.animator.SetBool("isChange", true);
-            Player.Instance.shellManager.RemoveShell();
-        }
-        else if (Player.Instance.shellManager.currentShell != guscioSelezionato)
-        {
-            Player.Instance.animator.SetBool("isChange", true);
-            Player.Instance.shellManager.RemoveShell();
-            var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(guscioSelezionato);
-            Player.Instance.shellManager.WearShell(guscioSelezionato, shellPicker);
-        }
-    }
-    */
 
     public void AggiungiGuscio(Shell nuovoGuscio, ShellPicker shellPicker)
     {

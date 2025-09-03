@@ -26,7 +26,7 @@ public class LifeController : MonoBehaviour
     {
         currentHealth = maxHealth;
         respawnPosition = transform.position;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     // gestione vite

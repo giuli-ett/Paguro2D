@@ -29,8 +29,21 @@ public class FineLivello : MonoBehaviour
         // Aspetta 1 secondo
         yield return new WaitForSeconds(0.8f);
 
+        string currentScene = SceneManager.GetActiveScene().name;
+        if (currentScene == "Livello1DEMO")
+        {
+            InterfacciaFineLivello.Instance.livello1.SetActive(true);
+            InterfacciaFineLivello.Instance.livello2.SetActive(false);
+            GameManager.Instance.livello1Completato = true;
+        }
+        else if (currentScene == "Livello2DEMO")
+        {
+            InterfacciaFineLivello.Instance.livello2.SetActive(true);
+            InterfacciaFineLivello.Instance.livello1.SetActive(false);
+            GameManager.Instance.livello2Completato = true;
+        }
         // Cambia scena
-        SceneManager.LoadSceneAsync(4);
+            SceneManager.LoadSceneAsync(5);
         Cursor.visible = true;
     }
 }

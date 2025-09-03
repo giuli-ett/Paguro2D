@@ -247,7 +247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 871, y: 350}
+  m_AnchoredPosition: {x: 871, y: 379}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6219206428019614011
@@ -1991,7 +1991,6 @@ GameObject:
   - component: {fileID: 3340277010399735326}
   - component: {fileID: 942174683273204062}
   - component: {fileID: 473240283975987221}
-  - component: {fileID: 3634989940242141704}
   m_Layer: 6
   m_Name: CanvasFeedback
   m_TagString: Untagged
@@ -2083,18 +2082,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!225 &3634989940242141704
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8299060622739350974}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &8723682592116195914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2457,6 +2444,7 @@ GameObject:
   - component: {fileID: 1955964788871823028}
   - component: {fileID: 236920951183921654}
   - component: {fileID: 3742108198341541507}
+  - component: {fileID: 2480977496591721678}
   m_Layer: 6
   m_Name: Tartaruga
   m_TagString: Untagged
@@ -2591,7 +2579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 1
   visibleDuration: 2
-  canvasGroup: {fileID: 3634989940242141704}
+  canvasGroup: {fileID: 2480977496591721678}
   doppioSalto: {fileID: 5086425799932043424}
   dash: {fileID: 2919678597550872186}
   scava: {fileID: 4647748344619515496}
@@ -2625,6 +2613,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!225 &2480977496591721678
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005026361541357155}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9180389212622678162
 GameObject:
   m_ObjectHideFlags: 0

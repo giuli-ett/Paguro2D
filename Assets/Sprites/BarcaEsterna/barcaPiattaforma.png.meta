@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      barcaPiattaforma_0: -884910880051930121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

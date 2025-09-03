@@ -7,6 +7,8 @@ public class InterfacciaFineLivello : MonoBehaviour
 {
     public static InterfacciaFineLivello Instance;
     public TextMeshProUGUI number;
+    public GameObject livello1;
+    public GameObject livello2;
 
     private void Awake()
     {
@@ -37,11 +39,24 @@ public class InterfacciaFineLivello : MonoBehaviour
 
     public void SceltaLivello()
     {
-        SceneManager.LoadSceneAsync(1);
+        if (GameManager.Instance.livello1Completato && !GameManager.Instance.livello2Completato)
+        {
+            AudioManager.Instance.PlayClick();
+            Debug.Log("Carico livello 2");
+            SceneManager.LoadSceneAsync(4);
+        }
+        if (GameManager.Instance.livello2Completato)
+        {
+            AudioManager.Instance.PlayClick();
+            Debug.Log("Torno alla home");
+            SceneManager.LoadSceneAsync(0);
+        }
+        
     }
 
     public void TornaMenu()
     {
+        AudioManager.Instance.PlayClick();
         SceneManager.LoadSceneAsync(0);
     }
 

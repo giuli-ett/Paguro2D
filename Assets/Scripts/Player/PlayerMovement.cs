@@ -576,6 +576,7 @@ public class Player : MonoBehaviour
         rb.angularVelocity = 0f;
     }
 
+    /*
     public void Escape(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -591,6 +592,7 @@ public class Player : MonoBehaviour
             Cursor.visible = true;
         }
     }
+    */
 
     public void Melmato()
     {

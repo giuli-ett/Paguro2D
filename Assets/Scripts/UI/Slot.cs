@@ -9,11 +9,13 @@ public class Slot : MonoBehaviour
 
     void Awake()
     {
+        /*
         if (selectionIcon != null)
         {
             selectionIcon.gameObject.SetActive(false);
             unlockIcon.gameObject.SetActive(false);
         }
+        */
     }
     public void SetIcon()
     {

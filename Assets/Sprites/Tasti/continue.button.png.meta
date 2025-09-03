@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f7f9015993eff41faa58943f83544e23
+guid: cf38c177401522745865ea3011fbae4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7895969806086005792
-    second: barcaEsterno_0
+      213: 498932755717450384
+    second: continue.button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: barcaEsterno_0
+      name: continue.button_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4874
-        height: 936
+        width: 1950
+        height: 632
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02467f834be149d60800000000000000
-      internalID: 7895969806086005792
+      spriteID: 09a6857a2b09ce600800000000000000
+      internalID: 498932755717450384
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      barcaEsterno_0: 7895969806086005792
+      continue.button_0: 498932755717450384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
