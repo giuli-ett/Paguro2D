@@ -8,17 +8,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 791258062570108285, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
+      propertyPath: idCollezionabile
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1297801028338580160, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_Name
       value: Collezionabile1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5802046766999559063, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74.4
+      value: -17.1
       objectReference: {fileID: 0}
     - target: {fileID: 5802046766999559063, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.8
+      value: 13.21
       objectReference: {fileID: 0}
     - target: {fileID: 5802046766999559063, guid: 18624fc994ed49442aa1e2e80b3eefcd, type: 3}
       propertyPath: m_LocalPosition.z

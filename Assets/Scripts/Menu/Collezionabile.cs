@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Collezionabile : MonoBehaviour
 {
-    public string nome;
+    //public string nome;
     public Slot slot;
     public Sprite spriteCollezionabile;
+    public int idCollezionabile;
 
 
     private void OnTriggerEnter2D(Collider2D other)
