@@ -4,42 +4,22 @@ using UnityEngine.UI;
 
 public class CollezionabiliPresi : MonoBehaviour
 {
-    public List<Image> slotImages; // 3 slot assegnati dall'Inspector
-
-    private void OnEnable()
+    [System.Serializable]
+    public class SlotCollezionabile
     {
-        AggiornaSlot();
+        public int id;
+        public Image imageSlot;
     }
 
-    public void AggiornaSlot()
+    public List<SlotCollezionabile> slotUI;
+
+    private void Start()
     {
-        if (GameManager.Instance == null)
-        {
-            Debug.LogWarning("GameManager.Instance è null!");
-            return;
-        }
+        List<int> raccolti = GameManager.Instance.idCollezionabiliRaccolti;
 
-        if (slotImages == null || slotImages.Count == 0)
+        foreach (var slot in slotUI)
         {
-            Debug.LogWarning("Nessuna immagine assegnata negli slot.");
-            return;
-        }
-
-        var collezionati = GameManager.Instance.collectedItems;
-        Debug.Log($"Numero collezionabili raccolti: {collezionati.Count}");
-
-        for (int i = 0; i < slotImages.Count; i++)
-        {
-            if (i < collezionati.Count && collezionati[i] != null)
-            {
-                slotImages[i].gameObject.SetActive(true);
-                Debug.Log($"Slot {i} ATTIVO con oggetto: {collezionati[i].nome}");
-            }
-            else
-            {
-                slotImages[i].gameObject.SetActive(false);
-                Debug.Log($"Slot {i} DISATTIVATO (nessun collezionabile).");
-            }
+            slot.imageSlot.enabled = raccolti.Contains(slot.id);
         }
     }
 }

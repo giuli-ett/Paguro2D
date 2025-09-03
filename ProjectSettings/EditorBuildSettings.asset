@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutscene.unity
     guid: ce627b2fc66e4c6458c056ac28aa33ec
   - enabled: 0
+    path: Assets/Scenes/Livello1DEMO.unity
+    guid: 57b9980586ae7ad4690a9781f502f75f
+  - enabled: 0
     path: Assets/Scenes/Livello2DEMO.unity
     guid: dc98cfab48a1e0d479015581fa78c406
   - enabled: 0
@@ -32,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/GiuliaCeretto.unity
     guid: 88dd3fc7489370546b004c6ad0ef4af1
   m_configObjects:

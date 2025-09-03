@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public List<Collezionabile> collectedItems = new();
     public LivelloData currentLivello;
     public event Action<Collezionabile> ItemCollectedEvent;
+    public List<int> idCollezionabiliRaccolti = new();
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,9 +29,11 @@ public class GameManager : MonoBehaviour
         if (!collectedItems.Contains(item))
         {
             collectedItems.Add(item);
+            idCollezionabiliRaccolti.Add(item.idCollezionabile);
             ItemCollectedEvent?.Invoke(item);
         }
     }
+
 
     public void SetCurrentLevel(int numero)
     {

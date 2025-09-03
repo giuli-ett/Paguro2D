@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 900973294015542251, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
+      propertyPath: idCollezionabile
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1475294204519169110, guid: a8adf7f8c5c51e54cacf217eb772b64b, type: 3}
       propertyPath: m_Name
       value: Collezionabile2.2
