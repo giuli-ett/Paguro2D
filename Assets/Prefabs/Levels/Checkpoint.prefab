@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6018797828780988466}
   - component: {fileID: 6624386951386676242}
-  - component: {fileID: 249981797437990031}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Checkpoint
@@ -68,21 +67,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 6
---- !u!114 &249981797437990031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5440465461424021880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7efcc7837cb62ba4fbc5048a006b94d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activatedColor: {r: 0.12265573, g: 0.6075471, b: 0.12265573, a: 1}
+  m_Offset: {x: 0, y: 2.2275538}
+  m_Radius: 7.3922234
 --- !u!1 &5505034687617556197
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,4 +239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efcc7837cb62ba4fbc5048a006b94d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activatedColor: {r: 0.5, g: 1, b: 0.5, a: 1}
+  activatedSprite: {fileID: 21300000, guid: 5d8c1202b74a903429480a0543e8612b, type: 3}

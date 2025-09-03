@@ -5,7 +5,8 @@ public class CheckPointAnimation : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Collider2D col2D;
-    [SerializeField] private Color activatedColor = new Color(0.5f, 1f, 0.5f, 1f);
+    //[SerializeField] private Color activatedColor = new Color(0.5f, 1f, 0.5f, 1f);
+    [SerializeField] private Sprite activatedSprite;
 
     void Start()
     {
@@ -38,9 +39,14 @@ public class CheckPointAnimation : MonoBehaviour
             col2D.enabled = false;
         }
         
+        if (animator != null)
+        {
+            animator.enabled = false; // Stop animator from overriding sprite
+        }
+
         if (spriteRenderer != null)
         {
-            spriteRenderer.color = activatedColor;
+            spriteRenderer.sprite = activatedSprite;
         }
     }
 }
