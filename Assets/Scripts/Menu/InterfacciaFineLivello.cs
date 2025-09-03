@@ -67,6 +67,18 @@ public class InterfacciaFineLivello : MonoBehaviour
 
     private void AggiornaTestoUI()
     {
+        if (GameManager.Instance.livello1Completato)
+        {
+            livello2.SetActive(false);
+            livello1.SetActive(true);
+        }
+        else if (GameManager.Instance.livello2Completato)
+        {
+            livello1.SetActive(false);
+            livello2.SetActive(true);
+        }
+        
+        
         if (number != null && GameManager.Instance != null)
         {
             number.text = $"Collezionabili: {GameManager.Instance.TotalCollected}/3";

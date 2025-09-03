@@ -32,18 +32,20 @@ public class FineLivello : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
         if (currentScene == "Livello1DEMO")
         {
-            InterfacciaFineLivello.Instance.livello1.SetActive(true);
-            InterfacciaFineLivello.Instance.livello2.SetActive(false);
+            //InterfacciaFineLivello.Instance.livello1.SetActive(true);
+            //InterfacciaFineLivello.Instance.livello2.SetActive(false);
             GameManager.Instance.livello1Completato = true;
+            GameManager.Instance.livello2Completato = false;
         }
         else if (currentScene == "Livello2DEMO")
         {
-            InterfacciaFineLivello.Instance.livello2.SetActive(true);
-            InterfacciaFineLivello.Instance.livello1.SetActive(false);
+            //InterfacciaFineLivello.Instance.livello2.SetActive(true);
+            //InterfacciaFineLivello.Instance.livello1.SetActive(false);
             GameManager.Instance.livello2Completato = true;
+            GameManager.Instance.livello1Completato = false;
         }
         // Cambia scena
-            SceneManager.LoadSceneAsync(5);
+        SceneManager.LoadSceneAsync(5);
         Cursor.visible = true;
     }
 }

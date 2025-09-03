@@ -83875,6 +83875,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1634793498}
     m_Modifications:
+    - target: {fileID: 1048007961298519169, guid: b75a442fc650c4265b59d59b0c97d3d8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4101612265887258929, guid: b75a442fc650c4265b59d59b0c97d3d8, type: 3}
       propertyPath: m_Name
       value: cannaPesca
