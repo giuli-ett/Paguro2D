@@ -96,13 +96,15 @@ public class InventarioUI : MonoBehaviour
                 }
             }
 
+            /*
             if (!Player.Instance.isGrounded)
             {
                 Debug.Log("Non puoi aprire l'inventario mentre sei in aria");
                 return;
             }
+            */
 
-            AudioManager.Instance.PlayClick();
+            //AudioManager.Instance.PlayClick();
 
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
@@ -124,8 +126,10 @@ public class InventarioUI : MonoBehaviour
         if (!panelInventario.activeSelf)
             return;
 
+        /*
         if (Player.Instance.amo.isAttached)
             return;
+         */
             
         Vector2 navigation = context.ReadValue<Vector2>();
         AudioManager.Instance.PlayClick();
