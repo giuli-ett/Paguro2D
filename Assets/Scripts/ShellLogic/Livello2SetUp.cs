@@ -18,6 +18,7 @@ public class Livello2SetUp : MonoBehaviour
         }
 
         shellManager.WearShell(shellPickersDaEquipaggiare[0].shell, shellPickersDaEquipaggiare[0]);
+        Player.Instance.spriteRendererShell.sprite = Player.Instance.firstSpriteLevel2;
 
         Player.Instance.isInLevel2 = false;
     }

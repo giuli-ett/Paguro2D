@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public Light2D luminescentLight;
     public Amo amo;
     public bool isInLevel2 = false;
+    public Sprite firstSpriteLevel2;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -585,7 +586,7 @@ public class Player : MonoBehaviour
             {
                 return;
             }
-            
+
             SceneManager.LoadSceneAsync(0);
             Cursor.visible = true;
         }

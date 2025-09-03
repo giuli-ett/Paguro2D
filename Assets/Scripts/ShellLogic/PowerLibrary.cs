@@ -95,7 +95,7 @@ public class PowerLibrary : MonoBehaviour
     public static void JumpBoostOn(Player player)
     {
         Player.Instance.EnableDoubleJump();
-        Debug.Log($"Hai disattivato il potere: {Player.Instance.shellManager.currentShell.shellPower}");
+        Debug.Log($"Hai attivato il potere: {Player.Instance.shellManager.currentShell.shellPower}");
     }
 
     public static void SpeedBoostOn(Player player)
