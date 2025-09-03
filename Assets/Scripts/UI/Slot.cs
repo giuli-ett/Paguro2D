@@ -19,7 +19,7 @@ public class Slot : MonoBehaviour
     }
     public void SetIcon()
     {
-        Debug.Log("Unlock slot icon");
+        Debug.Log($"Unlock slot icon {gameObject.name}");
         unlockIcon.gameObject.SetActive(true);
     }
 
