@@ -17,7 +17,7 @@ public class InventarioUI : MonoBehaviour
     public List<Slot> shellSlots;
     public int selectedSlot = 0;
 
-    private void Start()
+    private void Awake()
     {
         panelInventario.SetActive(false);
         shellList = new List<Shell>();

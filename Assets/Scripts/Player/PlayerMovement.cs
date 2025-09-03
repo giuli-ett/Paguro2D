@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public CapsuleCollider2D collider2D;
     public Light2D luminescentLight;
     public Amo amo;
+    public bool isInLevel2 = false;
 
     [Header("MOVIMENTO")]
     public float moveSpeed = 5f;
@@ -117,7 +118,6 @@ public class Player : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
 
         shellManager = GetComponent<ShellManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();

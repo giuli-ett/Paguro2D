@@ -16,8 +16,8 @@ public class FineCutscene : MonoBehaviour
     private IEnumerator CaricaLivelloDopoAttesa()
     {
         yield return new WaitForSeconds(tempoAttesa);
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(3);
         MusicPlayer.Instance.PlayLevel1Music();
-        Cursor.visible = false;
+        //Cursor.visible = false;
     }
 }

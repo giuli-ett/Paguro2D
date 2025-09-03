@@ -18,6 +18,7 @@ TagManager:
   - Forziere
   - Tentacoli
   - Medusa
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
