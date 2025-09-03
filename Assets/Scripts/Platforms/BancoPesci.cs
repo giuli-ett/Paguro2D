@@ -1,13 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class BancoPesci : MonoBehaviour
 {
     public Transform[] waypoints;
     [SerializeField] private float speed = 2f;
-    [SerializeField] private SpriteRenderer frontSpriteRenderer; 
+    [SerializeField] private SpriteRenderer frontSpriteRenderer;
 
     private int currentIndex = 0;
-
     private Vector3 lastPosition;
     private SpriteRenderer spriteRenderer;
     private GameObject playerOnTop;
@@ -16,6 +16,9 @@ public class BancoPesci : MonoBehaviour
     private bool isActivated = false;
     public bool isPlayerOnTop = false;
     public SuonoBancoPesci suonoBancoPesci;
+
+    private bool isWaiting = false;
+    private bool hasCompletedFirstLoop = false;
 
     void Start()
     {
@@ -37,10 +40,9 @@ public class BancoPesci : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isActivated || waypoints.Length == 0) return;
+        if (!isActivated || waypoints.Length == 0 || isWaiting) return;
 
         Vector3 currentPosition = transform.position;
-
         Transform target = waypoints[currentIndex];
         Vector3 newPosition = Vector3.MoveTowards(currentPosition, target.position, speed * Time.fixedDeltaTime);
         Vector2 platformVelocity = (newPosition - currentPosition) / Time.fixedDeltaTime;
@@ -58,7 +60,19 @@ public class BancoPesci : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
+            // Se ha appena raggiunto il primo waypoint dopo almeno un giro
+            if (currentIndex == 0 && hasCompletedFirstLoop)
+            {
+                StartCoroutine(WaitBeforeRestart());
+            }
+
             currentIndex = (currentIndex + 1) % waypoints.Length;
+
+            // Se ha completato un giro intero
+            if (currentIndex == 0)
+            {
+                hasCompletedFirstLoop = true;
+            }
         }
 
         if (playerOnTop != null)
@@ -75,6 +89,13 @@ public class BancoPesci : MonoBehaviour
         }
 
         lastPosition = transform.position;
+    }
+
+    private IEnumerator WaitBeforeRestart()
+    {
+        isWaiting = true;
+        yield return new WaitForSeconds(3f);
+        isWaiting = false;
     }
 
     public Vector3 GetDeltaMovement()
