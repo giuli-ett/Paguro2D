@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      parapetto_0: -5064943594508446736
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
