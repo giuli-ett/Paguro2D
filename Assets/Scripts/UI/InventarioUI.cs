@@ -120,13 +120,13 @@ public class InventarioUI : MonoBehaviour
         Vector2 navigation = context.ReadValue<Vector2>();
         AudioManager.Instance.PlayClick();
 
-        if (navigation.x > 0.5f)
-        {
-            MoveSelection(1);
-        }
-        else if (navigation.x < -0.5f)
+        if (navigation.y > 0.5f)
         {
             MoveSelection(-1);
+        }
+        else if (navigation.y < -0.5f)
+        {
+            MoveSelection(1);
         }
     }
 

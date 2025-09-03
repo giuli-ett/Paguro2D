@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     public SpriteRenderer spriteRendererShell;
     public Rigidbody2D rb;
     public ShellManager shellManager;
-    public InventarioUI inventarioUI;
     public UIController uIController;
     public Animator animator;
     public CapsuleCollider2D collider2D;

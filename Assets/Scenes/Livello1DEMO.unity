@@ -20102,6 +20102,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6003383016828603592, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 392
+      objectReference: {fileID: 0}
     - target: {fileID: 8202615801612088680, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -26493,7 +26497,7 @@ PrefabInstance:
     - target: {fileID: 2548030884793229085, guid: 5d31cd54c90424643bdbebd173961442, type: 3}
       propertyPath: slot
       value: 
-      objectReference: {fileID: 858685322}
+      objectReference: {fileID: 0}
     - target: {fileID: 2548030884793229085, guid: 5d31cd54c90424643bdbebd173961442, type: 3}
       propertyPath: spriteCollezionabile
       value: 
@@ -34031,17 +34035,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5655895543479302132, guid: a79ea13e14285b84fb9a1ff0aa3b94ac, type: 3}
   m_PrefabInstance: {fileID: 1166231011}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &858685322 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7943962609276983016, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-  m_PrefabInstance: {fileID: 1468037566}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99cb9d2326b5aa34b93a262878d5dcbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &862935010
 PrefabInstance:
   m_ObjectHideFlags: 0
