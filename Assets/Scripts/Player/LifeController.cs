@@ -45,6 +45,19 @@ public class LifeController : MonoBehaviour
         AudioManager.Instance.PlayDie();
         currentHealth = maxHealth;
 
+        // Reset del fantasma
+        Fantasma fantasma = FindObjectOfType<Fantasma>();
+        if (fantasma != null)
+        {
+            fantasma.ResetFantasma();
+        }
+
+        TriggerFantasma trigger = FindObjectOfType<TriggerFantasma>();
+        if (trigger != null)
+        {
+            trigger.ResetTrigger();
+        }
+
         // Avvia la coroutine per gestire il post-morte dopo l'animazione
         StartCoroutine(HandleDeathSequence());
     }

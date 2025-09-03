@@ -138,4 +138,14 @@ public class Fantasma : MonoBehaviour
             }
         }
     }
+
+    public void ResetFantasma()
+    {
+        transform.position = posizioneIniziale;
+        isActive = false;
+        isCoolingDown = false;
+        activeTimer = 0f;
+        gameObject.SetActive(false);
+        SetAnimazioneStop(true);
+    }
 }

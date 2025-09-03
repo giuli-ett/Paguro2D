@@ -16,4 +16,9 @@ public class TriggerFantasma : MonoBehaviour
             fantasma.Attiva(other.transform);
         }
     }
+    public void ResetTrigger()
+    {
+        attivato = false;
+    }
+
 }
