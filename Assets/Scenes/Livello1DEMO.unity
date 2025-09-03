@@ -26497,7 +26497,7 @@ PrefabInstance:
     - target: {fileID: 2548030884793229085, guid: 5d31cd54c90424643bdbebd173961442, type: 3}
       propertyPath: slot
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1468037568}
     - target: {fileID: 2548030884793229085, guid: 5d31cd54c90424643bdbebd173961442, type: 3}
       propertyPath: spriteCollezionabile
       value: 
