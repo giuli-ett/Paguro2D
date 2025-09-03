@@ -178,14 +178,14 @@ public class InventarioUI : MonoBehaviour
             shellInventory[power] = nuovoGuscio;
 
             if (shellSlotMap.TryGetValue(nuovoGuscio.power, out int slotIndex))
+            {
+                if (slotIndex < shellSlots.Count)
                 {
-                    if (slotIndex < shellSlots.Count)
-                    {
-                        shellSlots[slotIndex].SetIcon();
-                    }
+                    shellSlots[slotIndex].SetIcon();
                 }
+            }
 
-                AggiornaInventarioUI();
+            AggiornaInventarioUI();
         }
     }
 

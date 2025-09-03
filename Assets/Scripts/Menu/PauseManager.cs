@@ -38,6 +38,7 @@ public class PauseManager : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1f;
         AudioManager.Instance.PlayClick();
         gameObject.SetActive(false);
         SceneManager.LoadSceneAsync(0);
