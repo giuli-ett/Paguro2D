@@ -55104,14 +55104,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 686689276158257219, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 732294931248235482, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2440446896230541687, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 230.1
@@ -55160,14 +55152,6 @@ PrefabInstance:
       propertyPath: feedbackTartaruga
       value: 
       objectReference: {fileID: 1533217189}
-    - target: {fileID: 5467343974450666630, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: baseShell
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5467343974450666630, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
-      propertyPath: shellList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
