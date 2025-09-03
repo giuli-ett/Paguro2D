@@ -2,12 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Linq;
+using Unity.Collections;
 
 public class InventarioUI : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     public GameObject panelInventario;
     public List<Shell> shellList;
+    public Dictionary<ShellPower, int> shellSlotMap;
+    public Dictionary<ShellPower, Shell> shellInventory;
 
     [Header("SLOT NAVIGATION")]
     public List<Slot> shellSlots;
@@ -17,6 +21,16 @@ public class InventarioUI : MonoBehaviour
     {
         panelInventario.SetActive(false);
         shellList = new List<Shell>();
+        shellInventory = new Dictionary<ShellPower, Shell>();
+
+        shellSlotMap = new Dictionary<ShellPower, int>
+        {
+            { ShellPower.JumpBoost, 0 },
+            { ShellPower.SpeedBoost, 1 },
+            { ShellPower.NascondiScava, 2 },
+            { ShellPower.Luminescenza, 3 }
+        };
+
         AggiornaInventarioUI();
     }
 
@@ -145,51 +159,54 @@ public class InventarioUI : MonoBehaviour
 
     public void EquipaggiaGuscioSelezionato(InputAction.CallbackContext context)
     {
-        if (!panelInventario.activeSelf)
+        if (!panelInventario.activeSelf || !context.started)
             return;
 
-        if (context.started)
+        ShellPower selezionato = shellSlotMap.FirstOrDefault(x => x.Value == selectedSlot).Key;
+
+        if (!shellInventory.TryGetValue(selezionato, out Shell guscioSelezionato))
         {
-            if (selectedSlot < 0 || selectedSlot >= shellList.Count)
-            {
-                Debug.Log("Non hai ancora trovato questo guscio!");
-                return;
-            }
-
-            Shell selezionato = shellList[selectedSlot];
-
-            if (selezionato == null)
-            {
-                Player.Instance.animator.SetBool("isChange", true);
-                Player.Instance.shellManager.RemoveShell();
-            }
-            else if (Player.Instance.shellManager.currentShell != selezionato)
-            {
-                Player.Instance.animator.SetBool("isChange", true);
-                Player.Instance.shellManager.RemoveShell();
-                var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
-                Player.Instance.shellManager.WearShell(selezionato, shellPicker);
-            }
-
-            panelInventario.SetActive(false);
-            Player.Instance.GetComponent<PlayerInput>().inputBlock = false;
-            Player.Instance.canMove = true;
+            Debug.Log("Non hai ancora trovato questo guscio!");
+            return;
         }
+
+        if (guscioSelezionato == null)
+        {
+            Player.Instance.animator.SetBool("isChange", true);
+            Player.Instance.shellManager.RemoveShell();
+        }
+        else if (Player.Instance.shellManager.currentShell != guscioSelezionato)
+        {
+            Player.Instance.animator.SetBool("isChange", true);
+            Player.Instance.shellManager.RemoveShell();
+            var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(guscioSelezionato);
+            Player.Instance.shellManager.WearShell(guscioSelezionato, shellPicker);
+        }
+
+        panelInventario.SetActive(false);
+        Player.Instance.GetComponent<PlayerInput>().inputBlock = false;
+        Player.Instance.canMove = true;
+
+        
     }
 
     public void AggiungiGuscio(Shell nuovoGuscio, ShellPicker shellPicker)
     {
-        if (!shellList.Contains(nuovoGuscio))
+        ShellPower power = nuovoGuscio.power;
+
+        if (!shellInventory.ContainsKey(power))
         {
-            shellList.Add(nuovoGuscio);
+            shellInventory[power] = nuovoGuscio;
 
-            int slotIndex = shellList.Count - 1;
-            if (slotIndex < shellSlots.Count)
-            {
-                shellSlots[slotIndex].SetIcon();
-            }
+            if (shellSlotMap.TryGetValue(nuovoGuscio.power, out int slotIndex))
+                {
+                    if (slotIndex < shellSlots.Count)
+                    {
+                        shellSlots[slotIndex].SetIcon();
+                    }
+                }
 
-            AggiornaInventarioUI();
+                AggiornaInventarioUI();
         }
     }
 
