@@ -25,34 +25,18 @@ public class ShellManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        inventario = GameObject.FindAnyObjectByType<InventarioUI>();
         equippedShellPickers.Add(baseShell, baseShellPicker);
     }
-
-    /*
-    public void Interact(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Debug.Log("Tasto E premuto");
-            if (closeShell != null)
-            {
-                Debug.Log("Sto tentando di indossare il guscio!");
-                WearShell(closeShell.shell, closeShell);
-            }
-        }
-        else
-        {
-            Debug.Log("Attendo input");
-        }
-    }
-    */
 
     // EQUIPAGGIA GUSCIO
     public void WearShell(Shell shell, ShellPicker shellPicker)
     {
         Debug.Log($"Cambio guscio con {shellPicker} , {shell}");
-        Player.Instance.animator.SetBool("isChange", true);
+
+        if (!Player.Instance.isInLevel2)
+        {
+            Player.Instance.animator.SetBool("isChange", true);
+        }
 
         // Se hai già un guscio attivo, disattivalo
         if (currentShellPicker != null)
@@ -79,8 +63,12 @@ public class ShellManager : MonoBehaviour
             shellPicker.text.SetActive(false);
 
             equippedShellPickers[shell] = shellPicker;
-            feedbackTartaruga.SetText(shell);
-            feedbackTartaruga.StartShellFeedback(shell);
+
+            if (!Player.Instance.isInLevel2)
+            {
+                feedbackTartaruga.SetText(shell);
+                feedbackTartaruga.StartShellFeedback(shell);
+            }
         }
 
         currentShell = shell;
@@ -103,7 +91,11 @@ public class ShellManager : MonoBehaviour
     {
         if (currentShellPicker != null)
         {
-            Player.Instance.animator.SetBool("isChange", true);
+            if (!Player.Instance.isInLevel2)
+            {
+                Player.Instance.animator.SetBool("isChange", true);
+            }
+            
             currentShell.PowerOff(Player.Instance);
             currentShellPicker.gameObject.SetActive(false);
             currentShellPicker = null;

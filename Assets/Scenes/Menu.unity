@@ -472,6 +472,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b48850c6fce41f468a6851fcb7b778f, type: 2}
   collectedItems: []
   currentLivello: {fileID: 0}
+  idCollezionabiliRaccolti: 
+  playerPrefab: {fileID: 2615224041347397696, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+  shells:
+  - {fileID: 11400000, guid: 0079be234957f6b48835a528a4901152, type: 2}
+  - {fileID: 11400000, guid: a99ce88293749ea4bbbf43eb1c7ea514, type: 2}
+  - {fileID: 11400000, guid: ad03cc76b7d8fab428f53774793a0073, type: 2}
 --- !u!4 &1020244440
 Transform:
   m_ObjectHideFlags: 0

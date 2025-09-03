@@ -14,10 +14,6 @@ public class Amo : MonoBehaviour
     public Transform currentClimbTopLimit;
     public Transform currentClimbBottomLimit;
 
-    void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,16 +34,12 @@ public class Amo : MonoBehaviour
     private void AttachTo(Transform hook)
     {
         Debug.Log("Attacco all'amo");
-        // Salva la scala globale originale del player
         Vector3 originalGlobalScale = transform.lossyScale;
 
-        // Imposta il parent al punto di aggancio (che potrebbe essere figlio di un oggetto scalato)
         transform.SetParent(hook);
 
-        // Ottieni la scala globale del nuovo parent (hook)
         Vector3 parentGlobalScale = hook.lossyScale;
 
-        // Calcola la nuova localScale per mantenere il player invariato visivamente
         transform.localScale = new Vector3(
             originalGlobalScale.x / parentGlobalScale.x,
             originalGlobalScale.y / parentGlobalScale.y,
@@ -64,7 +56,6 @@ public class Amo : MonoBehaviour
         Player.Instance.isGrounded = true;
         currentClimbable = hook;
         currentClimbableCollider = hook.GetComponent<Collider2D>();
-        //Player.Instance.isClimbing = true;
     }
 
     public void Detach()
