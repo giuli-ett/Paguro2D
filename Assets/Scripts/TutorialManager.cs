@@ -1,11 +1,14 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
+using Unity.AppUI.UI;
 using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance;
     public CanvasGroup canvas;
+    public GameObject text;
     public SpriteMask spriteMask;
     public GameObject darkOverlay;
     public bool tutorialMode = false;
@@ -38,7 +41,7 @@ public class TutorialManager : MonoBehaviour
             darkOverlay.gameObject.SetActive(true);
             spriteMask.gameObject.SetActive(true);
 
-            Player.Instance.canMove = false;
+            //Player.Instance.canMove = false;
             AudioManager.Instance.StopWalking();
 
             Sequence mostraTesto = DOTween.Sequence();

@@ -20102,6 +20102,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4026104208114821771, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
+      propertyPath: m_text
+      value: PRESS ENTER TO EQUIP
+      objectReference: {fileID: 0}
     - target: {fileID: 6003383016828603592, guid: 85046bd3c3d381a429b7d2fa9c56b5c7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 392
@@ -60659,6 +60663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1621617041}
     m_Modifications:
+    - target: {fileID: 1556991964750076823, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2235881907881417639, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
       propertyPath: m_Name
       value: ForziereDoppioSalto
@@ -60703,11 +60711,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6597485770138157745, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 1618985010}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
+--- !u!1 &1618985010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1404580916309813414, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
+  m_PrefabInstance: {fileID: 1618985009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1619013315
 PrefabInstance:
   m_ObjectHideFlags: 0

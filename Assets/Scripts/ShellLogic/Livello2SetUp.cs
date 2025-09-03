@@ -14,6 +14,7 @@ public class Livello2SetUp : MonoBehaviour
             Shell shell = shellPicker.shell;
 
             shellManager.inventario.AggiungiGuscio(shell, shellPicker);
+            shellManager.WearShell(shell, shellPicker);
         }
 
         shellManager.WearShell(shellPickersDaEquipaggiare[0].shell, shellPickersDaEquipaggiare[0]);

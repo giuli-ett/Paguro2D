@@ -15,7 +15,9 @@ public class Forziere : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (text != null /*&& !TutorialManager.Instance.tutorialMode*/)
+            bool tutorialOk = TutorialManager.Instance == null || !TutorialManager.Instance.tutorialMode;
+
+            if (text != null && tutorialOk)
             {
                 text.SetActive(true);
                 Player.Instance.GetComponent<ForziereController>().closeForziere = this.gameObject;

@@ -55,6 +55,28 @@ public class InventarioUI : MonoBehaviour
             shellSlots[selectedSlot].DeselectSlot();
             selectedSlot = index;
             HighlightSlot(selectedSlot);
+
+            ShellPower selezionato = shellSlotMap.FirstOrDefault(x => x.Value == selectedSlot).Key;
+
+            if (shellInventory.TryGetValue(selezionato, out Shell guscioSelezionato))
+            {
+                if (guscioSelezionato == null)
+                {
+                    Player.Instance.animator.SetBool("isChange", true);
+                    Player.Instance.shellManager.RemoveShell();
+                }
+                else if (Player.Instance.shellManager.currentShell != guscioSelezionato)
+                {
+                    Player.Instance.animator.SetBool("isChange", true);
+                    Player.Instance.shellManager.RemoveShell();
+                    var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(guscioSelezionato);
+                    Player.Instance.shellManager.WearShell(guscioSelezionato, shellPicker);
+                }
+            }
+            else
+            {
+                Debug.Log("Non hai ancora trovato questo guscio!");
+            }
         }
     }
 
@@ -85,27 +107,12 @@ public class InventarioUI : MonoBehaviour
             bool isActive = !panelInventario.activeSelf;
             panelInventario.SetActive(isActive);
 
-            Player.Instance.canMove = !isActive;
+            //Player.Instance.canMove = !isActive;
 
             if (isActive)
             {
                 AggiornaInventarioUI();
                 HighlightSlot(selectedSlot);
-            }
-            else
-            {
-                // Equipaggiamento solo se valido
-                if (selectedSlot >= 0 && selectedSlot < shellList.Count)
-                {
-                    Shell selezionato = shellList[selectedSlot];
-                    if (Player.Instance.shellManager.currentShell != selezionato)
-                    {
-                        Player.Instance.animator.SetBool("isChange", true);
-                        Player.Instance.shellManager.RemoveShell();
-                        var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(selezionato);
-                        Player.Instance.shellManager.WearShell(selezionato, shellPicker);
-                    }
-                }
             }
         }
     }
@@ -117,6 +124,9 @@ public class InventarioUI : MonoBehaviour
         if (!panelInventario.activeSelf)
             return;
 
+        if (Player.Instance.amo.isAttached)
+            return;
+            
         Vector2 navigation = context.ReadValue<Vector2>();
         AudioManager.Instance.PlayClick();
 
@@ -150,6 +160,8 @@ public class InventarioUI : MonoBehaviour
         }
 
         HighlightSlot(selectedSlot);
+
+        SelectSlotByNumber(selectedSlot);
     }
 
     private void HighlightSlot(int indice)
@@ -157,6 +169,7 @@ public class InventarioUI : MonoBehaviour
         shellSlots[indice].GetComponent<Slot>().SelectSlot();
     }
 
+    /*
     public void EquipaggiaGuscioSelezionato(InputAction.CallbackContext context)
     {
         if (!panelInventario.activeSelf || !context.started)
@@ -182,13 +195,8 @@ public class InventarioUI : MonoBehaviour
             var shellPicker = Player.Instance.shellManager.GetShellPickerByShell(guscioSelezionato);
             Player.Instance.shellManager.WearShell(guscioSelezionato, shellPicker);
         }
-
-        panelInventario.SetActive(false);
-        Player.Instance.GetComponent<PlayerInput>().inputBlock = false;
-        Player.Instance.canMove = true;
-
-        
     }
+    */
 
     public void AggiungiGuscio(Shell nuovoGuscio, ShellPicker shellPicker)
     {

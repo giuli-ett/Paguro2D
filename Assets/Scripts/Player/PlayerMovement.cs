@@ -579,6 +579,13 @@ public class Player : MonoBehaviour
     {
         if (context.performed)
         {
+            string currentScene = SceneManager.GetActiveScene().name;
+
+            if (currentScene == "Livello1DEMO" || currentScene == "Livello2DEMO" || currentScene == "Cutscene")
+            {
+                return;
+            }
+            
             SceneManager.LoadSceneAsync(0);
             Cursor.visible = true;
         }
