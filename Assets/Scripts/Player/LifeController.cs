@@ -40,6 +40,13 @@ public class LifeController : MonoBehaviour
     public void Die()
     {
         Debug.Log("Giocatore morto!");
+
+        // Disattiva il consumo di ossigeno
+        if (Ossigeno.Instance != null)
+        {
+            Ossigeno.Instance.StopOxygenConsumption();
+        }
+
         Player.Instance.animator.SetBool("isDead", true);
         Player.Instance.DisableMovement(); // blocca movimento
         AudioManager.Instance.PlayDie();
