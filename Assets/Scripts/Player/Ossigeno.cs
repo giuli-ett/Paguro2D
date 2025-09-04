@@ -6,14 +6,18 @@ public class Ossigeno : MonoBehaviour
     public static Ossigeno Instance;
 
     [Header("Ossigeno")]
-    [SerializeField] private float maxOxygenTime = 10f;
+    [SerializeField] private float maxOxygenTime = 20f;
     private float currentOxygenTime;
     private bool isConsuming = false;
 
     [Header("Interfaccia Bollicine")]
-    [SerializeField] private Image[] bollicineOssigeno; // Assegna le immagini nell’Inspector
+    [SerializeField] private Image[] bollicineOssigeno;
 
     private LifeController lifeController;
+
+    private float bubbleUpdateInterval = 2f;
+    private float bubbleTimer;
+    private int currentBubbleIndex;
 
     private void Awake()
     {
@@ -35,32 +39,37 @@ public class Ossigeno : MonoBehaviour
         if (!isConsuming) return;
 
         currentOxygenTime -= Time.deltaTime;
-        UpdateOxygenBubbles(currentOxygenTime / maxOxygenTime);
+        bubbleTimer -= Time.deltaTime;
+
+        if (bubbleTimer <= 0f)
+        {
+            bubbleTimer = bubbleUpdateInterval;
+            UpdateNextBubble();
+        }
 
         if (currentOxygenTime <= 0f)
         {
             isConsuming = false;
             ShowOxygenBubbles(false);
-            lifeController.Die(); // Morte gestita dal LifeController
+            lifeController.Die();
         }
     }
 
-    // Inizio consumo ossigeno
     public void StartOxygenConsumption()
     {
         currentOxygenTime = maxOxygenTime;
         isConsuming = true;
+        bubbleTimer = bubbleUpdateInterval;
+        currentBubbleIndex = 0;
         ShowOxygenBubbles(true);
     }
 
-    // Fine consumo ossigeno
     public void StopOxygenConsumption()
     {
         isConsuming = false;
         ShowOxygenBubbles(false);
     }
 
-    // Mostra/Nasconde bollicine
     private void ShowOxygenBubbles(bool show)
     {
         foreach (Image bubble in bollicineOssigeno)
@@ -69,15 +78,12 @@ public class Ossigeno : MonoBehaviour
         }
     }
 
-    // Aggiorna bollicine in base al tempo rimasto
-    private void UpdateOxygenBubbles(float oxygenRatio)
+    private void UpdateNextBubble()
     {
-        int total = bollicineOssigeno.Length;
-        int active = Mathf.CeilToInt(oxygenRatio * total);
-
-        for (int i = 0; i < total; i++)
+        if (currentBubbleIndex < bollicineOssigeno.Length)
         {
-            bollicineOssigeno[i].enabled = i < active;
+            bollicineOssigeno[currentBubbleIndex].enabled = false;
+            currentBubbleIndex++;
         }
     }
 }
