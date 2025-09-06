@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShellInvisible.locked.icon_0: 2661571275337083885
+      ShellInvisible.locked.icon_1: 3197732951338742159
+      ShellInvisible.locked.icon_2: -5817056260632602675
+      ShellInvisible.locked.icon_3: -3854491839013421158
+      ShellInvisible.locked.icon_4: -1363607154682052967
+      ShellInvisible.locked.icon_5: -1842766545651554275
+      ShellInvisible.locked.icon_6: -5079832059678254034
+      ShellInvisible.locked.icon_7: -4726158551557907
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
