@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour
     public List<int> idCollezionabiliRaccolti = new();
     public bool livello1Completato = false;
     public bool livello2Completato = false;
+    public bool isUsingController;
 
     private void Awake()
     {
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         currentLivello = livelli[0];
         DontDestroyOnLoad(gameObject);
+        isUsingController = Gamepad.current != null;
     }
 
     void Update()
@@ -63,4 +66,5 @@ public class GameManager : MonoBehaviour
         }
     }
     public int TotalCollected => collectedItems.Count;
+
 }

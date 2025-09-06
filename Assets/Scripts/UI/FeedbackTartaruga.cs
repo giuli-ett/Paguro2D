@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.UI;
 
@@ -88,12 +89,30 @@ public class FeedbackTartaruga : MonoBehaviour
     {
         if (!tutorialInCorso) return;
 
-        if (isWaitingForInput && Input.GetKeyDown(KeyCode.Tab))
+
+        if (isWaitingForInput)
         {
-            isWaitingForInput = false;
-            frasi[currentFraseIndex].SetActive(false);
-            currentFraseIndex++;
-            StartFrasiSequence();
+            if (GameManager.Instance.isUsingController)
+            {
+                if (Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame)
+                {
+                    isWaitingForInput = false;
+                    frasi[currentFraseIndex].SetActive(false);
+                    currentFraseIndex++;
+                    StartFrasiSequence();
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Tab))
+                {
+                    isWaitingForInput = false;
+                    frasi[currentFraseIndex].SetActive(false);
+                    currentFraseIndex++;
+                    StartFrasiSequence();
+                }
+            }
+            
         }
     }
 

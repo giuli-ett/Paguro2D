@@ -24,6 +24,7 @@ public class MusicPlayer : MonoBehaviour
 
     public void PlayMenuMusic()
     {
+        Debug.Log("Musica menu");
         musicSource.clip = menuMusic;
         musicSource.loop = true;
         musicSource.Play();
