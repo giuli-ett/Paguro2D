@@ -89,5 +89,8 @@ TagManager:
   - name: foreground
     uniqueID: 3630694369
     locked: 0
+  - name: esterno
+    uniqueID: 4009621331
+    locked: 0
   m_RenderingLayers:
   - Default

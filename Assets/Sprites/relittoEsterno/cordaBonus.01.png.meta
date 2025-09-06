@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cordaBonus.01_0: 8256985491932739321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
