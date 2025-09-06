@@ -16,6 +16,8 @@ public class InventarioUI : MonoBehaviour
     [Header("SLOT NAVIGATION")]
     public List<Slot> shellSlots;
     public int selectedSlot = 0;
+    private int lastSelectedSlot = 0;
+    private bool lastSelectedWasLocked = false;
 
     private void Awake()
     {
@@ -48,11 +50,17 @@ public class InventarioUI : MonoBehaviour
         }
     }
 
+    public void DeselectAllSlots()
+    {
+        foreach (var slot in shellSlots)
+            slot.DeselectSlot();
+    }
+
     private void SelectSlotByNumber(int index)
     {
         if (index >= 0 && index < shellSlots.Count)
         {
-            shellSlots[selectedSlot].DeselectSlot();
+            DeselectAllSlots();
             selectedSlot = index;
             HighlightSlot(selectedSlot);
 
@@ -82,45 +90,56 @@ public class InventarioUI : MonoBehaviour
 
     public void MostraInventario(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!context.started) return;
+
+        if (FeedbackTartaruga.Instance != null &&
+            FeedbackTartaruga.Instance.tutorialInCorso &&
+            !FeedbackTartaruga.Instance.PuoAprireInventarioDuranteTutorial())
         {
-            if (FeedbackTartaruga.Instance != null)
+            Debug.Log("Inventario bloccato durante il tutorial");
+            return;
+        }
+
+        bool isActive = !panelInventario.activeSelf;
+        panelInventario.SetActive(isActive);
+
+        if (isActive)
+        {
+            AggiornaInventarioUI();
+
+            // Logica alla riapertura
+            Shell currentShell = Player.Instance.shellManager.currentShell;
+
+            if (lastSelectedWasLocked)
             {
-                if (FeedbackTartaruga.Instance.tutorialInCorso)
+                if (currentShell != null && shellSlotMap.TryGetValue(currentShell.power, out int equippedIndex))
                 {
-                    if (!FeedbackTartaruga.Instance.PuoAprireInventarioDuranteTutorial())
-                    {
-                        Debug.Log("Inventario bloccato durante il tutorial");
-                        return;
-                    }
-                }
-            }
-
-            bool isActive = !panelInventario.activeSelf;
-            panelInventario.SetActive(isActive);
-
-            if (isActive)
-            {
-                AggiornaInventarioUI();
-
-                Shell currentShell = Player.Instance.shellManager.currentShell;
-
-                if (currentShell != null && shellSlotMap.TryGetValue(currentShell.power, out int slotIndex))
-                {
-                    selectedSlot = slotIndex;
+                    selectedSlot = equippedIndex; // ho un guscio indossato
                 }
                 else
                 {
-                    selectedSlot = 0;
+                    selectedSlot = 0; // nessun guscio → slot 0
                 }
-
-                HighlightSlot(selectedSlot);
-                SelectSlotByNumber(selectedSlot);
             }
+            else
+            {
+                if (currentShell != null && shellSlotMap.TryGetValue(currentShell.power, out int equippedIndex))
+                    selectedSlot = equippedIndex;
+                else
+                    selectedSlot = 0;
+            }
+
+            DeselectAllSlots();
+            HighlightSlot(selectedSlot);
+        }
+        else
+        {
+            // Salva stato alla chiusura
+            lastSelectedSlot = selectedSlot;
+            ShellPower lastPower = shellSlotMap.FirstOrDefault(x => x.Value == lastSelectedSlot).Key;
+            lastSelectedWasLocked = !shellInventory.ContainsKey(lastPower);
         }
     }
-
-
 
     public void Naviga(InputAction.CallbackContext context)
     {
@@ -142,10 +161,7 @@ public class InventarioUI : MonoBehaviour
 
     private void MoveSelection(int direction)
     {
-        foreach (var slot in shellSlots)
-        {
-            slot.DeselectSlot();
-        }
+        DeselectAllSlots();
 
         selectedSlot += direction;
 
@@ -160,11 +176,10 @@ public class InventarioUI : MonoBehaviour
         }
 
         HighlightSlot(selectedSlot);
-
         SelectSlotByNumber(selectedSlot);
     }
 
-    private void HighlightSlot(int indice)
+    public void HighlightSlot(int indice)
     {
         shellSlots[indice].GetComponent<Slot>().SelectSlot();
     }

@@ -82,6 +82,13 @@ public class ShellManager : MonoBehaviour
         if (!inventario.shellList.Contains(shell))
         {
             inventario.AggiungiGuscio(shell, currentShellPicker);
+
+            if (inventario.shellSlotMap.TryGetValue(shell.power, out int slotIndex))
+            {
+                inventario.selectedSlot = slotIndex;
+                inventario.DeselectAllSlots();
+                inventario.HighlightSlot(slotIndex);
+            }
         }
 
         Player.Instance.spriteRendererShell.flipX = Player.Instance.spriteRenderer.flipX;

@@ -152,7 +152,6 @@ public class FeedbackTartaruga : MonoBehaviour
         });
     }
 
-    // Utility
     public bool IsOnFirstFrase() => currentFraseIndex == 0 && isWaitingForInput;
     public bool PuoAprireInventarioDuranteTutorial() => tutorialInCorso && currentFraseIndex == 0 && isWaitingForInput;
 }
