@@ -42,12 +42,14 @@ public class InterfacciaFineLivello : MonoBehaviour
         if (GameManager.Instance.livello1Completato && !GameManager.Instance.livello2Completato)
         {
             AudioManager.Instance.PlayClick();
+            MusicPlayer.Instance.PlayLevel2Music();
             Debug.Log("Carico livello 2");
             SceneManager.LoadSceneAsync(4);
         }
         if (GameManager.Instance.livello2Completato)
         {
             AudioManager.Instance.PlayClick();
+            MusicPlayer.Instance.PlayMenuMusic();
             Debug.Log("Torno alla home");
             SceneManager.LoadSceneAsync(0);
         }

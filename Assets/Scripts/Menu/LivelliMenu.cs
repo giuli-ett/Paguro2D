@@ -18,7 +18,7 @@ public class LivelliMenu : MonoBehaviour
         AudioManager.Instance.PlayClick();
         SceneManager.LoadSceneAsync(4);
         //Cursor.visible = false;
-        MusicPlayer.Instance.PlayLevel1Music();   
+        MusicPlayer.Instance.PlayLevel2Music();   
     }
     public void PlayLivelloTre()
     {
