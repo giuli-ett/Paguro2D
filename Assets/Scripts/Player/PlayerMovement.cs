@@ -557,15 +557,32 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("TriggerWASD"))
         {
-            Debug.Log("Trigger WASD");
-            StartCoroutine(uIController.FadeInAndOut(uIController.bollaWASD));
-            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Debug.Log("Trigger Movimento");
+            if (GameManager.Instance.isUsingController)
+            {
+                StartCoroutine(uIController.FadeInAndOut(uIController.bollaLEFTSTICK));
+                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
+            else
+            {
+                StartCoroutine(uIController.FadeInAndOut(uIController.bollaWASD));
+                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
+            
         }
         else if (other.CompareTag("TriggerSPACE"))
         {
-            Debug.Log("Trigger SPACE");
-            StartCoroutine(uIController.FadeInAndOut(uIController.bollaSPACE));
-            other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Debug.Log("Trigger salto");
+            if (GameManager.Instance.isUsingController)
+            {
+                StartCoroutine(uIController.FadeInAndOut(uIController.bollaX));
+                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
+            else
+            {
+                StartCoroutine(uIController.FadeInAndOut(uIController.bollaSPACE));
+                other.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
     }
 

@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    [Header("TASTIERA")]
     public CanvasGroup bollaWASD;
     public CanvasGroup bollaSPACE;
+    [Header("CONTROLLER")]
+    public CanvasGroup bollaLEFTSTICK;
+    public CanvasGroup bollaX;
+    [Header("GUSCI")]
     public CanvasGroup bollaDoppioSalto;
     public CanvasGroup bollaLuminescente;
     public CanvasGroup bollaDash;
@@ -16,6 +21,8 @@ public class UIController : MonoBehaviour
     {
         bollaWASD.gameObject.SetActive(false);
         bollaSPACE.gameObject.SetActive(false);
+        bollaLEFTSTICK.gameObject.SetActive(false);
+        bollaX.gameObject.SetActive(false);
         bollaLuminescente.gameObject.SetActive(false);
         bollaDash.gameObject.SetActive(false);
         bollaNascondiScava.gameObject.SetActive(false);

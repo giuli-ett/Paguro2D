@@ -10,7 +10,6 @@ public class MainMenu : MonoBehaviour
     public Button[] menuButtons;
     public Color32 originalColor;
     public Color32 color = new Color32(176, 159, 173, 255);
-    public InputActionAsset menu;
     private bool canNavigate = true;
     public float stickThreshold = 0.5f;
     private int currentIndex = -1;
@@ -19,8 +18,10 @@ public class MainMenu : MonoBehaviour
     {
         MusicPlayer.Instance.PlayMenuMusic();
 
-        originalColor = menuButtons[0].GetComponent<Image>().color;
-        //HighlightSlot(0);
+        if (menuButtons.Length > 0)
+        {
+            originalColor = menuButtons[0].GetComponent<Image>().color;
+        }
     }
     public void PlayGame()
     {
@@ -41,41 +42,55 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void MenuNaviga(InputAction.CallbackContext context)
+    void Update()
     {
-        if (menuButtons.Length == 0) return;
-
-        Vector2 navigation = context.ReadValue<Vector2>();
-
-        if (canNavigate)
+        if (GameManager.Instance.isUsingController)
         {
-            Debug.Log("Navigo");
-
-            if (navigation.y > stickThreshold)
+            Vector2 nav = Vector2.zero;
+            if (Gamepad.current != null)
             {
-                MoveSelection(-1);
-                canNavigate = false;
+                nav = Gamepad.current.leftStick.ReadValue();
             }
-            else if (navigation.y < -stickThreshold)
+
+            if (canNavigate)
             {
-                MoveSelection(1);
-                canNavigate = false;
+                if (nav.y > stickThreshold)
+                {
+                    MoveSelection(-1);
+                    canNavigate = false;
+                }
+                else if (nav.y < -stickThreshold)
+                {
+                    MoveSelection(1);
+                    canNavigate = false;
+                }
+            }
+            if (Mathf.Abs(nav.y) < stickThreshold)
+            {
+                canNavigate = true;
+            }
+
+            if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                PressCurrentButton();
             }
         }
-
-        if (Mathf.Abs(navigation.y) < stickThreshold)
+        else
         {
-            canNavigate = true;
+            if (Keyboard.current.enterKey.wasPressedThisFrame)
+            {
+                PressCurrentButton();
+            }
         }
-        
     }
 
     private void MoveSelection(int direction)
     {
+        if (menuButtons.Length == 0) return;
+
         DeselectAllSlots();
 
         currentIndex += direction;
-
         if (currentIndex < 0) currentIndex = menuButtons.Length - 1;
         if (currentIndex >= menuButtons.Length) currentIndex = 0;
 
@@ -83,35 +98,26 @@ public class MainMenu : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(menuButtons[currentIndex].gameObject);
     }
 
-
-    public void HighlightSlot(int indice)
+    private void PressCurrentButton()
     {
-        menuButtons[indice].GetComponent<Image>().color = color;
+        if (menuButtons.Length == 0) return;
+
+        var button = menuButtons[currentIndex];
+        if (button != null)
+        {
+            button.onClick.Invoke();
+        }
     }
 
-    public void Submit(InputAction.CallbackContext context)
+    private void HighlightSlot(int index)
     {
-        if (context.performed && EventSystem.current.currentSelectedGameObject != null)
-        {
-            var button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-            if (button != null)
-            {
-                button.onClick.Invoke();
-            }
-        }
+        if (menuButtons.Length == 0) return;
+        menuButtons[index].GetComponent<Image>().color = color;
     }
 
     public void DeselectAllSlots()
     {
         foreach (var slot in menuButtons)
             slot.GetComponent<Image>().color = originalColor;
-    }
-
-    void OnDisable()
-    {
-        if (menu != null)
-        {
-            menu.Disable(); 
-        }
     }
 }

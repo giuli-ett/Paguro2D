@@ -10,16 +10,107 @@ public class LivelliMenu : MonoBehaviour
     public Button[] menuButtons;
     public Color32 originalColor;
     public Color32 color = new Color32(176, 159, 173, 255);
-    public InputActionAsset mondi;
     private bool canNavigate = true;
     public float stickThreshold = 0.5f;
     private int currentIndex = 0;
 
     void Start()
     {
-        originalColor = menuButtons[0].GetComponent<Image>().color;
+        if (menuButtons.Length > 0)
+        {
+            originalColor = menuButtons[0].GetComponent<Image>().color;
+        }
         HighlightSlot(0);
         EventSystem.current.SetSelectedGameObject(menuButtons[0].gameObject);
+    }
+
+    void Update()
+    {
+        if (GameManager.Instance.isUsingController)
+        {
+            Vector2 nav = Vector2.zero;
+
+            if (Gamepad.current != null)
+            {
+                nav = Gamepad.current.leftStick.ReadValue();
+                Vector2 dpad = Gamepad.current.dpad.ReadValue();
+                if (Mathf.Abs(dpad.y) > Mathf.Abs(nav.y))
+                    nav.y = dpad.y;
+            }
+
+            if (canNavigate && menuButtons.Length > 0)
+            {
+                if (nav.y > stickThreshold)
+                {
+                    MoveSelection(-1);
+                    canNavigate = false;
+                }
+                else if (nav.y < -stickThreshold)
+                {
+                    MoveSelection(1);
+                    canNavigate = false;
+                }
+            }
+
+            if (Mathf.Abs(nav.y) < stickThreshold)
+            {
+                canNavigate = true;
+            }
+
+            if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
+            {
+                PressCurrentButton();
+            }
+        }
+        else
+        {
+            if (Keyboard.current.enterKey.wasPressedThisFrame)
+            {
+                PressCurrentButton();
+            }
+        }
+    }
+
+    private void MoveSelection(int direction)
+    {
+        if (menuButtons.Length == 0) return;
+
+        DeselectAllSlots();
+
+        // Se non c'è selezione, partiamo dal primo
+        if (currentIndex == -1)
+            currentIndex = 0;
+        else
+            currentIndex += direction;
+
+        if (currentIndex < 0) currentIndex = menuButtons.Length - 1;
+        if (currentIndex >= menuButtons.Length) currentIndex = 0;
+
+        HighlightSlot(currentIndex);
+        EventSystem.current.SetSelectedGameObject(menuButtons[currentIndex].gameObject);
+    }
+
+    private void PressCurrentButton()
+    {
+        if (menuButtons.Length == 0 || currentIndex == -1) return;
+
+        var button = menuButtons[currentIndex];
+        if (button != null)
+        {
+            button.onClick.Invoke();
+        }
+    }
+
+    private void HighlightSlot(int index)
+    {
+        if (menuButtons.Length == 0 || index < 0 || index >= menuButtons.Length) return;
+        menuButtons[index].GetComponent<Image>().color = color;
+    }
+
+    public void DeselectAllSlots()
+    {
+        foreach (var slot in menuButtons)
+            slot.GetComponent<Image>().color = originalColor;
     }
 
     public void PlayLivelloUno()
@@ -47,76 +138,4 @@ public class LivelliMenu : MonoBehaviour
         AudioManager.Instance.PlayClick();
     }
 
-    public void MenuNaviga(InputAction.CallbackContext context)
-    {
-        if (menuButtons.Length == 0) return;
-
-        Vector2 navigation = context.ReadValue<Vector2>();
-
-        if (canNavigate)
-        {
-            Debug.Log("Navigo");
-
-            if (navigation.y > stickThreshold)
-            {
-                MoveSelection(-1);
-                canNavigate = false;
-            }
-            else if (navigation.y < -stickThreshold)
-            {
-                MoveSelection(1);
-                canNavigate = false;
-            }
-        }
-
-        if (Mathf.Abs(navigation.y) < stickThreshold)
-        {
-            canNavigate = true;
-        }
-
-    }
-
-    private void MoveSelection(int direction)
-    {
-        DeselectAllSlots();
-
-        currentIndex += direction;
-
-        if (currentIndex < 0) currentIndex = menuButtons.Length - 1;
-        if (currentIndex >= menuButtons.Length) currentIndex = 0;
-
-        HighlightSlot(currentIndex);
-        EventSystem.current.SetSelectedGameObject(menuButtons[currentIndex].gameObject);
-    }
-    
-    public void HighlightSlot(int indice)
-    {
-        menuButtons[indice].GetComponent<Image>().color = color;
-    }
-
-    public void Submit(InputAction.CallbackContext context)
-    {
-        if (context.performed && EventSystem.current.currentSelectedGameObject != null)
-        {
-            var button = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
-            if (button != null)
-            {
-                button.onClick.Invoke();
-            }
-        }
-    }
-
-    public void DeselectAllSlots()
-    {
-        foreach (var slot in menuButtons)
-            slot.GetComponent<Image>().color = originalColor;
-    }
-
-    void OnDisable()
-    {
-        if (mondi != null)
-        {
-            mondi.Disable(); 
-        }
-    }
 }

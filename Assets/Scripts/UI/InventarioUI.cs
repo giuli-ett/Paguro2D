@@ -143,6 +143,7 @@ public class InventarioUI : MonoBehaviour
 
     public void Naviga(InputAction.CallbackContext context)
     {
+        Debug.Log("Scorro inventario");
         if (!panelInventario.activeSelf)
             return;
 
