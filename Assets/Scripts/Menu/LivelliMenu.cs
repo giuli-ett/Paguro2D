@@ -42,12 +42,12 @@ public class LivelliMenu : MonoBehaviour
             {
                 if (nav.y > stickThreshold)
                 {
-                    MoveSelection(-1);
+                    MoveSelection(1);
                     canNavigate = false;
                 }
                 else if (nav.y < -stickThreshold)
                 {
-                    MoveSelection(1);
+                    MoveSelection(-1);
                     canNavigate = false;
                 }
             }
