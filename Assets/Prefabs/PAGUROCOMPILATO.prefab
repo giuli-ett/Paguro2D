@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 7238509253251261333}
   - component: {fileID: 2793474405724532342}
   m_Layer: 6
-  m_Name: Collezionabile3
-  m_TagString: Collezionabile3
+  m_Name: Collezionabile1
+  m_TagString: Collezionabile1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,8 +933,8 @@ GameObject:
   - component: {fileID: 916857897706960487}
   - component: {fileID: 3806941014147099235}
   m_Layer: 6
-  m_Name: Collezionabile1
-  m_TagString: Collezionabile1
+  m_Name: Collezionabile3
+  m_TagString: Collezionabile3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3994,7 +3994,6 @@ MonoBehaviour:
     rgba: 4289568688
   stickThreshold: 0.5
   canvas: {fileID: 6683265827268151351}
-  player: {fileID: 9181894394647949568}
 --- !u!1 &7026988392042324396
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,7 +5194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4711434119517646023, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 30
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4711434119517646023, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
       propertyPath: m_ActionEvents.Array.data[20].m_ActionId
@@ -5873,6 +5872,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bollaWASD: {fileID: 4054229407303297400}
   bollaSPACE: {fileID: 8410603890343473393}
+  bollaLEFTSTICK: {fileID: 0}
+  bollaX: {fileID: 0}
   bollaDoppioSalto: {fileID: 4685033861157632791}
   bollaLuminescente: {fileID: 6544400904432196837}
   bollaDash: {fileID: 684442983355013285}
@@ -5971,14 +5972,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5453189892607964637, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
   m_PrefabInstance: {fileID: 4471727067161238983}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &9181894394647949568 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4711434119517646023, guid: 5fb5f63bd61bc3b4b89b3b5867ff2caa, type: 3}
-  m_PrefabInstance: {fileID: 4471727067161238983}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2615224041347397696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
