@@ -15,11 +15,15 @@ public class FeedbackTartaruga : MonoBehaviour
     public CanvasGroup canvasGroup;
     private Sequence fadeSequence;
 
-    [Header("TESTI GUSCI")]
+    [Header("TESTI GUSCI PC")]
     public GameObject doppioSalto;
-    public GameObject dash;
-    public GameObject scava;
+    public GameObject dashPC;
+    public GameObject scavaPC;
     public GameObject luminoso;
+    [Header("TESTI GUSCI CONTROLLER")]
+    public GameObject dashController;
+    public GameObject scavaController;
+
     [Header("TESTI TUTORIAL")]
     public List<GameObject> frasi;
     private int currentFraseIndex = 0;
@@ -32,8 +36,10 @@ public class FeedbackTartaruga : MonoBehaviour
         canvasGroup.alpha = 0f;
 
         doppioSalto.SetActive(false);
-        dash.SetActive(false);
-        scava.SetActive(false);
+        dashPC.SetActive(false);
+        scavaPC.SetActive(false);
+        dashController.SetActive(false);
+        scavaController.SetActive(false);
         luminoso.SetActive(false);
 
         foreach (var v in frasi)
@@ -65,9 +71,11 @@ public class FeedbackTartaruga : MonoBehaviour
         fadeSequence.OnComplete(() =>
         {
             doppioSalto.SetActive(false);
-            dash.SetActive(false);
-            scava.SetActive(false);
+            dashPC.SetActive(false);
+            scavaPC.SetActive(false);
             luminoso.SetActive(false);
+            dashController.SetActive(false);
+            scavaController.SetActive(false);
         });
     }
 
@@ -79,10 +87,20 @@ public class FeedbackTartaruga : MonoBehaviour
             return;
         }
 
-        doppioSalto.SetActive(shell.shellName == "Guscio salterino");
-        dash.SetActive(shell.shellName == "Guscio Dash");
-        scava.SetActive(shell.shellName == "NascondiScava");
-        luminoso.SetActive(shell.shellName == "Guscio luminescente");
+        if (GameManager.Instance.isUsingController)
+        {
+            doppioSalto.SetActive(shell.shellName == "Guscio salterino");
+            dashController.SetActive(shell.shellName == "Guscio Dash");
+            scavaController.SetActive(shell.shellName == "NascondiScava");
+            luminoso.SetActive(shell.shellName == "Guscio luminescente");
+        }
+        else
+        {
+            doppioSalto.SetActive(shell.shellName == "Guscio salterino");
+            dashPC.SetActive(shell.shellName == "Guscio Dash");
+            scavaPC.SetActive(shell.shellName == "NascondiScava");
+            luminoso.SetActive(shell.shellName == "Guscio luminescente");
+        }
     }
 
     void Update()
