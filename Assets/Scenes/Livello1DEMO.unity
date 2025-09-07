@@ -2941,7 +2941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6044291677974000128, guid: 219e35b99b5335d4b985994e097c5ccc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 42.688793
+      value: 54.214767
       objectReference: {fileID: 0}
     - target: {fileID: 6044291677974000128, guid: 219e35b99b5335d4b985994e097c5ccc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -57405,6 +57405,10 @@ PrefabInstance:
     - target: {fileID: 537821843648760689, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1891436464816852329, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: maxOxygenTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2186383982135564593, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: m_IsActive
