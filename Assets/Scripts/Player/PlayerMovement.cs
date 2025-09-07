@@ -602,32 +602,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    
-
     private IEnumerator ApplyMelma(float durata, float slowMultiplier)
     {
         isMelmato = true;
         Debug.Log("🟢 Effetto melma attivo");
 
-        // Salva velocità e colori originali
         float originalMoveSpeed = moveSpeed;
-        Color originalColor = spriteRenderer.color;
-        Color originalShellColor = spriteRendererShell.color;
 
-        // Rallenta e cambia colore
+        // Clona il materiale così non influisce su altri oggetti
+        spriteRenderer.material = new Material(spriteRenderer.material);
+        Color originalBodyColor = spriteRenderer.material.GetColor("_Color");
+
+        // Applica effetto
         moveSpeed *= slowMultiplier;
-        spriteRenderer.color = Color.green;
-        spriteRendererShell.color = Color.green;
+        spriteRenderer.material.SetColor("_Color", Color.green);
 
-        // Attendi la durata dell'effetto
         yield return new WaitForSeconds(durata);
 
-        // Ripristina velocità e colori
+        // Ripristina
         moveSpeed = originalMoveSpeed;
-        spriteRenderer.color = originalColor;
-        spriteRendererShell.color = originalShellColor;
-        isMelmato = false;
+        spriteRenderer.material.SetColor("_Color", originalBodyColor);
 
+        isMelmato = false;
         Debug.Log("✅ Effetto melma terminato");
     }
+
 }
