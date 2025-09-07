@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
     public bool isInvisible = false;
     public float lightDuration;
     public Coroutine lightFadeCoroutine;
-    private PlayerInput playerInput;
+    private PlayerInputOld playerInput;
     public bool isLuminescenceActive = false;
     public float lastLightIntensity = 1f;
 
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         amo = GetComponent<Amo>();
         isGrounded = true;
         originalMoveSpeed = moveSpeed;
-        playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInputOld>();
 
         lastYPosition = transform.position.y;
     }

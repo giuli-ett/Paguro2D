@@ -57486,6 +57486,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831401140056100080, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4175186279423547188, guid: 6579d2ce0519231499240f50f9af36c3, type: 3}
       propertyPath: feedbackTartaruga
       value: 

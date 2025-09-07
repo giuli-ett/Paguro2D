@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInputOld : MonoBehaviour
 {
     [Header("INPUT")]
     [SerializeField] private KeyCode rightInputKey;

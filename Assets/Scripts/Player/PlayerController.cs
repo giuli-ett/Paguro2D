@@ -6,7 +6,7 @@ public class PlayerOld : MonoBehaviour
 {
     [Header("RIFERIMENTI")]
     private static Player instance;
-    private PlayerInput input;
+    private PlayerInputOld input;
     public ShellManager shellManager;
     public InventarioUI inventarioUI;
 
@@ -51,7 +51,7 @@ public class PlayerOld : MonoBehaviour
         }
         //instance = this;
 
-        input = GetComponent<PlayerInput>();
+        input = GetComponent<PlayerInputOld>();
         shellManager = GetComponent<ShellManager>();
     }
 

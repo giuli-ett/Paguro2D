@@ -32,12 +32,27 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        string currentScene = SceneManager.GetActiveScene().name;
+        bool canPause = currentScene == "Livello1DEMO" || currentScene == "Livello2DEMO";
+
+        if (!canPause) return;
+
+        if (!isUsingController)
         {
-            string currentScene = SceneManager.GetActiveScene().name;
-            if (currentScene == "Livello1DEMO" || currentScene == "Livello2DEMO")
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 PauseManager.Instance.Pausa();
+            }
+        }
+        else
+        {
+            var gamepad = Gamepad.current;
+            if (gamepad != null)
+            {
+                if (gamepad.startButton.wasPressedThisFrame) // PS Options / Xbox Menu
+                {
+                    PauseManager.Instance.Pausa();
+                }
             }
         }
     }

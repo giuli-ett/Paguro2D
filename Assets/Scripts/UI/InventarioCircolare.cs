@@ -147,7 +147,7 @@ public class InventarioCircolare : MonoBehaviour
             }
 
             panelInventario.SetActive(false);
-            Player.Instance.GetComponent<PlayerInput>().inputBlock = false; // Se inputBlock è un tuo campo
+            Player.Instance.GetComponent<PlayerInputOld>().inputBlock = false; // Se inputBlock è un tuo campo
             Player.Instance.canMove = true;
         }
     }
