@@ -12,6 +12,7 @@ public class CollezionabiliPresi : MonoBehaviour
     }
 
     public List<SlotCollezionabile> slotUI;
+    public int livelloCorrente; // da impostare nell’Inspector (1 o 2)
 
     private void Start()
     {
@@ -19,7 +20,18 @@ public class CollezionabiliPresi : MonoBehaviour
 
         foreach (var slot in slotUI)
         {
-            slot.imageSlot.enabled = raccolti.Contains(slot.id);
+            // Filtra solo i collezionabili del livello corrente
+            int min = (livelloCorrente - 1) * 3 + 1;
+            int max = livelloCorrente * 3;
+
+            if (slot.id >= min && slot.id <= max)
+            {
+                slot.imageSlot.enabled = raccolti.Contains(slot.id);
+            }
+            else
+            {
+                slot.imageSlot.enabled = false;
+            }
         }
     }
 }
