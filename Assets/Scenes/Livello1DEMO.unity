@@ -65906,6 +65906,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForziereDoppioSalto
       objectReference: {fileID: 0}
+    - target: {fileID: 3214538387390208802, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 117.41054
+      objectReference: {fileID: 0}
+    - target: {fileID: 3214538387390208802, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -921.0044
+      objectReference: {fileID: 0}
     - target: {fileID: 4209046725929577532, guid: f690a9b4cff93684e8f5a012557ea8be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1470
