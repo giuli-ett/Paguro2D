@@ -113,7 +113,6 @@ public class LifeController : MonoBehaviour
     {
         isJellyDamage = false;
         
-        //Debug.Log("Trigger con: " + other.gameObject.name);
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage();

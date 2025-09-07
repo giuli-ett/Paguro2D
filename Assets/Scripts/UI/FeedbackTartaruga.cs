@@ -25,7 +25,9 @@ public class FeedbackTartaruga : MonoBehaviour
     public GameObject scavaController;
 
     [Header("TESTI TUTORIAL")]
-    public List<GameObject> frasi;
+    public List<GameObject> frasiPC;
+    public List<GameObject> frasiCONTROLLER;
+    public List<GameObject> activeFrasi;
     private int currentFraseIndex = 0;
     private bool isWaitingForInput = false;
     public bool tutorialInCorso = false;
@@ -42,10 +44,12 @@ public class FeedbackTartaruga : MonoBehaviour
         scavaController.SetActive(false);
         luminoso.SetActive(false);
 
+        /*
         foreach (var v in frasi)
         {
             v.gameObject.SetActive(false);
         }
+        */
 
         if (Instance == null)
         {
@@ -107,51 +111,54 @@ public class FeedbackTartaruga : MonoBehaviour
     {
         if (!tutorialInCorso) return;
 
-
         if (isWaitingForInput)
         {
             if (GameManager.Instance.isUsingController)
             {
                 if (Gamepad.current != null && Gamepad.current.buttonNorth.wasPressedThisFrame)
                 {
-                    isWaitingForInput = false;
-                    frasi[currentFraseIndex].SetActive(false);
-                    currentFraseIndex++;
-                    StartFrasiSequence();
+                    AvanzaFrase();
                 }
             }
             else
             {
                 if (Input.GetKeyDown(KeyCode.Tab))
                 {
-                    isWaitingForInput = false;
-                    frasi[currentFraseIndex].SetActive(false);
-                    currentFraseIndex++;
-                    StartFrasiSequence();
+                    AvanzaFrase();
                 }
             }
             
         }
     }
 
+    private void AvanzaFrase()
+    {
+        isWaitingForInput = false;
+        activeFrasi[currentFraseIndex].SetActive(false);
+        currentFraseIndex++;
+        StartFrasiSequence();
+    }
+
     private void StartFrasiSequence()
     {
+        if (activeFrasi == null || activeFrasi.Count == 0) return;
+
         fadeSequence = DOTween.Sequence();
 
-        for (int i = currentFraseIndex; i < frasi.Count; i++)
+        for (int i = currentFraseIndex; i < activeFrasi.Count; i++)
         {
             int index = i;
             fadeSequence.AppendCallback(() => ShowFrase(index));
             fadeSequence.AppendInterval(timePerFrase);
-            if (i < frasi.Count - 1)
+            if (i < activeFrasi.Count - 1)
             {
-                fadeSequence.AppendCallback(() => frasi[index].SetActive(false));
+                fadeSequence.AppendCallback(() => activeFrasi[index].SetActive(false));
             }
         }
 
         fadeSequence.AppendCallback(() =>
         {
-            currentFraseIndex = frasi.Count;
+            currentFraseIndex = activeFrasi.Count;
             EndTutorial();
         });
     }
@@ -160,7 +167,11 @@ public class FeedbackTartaruga : MonoBehaviour
     {
         currentFraseIndex = 0;
         tutorialInCorso = true;
-        ShowFrase(currentFraseIndex);
+
+        activeFrasi = GameManager.Instance.isUsingController ? frasiCONTROLLER : frasiPC;
+
+        if (activeFrasi.Count > 0)
+            ShowFrase(currentFraseIndex);
 
         fadeSequence?.Kill();
         fadeSequence = DOTween.Sequence();
@@ -174,8 +185,8 @@ public class FeedbackTartaruga : MonoBehaviour
 
         private void ShowFrase(int index)
         {
-            foreach (var f in frasi) f.SetActive(false);
-            if (index < frasi.Count) frasi[index].SetActive(true);
+            foreach (var f in activeFrasi) f.SetActive(false);
+            if (index < activeFrasi.Count) activeFrasi[index].SetActive(true);
         }
 
     private void EndTutorial()
@@ -185,7 +196,7 @@ public class FeedbackTartaruga : MonoBehaviour
         fadeSequence.Append(canvasGroup.DOFade(0f, fadeDuration));
         fadeSequence.OnComplete(() =>
         {
-            foreach (var f in frasi) f.SetActive(false);
+            foreach (var f in activeFrasi) f.SetActive(false);
         });
     }
 
