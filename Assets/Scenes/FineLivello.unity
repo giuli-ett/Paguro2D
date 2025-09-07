@@ -1988,10 +1988,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: {fileID: 0}
-  livello1Completato: 0
-  livello2Completato: 0
   livello1: {fileID: 2081147490}
   livello2: {fileID: 872835767}
+  menuButtons:
+  - {fileID: 1413829722}
+  - {fileID: 706085037}
+  originalColor:
+    serializedVersion: 2
+    rgba: 0
+  color:
+    serializedVersion: 2
+    rgba: 4289568688
+  stickThreshold: 0.5
 --- !u!1 &2081147490
 GameObject:
   m_ObjectHideFlags: 0
