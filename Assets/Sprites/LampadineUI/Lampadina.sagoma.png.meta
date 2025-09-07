@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lampadina.sagoma_0: -1097851585203927414
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

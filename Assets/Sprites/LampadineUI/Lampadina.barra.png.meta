@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lampadina.barra_0: 2761613760622010621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
