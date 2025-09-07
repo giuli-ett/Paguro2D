@@ -146,10 +146,12 @@ public class InventarioUI : MonoBehaviour
     {
         if (!panelInventario.activeSelf)
             return;
-        
+
+        /*
         if(PauseManager.Instance.isPaused) 
             return;
-
+        */
+        
         Vector2 navigation = context.ReadValue<Vector2>();
         //AudioManager.Instance.PlayClick();
 
