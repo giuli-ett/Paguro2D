@@ -19,6 +19,9 @@ public class InterfacciaFineLivello : MonoBehaviour
     private bool canNavigate = true;
     public float stickThreshold = 0.5f;
     private int currentIndex = -1;
+    [Header("COLLEZIONABILI")]
+    public List<GameObject> collezionabili1;
+    public List<GameObject> collezionabili2;
 
     private void Awake()
     {
@@ -35,18 +38,6 @@ public class InterfacciaFineLivello : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        if (GameManager.Instance != null)
-            GameManager.Instance.ItemCollectedEvent += OnItemCollected;
-    }
-
-    private void OnDisable()
-    {
-        if (GameManager.Instance != null)
-            GameManager.Instance.ItemCollectedEvent -= OnItemCollected;
-    }
-
     private void Start()
     {
         AggiornaTestoUI();
@@ -60,6 +51,7 @@ public class InterfacciaFineLivello : MonoBehaviour
             MusicPlayer.Instance.PlayLevel2Music();
             Debug.Log("Carico livello 2");
             SceneManager.LoadSceneAsync(4);
+            GameManager.Instance.currentLevel = 2;
         }
         if (GameManager.Instance.livello2Completato)
         {
@@ -75,11 +67,6 @@ public class InterfacciaFineLivello : MonoBehaviour
     {
         AudioManager.Instance.PlayClick();
         SceneManager.LoadSceneAsync(0);
-    }
-
-    private void OnItemCollected(Collezionabile collezionabile)
-    {
-        AggiornaTestoUI();
     }
 
     private void AggiornaTestoUI()
@@ -101,7 +88,7 @@ public class InterfacciaFineLivello : MonoBehaviour
             number.text = $"Collezionabili: {GameManager.Instance.TotalCollected}/3";
         }
     }
-    
+
     void Update()
     {
         if (GameManager.Instance.isUsingController)
@@ -180,4 +167,45 @@ public class InterfacciaFineLivello : MonoBehaviour
         foreach (var slot in menuButtons)
             slot.GetComponent<Image>().color = originalColor;
     }
+
+    public void OnEnable()
+{
+    if (GameManager.Instance.currentLevel == 1)
+    {
+        for (int i = 0; i < collezionabili1.Count; i++)
+        {
+            int key = i + 1; // ok per livello 1
+            bool attivo = GameManager.Instance.listaLivello1.ContainsKey(key) 
+                          && GameManager.Instance.listaLivello1[key];
+            collezionabili1[i].SetActive(attivo);
+        }
+    }
+    else if (GameManager.Instance.currentLevel == 2)
+    {
+        for (int i = 0; i < collezionabili2.Count; i++)
+        {
+            int key = i + 4; // 👈 qui deve partire da 4, non da 1
+            bool attivo = GameManager.Instance.listaLivello2.ContainsKey(key) 
+                          && GameManager.Instance.listaLivello2[key];
+            collezionabili2[i].SetActive(attivo);
+        }
+    }
+}
+
+
+    public void OnDisable()
+    {
+        for (int i = 0; i < collezionabili1.Count; i++)
+        {
+            if (collezionabili1[i] != null)
+                collezionabili1[i].SetActive(false);
+        }
+
+        for (int i = 4; i < collezionabili2.Count; i++)
+        {
+            if (collezionabili2[i] != null)
+                collezionabili2[i].SetActive(false);
+        }
+    }
+
 }

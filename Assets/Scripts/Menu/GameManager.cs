@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public List<LivelloData> livelli;
     public List<Collezionabile> collectedItems = new();
     public LivelloData currentLivello;
-    public event Action<Collezionabile> ItemCollectedEvent;
     public List<int> idCollezionabiliRaccolti = new();
     public bool livello1Completato = false;
     public bool livello2Completato = false;
     public bool isUsingController;
+    public Dictionary<int, bool> listaLivello1 = new();
+    public Dictionary<int, bool> listaLivello2 = new();
+    public int currentLevel;
 
     private void Awake()
     {
@@ -28,6 +30,14 @@ public class GameManager : MonoBehaviour
         currentLivello = livelli[0];
         DontDestroyOnLoad(gameObject);
         isUsingController = Gamepad.current != null;
+
+        listaLivello1.Add(1, false);
+        listaLivello1.Add(2, false);
+        listaLivello1.Add(3, false);
+
+        listaLivello2.Add(4, false);
+        listaLivello2.Add(5, false);
+        listaLivello2.Add(6, false);
     }
 
     void Update()
@@ -60,12 +70,21 @@ public class GameManager : MonoBehaviour
 
     public void CollectItem(Collezionabile item)
     {
-        if (!collectedItems.Contains(item))
+        if (currentLevel == 1)
         {
-            collectedItems.Add(item);
-            idCollezionabiliRaccolti.Add(item.idCollezionabile);
-            ItemCollectedEvent?.Invoke(item);
+            if (listaLivello1.ContainsKey(item.idCollezionabile))
+            {
+                listaLivello1[item.idCollezionabile] = true;
+            }
         }
+        else if (currentLevel == 2)
+        {
+            if (listaLivello2.ContainsKey(item.idCollezionabile))
+            {
+                listaLivello2[item.idCollezionabile] = true;
+            }
+        }
+        
     }
 
 

@@ -21,7 +21,8 @@ public class Collezionabile : MonoBehaviour
     {
         slot.SetCollezionabile(this.GetComponent<SpriteRenderer>().sprite);
         GameManager.Instance.CollectItem(this);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+
     }
 
 }

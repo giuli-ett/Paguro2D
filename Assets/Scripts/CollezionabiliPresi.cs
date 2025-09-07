@@ -1,3 +1,4 @@
+/*
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +19,7 @@ public class CollezionabiliPresi : MonoBehaviour
         // Lista globale dei collezionabili raccolti
         List<int> raccolti = GameManager.Instance.idCollezionabiliRaccolti;
 
-        // Capisco quale livello è in corso
+        // Capisco quale livello ï¿½ in corso
         int livelloCorrenteIndex = GameManager.Instance.livelli.IndexOf(GameManager.Instance.currentLivello) + 1;
 
         // Range di ID validi per questo livello
@@ -42,3 +43,4 @@ public class CollezionabiliPresi : MonoBehaviour
         }
     }
 }
+*/

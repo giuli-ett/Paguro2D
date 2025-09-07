@@ -120,6 +120,7 @@ public class LivelliMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(3);
         Cursor.visible = false;
         MusicPlayer.Instance.PlayLevel1Music();
+        GameManager.Instance.currentLevel = 1;
     }
     public void PlayLivelloDue()
     {
@@ -128,6 +129,7 @@ public class LivelliMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(4);
         Cursor.visible = false;
         MusicPlayer.Instance.PlayLevel2Music();
+        GameManager.Instance.currentLevel = 2;
     }
     public void PlayLivelloTre()
     {

@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
         AudioManager.Instance.PlayClick();
         //Cursor.visible = false;
         SceneManager.LoadSceneAsync(2);
+        GameManager.Instance.currentLevel = 1;
     }
 
     public void ContinueGame()
