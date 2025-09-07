@@ -58,7 +58,7 @@ public class TutorialManager : MonoBehaviour
                 {
                     canvas.gameObject.SetActive(false);
                     this.GetComponent<BoxCollider2D>().enabled = false;
-                    Player.Instance.GetComponent<ForziereController>().closeForziere.GetComponent<Forziere>().text.SetActive(true);
+                    Player.Instance.GetComponent<ForziereController>().closeForziere.GetComponent<Forziere>().textToShow.SetActive(true);
                     tutorialMode = false;
                     //StartCoroutine(FadeOut(canvas));
                     StartCoroutine(FadeOutSprite(darkOverlay.GetComponent<SpriteRenderer>()));

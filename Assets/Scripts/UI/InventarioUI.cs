@@ -91,6 +91,7 @@ public class InventarioUI : MonoBehaviour
     public void MostraInventario(InputAction.CallbackContext context)
     {
         if (!context.started) return;
+        if (PauseManager.Instance.isPaused) return;
 
         if (FeedbackTartaruga.Instance != null &&
             FeedbackTartaruga.Instance.tutorialInCorso &&
@@ -144,6 +145,9 @@ public class InventarioUI : MonoBehaviour
     public void Naviga(InputAction.CallbackContext context)
     {
         if (!panelInventario.activeSelf)
+            return;
+        
+        if(PauseManager.Instance.isPaused) 
             return;
 
         Vector2 navigation = context.ReadValue<Vector2>();

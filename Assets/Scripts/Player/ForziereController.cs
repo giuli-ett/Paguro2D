@@ -18,13 +18,13 @@ public class ForziereController : MonoBehaviour
         {
             closeForziere.GetComponent<Animator>().SetBool("canOpen", true);
             AudioManager.Instance.PlayAperturaCassa();
-            closeForziere.GetComponent<Forziere>().text.SetActive(false);
+            closeForziere.GetComponent<Forziere>().textToShow.SetActive(false);
 
             if (context.started && isClose)
             {
                 closeForziere.GetComponent<Animator>().SetBool("canOpen", true);
                 AudioManager.Instance.PlayAperturaCassa();
-                closeForziere.GetComponent<Forziere>().text.SetActive(false);
+                closeForziere.GetComponent<Forziere>().textToShow.SetActive(false);
 
                 if (TutorialManager.Instance != null && TutorialManager.Instance.tutorialMode)
                 {

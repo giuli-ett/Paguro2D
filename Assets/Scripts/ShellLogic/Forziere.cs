@@ -7,7 +7,9 @@ public class Forziere : MonoBehaviour
     public Transform spawnPoint;
     public Transform upPoint;
     public GameObject shellPrefab;
-    public GameObject text;
+    public GameObject textPC;
+    public GameObject textController;
+    public GameObject textToShow;
     public bool isPlayerClose;
     public bool sorpresa = false;
 
@@ -17,9 +19,18 @@ public class Forziere : MonoBehaviour
         {
             bool tutorialOk = TutorialManager.Instance == null || !TutorialManager.Instance.tutorialMode;
 
-            if (text != null && tutorialOk)
+            if (GameManager.Instance.isUsingController)
             {
-                text.SetActive(true);
+                textToShow = textController;
+            }
+            else
+            {
+                textToShow = textPC;
+            }
+
+            if (textToShow != null && tutorialOk)
+            {
+                textToShow.SetActive(true);
                 Player.Instance.GetComponent<ForziereController>().closeForziere = this.gameObject;
                 isPlayerClose = true;
 
@@ -47,9 +58,9 @@ public class Forziere : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (text != null)
+            if (textToShow != null)
             {
-                text.SetActive(false);
+                textToShow.SetActive(false);
                 Player.Instance.GetComponent<ForziereController>().closeForziere = null;
                 isPlayerClose = false;
             }

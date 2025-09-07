@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        isUsingController = Gamepad.current != null;
         string currentScene = SceneManager.GetActiveScene().name;
         bool canPause = currentScene == "Livello1DEMO" || currentScene == "Livello2DEMO";
 
